@@ -13,12 +13,12 @@
     <div class ='pict1'>
       <p><img src="../images/avia.png"  width="60" height="30"></p>
     </div>
-    <li><a href="AboutUs.html">About us</a></li>
+    <li><a href="../html/AboutUs.html">About us</a></li>
     <li><a href="">Some page</a></li>
-     <li><a href="reviews.html">service reviews</a></li>
-     <li><a href="Html\Buy_Tickets.php">buy tickets</a></li>
-     <li><a  href="...\html\autorization.html" class="custom-btn LogIn" >LOG IN</a></li> 
-    <li><a href="registration.html" class="custom-btn LogIn">Sign up</a> </li>
+     <li><a href="../html/reviews.html">service reviews</a></li>
+     <li><a href="../php/Buy_Tickets.php">buy tickets</a></li>
+     <li><a  href="..\html\autorization.html" class="custom-btn LogIn" >LOG IN</a></li> 
+    <li><a href="../html/registration.html" class="custom-btn LogIn">Sign up</a> </li>
   </ul>
   <div class ='pict5'>
       <p><a href="user_info.php"><img src="../images/user_foto.png"  width="100" height="100"></a></p>

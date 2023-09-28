@@ -1,0 +1,67 @@
+/* Основной стиль для всей страницы */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+/* Стиль для заголовков */
+h1 {
+    background-color: #4caf50;
+    color: white;
+    padding: 20px;
+    margin: 0;
+}
+
+h2 {
+    color: #4caf50;
+    margin-top: 20px;
+}
+
+/* Стиль для формы */
+form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Стиль для меток и полей ввода */
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #4caf50;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 4px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+textarea {
+    height: 150px;
+}
+
+/* Стиль для кнопки отправки */
+input[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}

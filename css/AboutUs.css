@@ -1,0 +1,10 @@
+.back-pict {
+    padding: 0;
+    position: relative;
+    display: flex; 
+    justify-content: center;
+    justify-content: space-evenly;
+    z-index: -4;
+    width: 1650px;
+    height: 720px;
+  } 

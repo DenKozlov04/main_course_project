@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/registration.css" rel="stylesheet">
+    <title>Sing up</title>
+</head>
+<body>
+
+  <div class='curort'>
+    <p><img src="../images/Beautiful-tropical-sea-bungalows-resort_1920x1080.jpg"></p>
+</div>
+<div class='registration'>
+    <form action="../php/chck.php" method="post">
+        <div class='username'>
+            <div class='input-username'>
+                <input type="text" id="input" name="username" placeholder="Write your surname">
+            </div>
+        </div>
+        <div class='email'>
+            <div class='input-email'>
+                <input type="text" id="input" name="email" placeholder="Write your email">
+            </div>
+        </div>
+        <div class='phone'>
+            <div class='input-phone'>
+                <input type="text" id="input" name="phone" placeholder="Write your phone number">
+            </div>
+        </div>
+        <div class='password'>
+            <div class='input-password'>
+                <input type="password" id="input" name="password" placeholder="Create your password">
+            </div>
+            <div class='confirm-password'>
+                <div class='input-confirm-password'>
+                    <input type="password" id="input" name="con-password" placeholder="confirm-password">
+                </div>
+            </div>
+            <div class='create-profile'>
+                <div class='input-create-profile'>
+                    <button type="submit" id="input" name="register" placeholder="">SING UP</button>
+                </div>
+            </div>
+            <div class='not_registred'>
+                <p class="message">Do you have an account?<a href="autorization.html">Sign in account</a></p>
+            </div>
+        </div>
+    </form>
+</div>
+
+</body>
+<style>
+.registration .message {
+  font-size: 15px;
+  font-family: 'Nunito Sans', sans-serif;
+  margin: 15px 0 0;
+  color: #b3b3b3;
+}
+.registration .message a {
+  font-size: 15x;
+  font-family: 'Nunito Sans', sans-serif;
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+</style>
+</html>

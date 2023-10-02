@@ -73,6 +73,7 @@ $mysqli -> close();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/booking.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking</title>
@@ -112,48 +113,5 @@ $mysqli -> close();
 <li><a href="../php/index.php" action="SubmitInfo.php" name="order">Order Ticket</a></li>
 
 <li><a href="pay.php">PAY!!!</a></li>
-<style>
-    table {
-    border-collapse: collapse;
-    width: 100%;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
-  }
-  
-  th, td {
-    padding: 12px 15px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  th {
-    background-color: #4CAF50;
-    color: white;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  
-  
-  .airline {
-    color: #0066ff;
-  }
-  
-  .itada {
-    text-transform: uppercase;
-  }
-  
-  .t_price {
-    color: #009933;
-  }
-  
-  .arrival_date, .departure_date {
-    font-size: 12px;
-    color: #666;
-  }
-  
-</style>
 </body>
 </html>

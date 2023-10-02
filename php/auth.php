@@ -33,6 +33,7 @@ class Auth {
         $db = new Database();
         $user = $db->getUser($username);
 
+    
         if ($user && md5($password . "356ads34749ad9s") === $user['password']) {
             session_start();
             $_SESSION['username'] = $username;
@@ -47,10 +48,31 @@ class Auth {
         $db->close();
     }
 }
+session_start();
+class AdminAuthentication {
+    public static function authenticate($username, $password) {
+        if ($username === 'admin' && $password === 'Admin292020') {
+            header("Location: adminPage.php");
+            $_SESSION['admin_id'] = 1;
+            exit();
+        } else {
+            $_SESSION['admin_id'] = 0;
+        }
+    }
+}
+
+
+
+// Использование класса для аутентификации
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+AdminAuthentication::authenticate($username, $password);
 
 if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
     Auth::login($username, $password);
 }
+
 ?>

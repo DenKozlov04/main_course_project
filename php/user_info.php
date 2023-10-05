@@ -1,8 +1,13 @@
+
+
+
 <?php
 session_start();
 
 class UserBookings {
+    
     private $mysqli;
+
 
     public function __construct() {
         $this->initializeDatabase();
@@ -51,31 +56,10 @@ class UserBookings {
         }
     }
 
-    // public function displayUserImage() {
-    //     // Отображение изображения пользователя
-    //     $user_id = $_SESSION['user_id'];
-    //     $sql = "SELECT profile_image, image_type FROM profile_images WHERE user_id = ?";
-    //     $stmt = $this->mysqli->prepare($sql);
 
-    //     if ($stmt) {
-    //         $stmt->bind_param("i", $user_id);
-    //         $stmt->execute();
-    //         $stmt->store_result();
-
-    //         if ($stmt->num_rows > 0) {
-    //             $stmt->bind_result($profile_image, $image_type);
-    //             $stmt->fetch();
-    //             $imageData = base64_encode($profile_image);
-    //             $imageType = $image_type;
-
-    //             // Отправка заголовка для корректного отображения изображения
-    //             header("Content-type: $imageType");
-    //             echo '<img src="data:image/' . $imageType . ';base64,' . $imageData . '" alt="User Profile Image" />';
-    //         }
-            
-    //         $stmt->close();
-    //     }
-    // }
+    
+    
+    
     public function deleteBooking() {
         if (isset($_POST['delete'])) {
             $id = $_POST['delete'];
@@ -94,45 +78,12 @@ $userBookings->deleteBooking();
 $userBookings->getUserBookings();
 
 
+
 echo "<li><a href='../php/index.php'>Back to main page</a></li>";
 echo '<form action="upload.php" method="POST" enctype="multipart/form-data">
         <input type="file" name="image" accept="image/*">
         <input type="submit" value="Upload image" name="submit">
       </form>';
 ?>
-<?php
-// Соединение с базой данных
-$servername = 'localhost';
-$username = 'root';
-$password = '';
-$dbname = "airflightsdatabase"; // Имя вашей базы данных
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Проверка соединения
-if ($conn->connect_error) {
-    die("Ошибка соединения с базой данных: " . $conn->connect_error);
-}
-
-// Выполнение SQL-запроса для извлечения данных изображения и его типа
-$sql = "SELECT profile_image, image_type FROM profile_images WHERE id = 12"; // Замените "id = 1" на условие выборки нужной строки
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    $imageData = $row["profile_image"];
-    $imageType = $row["image_type"];
-
-    // Вывод HTTP-заголовка для указания типа контента
-    header("Content-Type: $imageType");
-
-    // Вывод данных изображения
-    echo $imageData;
-} else {
-    echo "Изображение не найдено.";
-}
-
-// Закрытие соединения с базой данных
-$conn->close();
-?>
 

@@ -53,6 +53,11 @@ class AdminAuthentication {
     public static function authenticate($username, $password) {
         if ($username === 'admin' && $password === 'Admin292020') {
             header("Location: adminPage.php");
+            $_SESSION['username'] = $username;
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['user_id'] = $_SESSION['admin_id'];
+            $_SESSION['email'] = 'admin@gmail.com';
+            session_start();
             $_SESSION['admin_id'] = 1;
             exit();
         } else {

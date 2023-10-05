@@ -82,6 +82,12 @@ session_start();
                 <button type="submit" id="submit" name="submit">UPLOAD CHANGES</button>
             </div>
         </div>
+        <div class='main_page'>
+    <div class='input-main-page'>
+        <a href="index.php" class="main-page-link">GO TO THE MAIN PAGE</a>
+    </div>
+</div>
+        </div>
     </div>
 </form>
 

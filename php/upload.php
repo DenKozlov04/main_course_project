@@ -23,29 +23,42 @@ class ImageUploader {
 
     public function uploadImage() {
         if (isset($_POST['submit'])) {
-            $fileName = $_FILES['image']['name'];
             $fileTmpName = $_FILES['image']['tmp_name'];
             $fileType = $_FILES['image']['type'];
 
-            $imageData = file_get_contents($fileTmpName);
+            // Путь к папке, где будут храниться изображения
+            $uploadDir = '../images/UserAvatar_Images/';
 
-            $sql = "INSERT INTO profile_images (user_id, profile_image, image_type) VALUES (?, ?, ?)";
-            $stmt = $this->mysqli->prepare($sql);
+            // Имя файла
+            $fileName = basename($_FILES['image']['name']);
 
-            if ($stmt) {
-                $stmt->bind_param("iss", $_SESSION['user_id'], $imageData, $fileType);
+            // Полный путь к загружаемому файлу
+            $uploadPath = $uploadDir . $fileName;
 
-                if ($stmt->execute()) {
-                    echo "Изображение успешно загружено и сохранено в базе данных.";
-                    header("Location: user_info.php");
-                    exit();
+            // Перемещаем загруженное изображение в папку
+            if (move_uploaded_file($fileTmpName, $uploadPath)) {
+                $imageData = file_get_contents($uploadPath);
+
+                $sql = "INSERT INTO profile_images (user_id, profile_image, image_type) VALUES (?, ?, ?)";
+                $stmt = $this->mysqli->prepare($sql);
+
+                if ($stmt) {
+                    $stmt->bind_param("iss", $_SESSION['user_id'], $imageData, $fileType);
+
+                    if ($stmt->execute()) {
+                        echo "Изображение успешно загружено и сохранено в базе данных.";
+                        header("Location: user_info.php");
+                        exit();
+                    } else {
+                        echo "Ошибка при загрузке изображения: " . $stmt->error;
+                    }
+
+                    $stmt->close();
                 } else {
-                    echo "Ошибка при загрузке изображения: " . $stmt->error;
+                    echo "Ошибка при подготовке SQL-запроса: " . $this->mysqli->error;
                 }
-
-                $stmt->close();
             } else {
-                echo "Ошибка при подготовке SQL-запроса: " . $this->mysqli->error;
+                echo "Ошибка при перемещении файла в папку UserAvatar_Images.";
             }
         }
     }

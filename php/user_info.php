@@ -52,13 +52,31 @@ class UserBookings {
         if ($result->num_rows > 0) {
             echo '<div id="bookings-list">';
             // Выводим данные из таблицы
+
+            echo '<table id="bookings-table">';
+            echo '<tr>';
+            echo '<th>Booking ID</th>';
+            echo '<th>User ID</th>';
+            echo '<th>Flight ID</th>';
+            echo '<th>Booking Date</th>';
+            echo '<th>Seat Number</th>';
+            echo '</tr>';
+
             while ($row = $result->fetch_assoc()) {
-                echo "Booking ID: " . $row["booking_id"] . " - User ID: " . $row["user_id"] . " - Flight ID: " . $row["flight_id"] . " - Booking Date: " . $row["booking_date"] . " - Seat Number: " . $row["seat_number"] . "<br>";
+            echo '<tr>';
+            echo '<td>' . $row["booking_id"] . '</td>';
+            echo '<td>' . $row["user_id"] . '</td>';
+            echo '<td>' . $row["flight_id"] . '</td>';
+            echo '<td>' . $row["booking_date"] . '</td>';
+            echo '<td>' . $row["seat_number"] . '</td>';
+            echo '</tr>';  
+
                 echo "<form method='POST' action='user_info.php'>
                         <input type='hidden' name='delete' value='" . $row["user_id"] . "'>
                         <button  class='delete-button'type='submit'>Denie</button>
                       </form>";
-            }
+            } 
+            echo '</table>';
         } else {
             echo "No bookings found, add booking: <li><a href='../php/Buy_Tickets.php'>ADD</a></li>";
         }
@@ -93,7 +111,6 @@ class UserBookings {
 $userBookings = new UserBookings();
 $userBookings->displayUserInfo();
 $userBookings->deleteBooking();
-$userBookings->getUserBookings();
 $userBookings->displayUserProfileImage();
 
 echo "<li><a href='../php/index.php'>Back to the main page</a></li>";
@@ -101,4 +118,6 @@ echo '<form action="upload.php" method="POST" enctype="multipart/form-data">
         <input type="file" name="image" accept="image/*">
         <input type="submit" value="Upload image" name="submit">
       </form>';
+      
+      $userBookings->getUserBookings();
 ?>

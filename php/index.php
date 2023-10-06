@@ -21,10 +21,32 @@
     <li><a href="../html/registration.html" class="custom-btn LogIn">Sign up</a> </li>
   </ul>
   <div class ='pict5'>
-      <p><a href="user_info.php"><img src="../images/user_foto.png"  width="100" height="100"></a></p>
-  </div>
+      <?php
+            session_start();
 
+            $user_id = $_SESSION['user_id'];
+            $sql = "SELECT * FROM profile_images WHERE user_id = $user_id";
 
+            // Используем mysqli для выполнения запроса
+            $mysqli = new mysqli('localhost', 'root', '', 'airflightsdatabase');
+            $result = $mysqli->query($sql);
+
+            if ($result && $result->num_rows > 0) {
+                $row = $result->fetch_array();
+
+            $profile_image = $row['profile_image'];//выводим аватар пользователя
+            echo '<div style="width: 80px; height: 80px; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center;">';
+            echo '<a href="user_info.php"><img src="data:image/jpeg;base64,' . base64_encode($profile_image) . '" width="80" height="80" /></a>';
+            echo '</div>';
+
+            } else {
+                  echo '<p><a href="user_info.php"><img src="../images/user_foto.png"  width="100" height="100"></a></p>';
+            }
+
+            // Закрываем соединение
+            $mysqli->close();
+?>
+</div>
 </nav>
 <body bgcolor="#e9a2a2">
   <p class="txt1">EXPLORE THE WORLD WITH US</p>

@@ -123,5 +123,11 @@ echo '<form action="upload.php" method="POST" enctype="multipart/form-data">
         <input type="submit" value="Upload image" name="submit">
       </form>';
       
+echo '<body>
+        <form action="logout.php" method="POST">
+            <button type="submit">LOGOUT</button>
+        </form>
+      </body>';
       $userBookings->getUserBookings();
+      
 ?>

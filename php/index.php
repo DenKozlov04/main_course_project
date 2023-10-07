@@ -17,35 +17,54 @@
     <li><a href="">Some page</a></li>
      <li><a href="../html/reviews.html">service reviews</a></li>
      <li><a href="../php/Buy_Tickets.php">buy tickets</a></li>
-     <li><a  href="..\html\autorization.html" class="custom-btn LogIn" >LOG IN</a></li> 
-    <li><a href="../html/registration.html" class="custom-btn LogIn">Sign up</a> </li>
+     <?php
+     
+     session_start();
+     
+     if ($_SESSION['user_id'] === 0 || ($_SESSION['admin_id'] === 1 and $_SESSION['user_id'] === 1)) {
+         echo '<li><a href="../html/autorization.html" class="custom-btn LogIn">LOG IN</a></li>';
+         echo '<li><a href="../html/registration.html" class="custom-btn LogIn">Sign up</a> </li>';
+     }
+     ?>   
   </ul>
+
   <div class ='pict5'>
-      <?php
-            session_start();
+  <?php
 
-            $user_id = $_SESSION['user_id'];
-            $sql = "SELECT * FROM profile_images WHERE user_id = $user_id";
+  $user_id = $_SESSION['user_id'];
+  $admin_id = $_SESSION['admin_id'];
 
-            // Используем mysqli для выполнения запроса
-            $mysqli = new mysqli('localhost', 'root', '', 'airflightsdatabase');
-            $result = $mysqli->query($sql);
+  $sql = "SELECT * FROM profile_images WHERE user_id = $user_id";
 
-            if ($result && $result->num_rows > 0) {
-                $row = $result->fetch_array();
+  // Используем mysqli для выполнения запроса
+  $mysqli = new mysqli('localhost', 'root', '', 'airflightsdatabase');
+  $result = $mysqli->query($sql);
 
-            $profile_image = $row['profile_image'];//выводим аватар пользователя
-            echo '<div style="width: 80px; height: 80px; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center;">';
-            echo '<a href="user_info.php"><img src="data:image/jpeg;base64,' . base64_encode($profile_image) . '" width="80" height="80" /></a>';
-            echo '</div>';
+  if ($_SESSION['admin_id'] == 1) {
+      echo '<p><a href="user_info.php"><img src="../images/user_foto.png"  width="100" height="100"></a></p>';
+  } elseif ($_SESSION['user_id'] == 0) {
+      echo '<p><a href="../html/autorization.html"><img src="../images/user_foto.png"  width="100" height="100"></a></p>';
+      
+  } elseif ($result && $result->num_rows > 0) {
+      $row = $result->fetch_array();
 
-            } else {
-                  echo '<p><a href="user_info.php"><img src="../images/user_foto.png"  width="100" height="100"></a></p>';
-            }
+     $profile_image = $row['profile_image'];//выводим аватар пользователя
+      echo '<div style="width: 80px; height: 80px; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center;">';
+      echo '<a href="user_info.php"><img src="data:image/jpeg;base64,' . base64_encode($profile_image) . '" width="80" height="80" /></a>';
+      echo '</div>';
+  } else {
+      echo '<p><a href="user_info.php"><img src="../images/user_foto.png"  width="100" height="100"></a></p>';
+  }
 
-            // Закрываем соединение
-            $mysqli->close();
+echo $user_id;
+echo $admin_id;
+
+// Закрываем соединение
+$mysqli->close();
 ?>
+
+
+  
 </div>
 </nav>
 <body bgcolor="#e9a2a2">

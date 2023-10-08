@@ -41,7 +41,7 @@
   $result = $mysqli->query($sql);
 
   if ($_SESSION['admin_id'] == 1) {
-      echo '<p><a href="user_info.php"><img src="../images/user_foto.png"  width="100" height="100"></a></p>';
+      echo '<p><a href="user_info.php"><img src="../images/user_foto.png"  width="90" height="90"></a></p>';
   } elseif ($_SESSION['user_id'] == 0) {
       echo '<p><a href="../html/autorization.html"><img src="../images/user_foto.png"  width="100" height="100"></a></p>';
       

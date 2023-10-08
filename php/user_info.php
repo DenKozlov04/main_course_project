@@ -46,41 +46,48 @@ class UserBookings {
                 FROM bookings
                 INNER JOIN users ON bookings.user_id = users.user_id
                 WHERE bookings.user_id = {$_SESSION['user_id']}";
-
+    
         $result = $this->mysqli->query($sql);
+    
+        if ($_SESSION['admin_id'] != 0) {
+            echo "Hello admin
+            <li><a href='adminPage.php'>Go to the admin page</a></li>";
 
-        if ($result->num_rows > 0) {
-            echo '<div id="bookings-list">';
-            // Выводим данные из таблицы
-
-            echo '<table id="bookings-table">';
-            echo '<tr>';
-            echo '<th>Booking ID</th>';
-            echo '<th>User ID</th>';
-            echo '<th>Flight ID</th>';
-            echo '<th>Booking Date</th>';
-            echo '<th>Seat Number</th>';
-            echo '</tr>';
-
-            while ($row = $result->fetch_assoc()) {
-            echo '<tr>';
-            echo '<td>' . $row["booking_id"] . '</td>';
-            echo '<td>' . $row["user_id"] . '</td>';
-            echo '<td>' . $row["flight_id"] . '</td>';
-            echo '<td>' . $row["booking_date"] . '</td>';
-            echo '<td>' . $row["seat_number"] . '</td>';
-            echo '</tr>';  
-
-                echo "<form method='POST' action='user_info.php'>
-                        <input type='hidden' name='delete' value='" . $row["user_id"] . "'>
-                        <button  class='delete-button'type='submit'>Denie</button>
-                      </form>";
-            } 
-            echo '</table>';
         } else {
-            echo "No bookings found, add booking: <li><a href='../php/Buy_Tickets.php'>ADD</a></li>";
+            if ($result->num_rows > 0) {
+                echo '<div id="bookings-list">';
+                // Выводим данные из таблицы
+    
+                echo '<table id="bookings-table">';
+                echo '<tr>';
+                echo '<th>Booking ID</th>';
+                echo '<th>User ID</th>';
+                echo '<th>Flight ID</th>';
+                echo '<th>Booking Date</th>';
+                echo '<th>Seat Number</th>';
+                echo '</tr>';
+    
+                while ($row = $result->fetch_assoc()) {
+                    echo '<tr>';
+                    echo '<td>' . $row["booking_id"] . '</td>';
+                    echo '<td>' . $row["user_id"] . '</td>';
+                    echo '<td>' . $row["flight_id"] . '</td>';
+                    echo '<td>' . $row["booking_date"] . '</td>';
+                    echo '<td>' . $row["seat_number"] . '</td>';
+                    echo '</tr>';  
+    
+                    echo "<form method='POST' action='user_info.php'>
+                            <input type='hidden' name='delete' value='" . $row["user_id"] . "'>
+                            <button class='delete-button' type='submit'>Deny</button>
+                          </form>";
+                } 
+                echo '</table>';
+            } else {
+                echo "No bookings found, add booking: <li><a href='../php/Buy_Tickets.php'>ADD</a></li>";
+            }
         }
     }
+    
 
     public function deleteBooking() {
         if (isset($_POST['delete'])) {

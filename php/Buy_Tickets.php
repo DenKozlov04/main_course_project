@@ -57,16 +57,18 @@ class FlightTableManager {
                 <th>Arrival Date</th>
                 <th>Departure Date</th>
                 <th>Arrival time</th>
-                <th>Departure time</th>
-                <th>Buy</th>
+                <th>Departure time</th>";
+        
+        if ($_SESSION['user_id'] != 0) {
+            echo "<th>Buy</th>
                 <th>Order</th>";
+        }else{echo"<th></th>
+                   <th></th>";
 
-        if ($isAdmin) {
-            echo "<th>Action</th>";
         }
-
+        
         echo "</tr>";
-
+    
         foreach ($records as $row) {
             echo "<tr>
                     <td>" . $row["id"] . "</td>
@@ -80,7 +82,7 @@ class FlightTableManager {
                     <td>" . $row["departure_date"] . "</td>
                     <td>" . $row["arrival_time"] . "</td>
                     <td>" . $row["departure_time"] . "</td>";
-
+    
             if ($isAdmin) {
                 echo "<td>
                         <form method='POST' action='edit_record.php'>
@@ -93,17 +95,21 @@ class FlightTableManager {
                         </form>
                     </td>";
             } else {
+                if ($_SESSION['user_id'] == 0) {
+
+                } else {
                 echo "<td>
                         <form method='POST' action='purchase_checkout.php'>
                             <input type='hidden' name=''>
                             <button type='submit'>Buy</button>
                         </form>
                     </td>";
+                }
             }
-
+    
             echo "<td>
                   <form method='POST' action='Booking.php'>
-                      <input type='hidden' name='Order'" . $row['id'] . ">
+                      <input type='hidden' name='Order' value='" . $row['id'] . "'> <!-- Возможно, вы хотели передать значение id здесь -->
                       <input type='hidden' name='airline_id' value='" . $row['id'] . "'>
                       <input type='hidden' name='Airline' value='" . $row['Airline'] . "'>
                       <input type='hidden' name='airport_name' value='" . $row['airport_name'] . "'>
@@ -113,16 +119,26 @@ class FlightTableManager {
                       <input type='hidden' name='arrival_date' value='" . $row['arrival_date'] . "'>
                       <input type='hidden' name='departure_date' value='" . $row['departure_date'] . "'>
                       <input type='hidden' name='arrival_time' value='" . $row['arrival_time'] . "'>
-                      <input type='hidden' name='departure_time' value='" . $row['departure_time'] . "'>
-                      <button type='submit'>Order</button>
-                  </form>
-            </td>";
+                      <input type='hidden' name='departure_time' value='" . $row['departure_time'] . "'>";
+    
+            if ($_SESSION['user_id'] == 0) {
+                echo "<td>
+                            <li><a href='../html/autorization.html'>If you want to order ticket you must log in first</a></li>
 
+                    </td>";
+            } else {
+                echo "<button type='submit'>Order</button>";
+            }
+    
+            echo "</form>
+            </td>";
+    
             echo "</tr>";
         }
-
+    
         echo "</table>";
     }
+    
 
     public function closeConnection() {
         $this->mysqli->close();

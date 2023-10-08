@@ -1,43 +1,4 @@
-<?php
-session_start();
-
-if (isset($_SESSION['admin_id'])) {
-    echo $_SESSION['admin_id'];
-
-    $mysqli = new mysqli("localhost", "root", "", "airflightsdatabase");
-
-    if ($mysqli->connect_error) {
-        die("Connection failed: " . $mysqli->connect_error);
-    }
-
-    $result = $mysqli->query("SELECT booking_id, user_id, flight_id, booking_date, seat_number FROM `bookings`");
-
-    $data = array(); 
-
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            $data[] = $row; 
-        }
-    } else {
-        echo "No bookings from users";
-    }
-} else {
-    echo "Admin ID is not set in session.";
-}
-
-// data содержит все строки из результата запроса
-foreach ($data as $row) {
-    $booking_id = $row['booking_id'];
-    $user_id = $row['user_id'];
-    $flight_id = $row['flight_id'];
-    $booking_date = $row['booking_date'];
-    $seat_number = $row['seat_number'];
-
-}
-
-?>
-
-
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -139,6 +100,34 @@ foreach ($data as $row) {
     <input type="submit" value="Добавить">
 </form>
 
+<?php
+session_start();
+
+if (isset($_SESSION['admin_id'])) {
+    // echo $_SESSION['admin_id'];
+
+    $mysqli = new mysqli("localhost", "root", "", "airflightsdatabase");
+
+    if ($mysqli->connect_error) {
+        die("Connection failed: " . $mysqli->connect_error);
+    }
+
+    $result = $mysqli->query("SELECT booking_id, user_id, flight_id, booking_date, seat_number FROM `bookings`");
+
+    $data = array(); 
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row; 
+        }
+    } else {
+        echo "No bookings from users";
+    }
+} else {
+    echo "Admin ID is not set in session.";
+}
+?>
+
 <table action="SubmitInfo_php">
   <tr>
     <th>booking ID</th>
@@ -148,14 +137,25 @@ foreach ($data as $row) {
     <th>seat_number </th>
   </tr>
 
-  <tr>
-    <td><?php echo $booking_id;?></td>
-    <td><?php echo $user_id;?></td>
-    <td><?php echo $flight_id;;?></td>
-    <td><?php echo $booking_date;?></td>
-    <td><?php echo $seat_number;?></td>
-
-  </tr>
+  <?php
+    // data содержит все строки из результата запроса
+    foreach ($data as $row) {
+        $booking_id = $row['booking_id'];
+        $user_id = $row['user_id'];
+        $flight_id = $row['flight_id'];
+        $booking_date = $row['booking_date'];
+        $seat_number = $row['seat_number'];
+        
+        // Вывод данных для каждой строки
+        echo "<tr>";
+        echo "<td>" . $booking_id . "</td>";
+        echo "<td>" . $user_id . "</td>";
+        echo "<td>" . $flight_id . "</td>";
+        echo "<td>" . $booking_date . "</td>";
+        echo "<td>" . $seat_number . "</td>";
+        echo "</tr>";
+    }
+  ?>
 
 </table>
 <li><a href="" action="" name="delete">delete</a></li>

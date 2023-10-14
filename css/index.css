@@ -18,10 +18,7 @@
     justify-content: space-evenly;
     position: absolute;
     color:#FFFFFF;
-    /* font-family: 'Nunito Sans', sans-serif;  */
     font-family: 'Poppins', sans-serif;
-    /* font-family: 'Monas Grotesk Extra Bold Italic'; */
-    /* font-style: italic; */
     font-weight: 800;
     font-size: 40px;
     line-height: 116px;
@@ -39,15 +36,9 @@
   right:585%;
   }
 .pict3{
-  right:355%;
-  top:-107%;
-  position: relative;
-  display: flex; 
-  justify-content: center;
-  justify-content: space-evenly;
-  z-index: -4;
-  width: 1650px;
-  height: 1042px;
+
+  width: 1920px;
+  height: 1080px;
 }
 .rect2{
   right:700%;
@@ -239,7 +230,7 @@
 
 
 nav {
-    width: 6000%;
+    width: 1920px;
     max-width: 1920px;
     margin: 0 auto;
     font-family: 'Nunito Sans', sans-serif;

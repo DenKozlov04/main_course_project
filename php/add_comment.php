@@ -1,4 +1,7 @@
 <?php
+session_start();
+$user_id = $_SESSION['user_id'];
+$admin_id = $_SESSION['admin_id'];
 class CommentManager {
     private $pdo;
 

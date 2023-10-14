@@ -23,6 +23,37 @@ class ImageUploader {
 
     public function uploadImage() {
         if (isset($_POST['submit'])) {
+            // Проверяем, существует ли у пользователя изображение в базе данных
+            $userId = $_SESSION['user_id'];
+            $checkQuery = "SELECT user_id FROM profile_images WHERE user_id = ?";
+            $checkStmt = $this->mysqli->prepare($checkQuery);
+
+            if ($checkStmt) {
+                $checkStmt->bind_param("i", $userId);
+                $checkStmt->execute();
+                $checkStmt->store_result();
+
+                // Если у пользователя уже есть изображение, удаляем его
+                if ($checkStmt->num_rows > 0) {
+                    $deleteQuery = "DELETE FROM profile_images WHERE user_id = ?";
+                    $deleteStmt = $this->mysqli->prepare($deleteQuery);
+
+                    if ($deleteStmt) {
+                        $deleteStmt->bind_param("i", $userId);
+                        if (!$deleteStmt->execute()) {
+                            echo "Ошибка при удалении существующего изображения: " . $deleteStmt->error;
+                        }
+                        $deleteStmt->close();
+                    } else {
+                        echo "Ошибка при подготовке SQL-запроса для удаления: " . $this->mysqli->error;
+                    }
+                }
+
+                $checkStmt->close();
+            } else {
+                echo "Ошибка при подготовке SQL-запроса для проверки наличия изображения: " . $this->mysqli->error;
+            }
+
             $fileTmpName = $_FILES['image']['tmp_name'];
             $fileType = $_FILES['image']['type'];
 
@@ -43,7 +74,7 @@ class ImageUploader {
                 $stmt = $this->mysqli->prepare($sql);
 
                 if ($stmt) {
-                    $stmt->bind_param("iss", $_SESSION['user_id'], $imageData, $fileType);
+                    $stmt->bind_param("iss", $userId, $imageData, $fileType);
 
                     if ($stmt->execute()) {
                         echo "Изображение успешно загружено и сохранено в базе данных.";
@@ -72,4 +103,3 @@ $imageUploader = new ImageUploader();
 $imageUploader->uploadImage();
 $imageUploader->closeDatabaseConnection();
 ?>
-

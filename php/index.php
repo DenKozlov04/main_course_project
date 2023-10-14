@@ -7,11 +7,12 @@
 <link rel="stylesheet" href="../css/index.css">
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&family=Poppins:ital,wght@1,600&display=swap" rel="stylesheet">
+
 </head>
 <nav>
   <ul >
     <div class ='pict1'>
-      <p><img src="../images/avia.png"  width="60" height="30"></p>
+      <p><img src="../images/avia.png"  width="90" height="60"></p>
     </div>
     <li><a href="../html/AboutUs.html">About us</a></li>
     <li><a href="">Some page</a></li>
@@ -50,7 +51,7 @@
 
      $profile_image = $row['profile_image'];//выводим аватар пользователя
       echo '<div style="width: 80px; height: 80px; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center;">';
-      echo '<a href="user_info.php"><img src="data:image/jpeg;base64,' . base64_encode($profile_image) . '" width="80" height="80" /></a>';
+      echo '<a href="user_info.php"><img src="data:image/jpeg;base64,' . base64_encode($profile_image) . '" width="90" height="85" /></a>';
       echo '</div>';
   } else {
       echo '<p><a href="user_info.php"><img src="../images/user_foto.png"  width="100" height="100"></a></p>';
@@ -209,12 +210,11 @@ $mysqli->close();
       <button class="Buy">Buy tickets</button>
     </div>
   </div>  
-<div class="pict3"><img src="../images/emirates-airlanes.jpg"></div>
+<div class="pict3"><img src="../images/pexels-arina-krasnikova-5708951.jpg"></div>
+
 <div class=rect1></div>
-<div class=rect2></div>
 <div class="pict4"><img src="../images/bgSales.png"></div>
  <style>
-
 </style>
 </body>
 

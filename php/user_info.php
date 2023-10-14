@@ -78,7 +78,7 @@ class UserBookings {
     
                     echo "<form method='POST' action='user_info.php'>
                             <input type='hidden' name='delete' value='" . $row["user_id"] . "'>
-                            <button class='delete-button' type='submit'>Deny</button>
+                            <button  type='submit'>Deny</button>
                           </form>";
                 } 
                 echo '</table>';

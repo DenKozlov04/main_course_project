@@ -9,21 +9,7 @@
   ::placeholder {
     color:#cacaca;
    }
-  .txt1{
-    right: 30%;
-    top:93%;
-    position: relative;
-    display: flex; 
-    justify-content: center;
-    justify-content: space-evenly;
-    position: absolute;
-    color:#FFFFFF;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 800;
-    font-size: 40px;
-    line-height: 116px;
-    letter-spacing: 0.145em;
-  }
+
   .pict4{
   position: relative;
   display: flex; 
@@ -36,9 +22,15 @@
   right:585%;
   }
 .pict3{
-
-  width: 1920px;
-  height: 1080px;
+  right:355%;
+  top:-107%;
+  position: relative;
+  display: flex; 
+  justify-content: center;
+  justify-content: space-evenly;
+  z-index: -4;
+  width: 1650px;
+  height: 1042px;
 }
 .rect2{
   right:700%;
@@ -51,6 +43,20 @@
   display: flex; 
   justify-content: space-between;
   justify-content: space-evenly;
+}
+body .txt1 {
+  right: 30%;
+  top: 93%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+  color: #FFFFFF;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 30px;
+  letter-spacing: 0.145em;
 }
 .rect1{
   top: -109%;
@@ -236,7 +242,7 @@ nav {
     font-family: 'Nunito Sans', sans-serif;
     position: relative;
     right: 10px;
-    bottom: 10px;
+    bottom: 0px;
     
 }
 
@@ -255,11 +261,11 @@ nav::before{
 
 ul{
     margin: 0;
-    padding: 0;
+    padding: 20;
     list-style: none;
     height: 312.5%;
 }
-/*обьекты по горизонтали*/
+
 ul li{
     float:left;
 }
@@ -267,15 +273,15 @@ ul li{
  ul li a {
     color: white;
     display: block;
-    /* height: 50px; */
-    padding:0 200px;
+
+    padding:0 60px;
     text-transform: uppercase;
     text-decoration: none;
-    line-height: 312.5%;
+    line-height: 300.5%;
 } 
 
 ul li a:hover {
-    background: red;
+    
 }
  /* .search {
     justify-content: space-between;
@@ -305,61 +311,7 @@ ul li a:hover {
   display: inline-block;
   font-family: 'Nunito Sans', sans-serif;
 }
-.LogIn:hover {
-    color: #f0094a;
-    background: transparent;
-     box-shadow:none;
-  }
-  .LogIn:before,
-  .LogIn:after{
-    content:'';
-    position:absolute;
-    top:0;
-    right:0;
-    height:2px;
-    width:0;
-    background: #f0094a;
-    box-shadow:
-     -1px -1px 5px 0px #fff,
-     7px 7px 20px 0px #0003,
-     4px 4px 5px 0px #0002;
-    transition:400ms ease all;
-  }
-  .LogIn:after{
-    right:inherit;
-    top:inherit;
-    left:0;
-    bottom:0;
-  }
-  .LogIn:hover:before,
-  .LogIn:hover:after{
-    width:100%;
-    transition:800ms ease all;
-  } 
-  /* .box1-input {
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-  }
-  
-  .box1-input label {
-    color: #fff;
-    margin-bottom: 10px;
-  }
-  
-  .box1-input input[type="text"] {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #282c34;
-    color: #fff;
-    font-size: 16px;
-  }
-  
-  .box1-input input[type="text"]:focus {
-    outline: none;
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-  } */
+
+
   
 

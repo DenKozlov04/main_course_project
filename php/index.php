@@ -4,7 +4,7 @@
 <head>
 <title>Air travel throughout the Baltics</title>
 <meta charset='utf-8' />
-<link rel="stylesheet" href="../css/index.css">
+<link rel="stylesheet" type="text/css" href="../css/index.css">
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&family=Poppins:ital,wght@1,600&display=swap" rel="stylesheet">
 
@@ -68,9 +68,9 @@ $mysqli->close();
   
 </div>
 </nav>
+
 <body bgcolor="#e9a2a2">
-  <p class="txt1">EXPLORE THE WORLD WITH US</p>
-  
+<p class="txt1">EXPLORE THE WORLD WITH US</p>
  <div class ='search' method="GET" action="SearchAirlines.php">
   <a href="SearchAirlines.php"  action="SearchAirlines.php"class="search-link" name="search_button"></a>
     <div class = 'box1-input'style="border-radius: 50px 0 0 50px;" action="SearchAirlines.php">

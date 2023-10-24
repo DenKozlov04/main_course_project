@@ -7,17 +7,28 @@
 <link rel="stylesheet" type="text/css" href="../css/index.css">
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&family=Poppins:ital,wght@1,600&display=swap" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
+
 <nav>
+<input type="checkbox" id="check">
+   <label for="check" class="checkbtn"> 
+   <i class="fas fa-align-justify"></i> 
+</label>
+
+</input>
   <ul >
-    <div class ='pict1'>
-      <p><img src="../images/avia.png"  width="90" height="60"></p>
-    </div>
-    <li><a href="../html/AboutUs.html">About us</a></li>
-    <li><a href="">Some page</a></li>
-     <li><a href="../html/reviews.html">service reviews</a></li>
-     <li><a href="../php/Buy_Tickets.php">buy tickets</a></li>
+    <label class ='pict1'>
+     AVIA
+    <!-- <p><img src="../images/avia.png"  width="90" height="60"></p> -->
+</label>
+      <li><a href="../php/Buy_Tickets.php">buy tickets</a></li>
+      <li><a class="active" href="#">Home</a></li>
+      <li><a href="../html/AboutUs.html">About us</a></li>
+      <li><a href="">Some page</a></li>
+      <li><a href="../html/reviews.html">service reviews</a></li>
+      
      <?php
      
      session_start();
@@ -42,7 +53,7 @@
   $result = $mysqli->query($sql);
 
   if ($_SESSION['admin_id'] == 1) {
-      echo '<p><a href="user_info.php"><img src="../images/user_foto.png"  width="90" height="90"></a></p>';
+      // echo '<p><a href="user_info.php"><img src="../images/user_foto.png"  width="90" height="90"></a></p>';потом раскомитить
   } elseif ($_SESSION['user_id'] == 0) {
       echo '<p><a href="../html/autorization.html"><img src="../images/user_foto.png"  width="100" height="100"></a></p>';
       
@@ -57,8 +68,8 @@
       echo '<p><a href="user_info.php"><img src="../images/user_foto.png"  width="100" height="100"></a></p>';
   }
 
-echo $user_id;
-echo $admin_id;
+// echo $user_id;потом раскомитить
+// echo $admin_id;потом раскомитить
 
 // Закрываем соединение
 $mysqli->close();
@@ -67,9 +78,11 @@ $mysqli->close();
 
   
 </div>
+
 </nav>
 
-<body bgcolor="#e9a2a2">
+<!-- <body bgcolor="#e9a2a2"> -->
+<body bgcolor="FFFFFF">
 <p class="txt1">EXPLORE THE WORLD WITH US</p>
  <div class ='search' method="GET" action="SearchAirlines.php">
   <a href="SearchAirlines.php"  action="SearchAirlines.php"class="search-link" name="search_button"></a>

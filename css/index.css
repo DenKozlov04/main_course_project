@@ -51,7 +51,7 @@ body .txt1 {
   display: flex;
   justify-content: center;
   justify-content: space-evenly;
-  color: #FFFFFF;
+  color: #000000;
   font-family: 'Poppins', sans-serif;
   font-weight: 800;
   font-size: 40px;
@@ -69,7 +69,7 @@ body .txt1 {
   justify-content: space-evenly;
   width: 470%;
   height: 120%;
-  background-color: rgba(0,0,0,0.5) 
+  background-color: rgba(255, 255, 255, 0.5) 
 }
  .search {
 
@@ -236,19 +236,116 @@ body .txt1 {
 
 
 nav {
-    width: 1920px;
+  padding: 0;
+  margin: 0;
+  text-decoration:none;
+  list-style: none;
+  box-sizing: border-box;
+  background: #0082e6;
+  height: 80px;
+  width:100%;
+    /* width: 1920px;
     max-width: 1920px;
     margin: 0 auto;
     font-family: 'Nunito Sans', sans-serif;
     position: relative;
     right: 10px;
-    bottom: 0px;
+    bottom: 0px; */
     
 }
+body {
+  margin: 0;
+  padding: 0;
+  font-family:monserrat ;
+}
+label.pict1{
+color: #ffffff;
+font-size: 30px;
+line-height: 80px;
+padding: 0 100px;
+font-weight: bold;
 
+}
+
+
+nav ul{
+  float: left;
+  margin-left: 20px;
+}
+nav ul li{
+  display: inline-block;
+  line-height: 80px;
+  margin:0 5px;
+}
+nav ul li a{
+  color:white;
+  font-size: 15px;
+  padding: 7px 7px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+a.active,a:hover{
+  background: #1b9bff;
+  transition:.5s ;
+}
+
+.checkbtn{
+  font-size: 30px;
+  color:rgb(255, 255, 255);
+  float: right;
+  line-height: 80px;
+  margin-right:40px;
+  cursor: pointer;
+} 
+
+#check{
+  display: none;
+}
+@media (max-width:952px){
+  label.pict1{
+    font-size: 30px;
+    padding-left: 50px;
+  }
+  nav ul li a{
+    font-size: 16px;
+  }
+}
+@media (max-width:858px){
+  .checkbtn{
+    display: block;
+
+  }
+  ul{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #2c3e50;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all .5s;
+  }
+  nav ul li{
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+
+  }
+  nav ul li a{
+    font-size: 20px;
+  }
+  a:hover,a.active{
+    background: none;
+    color: #0082e6;
+  }
+  #check:checked ~ ul{
+    left:0;
+
+  }
+}
 nav::before{
 
-    content:'';
+    /* content:'';
     display: block;
     max-width: 1920px;
     height: 200%;
@@ -256,28 +353,28 @@ nav::before{
     position: absolute;
     top: 0;
     left: 0;
-    z-index: -1;
+    z-index: -1; */
 }
 
 ul{
-    margin: 0;
+    /* margin: 0;
     padding: 20;
     list-style: none;
-    height: 312.5%;
+    height: 312.5%; */
 }
 
 ul li{
-    float:left;
+    /* float:left; */
 }
 
  ul li a {
-    color: white;
+    /* color: white;
     display: block;
 
     padding:0 60px;
     text-transform: uppercase;
     text-decoration: none;
-    line-height: 300.5%;
+    line-height: 300.5%; */
 } 
 
 ul li a:hover {
@@ -293,15 +390,16 @@ ul li a:hover {
 }   */
 
 .pict1 {
-    position: relative;
+  
+    /* position: relative;
     display: flex;
     float:left;
     top: -5px;;
-    left: 8;
+    left: 8; */
 }
 
  .custom-btn {
-  width: 130px;
+  /* width: 130px;
   height: 40px;
   color: #fff;
   background: transparent;
@@ -309,7 +407,7 @@ ul li a:hover {
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: 'Nunito Sans', sans-serif; */
 }
 
 

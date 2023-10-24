@@ -9,8 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&family=Poppins:ital,wght@1,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-
-
 <nav>
 <input type="checkbox" id="check">
    <label for="check" class="checkbtn"> 
@@ -24,7 +22,7 @@
     <!-- <p><img src="../images/avia.png"  width="90" height="60"></p> -->
 </label>
       <li><a href="../php/Buy_Tickets.php">buy tickets</a></li>
-      <li><a class="active" href="#">Home</a></li>
+      <!-- <li><a class="active" href="#">Home</a></li> -->
       <li><a href="../html/AboutUs.html">About us</a></li>
       <li><a href="">Some page</a></li>
       <li><a href="../html/reviews.html">service reviews</a></li>
@@ -53,23 +51,23 @@
   $result = $mysqli->query($sql);
 
   if ($_SESSION['admin_id'] == 1) {
-      // echo '<p><a href="user_info.php"><img src="../images/user_foto.png"  width="90" height="90"></a></p>';потом раскомитить
+       echo '<p><a class="special-link" href="user_info.php"><img src="../images/user_foto.png"  width="80" height="80"></a></p>';
   } elseif ($_SESSION['user_id'] == 0) {
-      echo '<p><a href="../html/autorization.html"><img src="../images/user_foto.png"  width="100" height="100"></a></p>';
+      echo '<p><a class="special-link" href="../html/autorization.html"><img src="../images/user_foto.png"  width="60" height="60"></a></p>';
       
   } elseif ($result && $result->num_rows > 0) {
       $row = $result->fetch_array();
 
      $profile_image = $row['profile_image'];//выводим аватар пользователя
-      echo '<div style="width: 80px; height: 80px; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center;">';
+      echo '<div class="special-link" style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center;">';
       echo '<a href="user_info.php"><img src="data:image/jpeg;base64,' . base64_encode($profile_image) . '" width="90" height="85" /></a>';
       echo '</div>';
   } else {
-      echo '<p><a href="user_info.php"><img src="../images/user_foto.png"  width="100" height="100"></a></p>';
+      echo '<p><a class="special-link" href="user_info.php"><img src="../images/user_foto.png"  width="100" height="100"></a></p>';
   }
 
-// echo $user_id;потом раскомитить
-// echo $admin_id;потом раскомитить
+ echo $user_id;
+ echo $admin_id;
 
 // Закрываем соединение
 $mysqli->close();

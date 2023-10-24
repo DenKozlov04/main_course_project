@@ -233,9 +233,12 @@ body .txt1 {
   
 
 
-
+  body {
+    margin: 0;
+  }
 
 nav {
+  
   padding: 0;
   margin: 0;
   text-decoration:none;
@@ -244,6 +247,7 @@ nav {
   background: #0082e6;
   height: 80px;
   width:100%;
+  font-family:'Nunito Sans', sans-serif;
     /* width: 1920px;
     max-width: 1920px;
     margin: 0 auto;
@@ -253,16 +257,11 @@ nav {
     bottom: 0px; */
     
 }
-body {
-  margin: 0;
-  padding: 0;
-  font-family:monserrat ;
-}
 label.pict1{
 color: #ffffff;
 font-size: 30px;
 line-height: 80px;
-padding: 0 100px;
+padding: 0 20px;
 font-weight: bold;
 
 }
@@ -276,8 +275,10 @@ nav ul li{
   display: inline-block;
   line-height: 80px;
   margin:0 5px;
+
 }
 nav ul li a{
+  text-decoration: none;
   color:white;
   font-size: 15px;
   padding: 7px 7px;
@@ -287,6 +288,10 @@ nav ul li a{
 a.active,a:hover{
   background: #1b9bff;
   transition:.5s ;
+}
+a.special-link {
+  background: none;
+  transform: translate(20px, 5px); /* Сдвиг вправо и вниз */
 }
 
 .checkbtn{

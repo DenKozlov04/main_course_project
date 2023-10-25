@@ -46,7 +46,7 @@
 
   $sql = "SELECT * FROM profile_images WHERE user_id = $user_id";
 
-  // Используем mysqli для выполнения запроса
+
   $mysqli = new mysqli('localhost', 'root', '', 'airflightsdatabase');
   $result = $mysqli->query($sql);
 
@@ -58,7 +58,7 @@
   } elseif ($result && $result->num_rows > 0) {
       $row = $result->fetch_array();
 
-     $profile_image = $row['profile_image'];//выводим аватар пользователя
+     $profile_image = $row['profile_image'];
       echo '<div class="special-link" style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center;">';
       echo '<a href="user_info.php"><img src="data:image/jpeg;base64,' . base64_encode($profile_image) . '" width="90" height="85" /></a>';
       echo '</div>';

@@ -7,31 +7,43 @@ $email = $_SESSION['email'];
 
 $mysqli = new mysqli('localhost', 'root', '', 'airflightsdatabase');
 
+$comments = array(); 
+
+
+$sql = "SELECT name, comment, created_at FROM comments ORDER BY created_at DESC";
+if ($result = $mysqli->query($sql)) {
+    while ($row = $result->fetch_assoc()) {
+        $comments[] = $row;
+    }
+    $result->free();
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $comment = $_POST['comment'];
-    $created_at = date('Y-m-d H:i:s'); // Получаем текущее время
+    $created_at = date('Y-m-d H:i:s'); 
     
-    // Используйте подготовленный запрос с плейсхолдерами для безопасности и правильной вставки данных
+ 
     $sql = "INSERT INTO comments (name, email, user_id, comment, created_at) VALUES (?, ?, ?, ?, ?)";
     
     if ($stmt = $mysqli->prepare($sql)) {
-        // Привязываем параметры к запросу
+       
         $stmt->bind_param('sssss', $username, $email, $user_id, $comment, $created_at);
         
-        // Выполняем запрос
+     
         if ($stmt->execute()) {
             echo "Запись успешно добавлена.";
         } else {
             echo "Ошибка при выполнении запроса: " . $stmt->error;
         }
         
-        // Закрываем запрос
+   
         $stmt->close();
     } else {
         echo "Ошибка при подготовке запроса: " . $mysqli->error;
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,5 +66,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <input type="submit" value="Submit">
     </form>
+
+ 
+    <h2>Comments</h2>
+    <ul>
+        <?php foreach ($comments as $comment): ?>
+            <li>
+                <strong><?php echo $comment['name']; ?>:</strong>
+                <?php echo $comment['comment']; ?><br>
+                <small><?php echo $comment['created_at']; ?></small>
+            </li>
+        <?php endforeach; ?>
+    </ul>
 </body>
 </html>
+

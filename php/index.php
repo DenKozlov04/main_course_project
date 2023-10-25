@@ -25,7 +25,7 @@
       <!-- <li><a class="active" href="#">Home</a></li> -->
       <li><a href="../html/AboutUs.html">About us</a></li>
       <li><a href="">Some page</a></li>
-      <li><a href="../html/reviews.html">service reviews</a></li>
+      <li><a href="../php/reviews.php">service reviews</a></li>
       
      <?php
      

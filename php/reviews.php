@@ -17,22 +17,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $comment = $_POST['comment'];
     $created_at = date('Y-m-d H:i:s');
 
-    $sql = "INSERT INTO comments (name, email, user_id, comment, created_at) VALUES (?, ?, ?, ?, ?)";
+    // Проверка на пустой комментарий
+    if (!empty($comment)) {
+        $sql = "INSERT INTO comments (name, email, user_id, comment, created_at) VALUES (?, ?, ?, ?, ?)";
 
-    if ($stmt = $mysqli->prepare($sql)) {
-        $stmt->bind_param('sssss', $username, $email, $user_id, $comment, $created_at);
+        if ($stmt = $mysqli->prepare($sql)) {
+            $stmt->bind_param('sssss', $username, $email, $user_id, $comment, $created_at);
 
-        if ($stmt->execute()) {
-            // После успешной вставки, перенаправляем пользователя на эту же страницу
-            header('Location: ' . $_SERVER['PHP_SELF']);
-            exit();
+            if ($stmt->execute()) {
+                // После успешной вставки, перенаправляем пользователя на эту же страницу
+                header('Location: ' . $_SERVER['PHP_SELF']);
+                exit();
+            } else {
+                echo "Ошибка при выполнении запроса: " . $stmt->error;
+            }
+
+            $stmt->close();
         } else {
-            echo "Ошибка при выполнении запроса: " . $stmt->error;
+            echo "Ошибка при подготовке запроса: " . $mysqli->error;
         }
-
-        $stmt->close();
     } else {
-        echo "Ошибка при подготовке запроса: " . $mysqli->error;
+        echo "Пожалуйста, введите комментарий.";
     }
 }
 
@@ -49,6 +54,7 @@ if ($result = $mysqli->query($sql)) {
 
 $mysqli->close();
 ?>
+
 
 <!DOCTYPE html>
 <html>

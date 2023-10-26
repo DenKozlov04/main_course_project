@@ -14,18 +14,16 @@ $mysqli = new mysqli('localhost', 'root', '', 'airflightsdatabase');
 
 // Обработка отправки формы комментария
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $comment = $_POST['comment'];
-    $created_at = date('Y-m-d H:i:s');
+    if (isset($_POST['delete_comment'])) {
+        $comment_id = $_POST['delete_comment_id'];
 
-    // Проверка на пустой комментарий
-    if (!empty($comment)) {
-        $sql = "INSERT INTO comments (name, email, user_id, comment, created_at) VALUES (?, ?, ?, ?, ?)";
-
+        // Проверка на то, что комментарий принадлежит текущему пользователю
+        $sql = "DELETE FROM comments WHERE id = ? AND user_id = ?";
         if ($stmt = $mysqli->prepare($sql)) {
-            $stmt->bind_param('sssss', $username, $email, $user_id, $comment, $created_at);
+            $stmt->bind_param('ii', $comment_id, $user_id);
 
             if ($stmt->execute()) {
-                // После успешной вставки, перенаправляем пользователя на эту же страницу
+                // После успешного удаления, перенаправляем пользователя на эту же страницу
                 header('Location: ' . $_SERVER['PHP_SELF']);
                 exit();
             } else {
@@ -36,15 +34,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             echo "Ошибка при подготовке запроса: " . $mysqli->error;
         }
-    } else {
-        echo "Пожалуйста, введите комментарий.";
+    } elseif (isset($_POST['add_comment'])) {
+        $comment = $_POST['comment'];
+        $created_at = date('Y-m-d H:i:s');
+
+        // Проверка на пустой комментарий
+        if (!empty($comment)) {
+            $sql = "INSERT INTO comments (name, email, user_id, comment, created_at) VALUES (?, ?, ?, ?, ?)";
+
+            if ($stmt = $mysqli->prepare($sql)) {
+                $stmt->bind_param('sssss', $username, $email, $user_id, $comment, $created_at);
+
+                if ($stmt->execute()) {
+                    // После успешной вставки, перенаправляем пользователя на эту же страницу
+                    header('Location: ' . $_SERVER['PHP_SELF']);
+                    exit();
+                } else {
+                    echo "Ошибка при выполнении запроса: " . $stmt->error;
+                }
+
+                $stmt->close();
+            } else {
+                echo "Ошибка при подготовке запроса: " . $mysqli->error;
+            }
+        } else {
+            echo "Пожалуйста, введите комментарий.";
+        }
     }
 }
 
 // Получение комментариев из базы данных
 $comments = array();
 
-$sql = "SELECT name, comment, created_at FROM comments ORDER BY created_at DESC";
+$sql = "SELECT id, name, comment, created_at, user_id FROM comments ORDER BY created_at DESC";
 if ($result = $mysqli->query($sql)) {
     while ($row = $result->fetch_assoc()) {
         $comments[] = $row;
@@ -75,7 +97,7 @@ $mysqli->close();
         <label for="comment">Your comment:</label><br>
         <textarea name="comment" id="comment" cols="30" rows="10"></textarea><br>
 
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" name="add_comment">
     </form>
 
     <h2>Comments</h2>
@@ -90,8 +112,13 @@ $mysqli->close();
             <div class="comment-timestamp">
                 <small><?php echo $comment['created_at']; ?></small>
             </div>
+            <?php if ($comment['user_id'] == $user_id): ?>
+                <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
+                    <input type="hidden" name="delete_comment_id" value="<?php echo $comment['id']; ?>">
+                    <input type="submit" value="Delete" name="delete_comment">
+                </form>
+            <?php endif; ?>
         </div>
     <?php endforeach; ?>
 </body>
 </html>
-

@@ -55,7 +55,6 @@ if ($result = $mysqli->query($sql)) {
 $mysqli->close();
 ?>
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,8 +69,8 @@ $mysqli->close();
 
     <h2>Add comment</h2>
     <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
-        <label for="name">Name: <?php echo $username; ?></label>
-        <label for="email">Email: <?php echo $email; ?></label>
+       <label for="name">Name: <?php echo $username; ?></label>
+       <label for="email">Email: <?php echo $email; ?></label>
 
         <label for="comment">Your comment:</label><br>
         <textarea name="comment" id="comment" cols="30" rows="10"></textarea><br>
@@ -80,15 +79,19 @@ $mysqli->close();
     </form>
 
     <h2>Comments</h2>
-    <ul>
-        <?php foreach ($comments as $comment): ?>
-            <li>
+    <?php foreach ($comments as $comment): ?>
+        <div class="comment-container">
+            <div class="comment-header">
                 <strong><?php echo $comment['name']; ?>:</strong>
-                <?php echo $comment['comment']; ?><br>
+            </div>
+            <div class="comment-text">
+                <?php echo $comment['comment']; ?>
+            </div>
+            <div class="comment-timestamp">
                 <small><?php echo $comment['created_at']; ?></small>
-            </li>
-        <?php endforeach; ?>
-    </ul>
+            </div>
+        </div>
+    <?php endforeach; ?>
 </body>
 </html>
 

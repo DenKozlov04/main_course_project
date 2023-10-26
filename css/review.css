@@ -65,3 +65,28 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #45a049;
 }
+/* review.css */
+
+/* Стиль контейнера комментария */
+.comment-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f5f5f5;
+}
+
+/* Стиль заголовка комментария (имя автора) */
+.comment-header {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Стиль текста комментария */
+.comment-text {
+    margin-bottom: 10px;
+}
+
+/* Стиль временной метки комментария */
+.comment-timestamp {
+    color: #777;
+}

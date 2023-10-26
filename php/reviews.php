@@ -5,10 +5,39 @@ $admin_id = $_SESSION['admin_id'];
 $username = $_SESSION['username'];
 $email = $_SESSION['email'];
 
+if ($user_id === 0) {
+    header('Location: ../html/registration.html');
+    exit;
+}
+
 $mysqli = new mysqli('localhost', 'root', '', 'airflightsdatabase');
 
-$comments = array(); 
+// Обработка отправки формы комментария
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $comment = $_POST['comment'];
+    $created_at = date('Y-m-d H:i:s');
 
+    $sql = "INSERT INTO comments (name, email, user_id, comment, created_at) VALUES (?, ?, ?, ?, ?)";
+
+    if ($stmt = $mysqli->prepare($sql)) {
+        $stmt->bind_param('sssss', $username, $email, $user_id, $comment, $created_at);
+
+        if ($stmt->execute()) {
+            // После успешной вставки, перенаправляем пользователя на эту же страницу
+            header('Location: ' . $_SERVER['PHP_SELF']);
+            exit();
+        } else {
+            echo "Ошибка при выполнении запроса: " . $stmt->error;
+        }
+
+        $stmt->close();
+    } else {
+        echo "Ошибка при подготовке запроса: " . $mysqli->error;
+    }
+}
+
+// Получение комментариев из базы данных
+$comments = array();
 
 $sql = "SELECT name, comment, created_at FROM comments ORDER BY created_at DESC";
 if ($result = $mysqli->query($sql)) {
@@ -18,30 +47,7 @@ if ($result = $mysqli->query($sql)) {
     $result->free();
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $comment = $_POST['comment'];
-    $created_at = date('Y-m-d H:i:s'); 
-    
- 
-    $sql = "INSERT INTO comments (name, email, user_id, comment, created_at) VALUES (?, ?, ?, ?, ?)";
-    
-    if ($stmt = $mysqli->prepare($sql)) {
-       
-        $stmt->bind_param('sssss', $username, $email, $user_id, $comment, $created_at);
-        
-     
-        if ($stmt->execute()) {
-            echo "Запись успешно добавлена.";
-        } else {
-            echo "Ошибка при выполнении запроса: " . $stmt->error;
-        }
-        
-   
-        $stmt->close();
-    } else {
-        echo "Ошибка при подготовке запроса: " . $mysqli->error;
-    }
-}
+$mysqli->close();
 ?>
 
 <!DOCTYPE html>
@@ -50,14 +56,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Comments</title>
     <link href="../css/review.css" rel="stylesheet" type="text/css">
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <h1>Comments</h1>
 
     <h2>Add comment</h2>
-    <form action="../php/reviews.php" method="post">
+    <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
         <label for="name">Name: <?php echo $username; ?></label>
         <label for="email">Email: <?php echo $email; ?></label>
 
@@ -67,7 +73,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="submit" value="Submit">
     </form>
 
- 
     <h2>Comments</h2>
     <ul>
         <?php foreach ($comments as $comment): ?>

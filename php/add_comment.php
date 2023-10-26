@@ -5,82 +5,26 @@ $admin_id = $_SESSION['admin_id'];
 $username = $_SESSION['username'];
 $comment = $_POST['comment'];
 
-// $sql = "SELECT username,email  FROM users WHERE user_id = $user_id";
-$sql = "SELECT user_id, comment, email, name, created_at FROM comments WHERE id=?";
-$mysqli = new mysqli('localhost', 'root', '', 'airflightsdatabase');
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Обработка отправки формы
+    // Добавление комментария в базу данных
+    // Перенаправление на другую страницу
+    $mysqli = new mysqli('localhost', 'root', '', 'airflightsdatabase');
 
-if ($stmt = $mysqli->prepare($sql)) {
-    // Привязываем параметр к запросу
-    $stmt->bind_param('i', $comment_id); // 'i' означает integer, можно использовать 's' для строк
+    if ($mysqli->connect_error) {
+        die("Connection failed: " . $mysqli->connect_error);
+    }
 
-    // Устанавливаем значение параметра
-    $comment_id = $_GET['id'];
+    // Вставьте код для вставки комментария в базу данных здесь
 
-    // Выполняем запрос
-    $stmt->execute();
-
-    // Получаем результат
-    $result = $stmt->get_result();
-    
-    // Здесь вы можете обработать результат запроса
-    // Например, получить данные из $result
-    // ...
-
-    // Закрываем запрос
-    $stmt->close();
-} else {
-    echo "Ошибка при подготовке запроса: " . $mysqli->error;
+    // После успешной вставки перенаправьте пользователя на другую страницу
+    header("Location: ../php/user_comments.php");
+    exit();
 }
 
-// Далее обрабатывайте результат запроса, когда это необходимо
+// Здесь отображаем комментарии
+$comments = []; // Получите комментарии из базы данных
 
-
-// $email = $_SESSION['email'];
-
-// class CommentManager {
-//     private $pdo;
-
-//     public function __construct() {
-//         $this->pdo = new PDO('mysql:host=localhost;dbname=airflightsdatabase', 'root', '');
-//         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-//     }
-
-//     public function addComment($name, $email, $comment) {
-//         $created_at = date('Y-m-d H:i:s');
-//         $stmt = $this->pdo->prepare('INSERT INTO comments (name, email, comment, created_at, user_id) VALUES (?, ?, ?, ?, ?)');
-//         $stmt->execute([$name, $email, $comment, $created_at, $user_id]);
-//     }
-
-//     public function getComments() {
-//         $stmt = $this->pdo->query('SELECT comments.*, users.username FROM comments JOIN users ON comments.user_id = users.id ORDER BY created_at DESC');
-//         return $stmt->fetchAll(PDO::FETCH_ASSOC);
-//     }
-
-//     public function deleteComment($comment_id) {
-//         $stmt = $this->pdo->prepare('DELETE FROM comments WHERE id = ?');
-//         $stmt->execute([$comment_id]);
-//     }
-// }
-
-// $commentManager = new CommentManager();
-
-// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//     $name = $_POST['name'];
-//     $email = $email; // Используем email из сессии
-//     $comment = $_POST['comment'];
-//     $commentManager->addComment($name, $email, $comment);
-//     header('Location: ' . $_SERVER['PHP_SELF']);
-//     exit;
-// }
-
-// if (isset($_GET['id'])) {
-//     $comment_id = $_GET['id'];
-//     $commentManager->deleteComment($comment_id);
-//     header('Location: ' . $_SERVER['PHP_SELF']);
-//     exit;
-// }
-
-// $comments = $commentManager->getComments();
 ?>
 
 <!DOCTYPE html>

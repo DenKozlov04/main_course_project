@@ -120,37 +120,38 @@ $mysqli->close();
 
         <label for="comment">Your comment:</label><br>
         <textarea name="comment" id="comment" cols="30" rows="10"></textarea><br>
-
+        <script src="../JS/troggleButtonInRevews.js"></script>
         <input type="submit" value="Submit" name="add_comment">
     </form>
 
     <h2>Comments</h2>
-    <li><a href="../php/index.php">On the main page</a></li>
-    <?php foreach ($comments as $comment): ?>
-        <div class="comment-container">
-            <div class="comment-header">
-                <strong><?php echo $comment['name']; ?>:</strong>
-            </div>
-            <div class="comment-text">
-                <?php echo $comment['comment']; ?>
-            </div>
-            <div class="comment-timestamp">
-                <small><?php echo $comment['created_at']; ?></small>
-            </div>
-            <?php if ($comment['user_id'] == $user_id || $admin_id != 0): ?>
-                <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
-                    <input type="hidden" name="delete_comment_id" value="<?php echo $comment['id']; ?>">
-                    <input type="submit" value="Delete" name="delete_comment">
-                </form>
-                <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
-                    <input type="hidden" name="edit_comment_id" value="<?php echo $comment['id']; ?>">
-                    <input type="submit" value="edit" name="edit_comment">
-                    <textarea name="edit_comment" id="edit_comment" cols="30" rows="10"><?php echo $comment['comment']; ?></textarea><br>
-                </form>
-            <?php endif; ?>
-
+<li><a href="../php/index.php">On the main page</a></li>
+<?php foreach ($comments as $comment): ?>
+    <div class="comment-container">
+        <div class="comment-header">
+            <strong><?php echo $comment['name']; ?>:</strong>
         </div>
-    <?php endforeach; ?>
+        <div class="comment-text">
+            <?php echo $comment['comment']; ?>
+        </div>
+        <div class="comment-timestamp">
+            <small><?php echo $comment['created_at']; ?></small>
+        </div>
+        <?php if ($comment['user_id'] == $user_id || $admin_id != 0): ?>
+            <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
+                <input type="hidden" name="delete_comment_id" value="<?php echo $comment['id']; ?>">
+                <input type="submit" value="Delete" name="delete_comment">
+            </form>
+            <button onclick="ShowEdit(<?php echo $comment['id']; ?>)">Edit your comment</button>
+            <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post" id="editForm<?php echo $comment['id']; ?>" style="display: none;">
+                <input type="hidden" name="edit_comment_id" value="<?php echo $comment['id']; ?>">
+                <input type="submit" value="Edit" name="edit_comment">
+                <textarea name="edit_comment" id="edit_comment" cols="30" rows="10"><?php echo $comment['comment']; ?></textarea><br>
+            </form>
+        <?php endif; ?>
+    </div>
+<?php endforeach; ?>
+
 </body>
 </html>
 

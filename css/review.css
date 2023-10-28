@@ -86,7 +86,4 @@ input[type="submit"]:hover {
     margin-bottom: 10px;
 }
 
-/* Стиль временной метки комментария */
-.comment-timestamp {
-    color: #777;
-}
+

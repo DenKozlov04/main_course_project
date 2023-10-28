@@ -162,3 +162,6 @@ if (isset($_POST['delete'])) {
 $tableManager->displayTable($isAdmin);
 $tableManager->closeConnection();
 ?>
+<!DOCTYPE html>
+<li><a href="../php/index.php">On the main page</a></li>
+</html>

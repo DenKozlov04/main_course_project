@@ -5,7 +5,7 @@ $admin_id = $_SESSION['admin_id'];
 $username = $_SESSION['username'];
 $email = $_SESSION['email'];
 
-if ($user_id === 0) {
+if ($user_id === 0 && $admin_id === 0) {
     header('Location: ../html/registration.html');
     exit;
 }
@@ -14,13 +14,35 @@ $mysqli = new mysqli('localhost', 'root', '', 'airflightsdatabase');
 
 // Обработка отправки формы комментария
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['edit_comment'])) {
+
+        $edit_comment_id = $_POST['edit_comment_id'];
+        $edit_comment = $_POST['edit_comment'];
+        
+        $sql = "UPDATE comments SET comment = ? WHERE id = ? AND (user_id = ? OR ? = 1)";
+        if ($stmt = $mysqli->prepare($sql)) {
+            $stmt->bind_param('siii', $edit_comment, $edit_comment_id, $user_id, $admin_id);
+
+            if ($stmt->execute()) {
+                // После успешного обновления, перенаправляем пользователя на эту же страницу
+                header('Location: ' . $_SERVER['PHP_SELF']);
+                exit();
+            } else {
+                echo "Ошибка при выполнении запроса: " . $stmt->error;
+            }
+
+            $stmt->close();
+        }
+    }
+
+
     if (isset($_POST['delete_comment'])) {
         $comment_id = $_POST['delete_comment_id'];
 
-        // Проверка на то, что комментарий принадлежит текущему пользователю
-        $sql = "DELETE FROM comments WHERE id = ? AND user_id = ?";
+        // Проверка на то, что комментарий принадлежит текущему пользователю или админу
+        $sql = "DELETE FROM comments WHERE id = ? AND (user_id = ? OR ? = 1)";
         if ($stmt = $mysqli->prepare($sql)) {
-            $stmt->bind_param('ii', $comment_id, $user_id);
+            $stmt->bind_param('iii', $comment_id, $user_id, $admin_id);
 
             if ($stmt->execute()) {
                 // После успешного удаления, перенаправляем пользователя на эту же страницу
@@ -75,6 +97,7 @@ if ($result = $mysqli->query($sql)) {
 }
 
 $mysqli->close();
+// ДОБАВИТЬ РЕДАКТИРОВАНИЕ КОММЕНТАРИЕВ ДЛЯ ПОЛЬЗОВАТЕЛЯ И АДМИНА
 ?>
 
 <!DOCTYPE html>
@@ -86,6 +109,7 @@ $mysqli->close();
     <meta http-equiv="X-UA-Compatible" content="IE edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
     <h1>Comments</h1>
 
@@ -101,6 +125,7 @@ $mysqli->close();
     </form>
 
     <h2>Comments</h2>
+    <li><a href="../php/index.php">On the main page</a></li>
     <?php foreach ($comments as $comment): ?>
         <div class="comment-container">
             <div class="comment-header">
@@ -112,13 +137,20 @@ $mysqli->close();
             <div class="comment-timestamp">
                 <small><?php echo $comment['created_at']; ?></small>
             </div>
-            <?php if ($comment['user_id'] == $user_id): ?>
+            <?php if ($comment['user_id'] == $user_id || $admin_id != 0): ?>
                 <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
                     <input type="hidden" name="delete_comment_id" value="<?php echo $comment['id']; ?>">
                     <input type="submit" value="Delete" name="delete_comment">
                 </form>
+                <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
+                    <input type="hidden" name="edit_comment_id" value="<?php echo $comment['id']; ?>">
+                    <input type="submit" value="edit" name="edit_comment">
+                    <textarea name="edit_comment" id="edit_comment" cols="30" rows="10"><?php echo $comment['comment']; ?></textarea><br>
+                </form>
             <?php endif; ?>
+
         </div>
     <?php endforeach; ?>
 </body>
 </html>
+

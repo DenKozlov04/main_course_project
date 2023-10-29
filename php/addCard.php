@@ -3,7 +3,7 @@ session_start();
 
 $city = $_POST['city'];
 $price = $_POST['price'];
-
+$arrival_city = $_POST['arrival_city'];
 // Проверяем, что файл изображения был загружен
 if(isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
     $image = file_get_contents($_FILES['image']['tmp_name']);
@@ -18,8 +18,8 @@ if(isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
         }
 
         // Используем параметры для безопасной вставки бинарных данных
-        $stmt = $mysqli->prepare("INSERT INTO countrycards (city, price, image) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $city, $price, $image);
+        $stmt = $mysqli->prepare("INSERT INTO countrycards (city, arrival_city, price, image) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("ssss", $city, $arrival_city, $price, $image);
 
         if ($stmt->execute()) {
             echo "Запись успешно добавлена в таблицу.";

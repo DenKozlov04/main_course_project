@@ -88,8 +88,11 @@
 
 
 <form class="city-form" action="../php/addCard.php" method="POST" enctype="multipart/form-data">
-    <label for="city-name">Название города:</label>
+    <label for="city-name">Название города отбытия:</label>
     <input type="text" id="city-name" name="city">
+
+    <label for="arrival-city-name">Название города прибытия:</label>
+    <input type="text" id="arrival-city-name" name="arrival_city">
 
     <label for="price">Цена:$,€,₽,¥</label>
     <input type="text" id="price" name="price">

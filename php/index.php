@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <script src="../JS/deleteCard.js"></script>
 </head>
+
 <nav>
 <input type="checkbox" id="check">
    <label for="check" class="checkbtn"> 
@@ -82,9 +83,10 @@ $mysqli->close();
 
 <!-- <body bgcolor="#e9a2a2"> -->
 <body bgcolor="FFFFFF">
+<div class="pict3"><img src="../images/pexels-arina-krasnikova-5708951.jpg"></div>
 <p class="txt1">EXPLORE THE WORLD WITH US</p>
  <div class ='search' method="GET" action="SearchAirlines.php">
-  <a href="SearchAirlines.php"  action="SearchAirlines.php"class="search-link" name="search_button"></a>
+  <!-- <a href="SearchAirlines.php"  action="SearchAirlines.php"class="search-link" name="search_button"></a> -->
     <div class = 'box1-input'style="border-radius: 50px 0 0 50px;" action="SearchAirlines.php">
       <div class = 'input-data'>
         <input type="text" id="input" name="SearchRoute"  method="GET" placeholder="Riga-Paris" > 
@@ -118,112 +120,11 @@ $mysqli->close();
       </div>
     </div> 
 </div>
-<div class="gallery-grid">
-  <div class="gallery-item">
-    <!-- первая карточка -->
-    <div class="grid-item__inner">
-    <img src="../images/paris.png" class="grid-item__img" width="400" height="400">
-      <div class="place1">
-        <span>Riga -</span>
-      </div>
-      <div class="place2">
-        <span>Paris</span>
-      </div>
-      <div class="grid-item_title">
-        <div>
-            <span class="price">From 55⁰⁰€</span>
-        </div>
-          <button class="Buy" onclick="window.location.href = 'registration.html'">Buy tickets</button>
-      </div>
-    </div>
-<!-- вторая карточка -->
-    <div class="grid-item__inner1">
-      <img src="../images/tokio.png" class="grid-item__img" width="400" height="400" >
-      <div class="place1">
-        <span>Riga -</span>
-      </div>
-      <div class="place2">
-        <span >Tokio</span>
-      </div>
-      <div class="grid-item_title">
-        <div>
-            <span class="price">From 55⁰⁰€</span>
-        </div>
-        <button class="Buy">Buy tickets</button>
-      </div>
-    </div> 
 
-</div>
-<!-- третая карточка -->
-  <div class="gallery-item">
-    <div class="grid-item__inner">
-      <img src="../images/dubai.png" class="grid-item__img" width="400" height="400" >
-      <div class="place1">
-        <span>Riga -</span>
-      </div>
-      <div class="place2">
-        <span>Dubai</span>
-      </div>
-      <div class="grid-item_title">
-        <div>
-            <span class="price">From 120⁰⁰€</span>
-        </div>
-        <button class="Buy">Buy tickets</button>
-      </div>
-    </div>
-<!-- четвертая карточка -->
-    <div class="grid-item__inner1">
-      <img src="../images/reikjavik.png" class="grid-item__img" width="400" height="400" >
-      <div class="place1">
-        <span>Riga -</span>
-      </div>
-      <div class="place2">
-        <span >Reykjavik</span>
-      </div>
-      <div class="grid-item_title">
-        <div>
-            <span class="price">From 100⁰⁰€</span>
-        </div>
-        <button class="Buy">Buy tickets</button>
-      </div>
-    </div> 
+  <?php include 'card_data.php'; ?>
 
-</div>
-<!-- пятая карточка карточка -->
-<div class="gallery-item">
-  <div class="grid-item__inner">
-    <img src="../images/SharmElSeih.png" class="grid-item__img" width="400" height="400" >
-    <div class="place1">
-      <span>Riga -</span>
-    </div>
-    <div class="place3">
-      <span >Sharm el-Sheikh</span>
-    </div>
-    <div class="grid-item_title">
-      <div>
-          <span class="price">From 75⁰⁰€</span>
-      </div>
-      <button class="Buy">Buy tickets</button>
-    </div>
-  </div> 
-<!-- шестая  карточка -->
-  <div class="grid-item__inner1">
-    <img src="../images/athens.png" class="grid-item__img" width="400" height="400" >
-    <div class="place1">
-      <span>Riga -</span>
-    </div>
-    <div class="place2">
-      <span >Athens</span>
-    </div>
-    <div class="grid-item_title">
-      <div>
-          <span class="price">From 65⁰⁰€</span>
-      </div>
-      <button class="Buy">Buy tickets</button>
-    </div>
-  </div> 
 
-<div class="pict3"><img src="../images/pexels-arina-krasnikova-5708951.jpg"></div>
+
 
 
 <div class=rect1></div>

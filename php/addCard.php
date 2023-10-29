@@ -1,43 +1,41 @@
 <?php
+session_start();
 
-// Подключение к базе данных
-$conn = mysqli_connect('localhost', 'root', '', 'airflightsdatabase');
+$city = $_POST['city'];
+$price = $_POST['price'];
 
-// Проверка подключения
-if (!$conn) {
-  die("Connection failed: " . mysqli_connect_error());
-}
+// Проверяем, что файл изображения был загружен
+if(isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
+    $image = file_get_contents($_FILES['image']['tmp_name']);
 
-// Получение данных из формы
-$city = $_POST["city"];
-$price = $_POST["price"];
+    // Проверяем размер файла (не более 2 МБ)
+    $maxFileSize = 2 * 1024 * 1024; // 2 МБ в байтах
+    if (strlen($image) <= $maxFileSize) {
+        $mysqli = new mysqli('localhost', 'root', '', 'airflightsdatabase');
 
-// Генерация имени файла изображения
-$imageName = $_FILES["image"]["name"];
-$imageTmpName = $_FILES["image"]["tmp_name"];
-$imageType = $_FILES["image"]["type"];
-$imageExt = strtolower(pathinfo($imageName, PATHINFO_EXTENSION));
-$allowedTypes = array('jpg', 'jpeg', 'png', 'gif');
+        if ($mysqli->connect_error) {
+            die("Ошибка подключения: " . $mysqli->connect_error);
+        }
 
-if (in_array($imageExt, $allowedTypes)) {
-  // Сохранение файла на сервере
-  $imagePath = 'uploads/'.$imageName;
-  move_uploaded_file($imageTmpName, $imagePath);
+        // Используем параметры для безопасной вставки бинарных данных
+        $stmt = $mysqli->prepare("INSERT INTO countrycards (city, price, image) VALUES (?, ?, ?)");
+        $stmt->bind_param("sss", $city, $price, $image);
 
-  // Сохранение данных в базе данных
-  $sql = "INSERT INTO products (departure_city, price, image) VALUES ('$city', '$price', '$imagePath')";
-  if (mysqli_query($conn, $sql)) {
+        if ($stmt->execute()) {
+            echo "Запись успешно добавлена в таблицу.";
+            header("Location: ../php/adminPage.php");
 
-    header("Location: ../index.php");
-    exit();
-  } else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-  }
+            exit; 
+        } else {
+            echo "Ошибка: " . $stmt->error;
+        }
+
+        $mysqli->close();
+    } else {
+        echo "Ошибка: Размер файла превышает допустимый предел (2 МБ).";
+    }
 } else {
-  echo "Invalid file type";
+    die("Ошибка: изображение не было загружено.");
 }
-
-// Закрытие подключения к базе данных
-mysqli_close($conn);
-
 ?>
+

@@ -92,12 +92,13 @@
     <input type="text" id="city-name" name="city">
 
     <label for="price">Цена:</label>
-    <input type="number" id="price" name="price">
+    <input type="text" id="price" name="price">
 
     <label for="image">Изображение:</label>
     <input type="file" id="image" name="image">
 
     <input type="submit" value="Добавить">
+
 </form>
 
 <?php

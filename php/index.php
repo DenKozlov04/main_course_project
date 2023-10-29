@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&family=Poppins:ital,wght@1,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<script src="../JS/deleteCard.js"></script>
 </head>
 <nav>
 <input type="checkbox" id="check">
@@ -220,8 +221,10 @@ $mysqli->close();
       </div>
       <button class="Buy">Buy tickets</button>
     </div>
-  </div>  
+  </div> 
+
 <div class="pict3"><img src="../images/pexels-arina-krasnikova-5708951.jpg"></div>
+
 
 <div class=rect1></div>
 <div class="pict4"><img src="../images/bgSales.png"></div>

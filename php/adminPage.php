@@ -91,10 +91,10 @@
     <label for="city-name">Название города:</label>
     <input type="text" id="city-name" name="city">
 
-    <label for="price">Цена:</label>
+    <label for="price">Цена:$,€,₽,¥</label>
     <input type="text" id="price" name="price">
 
-    <label for="image">Изображение:</label>
+    <label for="image">Изображение(max 2mb):</label>
     <input type="file" id="image" name="image">
 
     <input type="submit" value="Добавить">

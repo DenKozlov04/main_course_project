@@ -48,6 +48,8 @@
   $user_id = $_SESSION['user_id'];
   $admin_id = $_SESSION['admin_id'];
 
+
+  
   $sql = "SELECT * FROM profile_images WHERE user_id = $user_id";
 
 

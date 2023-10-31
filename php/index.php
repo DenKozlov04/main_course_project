@@ -12,77 +12,67 @@
 </head>
 
 <nav>
-
-<input type="checkbox" id="check">
-   <label for="check" class="checkbtn"> 
-   <i class="fas fa-align-justify"></i> 
-</label>
-</input>
-    <div class='boxdiv'>
-    <ul >
-      <label class ='pict1'>
-      AVIA
-      <!-- <p><img src="../images/avia.png"  width="90" height="60"></p> -->
+  <input type="checkbox" id="check">
+  <label for="check" class="checkbtn"> 
+    <i class="fas fa-align-justify"></i> 
   </label>
-        <li><a href="../php/Buy_Tickets.php">buy tickets</a></li>
-        <!-- <li><a class="active" href="#">Home</a></li> -->
-        <li><a href="../html/AboutUs.html">About us</a></li>
-        <li><a href="">Some page</a></li>
-        <li><a href="../php/reviews.php">service reviews</a></li>
-      
+  <div class='boxdiv'>
+    <ul>
+      <label class='pict1'>
+        AVIA
+      </label>
+      <li><a href="../php/Buy_Tickets.php">buy tickets</a></li>
+      <li><a href="../html/AboutUs.html">About us</a></li>
+      <li><a href="">Some page</a></li>
+      <li><a href="../php/reviews.php">service reviews</a></li>
       <?php
-     
-      session_start();
-     
-      if ($_SESSION['user_id'] === 0 || ($_SESSION['admin_id'] === 1 and $_SESSION['user_id'] === 1)) {
+        session_start();
+        if ($_SESSION['user_id'] === 0 || ($_SESSION['admin_id'] === 1 and $_SESSION['user_id'] === 1)) {
           echo '<li><a href="../html/autorization.html" class="custom-btn LogIn">LOG IN</a></li>';
           echo '<li><a href="../html/registration.html" class="custom-btn LogIn">Sign up</a> </li>';
-      }
+        }
       ?>   
     </ul>
-    </div>
-
-  <div class ='pict5'>
-  <?php
-
-  $user_id = $_SESSION['user_id'];
-  $admin_id = $_SESSION['admin_id'];
-
-
-  
-  $sql = "SELECT * FROM profile_images WHERE user_id = $user_id";
-
-
-  $mysqli = new mysqli('localhost', 'root', '', 'airflightsdatabase');
-  $result = $mysqli->query($sql);
-
-  if ($_SESSION['admin_id'] == 1) {
-       echo '<p><a class="special-link" href="user_info.php"><img src="../images/user_foto.png"  width="80" height="80"></a></p>';
-  } elseif ($_SESSION['user_id'] == 0) {
-      echo '<p><a class="special-link" href="../html/autorization.html"><img src="../images/user_foto.png"  width="80" height="80"></a></p>';
+  </div>
+  <div class='pict5'>
+    <?php
       
-  } elseif ($result && $result->num_rows > 0) {
-      $row = $result->fetch_array();
 
-     $profile_image = $row['profile_image'];
-      echo '<div class="special-link" style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center;">';
-      echo '<a href="user_info.php" ><img src="data:image/jpeg;base64,' . base64_encode($profile_image) . '" width="90" height="85" /></a>';
-      echo '</div>';
-  } else {
-      echo '<p><a class="special-link" href="user_info.php"><img src="../images/user_foto.png"  width="100" height="100"></a></p>';
-  }
-
- echo $user_id;
- echo $admin_id;
-
-// Закрываем соединение
-$mysqli->close();
-?>
-
-
-  
-</div>
+      $user_id = $_SESSION['user_id'];
+      $admin_id = $_SESSION['admin_id'];
+    
+    
+      
+      $sql = "SELECT * FROM profile_images WHERE user_id = $user_id";
+    
+    
+      $mysqli = new mysqli('localhost', 'root', '', 'airflightsdatabase');
+      $result = $mysqli->query($sql);
+    
+      if ($_SESSION['admin_id'] == 1) {
+           echo '<p><a class="special-link" href="user_info.php"><img src="../images/user_foto.png"  width="80" height="80"></a></p>';
+      } elseif ($_SESSION['user_id'] == 0) {
+          echo '<p><a class="special-link" href="../html/autorization.html"><img src="../images/user_foto.png"  width="80" height="80"></a></p>';
+          
+      } elseif ($result && $result->num_rows > 0) {
+          $row = $result->fetch_array();
+    
+         $profile_image = $row['profile_image'];
+          echo '<div class="special-link" style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center;">';
+          echo '<a href="user_info.php" ><img src="data:image/jpeg;base64,' . base64_encode($profile_image) . '" width="90" height="85" /></a>';
+          echo '</div>';
+      } else {
+          echo '<p><a class="special-link" href="user_info.php"><img src="../images/user_foto.png"  width="100" height="100"></a></p>';
+      }
+    
+    
+    // Закрываем соединение
+    $mysqli->close();
+    ?>
+    
+  </div>
 </nav>
+
 
 <!-- <body bgcolor="#e9a2a2"> -->
 <body bgcolor="FFFFFF">
@@ -125,7 +115,6 @@ $mysqli->close();
 </div>
 
   <?php include 'card_data.php'; ?>
-
 
 
 

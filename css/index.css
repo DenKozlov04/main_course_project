@@ -65,6 +65,20 @@ body .txt1 {
   line-height: 30px;
   letter-spacing: 0.145em;
 }
+.txt2{
+  right: 10%;
+  top: 950px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+  color: #000000;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 60px;
+  line-height: 30px;
+  letter-spacing: 0.145em;
+}
 .rect1{
   top: -109%;
   z-index: -3;
@@ -376,4 +390,19 @@ footer {
   top: 145%; /* Позиционируем по вертикали посередине */
   transform: translateY(-145%); /* Корректируем вертикальное выравнивание */
   right: 100px; /* Располагаем справа */
+}
+.sample-slider {
+  width: 70%;
+  height: 50%;
+  bottom: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1140px;
+  margin: 0 auto;
+  z-index: 1;
+  left: 30px;
+}
+
+.sample-slider img {
+  width: 100%;
 }

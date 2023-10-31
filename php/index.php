@@ -78,6 +78,7 @@
 <body bgcolor="FFFFFF">
 <div class="pict3"><img src="../images/pexels-arina-krasnikova-5708951.jpg"></div>
 <p class="txt1">EXPLORE THE WORLD WITH US</p>
+
  <div class ='search' method="GET" action="SearchAirlines.php">
   <!-- <a href="SearchAirlines.php"  action="SearchAirlines.php"class="search-link" name="search_button"></a> -->
     <div class = 'box1-input'style="border-radius: 50px 0 0 50px;" action="SearchAirlines.php">
@@ -123,7 +124,30 @@
 <div class="pict4"><img src="../images/bgSales.png"></div>
  <style>
 </style>
+<p class="txt2">Nepalaidiet garām karstas atlaides!!</p>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+<div class="swiper sample-slider">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="../images/dubai.png"></div>
+            <div class="swiper-slide"><img src="../images/dubai.png"></div>
+            <div class="swiper-slide"><img src="../images/dubai.png"></div>
+            <div class="swiper-slide"><img src="../images/dubai.png"></div>
+            <div class="swiper-slide"><img src="../images/dubai.png"></div>
+            <div class="swiper-slide"><img src="../images/dubai.png"></div>
+            <div class="swiper-slide"><img src="../images/dubai.png"></div>
+            <div class="swiper-slide"><img src="../images/dubai.png"></div>
+            <div class="swiper-slide"><img src="../images/dubai.png"></div>
+            <div class="swiper-slide"><img src="../images/dubai.png"></div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+    <script src="../JS/swiper.js"></script>
 </body>
+
 <footer>
         <div class="footer-content">
             <p>&copy; 2023 AVIA. Visas tiesības aizsargātas..</p>

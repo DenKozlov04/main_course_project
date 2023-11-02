@@ -46,11 +46,8 @@ class FlightTableManager {
     public function displayTable($isAdmin) {
         $records = $this->getRecords();   
         if ($_SESSION['user_id'] != 0) {
-            echo "<th>Buy</th>
-                <th>Order</th>";
         }else{echo"<th></th>
                    <th></th>";
-
         }
         
         echo "</tr>";
@@ -105,11 +102,10 @@ class FlightTableManager {
                     <div class='date2'>2023-06-11</div>
                 </div>
                 <div class='Price'>" . $row["T_price"] . "</div>
-                <button class='button1'>Buy</button>
             </div>
-            <div class='card-separator'></div>
         </div>
         <div class='card-separator'></div>";
+
     
     
             if ($isAdmin) {
@@ -130,7 +126,7 @@ class FlightTableManager {
                 echo "<td>
                         <form method='POST' action='purchase_checkout.php'>
                             <input type='hidden' name=''>
-                            <button type='submit'>Buy</button>
+                            <button class='button3'type='submit'>Buy</button>
                         </form>
                     </td>";
                 }
@@ -156,7 +152,7 @@ class FlightTableManager {
 
                     </td>";
             } else {
-                echo "<button type='submit'>Order</button>";
+                echo "<button class='button2'type='submit'>Order</button>";
             }
     
             echo "</form>

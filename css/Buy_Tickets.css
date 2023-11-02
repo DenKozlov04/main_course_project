@@ -75,6 +75,7 @@ body {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    margin-top: 5px;
   }
   .text2 {
     color: #848484;
@@ -186,21 +187,39 @@ body {
   .date2{
     margin-left: 320px;
   }
-  .button1{
-    font-family: 'Nunito Sans', sans-serif;
-    display: block;
-    transform: translateY(45px);
-    transition: transform .4s ease;
-    background: #DE6A6A;
-    border-radius: 50px;
-    width: 120px;
-    height: 43px;
-    border:#DE6A6A;
-    color: rgb(255, 255, 255);
-    font-size: 20px;
-    margin-left:23px;
-    margin-top: 220px;
-  }
+
   .card-separator {
-    height: 20px; /* Выберите желаемую величину отступа */
+    height: 0px; /* Выберите желаемую величину отступа */
 }
+.button2{
+   font-family: 'Nunito Sans', sans-serif;
+  display: block;
+  transform: translateY(45px);
+  transition: transform .4s ease;
+  background: #DE6A6A;
+  border-radius: 50px;
+  width: 120px;
+  height: 43px;
+  border:#DE6A6A;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  margin-left: 572px; 
+  
+}
+.button3{
+   font-family: 'Nunito Sans', sans-serif;
+  display: block;
+  transform: translateY(45px);
+  transition: transform .4s ease;
+  background: #DE6A6A;
+  border-radius: 50px;
+  width: 120px;
+  height: 43px;
+  border:#DE6A6A;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  margin-left: 572px; */
+}
+ .button2,.button3{
+  margin-top: 10px;
+} 

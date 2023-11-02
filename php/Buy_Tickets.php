@@ -44,21 +44,7 @@ class FlightTableManager {
     }
 
     public function displayTable($isAdmin) {
-        $records = $this->getRecords();
-        echo "<table>
-            <tr>
-                <th>ID</th>
-                <th>Airline</th>
-                <th>Airport Name</th>
-                <th>ITADA Code</th>
-                <th>City</th>
-                <th>Country</th>
-                <th>Ticket Price</th>
-                <th>Arrival Date</th>
-                <th>Departure Date</th>
-                <th>Arrival time</th>
-                <th>Departure time</th>";
-        
+        $records = $this->getRecords();   
         if ($_SESSION['user_id'] != 0) {
             echo "<th>Buy</th>
                 <th>Order</th>";
@@ -70,18 +56,61 @@ class FlightTableManager {
         echo "</tr>";
     
         foreach ($records as $row) {
-            echo "<tr>
-                    <td>" . $row["id"] . "</td>
-                    <td>" . $row["Airline"] . "</td>
-                    <td>" . $row["airport_name"] . "</td>
-                    <td>" . $row["ITADA"] . "</td>
-                    <td>" . $row["City"] . "</td>
-                    <td>" . $row["country"] . "</td>
-                    <td>" . $row["T_price"] . "</td>
-                    <td>" . $row["arrival_date"] . "</td>
-                    <td>" . $row["departure_date"] . "</td>
-                    <td>" . $row["arrival_time"] . "</td>
-                    <td>" . $row["departure_time"] . "</td>";
+            echo "<div class='boxtickets'>
+            <div class='TicketRectangle'>
+                <div class='line1'></div>
+                <div class='line2'></div>
+                <div class='InsideBoxTicketUP'>
+                    <div class='text1'>" . $row["Airline"] . "</div>
+                    <div class='text2'>Arrival airport: " . $row["airport_name"] . "</div>
+                    <div class='DepartTime'>" . $row["departure_date"] . "</div>
+                    <div class='ArrivTime'>" . $row["arrival_time"] . "</div>
+                    <div class='containerWithRectangles'>
+                        <div class='rectange3'></div>
+                        <div class='rectangle4'></div>
+                        <div class='line3'></div>
+                        <div class='text3'>В пути: 16ч05м</div>
+                        <div class='ItadArriv'>RIX</div>
+                        <div class='ItadaDepart'>" . $row["ITADA"] . "</div>
+                    </div>
+                    <div class='PlaneIcons'>
+                        <i class='fas fa-plane-departure' style='color: #848484;'></i>
+                        <i class='fas fa-plane-arrival' style='color: #848484; margin-left: 215px;'></i>
+                    </div>
+                    <div class='text4'>Riga</div>
+                    <div class='text5'>" . $row["City"] . "</div>
+                    <div class='date1'>" . $row["arrival_date"] . "</div>
+                    <div class='date2'>" . $row["departure_date"] . "</div>
+                </div>
+                <div class='InsideBoxTicketDOWN'>
+                    <div class='text1'>Riga-Paris</div>
+                    <div class='text2'>Arrival airport: Rigas airports</div>
+                    <div class='DepartTime'>12:30:00</div>
+                    <div class='ArrivTime'>12:30:00</div>
+                    <div class='containerWithRectangles'>
+                        <div class='rectange3'></div>
+                        <div class='rectangle4'></div>
+                        <div class='line3'></div>
+                        <div class='text3'>В пути: 16ч05м</div>
+                        <div class='ItadArriv'>PRS</div>
+                        <div class='ItadaDepart'>" . $row["ITADA"] . "</div>
+                    </div>
+                    <div class='PlaneIcons'>
+                        <i class='fas fa-plane-departure' style='color: #848484;'></i>
+                        <i class='fas fa-plane-arrival' style='color: #848484; margin-left: 215px;'></i>
+                    </div>
+                    <div class='text4'>Paris</div>
+                    <div class='text5'>Riga</div>
+                    <div class='date1'>2023-05-11</div>
+                    <div class='date2'>2023-06-11</div>
+                </div>
+                <div class='Price'>" . $row["T_price"] . "</div>
+                <button class='button1'>Buy</button>
+            </div>
+            <div class='card-separator'></div>
+        </div>
+        <div class='card-separator'></div>";
+    
     
             if ($isAdmin) {
                 echo "<td>
@@ -109,7 +138,7 @@ class FlightTableManager {
     
             echo "<td>
                   <form method='POST' action='Booking.php'>
-                      <input type='hidden' name='Order' value='" . $row['id'] . "'> <!-- Возможно, вы хотели передать значение id здесь -->
+                      <input type='hidden' name='Order' value='" . $row['id'] . "'> 
                       <input type='hidden' name='airline_id' value='" . $row['id'] . "'>
                       <input type='hidden' name='Airline' value='" . $row['Airline'] . "'>
                       <input type='hidden' name='airport_name' value='" . $row['airport_name'] . "'>

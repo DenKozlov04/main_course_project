@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-  
+<li><a class="MainPageBtn" href="../php/index.php">On the main page</a></li>
 </body>
 </html>
 
@@ -46,17 +46,18 @@ class FlightTableManager {
     public function displayTable($isAdmin) {
         $records = $this->getRecords();   
         if ($_SESSION['user_id'] != 0) {
-        }else{echo"<th></th>
-                   <th></th>";
+        }else{echo"
+                   ";
         }
         
-        echo "</tr>";
+        echo "";
     
         foreach ($records as $row) {
             echo "<div class='boxtickets'>
             <div class='TicketRectangle'>
                 <div class='line1'></div>
                 <div class='line2'></div>
+                <div class='card-separator'></div>
                 <div class='InsideBoxTicketUP'>
                     <div class='text1'>" . $row["Airline"] . "</div>
                     <div class='text2'>Arrival airport: " . $row["airport_name"] . "</div>
@@ -101,68 +102,63 @@ class FlightTableManager {
                     <div class='date1'>2023-05-11</div>
                     <div class='date2'>2023-06-11</div>
                 </div>
-                <div class='Price'>" . $row["T_price"] . "</div>
-            </div>
-        </div>
-        <div class='card-separator'></div>";
-
-    
-    
-            if ($isAdmin) {
-                echo "<td>
-                        <form method='POST' action='edit_record.php'>
-                            <input type='hidden' name='edit' value='" . $row['id'] . "'>
-                            <button type='submit'>Edit</button>
-                        </form>
-                        <form method='POST' action='Buy_Tickets.php'>
-                            <input type='hidden' name='delete' value='" . $row['id'] . "'>
-                            <button type='submit'>Delete</button>
-                        </form>
-                    </td>";
-            } else {
-                if ($_SESSION['user_id'] == 0) {
-
-                } else {
-                echo "<td>
-                        <form method='POST' action='purchase_checkout.php'>
-                            <input type='hidden' name=''>
-                            <button class='button3'type='submit'>Buy</button>
-                        </form>
-                    </td>";
+                <div class='Price'>" . $row["T_price"] ;
+                if ($_SESSION['user_id'] != 0) {
+                    echo "<form method='POST' action='purchase_checkout.php'>
+                        <input type='hidden' name=''>
+                        <button class='button2' type='submit'>Buy</button>
+                    </form>";   
                 }
-            }
-    
-            echo "<td>
-                  <form method='POST' action='Booking.php'>
-                      <input type='hidden' name='Order' value='" . $row['id'] . "'> 
-                      <input type='hidden' name='airline_id' value='" . $row['id'] . "'>
-                      <input type='hidden' name='Airline' value='" . $row['Airline'] . "'>
-                      <input type='hidden' name='airport_name' value='" . $row['airport_name'] . "'>
-                      <input type='hidden' name='ITADA' value='" . $row['ITADA'] . "'>
-                      <input type='hidden' name='City' value='" . $row['City'] . "'>
-                      <input type='hidden' name='T_price' value='" . $row['T_price'] . "'>
-                      <input type='hidden' name='arrival_date' value='" . $row['arrival_date'] . "'>
-                      <input type='hidden' name='departure_date' value='" . $row['departure_date'] . "'>
-                      <input type='hidden' name='arrival_time' value='" . $row['arrival_time'] . "'>
-                      <input type='hidden' name='departure_time' value='" . $row['departure_time'] . "'>";
-    
-            if ($_SESSION['user_id'] == 0) {
-                echo "<td>
-                            <li><a href='../html/autorization.html'>If you want to order ticket you must log in first</a></li>
+                
+                if ($isAdmin) {
+                    echo "<form method='POST' action='edit_record.php'>
+                        <input type='hidden' name='edit' value='" . $row['id'] . "'>
+                        <button class='button2' type='submit'>Edit</button>
+                    </form>
+                    <form method='POST' action='Buy_Tickets.php'>
+                        <input type='hidden' name='delete' value='" . $row['id'] . "'>
+                        <button class='button3' type='submit'>Delete</button>
+                    </form>";
+                }
+                
+                    echo "<form method='POST' action='Booking.php'>
+                        <input type='hidden' name='Order' value='" . $row['id'] . "'> 
+                        <input type='hidden' name='airline_id' value='" . $row['id'] . "'>
+                        <input type='hidden' name='Airline' value='" . $row['Airline'] . "'>
+                        <input type='hidden' name='airport_name' value='" . $row['airport_name'] . "'>
+                        <input type='hidden' name='ITADA' value='" . $row['ITADA'] . "'>
+                        <input type='hidden' name='City' value='" . $row['City'] . "'>
+                        <input type='hidden' name='T_price' value='" . $row['T_price'] . "'>
+                        <input type='hidden' name='arrival_date' value='" . $row['arrival_date'] . "'>
+                        <input type='hidden' name='departure_date' value='" . $row['departure_date'] . "'>
+                        <input type='hidden' name='arrival_time' value='" . $row['arrival_time'] . "'>
+                        <input type='hidden' name='departure_time' value='" . $row['departure_time'] . "'>
+                        ";
 
-                    </td>";
-            } else {
-                echo "<button class='button2'type='submit'>Order</button>";
-            }
+                        if ($_SESSION['user_id'] == 0) {
+                            echo "<a class='button4' href='../html/autorization.html'>Log in first</a>";
+                        } else {
+                            echo "<button class='button3' type='submit'>Order</button>";
+                        }
+
+                        echo "</form>";
+
     
-            echo "</form>
-            </td>";
+    echo "</div><div class='card-separator2'></div>";
+    "</div>
+</div>";
+
     
-            echo "</tr>";
-        }
     
-        echo "</table>";
+       
+    
+      
+       
+
     }
+
+
+}
     
 
     public function closeConnection() {
@@ -187,6 +183,3 @@ if (isset($_POST['delete'])) {
 $tableManager->displayTable($isAdmin);
 $tableManager->closeConnection();
 ?>
-<!DOCTYPE html>
-<li><a href="../php/index.php">On the main page</a></li>
-</html>

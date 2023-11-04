@@ -55,7 +55,7 @@ body {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    margin-left: 60px;
+    margin-left: 50px;
     margin-top: -360px;
   }
 
@@ -84,8 +84,8 @@ body {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    display: inline-block; /* Сделать "text2" инлайновым элементом */
-    margin-left: -40px;
+    display: inline-block; 
+    margin-left: 10px;
   }
   .DepartTime {
     display: block; /* Set DepartTime and ArrivTime as block elements */
@@ -189,37 +189,55 @@ body {
   }
 
   .card-separator {
-    height: 0px; /* Выберите желаемую величину отступа */
+    height: 15px; /* Выберите желаемую величину отступа */
 }
-.button2{
-   font-family: 'Nunito Sans', sans-serif;
-  display: block;
-  transform: translateY(45px);
-  transition: transform .4s ease;
-  background: #DE6A6A;
-  border-radius: 50px;
-  width: 120px;
-  height: 43px;
-  border:#DE6A6A;
-  color: rgb(255, 255, 255);
-  font-size: 20px;
-  margin-left: 572px; 
+.card-separator2 {
+  height: 60%; /* Выберите желаемую величину отступа */
+}
+
+.Price .button2{
+  justify-content: center;
+  align-items: center;
+}
+.Price.button3{
+  justify-content: center;
+  align-items: center;
   
 }
-.button3{
-   font-family: 'Nunito Sans', sans-serif;
-  display: block;
+.Price .button2, .Price .button3 {
+  /* Ваши стили для кнопок .button2 и .button3 внутри .Price */
+  z-index: 999;
+  margin-left: -43px;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(45px);
+    transition: transform .4s ease;
+    background: #DE6A6A;
+    border-radius: 50px;
+    width: 150px;
+    height: 40px;
+    border:#DE6A6A;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    margin-top: 5px;
+}
+.button4 {
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
   transform: translateY(45px);
   transition: transform .4s ease;
   background: #DE6A6A;
   border-radius: 50px;
-  width: 120px;
-  height: 43px;
-  border:#DE6A6A;
+  border: #DE6A6A;
   color: rgb(255, 255, 255);
   font-size: 20px;
-  margin-left: 572px; */
+  position: relative;
+  top: 55px;
+  padding: 8px 30px;
+  left: -45px;
+  text-decoration: none;
 }
- .button2,.button3{
-  margin-top: 10px;
-} 
+
+
+

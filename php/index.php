@@ -149,10 +149,17 @@
 </body>
 
 <footer>
-        <div class="footer-content">
-            <p>&copy; 2023 AVIA. Visas tiesības aizsargātas..</p>
-        </div>
-    </footer>
+    <div class="footer-content">
+        <p>&copy; 2023 AVIA. Visas tiesības aizsargātas.</p>
+        <p>Подпишитесь на нас в социальных сетях:</p>
+        <ul class="social-links">
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Instagram</a></li>
+        </ul>
+    </div>
+</footer>
+
 
 </html>
 

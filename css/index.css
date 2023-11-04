@@ -378,12 +378,18 @@ footer {
   color: #fff; 
   padding: 20px; 
   text-align: center; 
+  font-family:'Nunito Sans', sans-serif;
 }
 
 .footer-content {
   max-width: 800px; 
   margin: 0 auto; 
 }
+.social-links a {
+  color: #fff; /* Белый цвет текста */
+  text-decoration: none; /* Убираем подчеркивание */
+}
+
 
 .special-link {
   position: absolute;

@@ -137,6 +137,9 @@ class FlightTableManager {
 
                         if ($_SESSION['user_id'] == 0) {
                             echo "<a class='button4' href='../html/autorization.html'>Log in first</a>";
+                            echo "<div class='element1'>___</div>
+                            <div class='element2'>___</div>";
+                            
                         } else {
                             echo "<button class='button3' type='submit'>Order</button>";
                         }
@@ -148,19 +151,10 @@ class FlightTableManager {
     "</div>
 </div>";
 
-    
-    
-       
-    
-      
-       
-
     }
-
 
 }
     
-
     public function closeConnection() {
         $this->mysqli->close();
     }

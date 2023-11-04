@@ -195,6 +195,7 @@ body {
   height: 60%; /* Выберите желаемую величину отступа */
 }
 
+
 .Price .button2{
   justify-content: center;
   align-items: center;
@@ -237,6 +238,7 @@ body {
   padding: 8px 30px;
   left: -45px;
   text-decoration: none;
+  
 }
 
 

@@ -9,6 +9,7 @@
 </head>
 <body>
 <li><a class="MainPageBtn" href="../php/index.php">On the main page</a></li>
+<!-- hot resort offers и картинку отдыхающего человека на шизлонге вставить -->
 </body>
 </html>
 

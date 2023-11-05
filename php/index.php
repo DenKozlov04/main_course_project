@@ -58,7 +58,7 @@
           $row = $result->fetch_array();
     
          $profile_image = $row['profile_image'];
-          echo '<div class="special-link" style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center;">';
+          echo '<div class="special-link2" style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center;">';
           echo '<a href="user_info.php" ><img src="data:image/jpeg;base64,' . base64_encode($profile_image) . '" width="90" height="85" /></a>';
           echo '</div>';
       } else {

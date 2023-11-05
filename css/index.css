@@ -392,8 +392,17 @@ footer {
 
 
 .special-link {
+  z-index: 999;
   position: absolute;
   margin-top: -105px;
+  /* top: 147%; Позиционируем по вертикали посередине */
+  transform: translateY(-145%); /* Корректируем вертикальное выравнивание */
+  right: 100px; /* Располагаем справа */
+}
+.special-link2 {
+  z-index: 999;
+  position: absolute;
+  margin-top: 0px;
   /* top: 147%; Позиционируем по вертикали посередине */
   transform: translateY(-145%); /* Корректируем вертикальное выравнивание */
   right: 100px; /* Располагаем справа */

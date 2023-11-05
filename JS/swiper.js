@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
     const swiper = new Swiper(".sample-slider", {
         loop: true,
-        slidesPerView: 4,
+        slidesPerView: 3,
         centeredSlides: true,
         spaceBetween: 15,
         autoplay: {
-            delay: 2000,
+            delay: 10000,
         },
         pagination: {
             el: ".swiper-pagination",

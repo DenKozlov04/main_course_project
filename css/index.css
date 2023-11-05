@@ -16,7 +16,36 @@
     transform: translateY(-18px);
     padding-left: 15px;
   }
+  .text-overlay {
+      position: absolute;
+      top: 57%; /* Установите желаемое значение для вертикального положения текста */
+      left: 40%; /* Центрируем текст по горизонтали */
+      transform: translateX(-30%); /* Центрируем текст по горизонтали относительно его ширины */
+      display: flex;
+      justify-content: center;
+      justify-content: space-evenly;
+      color: #000000;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 20px;
+      z-index: 1; /* Убедитесь, что z-index у текста выше, чем у других элементов, которые могут перекрывать его */ 
+  }
+  .text-overlay2{
 
+  }
+  .txt3{
+    left:390px;
+    top:1980px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    color: #000000;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 30px;
+  }
   .pict4{
   position: relative;
   display: flex; 
@@ -66,8 +95,8 @@ body .txt1 {
   letter-spacing: 0.145em;
 }
 .txt2{
-  right: 10%;
-  top: 950px;
+  right: 38%;
+  top: 999px;
   position: absolute;
   display: flex;
   justify-content: center;
@@ -75,9 +104,8 @@ body .txt1 {
   color: #000000;
   font-family: 'Poppins', sans-serif;
   font-weight: 800;
-  font-size: 60px;
+  font-size: 40px;
   line-height: 30px;
-  letter-spacing: 0.145em;
 }
 .rect1{
   top: -109%;
@@ -417,8 +445,10 @@ footer {
   margin: 0 auto;
   z-index: 1;
   left: 30px;
+  padding: 0;
 }
 
 .sample-slider img {
   width: 100%;
+  padding: 0;
 }

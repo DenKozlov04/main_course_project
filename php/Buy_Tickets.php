@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/Buy_Tickets.css">
 
-    <title>Document</title>
+    <title>ticket purchase</title>
 </head>
 <body>
 <li><a class="MainPageBtn" href="../php/index.php">On the main page</a></li>

@@ -128,18 +128,27 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 
+<div class= "txt3">Ceļojiet ērti ar mums</div>
 <div class="swiper sample-slider">
         <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="../images/dubai.png"></div>
-            <div class="swiper-slide"><img src="../images/dubai.png"></div>
-            <div class="swiper-slide"><img src="../images/dubai.png"></div>
-            <div class="swiper-slide"><img src="../images/dubai.png"></div>
-            <div class="swiper-slide"><img src="../images/dubai.png"></div>
-            <div class="swiper-slide"><img src="../images/dubai.png"></div>
-            <div class="swiper-slide"><img src="../images/dubai.png"></div>
-            <div class="swiper-slide"><img src="../images/dubai.png"></div>
-            <div class="swiper-slide"><img src="../images/dubai.png"></div>
-            <div class="swiper-slide"><img src="../images/dubai.png"></div>
+            <div class="swiper-slide" ><a href="../html/baggage_check_in.html"><img src="../images/1card.png"></a>
+            <div class="text-overlay">Kā reģistrēt bagāžu</div>
+            </div>
+            <div class="swiper-slide"><a href="../html/place_selection.html"><img src="../images\2card.png"></a>
+            <div class="text-overlay">Vietas izvēle</div>
+          </div>
+            <div class="swiper-slide"><a href="../html/luggage_weight.html"><img src="../images\3card.png"></a>
+            <div class="text-overlay">Bagāžas svars</div>
+          </div>
+            <div class="swiper-slide"><a href="../html/animals_ journey.html"><img src="../images\4card.png"></a>
+            <div class="text-overlay">Dzīvnieki ceļojumā</div>
+          </div>
+            <div class="swiper-slide"><a href="../html/discount offers.html"><img src="../images\5card.png"></a>
+            <div class="text-overlay">Atlaižu piedāvājumi</div>
+          </div>
+            <div class="swiper-slide"><a href="../html/Ticket_cancel.html"><img src="../images\6card.png"></a>
+            <div class="text-overlay">Biļešu atcelšana</div>
+          </div>
         </div>
         <div class="swiper-pagination"></div>
         <div class="swiper-button-prev"></div>
@@ -147,6 +156,7 @@
     </div>
     <script src="../JS/swiper.js"></script>
 </body>
+
 
 <footer>
     <div class="footer-content">

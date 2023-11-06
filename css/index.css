@@ -35,7 +35,7 @@
   }
   .txt3{
     left:390px;
-    top:1980px;
+    top:2350px;
     position: absolute;
     display: flex;
     justify-content: center;
@@ -54,7 +54,7 @@
   z-index: 997;
   width: 100%;
   height: 100px;
-  bottom:1850px;
+  bottom: 2200px;
  
   }
 .pict3{

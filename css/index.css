@@ -305,6 +305,32 @@ nav {
   font-family:'Nunito Sans', sans-serif;
     
 }
+select.dropdown-menu {
+  font-family: 'Nunito Sans', sans-serif;
+  background: #3d3d3d;
+  color: white;
+  font-size: 15px;
+  padding: 7px 7px;
+  border-radius: 3px;
+  z-index: 999;
+  text-transform: uppercase;
+  border: none; /* Убираем границу для элемента select */
+  appearance: none; /* Убираем стили по умолчанию (появляются в Firefox) */
+  height: 72px;
+  width: 70px;
+  margin-top:4px;
+}
+
+select.dropdown-menu:focus {
+  outline: none; /* Добавлено свойство outline для убирания обводки при фокусировке */
+}
+
+/* Стили для опций выпадающего списка */
+option.dropdown-menu-content {
+  font-family:'Nunito Sans', sans-serif;
+  background: #dfdfdf;
+}
+
 
 label.pict1{
 color: #ffffff;

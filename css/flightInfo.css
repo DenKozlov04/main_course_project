@@ -1,0 +1,116 @@
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Помещаем видео под контент */
+}
+
+.background-video video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    filter: blur(2px); /* Замените 5px на нужную вам интенсивность размытия */
+}
+
+
+.custom-rectangle {
+    width: 1520px;
+    height: 1050px;
+    border-radius: 50px;
+    background: #F5F5F5;
+    margin: auto;
+    z-index: 1;
+    position: relative; /* Добавляем position: relative; для правильного позиционирования дочерних элементов */
+}
+
+.custom-rectangle2 {
+    width: 15px;
+    height: 1050px;
+    background: #D9D9D9;
+    z-index: 2;
+    position: absolute;
+    right: 1047px; /* Добавляем отступ справа */
+}
+.GoogleMap {
+    width: 1045px;
+    height: 1046px;
+    left: 473px; /* Добавляем отступ справа */
+    z-index: 2;
+    position: absolute;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    overflow: hidden; /* Обрезаем содержимое, чтобы закругление работало */
+}
+/* styles.css */
+
+.Image {
+    margin-left: 11px;
+    margin-top: 20px; /* Добавляем отступ вниз */
+    width: 438px;
+    height: 468px;
+    border-radius: 10px;
+    overflow: hidden; /* Обрезаем содержимое, чтобы показать закругление */
+}
+
+
+.Image img {
+    margin-top: 40px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Заполняем контейнер сохраняя соотношение сторон */
+    border-radius: 10px;
+}
+.text1{
+
+    font-family:'Nunito Sans', sans-serif;
+    font-weight: 200;
+    font-size: 30px;
+    line-height: 40px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+.text2 {
+    margin-top: 20px;
+    margin-left: 10px;
+    font-family:'Nunito Sans', sans-serif;
+    width: 437px;
+    height: 350px;
+    overflow: hidden; /* Обрезаем содержимое, чтобы вписаться в размеры блока */
+    font-size: 20px;
+}
+.PrevPage {
+    margin-top: 50px;
+    margin-left: 40px;
+    transform: translateY(30px); /* Используем трансформацию для перемещения вниз */
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 20px;
+    color: #DE6A6A;
+}
+
+.PrevPage a {
+    text-decoration: none;
+    outline: none; /* Убираем синюю обводку (outline) */
+    color: #DE6A6A;
+}
+.button1{
+    margin-left: 70px;
+    margin-top: 20px;
+    width: 300px;
+    height: 60px;
+    background: #DE6A6A;
+    border-radius: 50px;
+    border: #DE6A6A;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    text-decoration: none;
+}

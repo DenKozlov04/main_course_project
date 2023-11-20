@@ -25,7 +25,7 @@
       </label>
       <li><a href="../php/Buy_Tickets.php">buy tickets</a></li>
       <li><a href="../html/AboutUs.html">About us</a></li>
-      <li><a href="../php/some page.php">Some page</a></li>
+      <li><a href="../html/flightInfo.html">Some page</a></li>
       <li><a href="../php/reviews.php">service reviews</a></li>
       <?php
         session_start();

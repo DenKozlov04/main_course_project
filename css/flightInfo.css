@@ -114,3 +114,32 @@ body, html {
     font-size: 20px;
     text-decoration: none;
 }
+.custom-rectangle2L {
+    width: 1520px;
+    min-height: 1050px; /* Заменил height на min-height */
+    border-radius: 50px;
+    background: #F5F5F5;
+    margin: auto;
+    z-index: 1;
+    position: relative;
+    transform: translateY(10px);
+}
+
+.CommentsPlace {
+    background: #4caf50;
+    width: 1520px;
+    height: 120px;
+    border-top-right-radius: 50px;
+    border-top-left-radius: 50px;
+    position: absolute;
+    top:0px;
+}
+.text3{
+    margin-top: 30px;
+    margin-left: 30px;
+    font-family:'Nunito Sans', sans-serif;
+    width: 437px;
+    height: 350px;
+    overflow: hidden; /* Обрезаем содержимое, чтобы вписаться в размеры блока */
+    font-size: 50px;
+}

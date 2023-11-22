@@ -116,14 +116,16 @@ body, html {
 }
 .custom-rectangle2L {
     width: 1520px;
-    min-height: 1050px; /* Заменил height на min-height */
+    min-height: 1050px;
     border-radius: 50px;
     background: #F5F5F5;
     margin: auto;
     z-index: 1;
     position: relative;
     transform: translateY(10px);
+    margin-bottom: 10px; /* Добавлен отступ снизу в 10px */
 }
+
 
 .CommentsPlace {
     background: #4caf50;
@@ -132,14 +134,200 @@ body, html {
     border-top-right-radius: 50px;
     border-top-left-radius: 50px;
     position: absolute;
-    top:0px;
+    top: 0px;
+
 }
-.text3{
+
+.text3 {
     margin-top: 30px;
     margin-left: 30px;
-    font-family:'Nunito Sans', sans-serif;
-    width: 437px;
+    font-family: 'Nunito Sans', sans-serif;
+    width: 700px;
     height: 350px;
-    overflow: hidden; /* Обрезаем содержимое, чтобы вписаться в размеры блока */
+    overflow: hidden;
     font-size: 50px;
+    color: #F5F5F5;
+
+}
+
+.text4 {
+    font-family: 'Nunito Sans', sans-serif;
+    overflow: hidden;
+    font-size: 25px;
+    color: #000000;
+    margin-top: -200px;
+    margin-left: 30px;
+}
+.text5 {
+    font-family: 'Nunito Sans', sans-serif;
+    overflow: hidden;
+    font-size: 20px;
+    color: #000000;
+    margin-top:30px;
+    margin-left: 30px;
+
+    padding-right:20px;
+}
+.Image2 {
+    text-align: center; /* Центрируем содержимое по горизонтали */
+    position: relative; 
+}
+
+.Image2 img {
+    width: 100%; /* Убедитесь, что изображение занимает всю ширину контейнера */
+    height: auto;
+    margin: 0 auto; /* Устанавливаем автоматические отступы с обеих сторон */
+    position: relative;
+}
+
+.buttonBox1{
+    width: 200px;
+    margin-left: 300px;
+    bottom: 191px;
+    left:-10px;
+    z-index: 10;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
+}
+.buttonBox1 button {
+    background-color:#06dd0d;
+    width: 30px;
+    height: 30px;
+    margin-right: 16px; /* Отступ между кнопками */
+    margin-top: 5px; /* Отступ между кнопками */
+    margin-bottom: 1px; /* Добавляем отступ снизу между кнопками */
+}
+.buttonBox2{
+    width: 200px;
+    margin-left: 300px;
+    bottom:86px;
+    left:-10px;
+    z-index: 10;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
+}
+.buttonBox2 button {
+    background-color:#06dd0d;
+    width: 30px;
+    height: 30px;
+    margin-right: 16px; /* Отступ между кнопками */
+    margin-top: 5px; /* Отступ между кнопками */
+    margin-bottom: 1px; /* Добавляем отступ снизу между кнопками */
+    
+}
+.buttonBox3{
+    width: 160px;
+    margin-left: 300px;
+    bottom:185px;
+    left:200px;
+    z-index: 10;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
+}
+.buttonBox3 button {
+    background-color:#06dd0d;
+    width: 25px;
+    height: 25px;
+    margin-right: 14px; /* Отступ между кнопками */
+    margin-top: 1px; /* Отступ между кнопками */
+    margin-bottom: 0px; /* Добавляем отступ снизу между кнопками */
+    
+}
+.buttonBox4{
+    width: 160px;
+    margin-left: 300px;
+    bottom:85px;
+    left:200px;
+    z-index: 10;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
+}
+.buttonBox4 button {
+    background-color:#06dd0d;
+    width: 25px;
+    height: 25px;
+    margin-right: 14px; /* Отступ между кнопками */
+    margin-top: 1px; /* Отступ между кнопками */
+    margin-bottom: 0px; /* Добавляем отступ снизу между кнопками */
+    
+}
+.buttonBox5{
+    width: 160px;
+    margin-left: 300px;
+    bottom:185px;
+    left:358px;
+    z-index: 10;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
+}
+.buttonBox5 button {
+    background-color:#06dd0d;
+    width: 25px;
+    height: 25px;
+    margin-right: 14px; /* Отступ между кнопками */
+    margin-top: 1px; /* Отступ между кнопками */
+    margin-bottom: 0px; /* Добавляем отступ снизу между кнопками */
+    
+}
+.buttonBox6{
+    width: 160px;
+    margin-left: 300px;
+    bottom:85px;
+    left:358px;
+    z-index: 10;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
+}
+.buttonBox6 button {
+    background-color:#06dd0d;
+    width: 25px;
+    height: 25px;
+    margin-right: 14px; /* Отступ между кнопками */
+    margin-top: 1px; /* Отступ между кнопками */
+    margin-bottom: 0px; /* Добавляем отступ снизу между кнопками */
+    
+}
+.buttonBox7{
+    width: 550px;
+    margin-left: 300px;
+    bottom:185px;
+    left:510px;
+    z-index: 10;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
+}
+.buttonBox7 button {
+    background-color:#06dd0d;
+    width: 25px;
+    height: 25px;
+    margin-right: 6px; /* Отступ между кнопками */
+    margin-top: 1px; /* Отступ между кнопками */
+    margin-bottom: 0px; /* Добавляем отступ снизу между кнопками */
+    
+}
+.buttonBox8{
+    width: 550px;
+    margin-left: 300px;
+    bottom:85px;
+    left:510px;
+    z-index: 10;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
+}
+.buttonBox8 button {
+    background-color:#06dd0d;
+    width: 25px;
+    height: 25px;
+    margin-right: 6px; /* Отступ между кнопками */
+    margin-top: 1px; /* Отступ между кнопками */
+    margin-bottom: 0px; /* Добавляем отступ снизу между кнопками */
+    
 }

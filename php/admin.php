@@ -65,13 +65,14 @@ class FlightDataValidator {
 
         // Используйте подготовленные запросы для защиты от SQL-инъекций
         $stmt = $mysql->prepare("INSERT INTO `airports/airlines` (`Airline`, `airport_name`, `ITADA`, 
-            `City`, `country`, `T_price`, `departure_date`, `arrival_date`,
-            `arrival_time`, `departure_time`, `created_at`) 
-            VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now())");
-
-        $stmt->bind_param("ssssssssss", $this->data['Airline'], $this->data['airport_name'], $this->data['ITADA'],
-            $this->data['City'], $this->data['country'], $this->data['T_price'], $this->data['departure_date'],
-            $this->data['arrival_date'], $this->data['arrival_time'], $this->data['departure_time']);
+        `City`, `country`, `T_price`, `departure_date`, `arrival_date`,
+        `arrival_time`, `departure_time`, `googleMapsLink`, `created_at`) 
+        VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now())");
+    
+    $stmt->bind_param("sssssssssss", $this->data['Airline'], $this->data['airport_name'], $this->data['ITADA'],
+        $this->data['City'], $this->data['country'], $this->data['T_price'], $this->data['departure_date'],
+        $this->data['arrival_date'], $this->data['arrival_time'], $this->data['departure_time'], $this->data['googleMapsLink']);
+    
 
         $stmt->execute();
 
@@ -93,6 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         'arrival_date' => $_POST['arrival_date'],
         'arrival_time' => $_POST['arrival_time'],
         'departure_time' => $_POST['departure_time'],
+        'googleMapsLink' => $_POST['googleMapsLink'], // Добавлено поле googleMapsLink
     ];
 
     $validator = new FlightDataValidator($flightData);

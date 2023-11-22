@@ -1,4 +1,64 @@
- 
+<?php
+session_start();
+
+if (isset($_SESSION['admin_id'])) {
+    // echo $_SESSION['admin_id'];
+
+    $mysqli = new mysqli("localhost", "root", "", "airflightsdatabase");
+
+    if ($mysqli->connect_error) {
+        die("Connection failed: " . $mysqli->connect_error);
+    }
+
+    $result = $mysqli->query("SELECT booking_id, user_id, flight_id, booking_date, seat_number FROM `bookings`");
+
+    $data = array(); 
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row; 
+        }
+    } else {
+        echo "No bookings from users";
+    }
+} else {
+    echo "Admin ID is not set in session.";
+}
+?>
+
+<table action="SubmitInfo_php">
+  <tr>
+    <th>booking ID</th>
+    <th>user ID</th>
+    <th>flight id</th>
+    <th>booking_date </th>
+    <th>seat_number </th>
+  </tr>
+
+  <?php
+    // data содержит все строки из результата запроса
+    foreach ($data as $row) {
+        $booking_id = $row['booking_id'];
+        $user_id = $row['user_id'];
+        $flight_id = $row['flight_id'];
+        $booking_date = $row['booking_date'];
+        $seat_number = $row['seat_number'];
+        
+        // Вывод данных для каждой строки
+        echo "<tr>";
+        echo "<td>" . $booking_id . "</td>";
+        echo "<td>" . $user_id . "</td>";
+        echo "<td>" . $flight_id . "</td>";
+        echo "<td>" . $booking_date . "</td>";
+        echo "<td>" . $seat_number . "</td>";
+        echo "</tr>";
+    }
+  ?>
+
+</table>
+<li><a href="" action="" name="delete">delete</a></li>
+</body>
+</html> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,6 +131,11 @@
                 <input type="text" id="departure_time" name="departure_time" placeholder="Write departure time for example: 12:30:00">
             </div>
         </div>
+        <div class='googleMapsLink'>
+            <div class='input-googleMapsLink'>
+                <input type="text" id="googleMapsLink" name="googleMapsLink" placeholder="Insert a link to the location on Google Maps (you can obtain it by opening the Google Maps website, clicking on the link/code, and selecting the code (!!copy only the link itself!!) without additional code.">
+            </div>
+        </div>
 
         <div class='upload_changes'>
             <div class='input-create-profile'>
@@ -104,66 +169,6 @@
 
 </form>
 
-<?php
-session_start();
 
-if (isset($_SESSION['admin_id'])) {
-    // echo $_SESSION['admin_id'];
-
-    $mysqli = new mysqli("localhost", "root", "", "airflightsdatabase");
-
-    if ($mysqli->connect_error) {
-        die("Connection failed: " . $mysqli->connect_error);
-    }
-
-    $result = $mysqli->query("SELECT booking_id, user_id, flight_id, booking_date, seat_number FROM `bookings`");
-
-    $data = array(); 
-
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            $data[] = $row; 
-        }
-    } else {
-        echo "No bookings from users";
-    }
-} else {
-    echo "Admin ID is not set in session.";
-}
-?>
-
-<table action="SubmitInfo_php">
-  <tr>
-    <th>booking ID</th>
-    <th>user ID</th>
-    <th>flight id</th>
-    <th>booking_date </th>
-    <th>seat_number </th>
-  </tr>
-
-  <?php
-    // data содержит все строки из результата запроса
-    foreach ($data as $row) {
-        $booking_id = $row['booking_id'];
-        $user_id = $row['user_id'];
-        $flight_id = $row['flight_id'];
-        $booking_date = $row['booking_date'];
-        $seat_number = $row['seat_number'];
-        
-        // Вывод данных для каждой строки
-        echo "<tr>";
-        echo "<td>" . $booking_id . "</td>";
-        echo "<td>" . $user_id . "</td>";
-        echo "<td>" . $flight_id . "</td>";
-        echo "<td>" . $booking_date . "</td>";
-        echo "<td>" . $seat_number . "</td>";
-        echo "</tr>";
-    }
-  ?>
-
-</table>
-<li><a href="" action="" name="delete">delete</a></li>
-</body>
-</html>
 
 

@@ -70,7 +70,7 @@ if (isset($_SESSION['admin_id'])) {
 </head>
 <body>
 
-<form action="../php/admin.php" method="POST">
+<form action="../php/admin.php" method="POST" enctype="multipart/form-data">
     <div class='changes'>
         <div class='Airline'>
             <div class='input-Airline'>
@@ -136,6 +136,12 @@ if (isset($_SESSION['admin_id'])) {
                 <input type="text" id="googleMapsLink" name="googleMapsLink" placeholder="Insert a link to the location on Google Maps (you can obtain it by opening the Google Maps website, clicking on the link/code, and selecting the code (!!copy only the link itself!!) without additional code.">
             </div>
         </div>
+        <div class='description' >
+            <div class='input-description'>
+                <textarea id="description" name="description" placeholder="Write your description here...!!!DON'T USE THESE ( ' ) SIGN" ></textarea>
+            </div>
+        </div>
+        <input type="file" id="image1" name="image1">
 
         <div class='upload_changes'>
             <div class='input-create-profile'>

@@ -105,7 +105,7 @@ class FlightTableManager {
                 </div>
                 <div class='Price'>" . $row["T_price"] ;
                 if ($_SESSION['user_id'] != 0) {
-                    echo "<form method='POST' action='purchase_checkout.php'>
+                    echo "<form method='POST' action='../php/flightInfo.php'>
                         <input type='hidden' name=''>
                         <button class='button2' type='submit'>Buy</button>
                     </form>";   
@@ -122,6 +122,11 @@ class FlightTableManager {
                     </form>";
                 }
                 
+                if ($_SESSION['user_id'] == 0) {
+                    echo "<a class='button4' href='../html/autorization.html'>Log in first</a>";
+                    echo "<div class='element1'>___</div>
+                        <div class='element2'>___</div>";
+                } else {
                     echo "<form method='POST' action='Booking.php'>
                         <input type='hidden' name='Order' value='" . $row['id'] . "'> 
                         <input type='hidden' name='airline_id' value='" . $row['id'] . "'>
@@ -134,18 +139,19 @@ class FlightTableManager {
                         <input type='hidden' name='departure_date' value='" . $row['departure_date'] . "'>
                         <input type='hidden' name='arrival_time' value='" . $row['arrival_time'] . "'>
                         <input type='hidden' name='departure_time' value='" . $row['departure_time'] . "'>
-                        ";
-
-                        if ($_SESSION['user_id'] == 0) {
-                            echo "<a class='button4' href='../html/autorization.html'>Log in first</a>";
-                            echo "<div class='element1'>___</div>
-                            <div class='element2'>___</div>";
-                            
-                        } else {
-                            echo "<button class='button3' type='submit'>Order</button>";
-                        }
+                        <button class='button3' type='submit'>Order</button>
+                    </form>";
+                    
+                    echo "<form method='POST' action='flightInfo.php'>
+                        <input type='hidden' name='Order' value='" . $row['id'] . "'> 
+                        <input type='hidden' name='airline_id' value='" . $row['id'] . "'>
+                        <button class='button3' type='submit'>Order2</button>
+                    </form>";
+                }
+                
 
                         echo "</form>";
+                        
 
     
     echo "</div><div class='card-separator2'></div>";

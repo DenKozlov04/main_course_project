@@ -1,4 +1,3 @@
-
 <?php
 class FlightDataValidator {
     private $data;
@@ -62,23 +61,80 @@ class FlightDataValidator {
 
     private function addToDatabase() {
         $mysql = new mysqli('localhost', 'root', '', 'airflightsdatabase');
-
+    
         // Используйте подготовленные запросы для защиты от SQL-инъекций
-        $stmt = $mysql->prepare("INSERT INTO `airports/airlines` (`Airline`, `airport_name`, `ITADA`, 
-        `City`, `country`, `T_price`, `departure_date`, `arrival_date`,
-        `arrival_time`, `departure_time`, `googleMapsLink`, `created_at`) 
-        VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now())");
+        $stmt1 = $mysql->prepare("INSERT INTO `airports/airlines` (`Airline`, `airport_name`, `ITADA`, 
+            `City`, `country`, `T_price`, `departure_date`, `arrival_date`,
+            `arrival_time`, `departure_time`, `googleMapsLink`, `created_at`) 
+            VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now())");
     
-    $stmt->bind_param("sssssssssss", $this->data['Airline'], $this->data['airport_name'], $this->data['ITADA'],
-        $this->data['City'], $this->data['country'], $this->data['T_price'], $this->data['departure_date'],
-        $this->data['arrival_date'], $this->data['arrival_time'], $this->data['departure_time'], $this->data['googleMapsLink']);
+        $stmt1->bind_param("sssssssssss", $this->data['Airline'], $this->data['airport_name'], $this->data['ITADA'],
+            $this->data['City'], $this->data['country'], $this->data['T_price'], $this->data['departure_date'],
+            $this->data['arrival_date'], $this->data['arrival_time'], $this->data['departure_time'], $this->data['googleMapsLink']);
+    
+        $stmt1->execute();
+    
+        // Получаем id только что добавленной записи в airports/airlines
+        $flight_id = $stmt1->insert_id;
+    
+        $stmt1->close();
+    
+        // Теперь добавляем описание и изображение в соответствующие таблицы
+        if (!empty($this->data['description']) || isset($_FILES['image1']) && $_FILES['image1']['error'] == 0) {
+            $stmt2 = $mysql->prepare("INSERT INTO `airflight_description` (`flight_id`, `description`, `flight_image`) VALUES (?, ?, ?)");
+            $stmt2->bind_param("iss", $flight_id, $this->data['description'], $image1);
+    
+            // Обработка изображения
+            if (isset($_FILES['image1']) && $_FILES['image1']['error'] == 0) {
+                $image1 = file_get_contents($_FILES['image1']['tmp_name']);
+    
+                // Проверяем размер файла (не более 2 МБ)
+                $maxFileSize = 2 * 1024 * 1024; // 2 МБ в байтах
+                if (strlen($image1) <= $maxFileSize) {
+                    $stmt2->execute();
+                    echo "Данные успешно добавлены в таблицы.";
+                } else {
+                    echo "Ошибка: Размер файла превышает допустимый предел (2 МБ).";
+                }
+            } else {
+                // Если изображение не было загружено, добавляем только описание
+                $stmt2->execute();
+                echo "Данные успешно добавлены в таблицы (без изображения).";
+            }
+    
+            $stmt2->close();
+        }
+    
+        $mysql->close();
+    }
     
 
+    private function addDescription($flight_id, $description) {
+        $mysql = new mysqli('localhost', 'root', '', 'airflightsdatabase');
+        $stmt = $mysql->prepare("INSERT INTO `airflight_description` (`flight_id`, `description`) VALUES (?, ?)");
+        $stmt->bind_param("is", $flight_id, $description);
         $stmt->execute();
+        $stmt->close();
+        $mysql->close();
+    }
+
+    private function addImageToDatabase($flight_id, $image1) {
+        $mysql = new mysqli('localhost', 'root', '', 'airflightsdatabase');
+
+        // Используем параметры для безопасной вставки бинарных данных
+        $stmt = $mysql->prepare("INSERT INTO airflight_description (`flight_id`, `flight_image`) VALUES (?, ?)");
+        $stmt->bind_param("is", $flight_id, $image1);
+
+        if ($stmt->execute()) {
+            echo "Изображение успешно добавлено в таблицу.";
+        } else {
+            echo "Ошибка: " . $stmt->error;
+        }
 
         $stmt->close();
         $mysql->close();
     }
+
 }
 
 // Использование класса
@@ -94,7 +150,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         'arrival_date' => $_POST['arrival_date'],
         'arrival_time' => $_POST['arrival_time'],
         'departure_time' => $_POST['departure_time'],
-        'googleMapsLink' => $_POST['googleMapsLink'], // Добавлено поле googleMapsLink
+        'googleMapsLink' => $_POST['googleMapsLink'],
+        'description' => $_POST['description'],
     ];
 
     $validator = new FlightDataValidator($flightData);

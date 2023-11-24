@@ -1,3 +1,50 @@
+<?php
+session_start();
+
+$mysqli = new mysqli("localhost", "root", "", "airflightsdatabase");
+
+if ($mysqli->connect_error) {
+    die("Ошибка подключения: " . $mysqli->connect_error);
+}
+
+$airline_id = $_POST['airline_id'];
+
+// Используем подготовленный запрос для избежания SQL-инъекций
+$stmt = $mysqli->prepare("SELECT `City`, `T_price`, `googleMapsLink` FROM `airports/airlines` WHERE `id` = ?");
+$stmt->bind_param("i", $airline_id);
+$stmt->execute();
+$stmt->bind_result($city, $t_price, $google_maps_link);
+
+// Выводим результат
+if ($stmt->fetch()) {
+
+
+    // Закрываем первый запрос
+    $stmt->close();
+
+    // Теперь добавим данные из airflight_description
+    $stmt2 = $mysqli->prepare("SELECT `flight_image`, `description` FROM `airflight_description` WHERE `flight_id` = ?");
+    $stmt2->bind_param("i", $airline_id);
+    $stmt2->execute();
+    $stmt2->bind_result($flight_image, $description);
+
+    // Выводим данные из airflight_description
+    if ($stmt2->fetch()) {
+
+    } else {
+        echo "Дополнительные данные не найдены.";
+    }
+
+    $stmt2->close();
+} else {
+    echo "Данные для указанного airline_id не найдены.";
+}
+
+
+$mysqli->close();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,16 +62,16 @@
     </div>
     <div class="custom-rectangle">
         <div class="custom-rectangle2"></div>
-    <iframe class="GoogleMap" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.1491978997765!2d55.355549611567305!3d25.265566028833888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5cf8adb91b0f%3A0x2cb9e6142ab19444!2zRHViYWkgQWlycG9ydCBUZXJtaW5hbCAyIEFycml2YWxzIC0gRHViYWkgLSDQntCx0YrQtdC00LjQvdC10L3QvdGL0LUg0JDRgNCw0LHRgdC60LjQtSDQrdC80LjRgNCw0YLRiw!5e0!3m2!1sru!2slv!4v1700503193352!5m2!1sru!2slv"
+        <iframe class="GoogleMap" src="<?php echo $google_maps_link; ?>"
         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </iframe>
     <div class="PrevPage"><a href="../php/Buy_Tickets.php">← Back to page</a></div>
     <div class="Image">
-        <img src="../images/dubai2.jpg" alt="Dubai Image">
+        <img src="data:image/jpeg;base64,<?php echo base64_encode($flight_image); ?>" alt="Dubai Image">
 
     </div>
-    <div class="text1">DUBAI</div>
-    <div class="text2">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</div>
+    <div class="text1"><?php echo $city; ?></div>
+    <div class="text2"><?php echo $description; ?></div>
     <button class="button1">Order</button>
 </div>
 <div class="custom-rectangle2L">

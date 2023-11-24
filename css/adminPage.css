@@ -135,3 +135,7 @@ body {
     background-color: #0056b3;
 }
 
+.description textarea {
+    width: 600px;
+    height: 300px;
+}

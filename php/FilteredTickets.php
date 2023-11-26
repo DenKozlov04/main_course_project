@@ -17,12 +17,13 @@
         <div class="text1">France</div>
         <div class="text2">Direct flight</div>
         <div class="text3">Paris(Paris-Charles-de-Gaulle)</div>
-        <div class="text4"></div>
-        <div class="text5"></div>
-        <div class="text6"></div>
-        <div class="text7"></div>
-        <div class="text8"></div>
-        <a class="BookingBtn"></a>
+        <div class="rectangle1">
+            <div class="text4">One direction</div>
+            <div class="text5">22$</div>
+            <div class="text6">per person</div>
+            <div class="text7">from</div>
+        </div>
+        <div class="BookingBtn"><a class="BookingBtnA">Book a ticket now</a></div>
     </div>
 </div>
 </div>

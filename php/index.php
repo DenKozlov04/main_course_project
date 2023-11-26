@@ -121,7 +121,7 @@
     </div>
     <div class = 'box1-input' style="border-radius: 0 50px 50px 0;">
       <div class = 'input-data'>
-      <button class="Search_button" type='text' name='passenger_number' method="GET" placeholder="for example: 1" >Search Tickets🔍</button>
+          <a class="Search_button" href="../php/FilteredTickets.php" type='text' name='passenger_number' method="GET" placeholder="for example: 1" >Search Tickets🔍</a>
       </div>
     </div> 
 </div>

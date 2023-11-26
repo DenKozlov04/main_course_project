@@ -67,7 +67,7 @@ body {
     display: inline-block; /* Сделать оба текста блочными элементами */
   }
   .text1 {
-    width: 195px;
+    width: 205px;
     height: 35px;
     color: #000;
     font-family: 'Nunito Sans', sans-serif;

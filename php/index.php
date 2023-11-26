@@ -121,8 +121,7 @@
     </div>
     <div class = 'box1-input' style="border-radius: 0 50px 50px 0;">
       <div class = 'input-data'>
-        <input type='text' name='passenger_number' method="GET" placeholder="for exmple: 1" >
-        <label for="input-field">Select passenger number:</label>
+      <button class="Search_button" type='text' name='passenger_number' method="GET" placeholder="for example: 1" >Search Tickets🔍</button>
       </div>
     </div> 
 </div>

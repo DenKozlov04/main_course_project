@@ -478,3 +478,23 @@ footer {
   width: 100%;
   padding: 0;
 }
+.Search_button {
+  width: 310px;
+  height:85px;
+  margin-top: -30px;
+  margin-left: -30px;
+  background-color: rgb(161, 161, 161);
+  font-family: 'Nunito Sans', sans-serif;
+  border: none; /* Remove the button border */
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0 50px 50px 0;
+  text-align: center; 
+  font-size: 30px;
+  background: #fcfcfc;
+  transition: background-color 0.3s ease; /* Добавлено свойство transition для плавного перехода */
+}
+.Search_button:hover {
+  background-color: #DE6A6A; /* Изменение цвета при активации (нажатии) */
+}

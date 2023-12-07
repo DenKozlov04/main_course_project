@@ -91,40 +91,41 @@
 <div class="pict3"><img src="../images/pexels-arina-krasnikova-5708951.jpg"></div>
 <p class="txt1">EXPLORE THE WORLD WITH US</p>
 
- <div class ='search' method="GET" action="SearchAirlines.php">
-  <!-- <a href="SearchAirlines.php"  action="SearchAirlines.php"class="search-link" name="search_button"></a> -->
-    <div class = 'box1-input'style="border-radius: 50px 0 0 50px;" action="SearchAirlines.php">
-      <div class = 'input-data'>
-        <input type="text" id="input" name="SearchRoute"  method="GET" placeholder="Riga-Paris" > 
-        <label for="input-field">Enther the route:</label>
-      </div>
-    </div>
-    <div class = 'box1-input' action="SearchAirlines.php">
-      <div class = 'input-data'>
-        <input type='text' name='SearchCountry'  method="GET" placeholder="Latvia">
-        <label for="input-field">Choose country:</label>
-      </div>  
-    </div>
-    <div class = 'box1-input' action="SearchAirlines.php">
-      <div class = 'input-data'>
-        <!-- <input type='text' name='parol' > -->
-        <input type="date" id="date" method="GET" name="SearchArrival_date">
-        <label for="input-field">Set your arrival date:</label>
-      </div>  
-    </div>
-    <div class = 'box1-input' action="SearchAirlines.php">
-      <div class = 'input-data'>
-        <!-- <input type='text' name='post'  > -->
-        <input type="date" method="GET" name="SearchDeparture_date">
-        <label for="input-field">Set your departure date:</label>
-      </div>
-    </div>
-    <div class = 'box1-input' style="border-radius: 0 50px 50px 0;">
-      <div class = 'input-data'>
-          <a class="Search_button" href="../php/FilteredTickets.php" type='text' name='passenger_number' method="GET" placeholder="for example: 1" >Search Tickets🔍</a>
-      </div>
-    </div> 
+<div class="search">
+    <form method="GET" action="../php/FilteredTickets.php">
+        <div class="box1-input" style="border-radius: 50px 0 0 50px;">
+            <div class="input-data">
+                <input type="text" id="input" name="SearchRoute" placeholder="Riga-Paris">
+                <label for="input-field">Enter the route:</label>
+            </div>
+        </div>
+        <div class="box1-input">
+            <div class="input-data">
+                <input type="text" name="SearchCountry" placeholder="Latvia">
+                <label for="input-field">Choose country:</label>
+            </div>
+        </div>
+        <div class="box1-input">
+            <div class="input-data">
+                <input type="date" id="date" name="SearchArrival_date">
+                <label for="input-field">Set your arrival date:</label>
+            </div>
+        </div>
+        <div class="box1-input">
+            <div class="input-data">
+                <input type="date" name="SearchDeparture_date">
+                <label for="input-field">Set your departure date:</label>
+            </div>
+        </div>
+        <div class="box1-input" style="border-radius: 0 50px 50px 0;">
+            <div class="input-data">
+                <button class="Search_button" type="submit" name="passenger_number" placeholder="for example: 1">Search Tickets🔍</button>
+            </div>
+        </div>
+    </form>
 </div>
+
+
 
   <?php include 'card_data.php'; ?>
 

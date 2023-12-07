@@ -503,3 +503,8 @@ footer {
 .Search_button:hover {
   background-color: #DE6A6A;
 }
+.search form {
+  display: flex;
+  flex-wrap: wrap;
+}
+

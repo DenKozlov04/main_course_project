@@ -101,7 +101,7 @@
         </div>
         <div class="box1-input">
             <div class="input-data">
-                <input type="text" name="SearchCountry" placeholder="Latvia">
+                <input type="text" name="SearchCountry" placeholder="France">
                 <label for="input-field">Choose country:</label>
             </div>
         </div>

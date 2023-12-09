@@ -13,14 +13,37 @@ $searchCountry = isset($_GET['SearchCountry']) ? $_GET['SearchCountry'] : '';
 $SearchArrival_date = isset($_GET['SearchArrival_date']) ? $_GET['SearchArrival_date'] : '';
 $SearchDeparture_date = isset($_GET['SearchDeparture_date']) ? $_GET['SearchDeparture_date'] : '';
 
-echo "SearchRoute: " . $SearchRoute; // Добавляем вывод переменной
-echo "SearchCountry: " . $searchCountry;
-echo "SearchArrival_date: " . $SearchArrival_date;
-echo "SearchDeparture_date: " . $SearchDeparture_date;
+echo "SearchRoute: " . $SearchRoute; // это Airline
+echo "SearchCountry: " . $searchCountry;// это country
+echo "SearchArrival_date: " . $SearchArrival_date;// это arrival_date
+echo "SearchDeparture_date: " . $SearchDeparture_date;// это departure_date
+
 
 // Выполняем SQL-запрос для выбора данных из таблицы airports
-$sql_airports = "SELECT id, City, country, airport_name, T_price FROM `airports/airlines`";
+$sql_airports = "SELECT id, City, country, airport_name, T_price FROM `airports/airlines` WHERE 1";
+
+// Добавляем условия фильтрации, если параметры переданы
+if ($SearchRoute != '') {
+    $searchRouteLower = strtolower($SearchRoute);
+    $sql_airports .= " AND LOWER(Airline) LIKE '%$searchRouteLower%'";
+}
+
+if ($searchCountry != '') {
+    $searchCountryLower = strtolower($searchCountry);
+    $sql_airports .= " AND LOWER(country) LIKE '%$searchCountryLower%'";
+}
+
+if ($SearchArrival_date != '') {
+    $sql_airports .= " AND arrival_date = '$SearchArrival_date'";
+}
+
+if ($SearchDeparture_date != '') {
+    $sql_airports .= " AND departure_date = '$SearchDeparture_date'";
+}
+
 $result_airports = $mysqli->query($sql_airports);
+
+
 
 // Проверяем успешность выполнения запроса
 if ($result_airports) {

@@ -1,10 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/FilteredTickets.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&family=Poppins:ital,wght@1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Filtered tickets</title>
+</head>
+<body>
+    <a class='BackButton' href='index.php'>Back</a>
+<button class="toggle-button">
+        <img src='../images/free-icon-funnel-tool-4052123.png' alt="Toggle Image">
+        <script src="../JS/togglebutton.js"></script>
+    </button>
+    <div class="sidebar">
+    <div class='sidebarText1'>Price,€,$</div>
+    <p class='CurrentValue'><span id="sliderValue">0</span></p>
+    <p class='equal'>-</p>
+    <p class='MaxValue'>100</p>
+    <input type="range" min="0" max="100" value="0" class="slider" id="mySlider">
+    <script src="../JS/slider.js"></script>
+</div>
+
+    
+    <!-- <a href="https://www.flaticon.com/ru/free-icons/" title="воронка иконки">Воронка иконки от smashingstocks - Flaticon</a> -->
+
+<div class='search_place'>
+<div class="search">
+    <form method="GET" action="../php/FilteredTickets.php">
+        <div class="box1-input" style="border-radius: 50px 0 0 50px;">
+            <div class="input-data">
+                <input type="text" id="input" name="SearchRoute" placeholder="Riga-Paris">
+                <label for="input-field">Enter the route:</label>
+            </div>
+        </div>
+        <div class="box1-input">
+            <div class="input-data">
+                <input type="text" name="SearchCountry" placeholder="France">
+                <label for="input-field">Choose country:</label>
+            </div>
+        </div>
+        <div class="box1-input">
+            <div class="input-data">
+                <input type="date" id="date" name="SearchArrival_date">
+                <label for="input-field">Set your arrival date:</label>
+            </div>
+        </div>
+        <div class="box1-input">
+            <div class="input-data">
+                <input type="date" name="SearchDeparture_date">
+                <label for="input-field">Set your departure date:</label>
+            </div>
+        </div>
+        <div class="box1-input" style="border-radius: 0 50px 50px 0;">
+            <div class="input-data">
+                <button class="Search_button" type="submit" name="passenger_number" placeholder="for example: 1">Search Tickets🔍</button>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+</body>
+</html>
+
 <?php
 session_start();
+// echo $_SESSION['user_id']; 
+// echo $_SESSION['admin_id']; 
 $mysqli = new mysqli("localhost", "root", "", "airflightsdatabase");
 
 // Проверяем соединение
 if ($mysqli->connect_error) {
     die("Ошибка подключения: " . $mysqli->connect_error);
+}
+if ($_SESSION['user_id'] == 0) {
+    header("Location: ../html/autorization.html");
+    exit(); 
 }
 
 // Получаем значение города из GET-параметра, если передано
@@ -12,11 +85,6 @@ $SearchRoute = isset($_GET['SearchRoute']) ? $_GET['SearchRoute'] : '';
 $searchCountry = isset($_GET['SearchCountry']) ? $_GET['SearchCountry'] : '';
 $SearchArrival_date = isset($_GET['SearchArrival_date']) ? $_GET['SearchArrival_date'] : '';
 $SearchDeparture_date = isset($_GET['SearchDeparture_date']) ? $_GET['SearchDeparture_date'] : '';
-
-echo "SearchRoute: " . $SearchRoute; // это Airline
-echo "SearchCountry: " . $searchCountry;// это country
-echo "SearchArrival_date: " . $SearchArrival_date;// это arrival_date
-echo "SearchDeparture_date: " . $SearchDeparture_date;// это departure_date
 
 
 // Выполняем SQL-запрос для выбора данных из таблицы airports
@@ -57,11 +125,13 @@ if ($result_airports) {
          $stmt->bind_result($flight_image);
          $stmt->fetch();
          $stmt->close();
- 
+        
+         $airline_id = $row_airports['id'];
+
          echo "
          <div class='Ticket_card'>
              <img src='data:image/jpeg;base64," . base64_encode($flight_image) . "'> <!-- Замените это на путь, где у вас хранятся изображения -->
-             <div class='text1'>" . $row_airports["country"] . "</div>
+             <div class='text1'>" . $row_airports["country"] . $row_airports['id'] ."</div> 
              <div class='text2'>Direct flight</div>
              <div class='text3'>" . $row_airports["City"] . " (" . $row_airports["airport_name"] . ")</div>
              <div class='rectangle1'>
@@ -70,7 +140,12 @@ if ($result_airports) {
                  <div class='text6'>per person</div>
                  <div class='text7'>from</div>
              </div>
-             <div class='BookingBtn'><a class='BookingBtnA'>Book a ticket now</a></div>
+             <div class='BookingBtn'>
+             <form method='POST' action='../php/flightInfo.php'>
+                 <input type='hidden' name='airline_id' value='" . $row_airports['id'] . "'>
+                 <button type='submit' class='BookingBtnA'>Book a ticket now</button>
+             </form>
+         </div>
          </div>";
     }
     echo "</div>";
@@ -84,34 +159,3 @@ $mysqli->close();
 ?>
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/FilteredTickets.css">
-    <title>Filtered tickets</title>
-</head>
-<body>
-
-<!-- <div class="img1">
-    <img src="../images/pexels-tanathip-rattanatum-2026324.jpg">
-</div> -->
-<!-- <div class="Ticket_box">
-    <div class="Ticket_card">
-        <img src="../images/2000.jpeg">
-        <div class="text1">France</div>
-        <div class="text2">Direct flight</div>
-        <div class="text3">Paris(Paris-Charles-de-Gaulle)</div>
-        <div class="rectangle1">
-            <div class="text4">One direction</div>
-            <div class="text5">22$</div>
-            <div class="text6">per person</div>
-            <div class="text7">from</div>
-        </div>
-        <div class="BookingBtn"><a class="BookingBtnA">Book a ticket now</a></div>
-    </div>
-</div>
-</div> -->
-</body>
-</html>

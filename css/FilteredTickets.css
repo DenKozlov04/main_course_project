@@ -19,7 +19,7 @@ body {
     justify-content: space-around;
     background-color: #EDEDED;
     width: 1620px;
-    margin: 40px auto 0; /* 20px отступ сверху, горизонтальное центрирование */
+    margin: 0px auto 0; /* 20px отступ сверху, горизонтальное центрирование */
     align-items: flex-start; /* Изменено на flex-start, чтобы выровнять элементы по верхнему краю */
     padding-top: 20px; /* Добавлен отступ сверху */
 }
@@ -118,3 +118,188 @@ body {
     margin-top: -35px;
     font-weight: 600; /* Увеличенное значение для более толстого текста */
 }
+.search_place {
+    background-color: #EDEDED;
+    width: 1620px;
+    height: 160px;
+    margin: 40px auto 0;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+.search {
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-evenly; /* Оставляем только space-evenly */
+    top: 40px;
+}
+
+
+  .box1-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    width: 250px;
+    height: 25px;
+    font-family: 'Nunito Sans', sans-serif;
+    padding: 30px;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+.box1-input label {
+    color: #c0c0c0;
+    left:0;
+    pointer-events: none;
+  }
+
+.box1-input .input-data{
+    height: 50%;
+    width: 100%;
+  }
+  
+.box1-input .input-data input{
+    height: 100%;
+    width: 100%;
+
+  }
+  .box1-input .input-data label{
+    bottom: 20px;
+
+  }
+  .box1-input input[type="text"] {
+    border: none;
+    background-color: #ffffff;
+    color: rgba(87, 17, 17, 0.671);
+    font-size: 16px;
+    border-radius: 0px; 
+    border:none; 
+    border-bottom: 2px solid silver;
+    
+  } 
+  .Search_button:hover {
+    background-color: #DE6A6A;
+  }
+  .search form {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .Search_button {
+    display: block;
+    width: 310px;
+    height: 85px;
+    margin-top: -30px;
+    margin-left: -30px;
+    background-color: rgb(161, 161, 161);
+    font-family: 'Nunito Sans', sans-serif;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 0 50px 50px 0;
+    text-align: center; 
+    font-size: 30px;
+    background: #fcfcfc;
+    transition: background-color 0.3s ease;
+    line-height: 80px; 
+    text-decoration: none;
+    color: black;
+  }
+  .input-data input::placeholder {
+    color: #dadada; /* Замените #ff0000 на цвет, который вы хотите использовать */
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Запрещаем горизонтальный скроллинг */
+}
+
+.toggle-button {
+    position: fixed;
+    top: 200px;
+    left: 10px; /* Изменили right на left */
+    padding: 10px;
+    background-color: #C3FD7A;
+    color: #2b2b2b;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+    width: 5%;
+    height: 5%;
+    border-radius: 10px;
+}
+
+.sidebar {
+    position: fixed;
+    top: 250px;
+    left: -300px; /* Изменили right на left */
+    width: 300px;
+    height: 70vh;
+    background-color: #f7f7f7;
+    z-index: 1;
+    transition: left 0.3s ease; /* Изменили right на left */
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.sidebar.open {
+    left: 0; /* При открытии сдвигаем вправо (изменили right на left) */
+}
+.toggle-button img{
+    width: 30px;
+    height: 30px;
+}
+.sidebarText1{
+    font-size: 30px;
+    color: #000000;
+    margin-top: 20px;
+    margin-left:15px;
+
+}
+
+
+.slider {
+    width: 70%;
+    margin-top: -5px; /* Уменьшаем расстояние между .slider и другим текстом на 5px */
+    margin-left: 15px;
+}
+
+.CurrentValue,
+.equal,
+.MaxValue {
+    padding-top: 30px;
+    display: inline-block;
+    vertical-align: top; /* Выравниваем элементы по верхней границе */
+    margin-top: -5px; /* Оставляем расстояние между .CurrentValue, .equal, .MaxValue */
+}
+
+.CurrentValue {
+    margin-left:65px;
+    font-size: 27px;
+    margin-right: 5px;
+}
+
+.equal,
+.MaxValue {
+    font-size: 27px;
+    margin-bottom: 8px;
+}
+.BookingBtnA {
+    text-decoration: none; /* Убираем подчеркивание */
+    font-family: 'Nunito Sans', sans-serif;
+    width: 410px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.1); /* Прозрачный белый цвет */
+    border: none; /* Убираем обводку */
+}
+

@@ -65,15 +65,29 @@ $mysqli->close();
         <iframe class="GoogleMap" src="<?php echo $google_maps_link; ?>"
         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </iframe>
-    <div class="PrevPage"><a href="../php/Buy_Tickets.php">← Back to page</a></div>
+    <?php
+        // Проверяем, открыта ли страница со страницы /php/FilteredTickets.php
+        $prevPage = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
+        $filteredTicketsPage = '/php/FilteredTickets.php';
+
+        if (strpos($prevPage, $filteredTicketsPage) !== false) {
+            // Если открыта со страницы /php/FilteredTickets.php, то меняем ссылку
+            echo '<div class="PrevPage"><a href="../php/FilteredTickets.php">← Back to page</a></div>';
+        } else {
+            // В противном случае, используем обычную ссылку
+            echo '<div class="PrevPage"><a href="../php/Buy_Tickets.php">← Back to page</a></div>';
+        }
+    ?>
     <div class="Image">
         <img src="data:image/jpeg;base64,<?php echo base64_encode($flight_image); ?>" alt="Dubai Image">
-
     </div>
     <div class="text1"><?php echo $city; ?></div>
     <div class="text2"><?php echo $description; ?></div>
     <button class="button1">Order</button>
 </div>
+</body>
+</html>
+
 <div class="custom-rectangle2L">
     <div class="CommentsPlace">
         <div class="text3">Choosing a seat on the plane</div>

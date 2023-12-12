@@ -114,6 +114,7 @@ body, html {
     font-size: 20px;
     text-decoration: none;
 }
+
 .custom-rectangle2L {
     width: 1520px;
     min-height: 1050px;
@@ -180,24 +181,31 @@ body, html {
     position: relative;
 }
 
-.buttonBox1{
+.buttonBox1 {
     width: 200px;
     margin-left: 300px;
     bottom: 191px;
-    left:-10px;
+    left: -10px;
     z-index: 10;
     position: absolute;
     display: flex;
     flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
 }
+
 .buttonBox1 button {
-    background-color:#06dd0d;
+    background-color: #06dd0d;
     width: 30px;
     height: 30px;
     margin-right: 16px; /* Отступ между кнопками */
     margin-top: 5px; /* Отступ между кнопками */
     margin-bottom: 1px; /* Добавляем отступ снизу между кнопками */
+    transition: background-color 0.3s ease; /* Добавляем плавный переход для плавного изменения цвета */
 }
+.buttonBox1 button.active {
+    background-color: rgb(252, 252, 123); /* Новый цвет при активации */
+}
+
+
 .buttonBox2{
     width: 200px;
     margin-left: 300px;
@@ -215,17 +223,33 @@ body, html {
     margin-right: 16px; /* Отступ между кнопками */
     margin-top: 5px; /* Отступ между кнопками */
     margin-bottom: 1px; /* Добавляем отступ снизу между кнопками */
+    transition: background-color 0.3s ease; /* Добавляем плавный переход для плавного изменения цвета */
     
 }
-.buttonBox3{
+.buttonBox2 button.active {
+    background-color: rgb(252, 252, 123); /* Новый цвет при активации */
+}
+.buttonBox3 {
     width: 160px;
     margin-left: 300px;
-    bottom:185px;
-    left:200px;
+    bottom: 185px;
+    left: 200px;
     z-index: 10;
     position: absolute;
     display: flex;
     flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
+}
+
+/* Центрируем текст внутри кнопки */
+.buttonBox3 button {
+    text-align: right;
+    font-size: 9px;
+    width: 100%; /* Ширина кнопки занимает 100% контейнера */
+    padding-left: 2px;
+    transition: background-color 0.3s ease; /* Добавляем плавный переход для плавного изменения цвета */
+}
+.buttonBox3 button.active {
+    background-color: rgb(252, 252, 123); /* Новый цвет при активации */
 }
 .buttonBox3 button {
     background-color:#06dd0d;
@@ -234,7 +258,9 @@ body, html {
     margin-right: 14px; /* Отступ между кнопками */
     margin-top: 1px; /* Отступ между кнопками */
     margin-bottom: 0px; /* Добавляем отступ снизу между кнопками */
-    
+    padding-left: 2px;
+    font-weight: 700;
+    transition: background-color 0.3s ease; /* Добавляем плавный переход для плавного изменения цвета */
 }
 .buttonBox4{
     width: 160px;
@@ -253,7 +279,13 @@ body, html {
     margin-right: 14px; /* Отступ между кнопками */
     margin-top: 1px; /* Отступ между кнопками */
     margin-bottom: 0px; /* Добавляем отступ снизу между кнопками */
-    
+    font-size: 9px;
+    padding-left: 2px;
+    font-weight: 700;
+    transition: background-color 0.3s ease; /* Добавляем плавный переход для плавного изменения цвета */
+}
+.buttonBox4 button.active {
+    background-color: rgb(252, 252, 123); /* Новый цвет при активации */
 }
 .buttonBox5{
     width: 160px;
@@ -264,6 +296,7 @@ body, html {
     position: absolute;
     display: flex;
     flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
+    
 }
 .buttonBox5 button {
     background-color:#06dd0d;
@@ -272,7 +305,13 @@ body, html {
     margin-right: 14px; /* Отступ между кнопками */
     margin-top: 1px; /* Отступ между кнопками */
     margin-bottom: 0px; /* Добавляем отступ снизу между кнопками */
-    
+    font-size: 9px;
+    padding-left: 2px;
+    font-weight: 700;
+    transition: background-color 0.3s ease; /* Добавляем плавный переход для плавного изменения цвета */
+}
+.buttonBox5 button.active {
+    background-color: rgb(252, 252, 123); /* Новый цвет при активации */
 }
 .buttonBox6{
     width: 160px;
@@ -291,7 +330,13 @@ body, html {
     margin-right: 14px; /* Отступ между кнопками */
     margin-top: 1px; /* Отступ между кнопками */
     margin-bottom: 0px; /* Добавляем отступ снизу между кнопками */
-    
+    font-size: 9px;
+    padding-left: 3px;
+    font-weight: 700;
+    transition: background-color 0.3s ease; /* Добавляем плавный переход для плавного изменения цвета */
+}
+.buttonBox6 button.active {
+    background-color: rgb(252, 252, 123); /* Новый цвет при активации */
 }
 .buttonBox7{
     width: 550px;
@@ -310,7 +355,13 @@ body, html {
     margin-right: 6px; /* Отступ между кнопками */
     margin-top: 1px; /* Отступ между кнопками */
     margin-bottom: 0px; /* Добавляем отступ снизу между кнопками */
-    
+    font-size: 9px;
+    padding-left: 3px; /* Сдвигаем текст влево на 5px */
+    font-weight: 700;
+    transition: background-color 0.3s ease; /* Добавляем плавный переход для плавного изменения цвета */
+}
+.buttonBox7 button.active {
+    background-color: rgb(252, 252, 123); /* Новый цвет при активации */
 }
 .buttonBox8{
     width: 550px;
@@ -323,11 +374,17 @@ body, html {
     flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
 }
 .buttonBox8 button {
-    background-color:#06dd0d;
+    background-color: #06dd0d;
     width: 25px;
     height: 25px;
     margin-right: 6px; /* Отступ между кнопками */
     margin-top: 1px; /* Отступ между кнопками */
     margin-bottom: 0px; /* Добавляем отступ снизу между кнопками */
-    
+    font-size: 9px;
+    padding-left: 3px;
+    font-weight: 700;
+    transition: background-color 0.3s ease; /* Добавляем плавный переход для плавного изменения цвета */
+}
+.buttonBox8 button.active {
+    background-color: rgb(252, 252, 123); /* Новый цвет при активации */
 }

@@ -45,40 +45,45 @@
   </div>
   
   <div class='pict5'>
-    <?php
-      
+  <?php
+    
 
-      $user_id = $_SESSION['user_id'];
-      $admin_id = $_SESSION['admin_id'];
-    
-    
-      
-      $sql = "SELECT * FROM profile_images WHERE user_id = $user_id";
-    
-    
-      $mysqli = new mysqli('localhost', 'root', '', 'airflightsdatabase');
-      $result = $mysqli->query($sql);
-    
-      if ($_SESSION['admin_id'] == 1) {
-           echo '<p><a class="special-link" href="user_info.php"><img src="../images/user_foto.png"  width="80" height="80"></a></p>';
-      } elseif ($_SESSION['user_id'] == 0) {
-          echo '<p><a class="special-link" href="../html/autorization.html"><img src="../images/user_foto.png"  width="80" height="80"></a></p>';
-          
-      } elseif ($result && $result->num_rows > 0) {
-          $row = $result->fetch_array();
-    
-         $profile_image = $row['profile_image'];
-          echo '<div class="special-link2" style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center;">';
-          echo '<a href="user_info.php" ><img src="data:image/jpeg;base64,' . base64_encode($profile_image) . '" width="90" height="85" /></a>';
-          echo '</div>';
-      } else {
-          echo '<p><a class="special-link" href="user_info.php"><img src="../images/user_foto.png"  width="100" height="100"></a></p>';
-      }
-    
-    
+    // Проверяем, была ли страница открыта первый раз или была перенаправлена с другой страницы
+    if (!isset($_SESSION['page_opened']) || !$_SESSION['page_opened'] || !isset($_SERVER['HTTP_REFERER']) || empty($_SERVER['HTTP_REFERER'])) {
+        $_SESSION['page_opened'] = true; // Помечаем, что страница была открыта
+        $_SESSION['user_id'] = 0; // Сбрасываем user_id на 0
+        $_SESSION['admin_id'] = 0; // Сбрасываем admin_id на 0
+    }
+
+    $user_id = $_SESSION['user_id'];
+    $admin_id = $_SESSION['admin_id'];
+
+    $sql = "SELECT * FROM profile_images WHERE user_id = $user_id";
+
+    $mysqli = new mysqli("localhost", "root", "", "airflightsdatabase");
+    $result = $mysqli->query($sql);
+
+    if ($_SESSION['admin_id'] == 1) {
+        echo '<p><a class="special-link" href="user_info.php"><img src="../images/user_foto.png"  width="80" height="80"></a></p>';
+    } elseif ($_SESSION['user_id'] == 0) {
+        echo '<p><a class="special-link" href="../html/autorization.html"><img src="../images/user_foto.png"  width="80" height="80"></a></p>';
+    } elseif ($result && $result->num_rows > 0) {
+        $row = $result->fetch_array();
+
+        $profile_image = $row['profile_image'];
+        echo '<div class="special-link2" style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center;">';
+        echo '<a href="user_info.php" ><img src="data:image/jpeg;base64,' . base64_encode($profile_image) . '" width="90" height="85" /></a>';
+        echo '</div>';
+    } else {
+        echo '<p><a class="special-link" href="user_info.php"><img src="../images/user_foto.png"  width="100" height="100"></a></p>';
+    }
+    echo $_SESSION['user_id'];
+    echo $_SESSION['admin_id'];
+
     // Закрываем соединение
     $mysqli->close();
-    ?>
+?>
+
     
   </div>
 

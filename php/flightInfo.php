@@ -84,7 +84,7 @@ $mysqli->close();
     </div>
     <div class="text1"><?php echo $city; ?></div>
     <div class="text2"><?php echo $description; ?></div>
-    <form method='POST' action='Order.php'>
+    <form method='POST' action='OrderUserData.php'>
         <button class="button1" type='submit'>Order</button>
     </form>
 </div>

@@ -125,7 +125,7 @@ $mysqli->close();
     </form>
 
     <h2>Comments</h2>
-<li><a href="../php/index.php">On the main page</a></li>
+<li><a href="index.php">On the main page</a></li>
 <?php foreach ($comments as $comment): ?>
     <div class="comment-container">
         <div class="comment-header">

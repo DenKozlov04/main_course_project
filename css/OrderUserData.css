@@ -1,0 +1,41 @@
+body {
+    background-color: #E8E8E8;
+    font-family: 'Nunito Sans', sans-serif;
+}
+.FormRectangle {
+    background-color: #ffffff;
+    width: 800px;
+    height: 1080px;
+    margin: 30px auto 0;
+    border-radius: 20px; /* Задайте значение скругления углов в пикселях, как вам нужно */
+}
+
+.Formtext1 {
+    margin-left: 230px;
+    padding-top: 20px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
+.Formtext2{
+    padding-top: 20px;
+    font-size: 20px;
+    margin-left: 65px;
+    width: 680px;
+    font-weight: bold;
+}
+.Formtext3{
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 20px;
+    margin-left: 65px;
+    width: 680px;
+}
+.Formtext4{
+    font-size: 25px;
+    font-weight: bold;
+    padding-top: 60px;
+    margin-left: 65px;
+    width: 680px;
+}

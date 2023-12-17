@@ -5,7 +5,7 @@ body {
 .FormRectangle {
     background-color: #ffffff;
     width: 800px;
-    height: 1080px;
+    height: 1400px;
     margin: 30px auto 0;
     border-radius: 20px; /* Задайте значение скругления углов в пикселях, как вам нужно */
 }
@@ -39,3 +39,130 @@ body {
     margin-left: 65px;
     width: 680px;
 }
+#user-info-form {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-left: 65px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #user-info-form label {
+    margin-bottom: 5px;
+  }
+
+  #user-info-form input,
+  #user-info-form select {
+    margin-bottom: 10px;
+  }
+
+  #user-info-form input {
+    width: 650px;
+    height: 35px;
+    border-radius: 15px;
+    background: #E7E7E7;
+    border: none; /* Добавлено для удаления обводки */
+    outline: none; /* Добавлено для удаления подсветки при фокусе (если необходимо) */
+  }
+  #user-info-form input::placeholder {
+    color: #B1B1B1;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-left: 10px; /* Сдвигаем текст плейсхолдера вправо на 10px */
+  }
+  
+  #user-info-form select {
+    color: #B1B1B1;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-left: 10px; /* Сдвигаем текст плейсхолдера вправо на 10px */
+    width: 80px;
+    height: 35px;
+    border-radius: 15px;
+    background: #E7E7E7;
+    border: none; /* Добавлено для удаления обводки */
+    outline: none; /* Добавлено для удаления подсветки при фокусе (если необходимо) */
+  }
+  .Formtext5{
+    font-size: 25px;
+    font-weight: bold;
+    padding-top: 20px;
+    margin-left: 65px;
+    width: 680px;
+}
+.user-info-form-lined{
+    font-size: 20px;
+    margin-top: 20px;
+    margin-left: 65px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+}
+#user-info-form-lined input{
+    width: 115px;
+    height: 35px;
+    border-radius: 15px;
+    background: #E7E7E7;
+    border: none; /* Добавлено для удаления обводки */
+    outline: none; /* Добавлено для удаления подсветки при фокусе (если необходимо) */
+}
+#user-info-form-lined {
+    display: flex;
+    flex-direction: row; /* Инпуты и плейсхолдеры будут идти в строчку */
+  }
+  
+  .form-group {
+    margin-right: 20px; /* Добавьте отступ между каждой парой лейбл-инпут */
+  }
+  
+  .form-group label {
+    display: block; /* Разместите лейблы в столбик */
+    margin-bottom: 5px; /* Добавьте небольшой отступ между лейблом и инпутом */
+  }
+  
+  .form-group input {
+    width: 150px; /* Задайте фиксированную ширину инпутов, или просто уберите это свойство для автоматической ширины */
+  }
+  .submitButton{
+    width:655px;
+    height: 80px;
+    border-radius: 15px;
+    color: #fcfcfc;
+    background: #DE6A6A;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-left: 65px;
+    font-weight: bold;
+    border: none; /* Добавлено для удаления обводки */
+    outline: none; /* Добавлено для удаления подсветки при фокусе (если необходимо) */
+  }
+  .infotext{
+    color: #F30000;
+    font-size: 15.6px;
+    margin-left: 68px;
+  }
+  footer {
+    margin-top: 70px; 
+    background-color: #333;
+    color: #fff; 
+    padding: 20px; 
+    text-align: center; 
+    font-family:'Nunito Sans', sans-serif;
+  }
+  
+  .footer-content {
+    max-width: 800px; 
+    margin: 0 auto; 
+  }
+  .footer-content a {
+    color: inherit; /* Наследует цвет текста от родительского элемента */
+    text-decoration: none; /* Убирает подчеркивание */
+  }
+  

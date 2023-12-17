@@ -105,10 +105,7 @@ class FlightTableManager {
                 </div>
                 <div class='Price'>" . $row["T_price"] ;
                 if ($_SESSION['user_id'] != 0) {
-                    echo "<form method='POST' action='../php/flightInfo.php'>
-                        <input type='hidden' name=''>
-                        <button class='button2' type='submit'>Buy</button>
-                    </form>";   
+                    echo "";   
                 }
                 
                 if ($isAdmin) {

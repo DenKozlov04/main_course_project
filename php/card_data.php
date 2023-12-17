@@ -19,7 +19,7 @@ if ($result->num_rows > 0) {
 
         echo '<div class="gallery-item">'; // Откройте карточку
         echo '<div class="grid-item__inner">';
-        echo '<img src="data:image/png;base64,' . base64_encode($image) . '" class="grid-item__img" style="width: 358px; height: 348px; border-radius: 10px;" alt="Image Description">';
+        echo '<img src="data:image/png;base64,' . base64_encode($image) . '" class="grid-item__img" style="width: 358px; height: 348px; border-radius: 10px; " alt="Image Description">';
         echo '<div class="place1">';
         echo '<span>' . $city . ' -</span>';
         echo '</div>';

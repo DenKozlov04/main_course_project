@@ -506,3 +506,10 @@ footer {
   flex-wrap: wrap;
 }
 
+.box1-input input[type="date"] {
+  font-size: 15px;
+  border: none;
+  font-family:'Nunito Sans', sans-serif;
+  color: #c0c0c0;
+}
+

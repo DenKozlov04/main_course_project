@@ -1,4 +1,8 @@
 <?php
+require __DIR__ . '/../vendor/autoload.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 class Registration {
     private $mysql;
@@ -54,6 +58,9 @@ class Registration {
             // Добавляем пользователя в базу данных
             $this->addUserToDatabase($login, $email, $phone, $con_password);
 
+            // Отправляем письмо с регистрационной информацией
+            $this->sendTheRegisterLetter($login, $email);
+
             // Закрываем соединение с базой данных
             $this->mysql->close();
 
@@ -76,14 +83,53 @@ class Registration {
         $stmt->bind_param("ssss", $login, $email, $phone, $con_password);
         $stmt->execute();
     }
+
+    private function sendTheRegisterLetter($login, $email) {
+        $config = include __DIR__ . '../mconfig.php';
+
+        $mail = new PHPMailer(true);
+
+        try {
+            //Server settings
+            $mail->isSMTP();
+            $mail->Host       = $config['smtp_host'];
+            $mail->SMTPAuth   = true;
+            $mail->Username   = $config['smtp_username'];
+            $mail->Password   = $config['smtp_password'];
+            $mail->SMTPSecure = $config['smtp_ssl'];
+            $mail->Port       = $config['smtp_port'];
+
+            //Recipients
+            $mail->setFrom($config['from_email']);
+            $mail->addAddress($email);
+
+            //Content
+            $mail->isHTML(false);
+            $mail->Subject = "You're registered in";
+            $mail->Body    = "Hello, $login!\n\nYour registration was successful. Now you can use all features of our site, view available flights, leave comments, reserve tickets, and much more.\nWe are happy to welcome you!\n\nSincerely, your BalticAvia!\n\nPlease don't answer this letter.\n\n";
+
+            $mail->send();
+        } catch (Exception $e) {
+            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        }
+    }
+    
 }
 
 if (isset($_POST['register'])) {
-    $registration = new Registration();
-    $registration->validateAndRegister($_POST['username'], $_POST['email'], $_POST['phone'], $_POST['con-password']);
+    try {
+        $registration = new Registration();
+        $registration->validateAndRegister($_POST['username'], $_POST['email'], $_POST['phone'], $_POST['con-password']);
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
 }
+
+// if (isset($_POST['register'])) {
+//     $registration = new Registration();
+//     $registration->validateAndRegister($_POST['username'], $_POST['email'], $_POST['phone'], $_POST['con-password']);
+// }
 echo "PHP is working!";
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 ?>
-

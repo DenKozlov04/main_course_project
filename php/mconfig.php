@@ -1,12 +1,20 @@
+
+
 <?php
+require __DIR__ . '/../vendor/autoload.php';
+use Dotenv\Dotenv;
+
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load(__DIR__ . '/php/mconfig.env');
 
 return [
-    'smtp_host' => 'smtp.gmail.com',
-    'smtp_port' => 587,
-    'smtp_ssl' => 'tls',
-    'smtp_username' => '**********flights@gmail.com',
-    'smtp_password' => '**********', // ПАРОЛЬ ПРИЛОЖЕНИЯ ВПИСЫВАТЬ КОГДА БУДУ РАБОТАТЬ
-    'from_email' => '**********flights@gmail.com',
+    'smtp_host' => $_ENV['SMTP_HOST'],
+    'smtp_port' => $_ENV['SMTP_PORT'],
+    'smtp_ssl' => $_ENV['SMTP_SSL'],
+    'smtp_username' => $_ENV['SMTP_USERNAME'],
+    'smtp_password' => $_ENV['SMTP_PASSWORD'],
+    'from_email' => $_ENV['FROM_EMAIL'],
 ];
+
 
 

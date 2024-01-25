@@ -1,11 +1,13 @@
 
-
 <?php
 require __DIR__ . '/../vendor/autoload.php';
+
 use Dotenv\Dotenv;
 
-$dotenv = Dotenv::createImmutable(__DIR__);
-$dotenv->load(__DIR__ . '/php/mconfig.env');
+$dotenv = Dotenv::createImmutable(realpath(__DIR__.'/../php/'), 'mconfig.env');
+
+
+$dotenv->load();
 
 return [
     'smtp_host' => $_ENV['SMTP_HOST'],
@@ -15,6 +17,8 @@ return [
     'smtp_password' => $_ENV['SMTP_PASSWORD'],
     'from_email' => $_ENV['FROM_EMAIL'],
 ];
+
+
 
 
 

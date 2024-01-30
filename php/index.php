@@ -75,7 +75,7 @@
         echo '<a href="user_info.php" ><img src="data:image/jpeg;base64,' . base64_encode($profile_image) . '" width="90" height="85" /></a>';
         echo '</div>';
     } else {
-        echo '<p><a class="special-link" href="user_info.php"><img src="../images/user_foto.png"  width="100" height="100"></a></p>';
+        echo '<p><a class="special-link" href="user_info.php"><img src="../images/user_foto.png"  width="80" height="80"></a></p>';
     }
     echo $_SESSION['user_id'];
     echo $_SESSION['admin_id'];

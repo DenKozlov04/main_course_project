@@ -1,7 +1,14 @@
 body {
-    background-color: #E8E8E8;
-    font-family: 'Nunito Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #E8E8E8;
+  font-family: 'Nunito Sans', sans-serif;
+  background-image: url('../images/pexels-tomáš-malík-1998439.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
+
 .FormRectangle {
     background-color: #ffffff;
     width: 800px;
@@ -58,12 +65,13 @@ body {
   }
 
   #user-info-form input {
-    width: 650px;
+    width: 640px;
     height: 35px;
     border-radius: 15px;
     background: #E7E7E7;
     border: none; /* Добавлено для удаления обводки */
     outline: none; /* Добавлено для удаления подсветки при фокусе (если необходимо) */
+    padding-left: 10px; 
   }
   #user-info-form input::placeholder {
     color: #B1B1B1;
@@ -148,18 +156,22 @@ body {
     font-size: 15.6px;
     margin-left: 68px;
   }
-  footer {
-    margin-top: 70px; 
+footer {
+    width: 100%; /* Устанавливаем максимальную ширину в зависимости от размера экрана */
+    margin-top: 70px;
     background-color: #333;
     color: #fff; 
     padding: 20px; 
     text-align: center; 
     font-family:'Nunito Sans', sans-serif;
-  }
+}
+
+
   
   .footer-content {
     max-width: 800px; 
     margin: 0 auto; 
+    padding: 0;
   }
   .footer-content a {
     color: inherit; /* Наследует цвет текста от родительского элемента */

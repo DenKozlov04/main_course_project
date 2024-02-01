@@ -11,7 +11,7 @@ if(isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
     // Проверяем размер файла (не более 2 МБ)
     $maxFileSize = 2 * 1024 * 1024; // 2 МБ в байтах
     if (strlen($image) <= $maxFileSize) {
-        $mysqli = new mysqli('localhost', 'root', '', 'airflightsdatabase');
+        include 'dbconfig.php';
 
         if ($mysqli->connect_error) {
             die("Ошибка подключения: " . $mysqli->connect_error);

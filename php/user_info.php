@@ -13,6 +13,7 @@
 
 <?php
 session_start();
+include 'dbconfig.php';
 
 class UserBookings {
     private $mysqli;
@@ -22,12 +23,7 @@ class UserBookings {
     }
 
     private function initializeDatabase() {
-        $host = 'localhost';
-        $user = 'root';
-        $password = '';
-        $database = 'airflightsdatabase';
-
-        $this->mysqli = new mysqli($host, $user, $password, $database);
+        $this->mysqli = new mysqli(DatabaseConfig::$servername, DatabaseConfig::$dbusername, DatabaseConfig::$dbpassword, DatabaseConfig::$dbname);
 
         if ($this->mysqli->connect_error) {
             die("Connection failed: " . $this->mysqli->connect_error);

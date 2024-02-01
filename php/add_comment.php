@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Обработка отправки формы
     // Добавление комментария в базу данных
     // Перенаправление на другую страницу
-    $mysqli = new mysqli('localhost', 'root', '', 'airflightsdatabase');
+    include 'dbconfig.php';
 
     if ($mysqli->connect_error) {
         die("Connection failed: " . $mysqli->connect_error);

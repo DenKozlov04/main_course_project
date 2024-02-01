@@ -60,7 +60,7 @@ class FlightDataValidator {
     }
 
     private function addToDatabase() {
-        $mysql = new mysqli('localhost', 'root', '', 'airflightsdatabase');
+        include 'dbconfig.php';
     
         // Используйте подготовленные запросы для защиты от SQL-инъекций
         $stmt1 = $mysql->prepare("INSERT INTO `airports/airlines` (`Airline`, `airport_name`, `ITADA`, 
@@ -110,7 +110,7 @@ class FlightDataValidator {
     
 
     private function addDescription($flight_id, $description) {
-        $mysql = new mysqli('localhost', 'root', '', 'airflightsdatabase');
+        include 'dbconfig.php';
         $stmt = $mysql->prepare("INSERT INTO `airflight_description` (`flight_id`, `description`) VALUES (?, ?)");
         $stmt->bind_param("is", $flight_id, $description);
         $stmt->execute();
@@ -119,7 +119,7 @@ class FlightDataValidator {
     }
 
     private function addImageToDatabase($flight_id, $image1) {
-        $mysql = new mysqli('localhost', 'root', '', 'airflightsdatabase');
+        include 'dbconfig.php';
 
         // Используем параметры для безопасной вставки бинарных данных
         $stmt = $mysql->prepare("INSERT INTO airflight_description (`flight_id`, `flight_image`) VALUES (?, ?)");

@@ -1,5 +1,5 @@
 <?php
-$mysqli = new mysqli('localhost', 'root', '', 'airflightsdatabase');
+include 'dbconfig.php';
 
 if ($mysqli->connect_error) {
     die("Ошибка подключения: " . $mysqli->connect_error);

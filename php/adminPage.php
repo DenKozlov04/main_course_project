@@ -4,7 +4,7 @@ session_start();
 if (isset($_SESSION['admin_id'])) {
     // echo $_SESSION['admin_id'];
 
-    $mysqli = new mysqli("localhost", "root", "", "airflightsdatabase");
+    include 'dbconfig.php';
 
     if ($mysqli->connect_error) {
         die("Connection failed: " . $mysqli->connect_error);

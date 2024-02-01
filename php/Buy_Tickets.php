@@ -166,10 +166,8 @@ class FlightTableManager {
 
 $_SESSION['user_id'];
 $_SESSION['admin_id'];
-$host = 'localhost';
-$user = 'root';
-$password = '';
-$database = 'airflightsdatabase';
+
+include 'dbconfig.php';
 
 $isAdmin = ($_SESSION['admin_id'] == 1);
 $tableManager = new FlightTableManager($host, $user, $password, $database);

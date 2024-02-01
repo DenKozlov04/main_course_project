@@ -1,13 +1,11 @@
 <?php
+include 'dbconfig.php';
+
 class Database {
-    private $servername = "localhost";
-    private $dbusername = "root";
-    private $dbpassword = "";
-    private $dbname = "airflightsdatabase";
     private $conn;
 
     public function __construct() {
-        $this->conn = new mysqli($this->servername, $this->dbusername, $this->dbpassword, $this->dbname);
+        $this->conn = new mysqli(DatabaseConfig::$servername, DatabaseConfig::$dbusername, DatabaseConfig::$dbpassword, DatabaseConfig::$dbname);
 
         if ($this->conn->connect_error) {
             die("Connection failed: " . $this->conn->connect_error);
@@ -33,7 +31,6 @@ class Auth {
         $db = new Database();
         $user = $db->getUser($username);
 
-    
         if ($user && md5($password . "356ads34749ad9s") === $user['password']) {
             session_start();
             $_SESSION['username'] = $username;
@@ -48,21 +45,25 @@ class Auth {
         $db->close();
     }
 }
-session_start();
+
 class AdminAuthentication {
     public static function authenticate($username, $password) {
+        $db = new Database();
+
         if ($username === 'admin' && $password === 'Admin292020') {
-            header("Location: adminPage.php");
+            session_start();
             $_SESSION['username'] = $username;
-            $_SESSION['email'] = $user['email'];
+            $_SESSION['email'] = $user['email']; // Проверьте, откуда берется $user
             $_SESSION['user_id'] = $_SESSION['admin_id'];
             $_SESSION['email'] = 'admin@gmail.com';
-            session_start();
             $_SESSION['admin_id'] = 1;
+            header("Location: adminPage.php");
             exit();
         } else {
             $_SESSION['admin_id'] = 0;
         }
+
+        $db->close();
     }
 }
 

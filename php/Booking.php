@@ -7,7 +7,7 @@ echo "<h1>Your user ID is {$_SESSION['user_id']}</h1>";
 echo "<p>Your email is {$_SESSION['email']} .Don't forget it</p>";
 
 
-$mysqli = new mysqli("localhost", "root", "", "airflightsdatabase");
+include 'dbconfig.php';
 
 if ($mysqli->connect_error) {
   die("Connection failed: " . $mysqli->connect_error);

@@ -4,11 +4,13 @@ require __DIR__ . '/../vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+include 'dbconfig.php';
+
 class Registration {
     private $mysql;
 
     public function __construct() {
-        $this->mysql = new mysqli('localhost', 'root', '', 'airflightsdatabase');
+        $this->mysql = new mysqli(DatabaseConfig::$servername, DatabaseConfig::$dbusername, DatabaseConfig::$dbpassword, DatabaseConfig::$dbname);
 
         if ($this->mysql->connect_error) {
             die("Connection failed: " . $this->mysql->connect_error);

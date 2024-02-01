@@ -69,7 +69,7 @@
 session_start();
 // echo $_SESSION['user_id']; 
 // echo $_SESSION['admin_id']; 
-$mysqli = new mysqli("localhost", "root", "", "airflightsdatabase");
+include 'dbconfig.php';
 
 // Проверяем соединение
 if ($mysqli->connect_error) {

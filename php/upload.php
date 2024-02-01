@@ -9,12 +9,9 @@ class ImageUploader {
     }
 
     private function initializeDatabase() {
-        $host = 'localhost';
-        $user = 'root';
-        $password = '';
-        $database = 'airflightsdatabase';
+        include 'dbconfig.php';
 
-        $this->mysqli = new mysqli($host, $user, $password, $database);
+        $this->mysql = new mysqli(DatabaseConfig::$servername, DatabaseConfig::$dbusername, DatabaseConfig::$dbpassword, DatabaseConfig::$dbname);
 
         if ($this->mysqli->connect_error) {
             die("Connection failed: " . $this->mysqli->connect_error);

@@ -10,7 +10,7 @@ if ($user_id === 0 && $admin_id === 0) {
     exit;
 }
 
-$mysqli = new mysqli('localhost', 'root', '', 'airflightsdatabase');
+include 'dbconfig.php';
 
 // Обработка отправки формы комментария
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

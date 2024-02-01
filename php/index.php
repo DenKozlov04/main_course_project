@@ -60,7 +60,8 @@
 
     $sql = "SELECT * FROM profile_images WHERE user_id = $user_id";
 
-    $mysqli = new mysqli("localhost", "root", "", "airflightsdatabase");
+    include 'dbconfig.php';
+
     $result = $mysqli->query($sql);
 
     if ($_SESSION['admin_id'] == 1) {

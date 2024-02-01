@@ -1,5 +1,14 @@
 <?php
-$conn = mysqli_connect('localhost', 'root', '', 'airflightsdatabase');
+
+include 'dbconfig.php';
+
+// Создаем соединение
+$conn = new mysqli(DatabaseConfig::$servername, DatabaseConfig::$dbusername, DatabaseConfig::$dbpassword, DatabaseConfig::$dbname);
+
+// Проверяем соединение
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
 // Получаем поисковые запросы из формы
 $searchRoute = htmlspecialchars(trim($_GET['SearchRoute'] ?? ''));

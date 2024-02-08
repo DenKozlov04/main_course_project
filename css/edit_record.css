@@ -1,0 +1,64 @@
+body {
+    background-color: #F1F1F1;
+    margin: 0; 
+    font-family: 'Poppins', sans-serif;
+}
+
+.editform {
+    margin-top: 40px;
+    background-color: #E1E1E1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+    width: 500px;
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    z-index: 1;
+    font-weight: 600;
+}
+
+.editform .inner-element {
+    
+}
+.inner-element input {
+    background-color: #CECECE;
+    border: none;
+    width: 400px;
+    height: 35px;
+    margin-bottom: 10px; 
+    border-radius: 20px;
+    padding-left: 15px; 
+}
+.inner-element button {
+    background-color: #53C974;
+    border: none;
+    width: 417px;
+    height: 45px;
+    margin-top: 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 18px; /* Увеличение размера текста */
+}
+
+.editformtop {
+    font-weight: 800;
+    font-size: 20px;
+    text-align: center; /* Центрирование текста по горизонтали */
+    line-height: 70px; /* Центрирование текста по вертикали */
+    margin-top: -365px;
+    background-color: #5080FC;
+    width: 500px;
+    height: 70px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+}
+

@@ -1,3 +1,4 @@
+
 <?php
 
 session_start();
@@ -85,34 +86,44 @@ $editor->closeDatabaseConnection();
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/edit_record.css" rel="stylesheet">
     <title>Edit Record</title>
 </head>
 
 <body>
-    <h2>Edit Record</h2>
-    <form action="" method="POST">
-        <input type="hidden" name="update" value="<?php echo $recordForEditing['id']; ?>">
-        <label>Airline:</label><br>
-        <input type="text" name="airline" value="<?php echo $airline; ?>"><br>
-        <label>Airport Name:</label><br>
-        <input type="text" name="airport_name" value="<?php echo $airport_name; ?>"><br>
-        <label>ITADA Code:</label><br>
-        <input type="text" name="itada" value="<?php echo $itada; ?>"><br>
-        <label>City:</label><br>
-        <input type="text" name="city" value="<?php echo $city; ?>"><br>
-        <label>Country:</label><br>
-        <input type="text" name="country" value="<?php echo $country; ?>"><br>
-        <label>Ticket Price:</label><br>
-        <input type="text" name="t_price" value="<?php echo $t_price; ?>"><br>
-        <label>Arrival Date:</label><br>
-        <input type="date" name="arrival_date" value="<?php echo $arrival_date; ?>"><br>
-        <label>Departure Date:</label><br>
-        <input type="date" name="departure_date" value="<?php echo $departure_date; ?>"><br>
-        <label>Arrival time:</label><br>
-        <input type="text" name="arrival_time" value="<?php echo $arrival_time; ?>"><br>
-        <label>Departure time:</label><br>
-        <input type="text" name="departure_time" value="<?php echo $departure_time; ?>"><br>
-        <button type="submit" name="submit">Update</button>
-    </form>
+    <li><a class="" href="../php/Buy_Tickets.php">Go back</a></li>
+    <div class='editformtop'>
+            <a>Edit Record</a>
+        </div>
+    <div class='editform'>
+        <div class='inner-element'>
+            <form action="" method="POST">
+                <input type="hidden" name="update" value="<?php echo $recordForEditing['id']; ?>">
+                <label>Airline:</label><br>
+                <input type="text" name="airline" value="<?php echo $airline; ?>"><br>
+                <label>Airport Name:</label><br>
+                <input type="text" name="airport_name" value="<?php echo $airport_name; ?>"><br>
+                <label>ITADA Code:</label><br>
+                <input type="text" name="itada" value="<?php echo $itada; ?>"><br>
+                <label>City:</label><br>
+                <input type="text" name="city" value="<?php echo $city; ?>"><br>
+                <label>Country:</label><br>
+                <input type="text" name="country" value="<?php echo $country; ?>"><br>
+                <label>Ticket Price:</label><br>
+                <input type="text" name="t_price" value="<?php echo $t_price; ?>"><br>
+                <label>Arrival Date:</label><br>
+                <input type="date" name="arrival_date" value="<?php echo $arrival_date; ?>"><br>
+                <label>Departure Date:</label><br>
+                <input type="date" name="departure_date" value="<?php echo $departure_date; ?>"><br>
+                <label>Arrival time:</label><br>
+                <input type="text" name="arrival_time" value="<?php echo $arrival_time; ?>"><br>
+                <label>Departure time:</label><br>
+                <input type="text" name="departure_time" value="<?php echo $departure_time; ?>"><br>
+                <button type="submit" name="submit">Update</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

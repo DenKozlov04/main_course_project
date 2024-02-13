@@ -62,7 +62,7 @@ class FlightDataValidator {
     private function addToDatabase() {
         include 'dbconfig.php';
     
-        // Используйте подготовленные запросы для защиты от SQL-инъекций
+
         $stmt1 = $mysql->prepare("INSERT INTO `airports/airlines` (`Airline`, `airport_name`, `ITADA`, 
             `City`, `country`, `T_price`, `departure_date`, `arrival_date`,
             `arrival_time`, `departure_time`, `googleMapsLink`, `created_at`) 
@@ -88,8 +88,8 @@ class FlightDataValidator {
             if (isset($_FILES['image1']) && $_FILES['image1']['error'] == 0) {
                 $image1 = file_get_contents($_FILES['image1']['tmp_name']);
     
-                // Проверяем размер файла (не более 2 МБ)
-                $maxFileSize = 2 * 1024 * 1024; // 2 МБ в байтах
+               
+                $maxFileSize = 2 * 1024 * 1024; 
                 if (strlen($image1) <= $maxFileSize) {
                     $stmt2->execute();
                     echo "Данные успешно добавлены в таблицы.";
@@ -97,7 +97,7 @@ class FlightDataValidator {
                     echo "Ошибка: Размер файла превышает допустимый предел (2 МБ).";
                 }
             } else {
-                // Если изображение не было загружено, добавляем только описание
+                // Если изображение не было загружено
                 $stmt2->execute();
                 echo "Данные успешно добавлены в таблицы (без изображения).";
             }
@@ -121,7 +121,7 @@ class FlightDataValidator {
     private function addImageToDatabase($flight_id, $image1) {
         include 'dbconfig.php';
 
-        // Используем параметры для безопасной вставки бинарных данных
+        // безопасно подготавливаем
         $stmt = $mysql->prepare("INSERT INTO airflight_description (`flight_id`, `flight_image`) VALUES (?, ?)");
         $stmt->bind_param("is", $flight_id, $image1);
 
@@ -137,7 +137,7 @@ class FlightDataValidator {
 
 }
 
-// Использование класса
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $flightData = [
         'Airline' => $_POST['Airline'],

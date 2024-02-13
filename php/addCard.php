@@ -4,12 +4,12 @@ session_start();
 $city = $_POST['city'];
 $price = $_POST['price'];
 $arrival_city = $_POST['arrival_city'];
-// Проверяем, что файл изображения был загружен
+// is file upload?
 if(isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
     $image = file_get_contents($_FILES['image']['tmp_name']);
 
-    // Проверяем размер файла (не более 2 МБ)
-    $maxFileSize = 2 * 1024 * 1024; // 2 МБ в байтах
+    // is file 2 МB
+    $maxFileSize = 2 * 1024 * 1024; // 2 МB in bites
     if (strlen($image) <= $maxFileSize) {
         include 'dbconfig.php';
 
@@ -17,7 +17,7 @@ if(isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
             die("Ошибка подключения: " . $mysqli->connect_error);
         }
 
-        // Используем параметры для безопасной вставки бинарных данных
+        
         $stmt = $mysqli->prepare("INSERT INTO countrycards (city, arrival_city, price, image) VALUES (?, ?, ?, ?)");
         $stmt->bind_param("ssss", $city, $arrival_city, $price, $image);
 

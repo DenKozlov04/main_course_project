@@ -6,6 +6,9 @@ use PHPMailer\PHPMailer\Exception;
 
 include 'dbconfig.php';
 
+
+
+
 class Registration {
     private $mysql;
 
@@ -52,43 +55,52 @@ class Registration {
         return $isMailSent;
     }
 
-    public function validateAndRegister($login, $email, $phone, $con_password) {
+    public function validateAndRegister($login, $email, $phone, $con_password,$password) {
         $login = htmlspecialchars(filter_var(trim($login), FILTER_SANITIZE_STRING));
         $email = htmlspecialchars(filter_var(trim($email), FILTER_SANITIZE_STRING));
         $phone = htmlspecialchars(filter_var(trim($phone), FILTER_SANITIZE_STRING));
         $con_password = htmlspecialchars(filter_var(trim($con_password), FILTER_SANITIZE_STRING));
+        $password = htmlspecialchars(filter_var(trim($password), FILTER_SANITIZE_STRING));
+
+
+
+        $alert = ''; // Инициализируем переменную $alert
 
         if (mb_strlen($login) < 5 || mb_strlen($login) > 90) {
-            echo "<script>alert(\"Incorrect username length\");</script>";
-            exit();
+            $alert = 'Incorrect username length';
         } elseif (mb_strlen($email) < 2 || mb_strlen($email) > 90) {
-            echo "<script>alert(\"Incorrect email length\");</script>";
-            exit();
+            $alert = 'Incorrect email length';
         } elseif (mb_strlen($phone) !== 12) {
-            echo "<script>alert(\"Incorrect phone length\");</script>";
-            exit();
+            $alert = 'Incorrect phone length';
         } elseif (mb_strlen($con_password) < 8 || mb_strlen($con_password) > 32) {
-            echo "<script>alert(\"Incorrect password length (from 8 to 32 symbols)\");</script>";
-            exit();
+            $alert = 'Incorrect confirm password length (from 8 to 32 symbols)';
+        } elseif (mb_strlen($password) < 8 || mb_strlen($password) > 32) {
+            $alert = 'Incorrect password length (from 8 to 32 symbols)';
         }
-
-        // ... ваш код проверок ...
-
+        
         // Если все проверки прошли успешно
         if ($this->isUserExists('username', $login)) {
-            echo "<script>alert(\"This username already exists\");</script>";
-            exit();
+            $alert = "This username already exists";
         }
-
+        
         if ($this->isUserExists('email', $email)) {
-            echo "<script>alert(\"This email already exists\");</script>";
-            exit();
+            $alert = "This email already exists";
         }
-
+        
         if ($this->isUserExists('phone', $phone)) {
-            echo "<script>alert(\"This phone already exists\");</script>";
+            $alert = "This phone already exists";
+        }
+        
+        if ($con_password != $password) {
+            $alert = "These passwords do not match";
+        }
+        
+        // Выводим алерт, если есть ошибка
+        if ($alert) {
+            header("Location: ../html/registration.html?alert=" . urlencode($alert));
             exit();
         }
+        
         // Хэшируем пароль с использованием MD5
         $con_password = md5($con_password . "356ads34749ad9s");
         
@@ -126,15 +138,16 @@ class Registration {
 if (isset($_POST['register'])) {
     try {
         $registration = new Registration();
-        $registration->validateAndRegister($_POST['username'], $_POST['email'], $_POST['phone'], $_POST['con-password']);
+        $registration->validateAndRegister($_POST['username'], $_POST['email'], $_POST['phone'], $_POST['con-password'],$_POST['password']);
     } catch (Exception $e) {
         echo $e->getMessage();
     }
 }
 
-// ... ваша другая часть кода ...
+
 
 echo "PHP is working!";
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 ?>
+

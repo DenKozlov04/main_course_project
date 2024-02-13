@@ -30,6 +30,7 @@ class Auth {
     public static function login($username, $password) {
         $db = new Database();
         $user = $db->getUser($username);
+        $alert = '';
 
         if ($user && md5($password . "356ads34749ad9s") === $user['password']) {
             session_start();
@@ -39,12 +40,15 @@ class Auth {
             header("Location: index.php");
             exit();
         } else {
-            echo "Неверное имя пользователя или пароль";
+            $alert = "Incorrect username or password";
+            header("Location: ../html/autorization.html?alert=" . urlencode($alert));
+            exit();
         }
 
         $db->close();
     }
 }
+
 
 class AdminAuthentication {
     public static function authenticate($username, $password) {

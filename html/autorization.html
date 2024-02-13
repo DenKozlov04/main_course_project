@@ -5,10 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../css/autorization.css" rel="stylesheet">
+    <script src="../php/alertscripts.php"></script>
+    <script src="../JS/sweetalert.min.js"></script>
     <title>Log in</title>
 </head>
 <body>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const alertMessage = urlParams.get('alert');
 
+    if (alertMessage) {
+        swal({
+            title: 'Error!',
+            text: decodeURIComponent(alertMessage),
+            icon: 'error',
+            button: 'OK'
+        });
+    }
+</script>
   <div class ='curort' >
     <p><img src="../images/Beautiful-tropical-sea-bungalows-resort_1920x1080.jpg"></p>
   </div>

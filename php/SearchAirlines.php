@@ -10,7 +10,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Получаем поисковые запросы из формы
+
 $searchRoute = htmlspecialchars(trim($_GET['SearchRoute'] ?? ''));
 $searchCountry = htmlspecialchars(trim($_GET['SearchCountry'] ?? ''));
 $searchArrivalDate = htmlspecialchars(trim($_GET['SearchArrival_date'] ?? ''));

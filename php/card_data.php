@@ -8,7 +8,7 @@ if ($mysqli->connect_error) {
 $sql = "SELECT city, arrival_city, price, image FROM countrycards";
 $result = $mysqli->query($sql);
 
-echo '<div class="gallery-grid">'; // Откройте контейнер для карточек
+echo '<div class="gallery-grid">'; 
 
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
@@ -17,7 +17,7 @@ if ($result->num_rows > 0) {
         $price = $row['price'];
         $image = $row['image'];
 
-        echo '<div class="gallery-item">'; // Откройте карточку
+        echo '<div class="gallery-item">'; 
         echo '<div class="grid-item__inner">';
         echo '<img src="data:image/png;base64,' . base64_encode($image) . '" class="grid-item__img" style="width: 358px; height: 348px; border-radius: 10px; " alt="Image Description">';
         echo '<div class="place1">';
@@ -33,13 +33,13 @@ if ($result->num_rows > 0) {
         echo '<button class="Buy">Buy tickets</button>';
         echo '</div>';
         echo '</div>';
-        echo '</div>'; // Закройте карточку
+        echo '</div>'; 
     }
 } else {
     echo "Записей не найдено.";
 }
 
-echo '</div>'; // Закройте контейнер для карточек
+echo '</div>'; 
 
 $mysqli->close();
 ?>

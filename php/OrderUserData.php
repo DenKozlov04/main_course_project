@@ -1,5 +1,12 @@
 <?php
+session_start();
+$seat = $_GET['seat'];
 
+$user_id = $_SESSION['user_id'];
+$admin_id = $_SESSION['admin_id'];
+
+echo $user_id;
+echo $admin_id;
 ?>
 <!DOCTYPE html>
 <html lang="en">

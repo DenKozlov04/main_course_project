@@ -1,13 +1,28 @@
 <?php
 session_start();
-$seat = $_GET['seat'];
+
 
 $user_id = $_SESSION['user_id'];
 $admin_id = $_SESSION['admin_id'];
 
+if(isset($_GET['buttonValue'])) {
+    $buttonValue = $_GET['buttonValue'];
+
+    // Теперь вы можете использовать $buttonValue в вашем коде
+    echo "Выбранное значение: " . $buttonValue;
+} else {
+    // Если значение не было передано, выводим сообщение об ошибке или делаем что-то другое
+    echo "Ошибка: Значение кнопки не передано.";
+}
+
 echo $user_id;
 echo $admin_id;
 ?>
+   
+
+<script>
+
+</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>

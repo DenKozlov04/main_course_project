@@ -94,8 +94,10 @@ $mysqli->close();
     <div class="text1"><?php echo $city; ?></div>
     <div class="text2"><?php echo $description; ?></div>
     <form method='POST' action='OrderUserData.php'>
-        <button class="button1" type='submit'>Order</button>
+        <button class="button1" type='submit' onclick="redirectToOrderPage()">Order</button>
+
     </form>
+
 </div>
 <div class="custom-rectangle2L">
     <div class="CommentsPlace">

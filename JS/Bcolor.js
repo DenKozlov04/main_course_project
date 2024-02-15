@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     var colorButtons = document.querySelectorAll('.colorButton button');
     var selectedValueElement = document.getElementById('selectedValue');
+    var buttonValue = 0;
 
     colorButtons.forEach(function (button) {
         button.addEventListener('click', function () {
@@ -8,11 +9,23 @@ document.addEventListener('DOMContentLoaded', function () {
             button.classList.toggle('active');
 
             // Получаем значение (текст) кнопки
-            var buttonValue = button.value;
+            var currentValue = button.value;
+            var buttonValue = 0;
+            selectedValueElement.textContent = buttonValue;
+            // Проверяем, была ли кнопка нажата до этого
+            if (buttonValue === currentValue) {
+                // Если кнопка была нажата повторно, устанавливаем значение buttonValue в 0
+                buttonValue = 0;
+                // Дополнительные действия для состояния 0
+            } else {
+                // Если это первый раз, когда кнопка нажата, устанавливаем buttonValue в текущее значение кнопки
+                buttonValue = currentValue;
+                // window.location.href = '../php/OrderUserData.php?buttonValue=' + buttonValue;
+                // Дополнительные действия для состояния 1
+            }
 
             // Отображаем значение на странице
             selectedValueElement.textContent = buttonValue;
-
             // Теперь вы можете использовать переменную buttonValue для отправки на сервер или других действий
         });
     });

@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded', function () {
     var colorButtons = document.querySelectorAll('.colorButton button');
     var selectedValueElement = document.getElementById('selectedValue');
@@ -10,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Получаем значение (текст) кнопки
             var currentValue = button.value;
-            var buttonValue = 0;
+            // var buttonValue = 0;
             selectedValueElement.textContent = buttonValue;
             // Проверяем, была ли кнопка нажата до этого
             if (buttonValue === currentValue) {
@@ -23,11 +25,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 // window.location.href = '../php/OrderUserData.php?buttonValue=' + buttonValue;
                 // Дополнительные действия для состояния 1
             }
-
-            // Отображаем значение на странице
             selectedValueElement.textContent = buttonValue;
-            // Теперь вы можете использовать переменную buttonValue для отправки на сервер или других действий
         });
     });
-});
 
+    // Обработка отправки формы
+    var orderForm = document.getElementById('orderForm');
+    orderForm.addEventListener('submit', function (event) {
+        // Предотвращаем отправку формы по умолчанию
+        event.preventDefault();
+
+        // Отправляем значение переменной buttonValue на страницу OrderUserData.php
+        window.location.href = '../php/OrderUserData.php?buttonValue=' + buttonValue;
+    });
+});

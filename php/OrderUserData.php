@@ -6,14 +6,15 @@ $user_id = $_SESSION['user_id'];
 $admin_id = $_SESSION['admin_id'];
 
 if(isset($_GET['buttonValue'])) {
+    // Получаем значение из URL
+    $alert = '';
     $buttonValue = $_GET['buttonValue'];
+    if($buttonValue === 0){
+        $alert = "test";
+    }
+    echo "Received buttonValue: " . $buttonValue;
 
-    // Теперь вы можете использовать $buttonValue в вашем коде
-    echo "Выбранное значение: " . $buttonValue;
-} else {
-    // Если значение не было передано, выводим сообщение об ошибке или делаем что-то другое
-    echo "Ошибка: Значение кнопки не передано.";
-}
+} 
 
 echo $user_id;
 echo $admin_id;
@@ -30,8 +31,24 @@ echo $admin_id;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finalize your reservation</title>
     <link rel="stylesheet" type="text/css" href="../css/OrderUserData.css">
+    <script src="../JS/sweetalert.min.js"></script>
+    <script src="../php/alertscripts.php"></script>
 </head>
 <body>
+    <script>   
+        const urlParams = new URLSearchParams(window.location.search);
+        const alertMessage = urlParams.get('alert');
+    
+        if (alertMessage) {
+            swal({
+                title: 'Error!',
+                text: decodeURIComponent(alertMessage),
+                icon: 'error',
+                button: 'OK'
+            });
+        }
+    </script>
+    </script>
     <div class='FormRectangle'>
         <div class = 'Formtext1'>Finalize your reservation</div>
         <div class = 'Formtext2'>Please complete the form below to finalize your 

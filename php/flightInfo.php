@@ -43,13 +43,24 @@ if ($stmt->fetch()) {
 
 $mysqli->close();
 
-// if (isset($_POST['buttonBox1 colorButton']) || isset($_POST['buttonBox2 colorButton']) 
-// || isset($_POST['buttonBox3 colorButton']) || isset($_POST['buttonBox4 colorButton']) 
-// || isset($_POST['buttonBox5 colorButton']) || isset($_POST['buttonBox6 colorButton']) 
-// || isset($_POST['buttonBox7 colorButton']) || isset($_POST['buttonBox8 colorButton'])) {
-
-//     $selectedSeat = $_POST['seat'];
-//     echo $selectedSeat;
+// if(isset($_GET['buttonValue'])) {
+//     // Получаем значение из URL
+//     $buttonValue = $_GET['buttonValue'];
+//     if($buttonValue == 0){
+//         echo '<script>
+//             const urlParams = new URLSearchParams(window.location.search);
+//             const alertMessage = urlParams.get("alert");
+        
+//             if (alertMessage) {
+//                 swal({
+//                     title: "Error!",
+//                     text: decodeURIComponent(alertMessage),
+//                     icon: "error",
+//                     button: "OK"
+//                 });
+//             }
+//         </script>';
+//     }
 // }
 ?>
 
@@ -62,6 +73,8 @@ $mysqli->close();
     <title>Flight to any point on the globe.</title>
     <link rel="stylesheet" type="text/css" href="../css/flightInfo.css">
     <script src="../JS/Bcolor.js"></script>
+    <script src="../JS/sweetalert.min.js"></script>
+    <script src="../php/alertscripts.php"></script>
 </head>
 <body>
     <div class="background-video">
@@ -93,10 +106,10 @@ $mysqli->close();
     </div>
     <div class="text1"><?php echo $city; ?></div>
     <div class="text2"><?php echo $description; ?></div>
-    <form method='POST' action='OrderUserData.php'>
-        <button class="button1" type='submit' onclick="redirectToOrderPage()">Order</button>
+    <form id="orderForm" method='POST' action='OrderUserData.php'>
+    <button class="button1" type='submit'>Order</button>
+</form>
 
-    </form>
 
 </div>
 <div class="custom-rectangle2L">

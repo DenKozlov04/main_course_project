@@ -513,3 +513,16 @@ footer {
   color: #c0c0c0;
 }
 
+.special-link4{
+  margin-right:60px;
+  z-index: 999;
+  position: absolute;
+  margin-top: -55px;
+  /* top: 147%; Позиционируем по вертикали посередине */
+  transform: translateY(-145%); /* Корректируем вертикальное выравнивание */
+  right: 100px; /* Располагаем справа */
+}
+.special-link4:hover {
+  background-color: initial; 
+  color: initial; 
+}

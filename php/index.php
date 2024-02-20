@@ -46,13 +46,12 @@
   
   <div class='pict5'>
   <?php
-    
 
     // Проверяем, была ли страница открыта первый раз или была перенаправлена с другой страницы
     if (!isset($_SESSION['page_opened']) || !$_SESSION['page_opened'] || !isset($_SERVER['HTTP_REFERER']) || empty($_SERVER['HTTP_REFERER'])) {
         $_SESSION['page_opened'] = true; // Помечаем, что страница была открыта
-        $_SESSION['user_id'] = 0; // Сбрасываем user_id на 0
-        $_SESSION['admin_id'] = 0; // Сбрасываем admin_id на 0
+        $_SESSION['user_id'] = 0; 
+        $_SESSION['admin_id'] = 0; 
     }
 
     $user_id = $_SESSION['user_id'];
@@ -81,8 +80,10 @@
     echo $_SESSION['user_id'];
     echo $_SESSION['admin_id'];
 
-    // Закрываем соединение
+  
     $mysqli->close();
+    echo '<p><a class="special-link4" href=""><img src="../images/messageFalse.png"  width="34" height="34"></a></p>';
+    echo '<p><a class="special-link4" href=""><img src="../images/messageTrue.png"  width="34" height="34"></a></p>';
 ?>
 
     

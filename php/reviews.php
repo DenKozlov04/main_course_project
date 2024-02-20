@@ -97,7 +97,7 @@ if ($result = $mysqli->query($sql)) {
 }
 
 $mysqli->close();
-// ДОБАВИТЬ РЕДАКТИРОВАНИЕ КОММЕНТАРИЕВ ДЛЯ ПОЛЬЗОВАТЕЛЯ И АДМИНА
+
 ?>
 
 <!DOCTYPE html>
@@ -141,16 +141,35 @@ $mysqli->close();
             <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
                 <input type="hidden" name="delete_comment_id" value="<?php echo $comment['id']; ?>">
                 <input type="submit" value="Delete" name="delete_comment">
+
             </form>
-            <button onclick="ShowEdit(<?php echo $comment['id']; ?>)">Edit your comment</button>
+            <button onclick="ShowEdit(<?php echo $comment['id']; ?>)">Edit comment</button>
             <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post" id="editForm<?php echo $comment['id']; ?>" style="display: none;">
                 <input type="hidden" name="edit_comment_id" value="<?php echo $comment['id']; ?>">
                 <input type="submit" value="Edit" name="edit_comment">
                 <textarea name="edit_comment" id="edit_comment" cols="30" rows="10"><?php echo $comment['comment']; ?></textarea><br>
             </form>
+            <?php
+                    if ($admin_id != 0 && $user_id == 0) {
+                        $sql = "SELECT Airline FROM `airports/airlines` ";
+                        $result = $conn->query($sql);
+
+                        // Вывод данных
+                        if ($result->num_rows > 0) {
+                            echo '<select id="flightname" name="flightname">';
+                            while ($row = $result->fetch_assoc()) {
+                                echo '<option value="' . $row["Airline"] . '">' . $row["Airline"] . '</option>';
+                            }
+                            echo '</select>';
+                        } else {
+                            echo "0 results";
+                        }
+                    }
+                    ?>
         <?php endif; ?>
     </div>
 <?php endforeach; ?>
+
 
 </body>
 </html>

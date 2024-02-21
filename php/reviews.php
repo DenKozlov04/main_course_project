@@ -83,6 +83,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "Пожалуйста, введите комментарий.";
         }
     }
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (isset($_POST['flightname']) && isset($_POST['comment_id'])) {
+            $flightname = $_POST['flightname'];
+            $comment_id = $_POST['comment_id'];
+    
+            // Запрос на обновление строки в таблице comments
+            $update_sql = "UPDATE comments SET comment_category = '$flightname' WHERE id = $comment_id";
+            
+            if ($conn->query($update_sql) === TRUE) {
+                echo "Record updated successfully";
+            } else {
+                echo "Error updating record: " . $conn->error;
+            }
+        }
+    }
 }
 
 // Получение комментариев из базы данных
@@ -149,7 +164,8 @@ $mysqli->close();
                 <input type="submit" value="Edit" name="edit_comment">
                 <textarea name="edit_comment" id="edit_comment" cols="30" rows="10"><?php echo $comment['comment']; ?></textarea><br>
             </form>
-            <?php
+            <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
+                    <?php
                     if ($admin_id != 0 && $user_id == 0) {
                         $sql = "SELECT Airline FROM `airports/airlines` ";
                         $result = $conn->query($sql);
@@ -157,6 +173,7 @@ $mysqli->close();
                         // Вывод данных
                         if ($result->num_rows > 0) {
                             echo '<select id="flightname" name="flightname">';
+                            echo '<option value="None" selected>None</option>'; // Добавляем опцию "None" по умолчанию
                             while ($row = $result->fetch_assoc()) {
                                 echo '<option value="' . $row["Airline"] . '">' . $row["Airline"] . '</option>';
                             }
@@ -165,7 +182,10 @@ $mysqli->close();
                             echo "0 results";
                         }
                     }
+                    echo '<input type="hidden" name="comment_id" value="' . $comment['id'] . '">';
                     ?>
+                    <button type="submit">Add</button>
+            </form>
         <?php endif; ?>
     </div>
 <?php endforeach; ?>

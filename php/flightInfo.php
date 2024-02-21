@@ -41,7 +41,8 @@ if ($stmt->fetch()) {
 }
 
 
-$mysqli->close();
+
+
 
 // if(isset($_GET['buttonValue'])) {
 //     // Получаем значение из URL
@@ -307,10 +308,41 @@ $mysqli->close();
     </div>
     
 </div>
-<div class="custom-rectangle2L">
-    <div class="CommentsPlace">
-        <div class="text3">Travel reviews</div>
-    </div>
+
+<?php
+$stmt3 = $mysqli->prepare("SELECT `name`,`comment` FROM `comments` WHERE `comment_category` = (SELECT `Airline` FROM `airports/airlines` WHERE `id` = ?)");
+// Привязка параметра
+$stmt3->bind_param("i", $airline_id);
+$stmt3->execute();
+$result = $stmt3->get_result();
+
+// Выводим общие блоки за пределами цикла
+echo '<div class="custom-rectangle2L">';
+echo '    <div class="CommentsPlace">';
+echo '        <div class="text3">Travel reviews</div>';
+
+while ($row = $result->fetch_assoc()) {
+    // Выводит только блок BestComment внутри цикла
+    echo '        <div class="BestComment">';
+    echo '            <img src="../images/user_foto.png" alt="Plane places" width="80" height="80">';
+    echo '            <div class="CommText">';
+    echo '                <h1>' . $row['name'] . '</h1>';
+    echo '                <div class="textSize">';
+    echo '                    <a>' . $row['comment'] . '</a>';
+    echo '                    <div class="rectangle4"></div>';
+    echo '                </div>';
+    echo '            </div>';
+    echo '        </div>';
+}
+echo '    </div>';
+echo '</div>';
+
+$stmt3->close();
+$result->close();
+?>
+
+
+
 </div>
 
 </body>

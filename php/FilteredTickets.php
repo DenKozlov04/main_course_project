@@ -75,10 +75,11 @@ include 'dbconfig.php';
 if ($mysqli->connect_error) {
     die("Ошибка подключения: " . $mysqli->connect_error);
 }
-if ($_SESSION['user_id'] == 0) {
+if ($_SESSION['user_id'] == 0 && $_SESSION['admin_id'] != 1) {
     header("Location: ../html/autorization.html");
-    exit(); 
-}
+    exit();
+} 
+
 
 // Получаем значение города из GET-параметра, если передано
 $SearchRoute = isset($_GET['SearchRoute']) ? $_GET['SearchRoute'] : '';

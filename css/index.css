@@ -520,7 +520,7 @@ footer {
   margin-top: -55px;
   /* top: 147%; Позиционируем по вертикали посередине */
   transform: translateY(-145%); /* Корректируем вертикальное выравнивание */
-  right: 100px; /* Располагаем справа */
+  right: 110px; /* Располагаем справа */
 }
 .special-link4:hover {
   background-color: initial; 

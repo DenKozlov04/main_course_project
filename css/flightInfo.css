@@ -388,3 +388,38 @@ body, html {
 .buttonBox8 button.active {
     background-color: rgb(252, 252, 123); /* Новый цвет при активации */
 }
+.BestComment {
+    width: 1520px;
+    min-height: 100px;
+    background: #F5F5F5;
+    margin: auto;
+    z-index: 999;
+    position: relative;
+    transform: translateY(10px);
+    margin-top:0px;
+    top:-260px;
+}
+.CommText h1{
+    font-size: 30px;
+    border: none;
+    font-family:'Nunito Sans', sans-serif;
+    margin-left: 80px; 
+    margin-top:-57px;
+}
+.CommText a {
+    margin-top: 20px;
+    font-family:'Nunito Sans', sans-serif;
+    overflow: hidden; /* Обрезаем содержимое, чтобы вписаться в размеры блока */
+    font-size: 20px;
+}
+.BestComment .textSize{
+    margin-left: 40px;
+    width:1460px;
+
+}
+.rectangle4{
+    background:#ACACAC;
+    margin-top:15px;
+    width: 1430px;
+    height:3px;
+}

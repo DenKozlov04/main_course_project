@@ -17,6 +17,8 @@
     <a class='Info1'>Izvēlies lidojumu datumus</a>
     <a class='Info2'>Izvēlies datumus, lai apskatītu lidojumus un cenas</a>
 </div>
+
+
 <div class="scrollable-box">
     <div class="calendar">
         <?php
@@ -40,6 +42,12 @@
     </div>
 </div>
 
-</head>
+<div class='greyRectangle'></div>
+<div class='greyRectangle2'></div>
+
+<a class='Info3'>Lidojums uz: Parīze (CDG)</a>
+<div class='greyRectangle3'>
+    
+</div>
 </body>
 </html>

@@ -14,7 +14,7 @@ body {
     width: 800px;
     height: 1400px;
     margin: 30px auto 0;
-    border-radius: 20px; /* Задайте значение скругления углов в пикселях, как вам нужно */
+    border-radius: 20px; 
 }
 
 .Formtext1 {
@@ -69,8 +69,8 @@ body {
     height: 35px;
     border-radius: 15px;
     background: #E7E7E7;
-    border: none; /* Добавлено для удаления обводки */
-    outline: none; /* Добавлено для удаления подсветки при фокусе (если необходимо) */
+    border: none; 
+    outline: none; 
     padding-left: 10px; 
   }
   #user-info-form input::placeholder {
@@ -80,7 +80,7 @@ body {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    padding-left: 10px; /* Сдвигаем текст плейсхолдера вправо на 10px */
+    padding-left: 10px; 
   }
   
   #user-info-form select {
@@ -90,13 +90,13 @@ body {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    padding-left: 10px; /* Сдвигаем текст плейсхолдера вправо на 10px */
+    padding-left: 10px; 
     width: 80px;
     height: 35px;
     border-radius: 15px;
     background: #E7E7E7;
-    border: none; /* Добавлено для удаления обводки */
-    outline: none; /* Добавлено для удаления подсветки при фокусе (если необходимо) */
+    border: none; 
+    outline: none; 
   }
   .Formtext5{
     font-size: 25px;
@@ -118,25 +118,25 @@ body {
     height: 35px;
     border-radius: 15px;
     background: #E7E7E7;
-    border: none; /* Добавлено для удаления обводки */
-    outline: none; /* Добавлено для удаления подсветки при фокусе (если необходимо) */
+    border: none; 
+    outline: none; 
 }
 #user-info-form-lined {
     display: flex;
-    flex-direction: row; /* Инпуты и плейсхолдеры будут идти в строчку */
+    flex-direction: row; 
   }
   
   .form-group {
-    margin-right: 20px; /* Добавьте отступ между каждой парой лейбл-инпут */
+    margin-right: 20px; 
   }
   
   .form-group label {
-    display: block; /* Разместите лейблы в столбик */
-    margin-bottom: 5px; /* Добавьте небольшой отступ между лейблом и инпутом */
+    display: block; 
+    margin-bottom: 5px; 
   }
   
   .form-group input {
-    width: 150px; /* Задайте фиксированную ширину инпутов, или просто уберите это свойство для автоматической ширины */
+    width: 150px; 
   }
   .submitButton{
     width:655px;
@@ -148,8 +148,8 @@ body {
     margin-top: 20px;
     margin-left: 65px;
     font-weight: bold;
-    border: none; /* Добавлено для удаления обводки */
-    outline: none; /* Добавлено для удаления подсветки при фокусе (если необходимо) */
+    border: none; 
+    outline: none; 
   }
   .infotext{
     color: #F30000;
@@ -157,7 +157,7 @@ body {
     margin-left: 68px;
   }
 footer {
-    width: 100%; /* Устанавливаем максимальную ширину в зависимости от размера экрана */
+    width: 100%; 
     margin-top: 70px;
     background-color: #333;
     color: #fff; 
@@ -174,7 +174,7 @@ footer {
     padding: 0;
   }
   .footer-content a {
-    color: inherit; /* Наследует цвет текста от родительского элемента */
-    text-decoration: none; /* Убирает подчеркивание */
+    color: inherit; 
+    text-decoration: none; 
   }
   

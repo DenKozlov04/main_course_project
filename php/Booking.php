@@ -39,7 +39,7 @@ $arrival_time = $_POST['arrival_time'];
 $departure_time = $_POST['departure_time'];
 
   $random_number = rand(10, 99);
-  $random_letter = chr(rand(65, 90)); // генерируем случайную заглавную букву в ASCII диапазоне от 65 до 90
+  $random_letter = chr(rand(65, 90)); 
 
   $random_data = $random_number . $random_letter;// выводит, например, "F37"
 
@@ -48,14 +48,14 @@ $departure_time = $_POST['departure_time'];
   // INNER JOIN `tickets`
   // ON `airports/airlines`.`id` = `tickets`.`airline_id`");
   // $tickets = ['tickets'];
-// Получаем данные из сессии и POST-запроса
+
 
 $user_id = $_SESSION['user_id'];
 $flight_id = $_POST['airline_id'];
 $booking_date = date('Y-m-d H:i:s');
 $seat_number = $random_data;
 
-// Добавляем данные в таблицу booking
+
 $sql = "INSERT INTO `bookings` (`user_id`, `flight_id`, `booking_date`, `seat_number`) VALUES ('$user_id', '$flight_id', '$booking_date', '$seat_number')";
 
 if ($mysqli->query($sql) === TRUE) {
@@ -64,7 +64,7 @@ if ($mysqli->query($sql) === TRUE) {
   echo "Error creating booking: " . $mysqli->error;
 }
 
-// Добавляем данные в таблицу tickets
+
 $sql = "INSERT INTO `tickets` (`user_id`, `flight_id`) VALUES ('$user_id', '$flight_id')";
 
 $mysqli -> close();

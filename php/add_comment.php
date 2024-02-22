@@ -1,4 +1,5 @@
 <?php
+// данные из сесии
 session_start();
 $user_id = $_SESSION['user_id'];
 $admin_id = $_SESSION['admin_id'];
@@ -7,7 +8,7 @@ $comment = $_POST['comment'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     include 'dbconfig.php';
-
+// подключение кбд
     if ($mysqli->connect_error) {
         die("Connection failed: " . $mysqli->connect_error);
     }

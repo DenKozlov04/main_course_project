@@ -5,7 +5,7 @@ $dbusername = "root";
 $dbpassword = "";
 $dbname = "airflightsdatabase";
 
-// Создаем соединение
+// Создаю соединение
 $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 $mysqli = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 $mysql = new mysqli($servername, $dbusername, $dbpassword, $dbname);
@@ -25,7 +25,7 @@ $password = $dbpassword;
 $database = $dbname;
 
 $conn = mysqli_connect($servername, $dbusername, $dbpassword, $dbname);
-// Проверяем соединение
+// Проверяю соединение
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }

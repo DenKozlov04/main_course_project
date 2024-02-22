@@ -19,24 +19,24 @@ body {
     justify-content: space-around;
     background-color: #EDEDED;
     width: 1620px;
-    margin: 0px auto 0; /* 20px отступ сверху, горизонтальное центрирование */
-    align-items: flex-start; /* Изменено на flex-start, чтобы выровнять элементы по верхнему краю */
-    padding-top: 20px; /* Добавлен отступ сверху */
+    margin: 0px auto 0; 
+    align-items: flex-start; 
+    padding-top: 20px; 
 }
 
 .Ticket_card {
-    margin: 10px; /* Отступы между карточками */
+    margin: 10px; /* мб переделать отступ между карточками */
     background-color: #ffffff;
     width: 450px;
     height: 440px;
-    margin-bottom: 10px; /* Добавлен отступ снизу, чтобы создать пространство между карточками */
+    margin-bottom: 10px; 
 }
 
 
 .Ticket_card img {
     width: 450px;
     height: 200px;
-    object-fit: cover; /* Сохраняет пропорции, заполняя контейнер */
+    object-fit: cover; 
 }
 .text1{
     margin-left: 10px;
@@ -116,7 +116,7 @@ body {
     margin-left: 295px;
     font-size: 12px;
     margin-top: -35px;
-    font-weight: 600; /* Увеличенное значение для более толстого текста */
+    font-weight: 600; 
 }
 .search_place {
     background-color: #EDEDED;
@@ -132,7 +132,7 @@ body {
     position: relative;
     align-items: center;
     flex-direction: row;
-    justify-content: space-evenly; /* Оставляем только space-evenly */
+    justify-content: space-evenly; 
     top: 40px;
 }
 
@@ -208,18 +208,18 @@ body {
     color: black;
   }
   .input-data input::placeholder {
-    color: #dadada; /* Замените #ff0000 на цвет, который вы хотите использовать */
+    color: #dadada;
   }
   body {
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Запрещаем горизонтальный скроллинг */
+    overflow-x: hidden; 
 }
 
 .toggle-button {
     position: fixed;
     top: 200px;
-    left: 10px; /* Изменили right на left */
+    left: 10px; 
     padding: 10px;
     background-color: #C3FD7A;
     color: #2b2b2b;
@@ -234,19 +234,19 @@ body {
 .sidebar {
     position: fixed;
     top: 250px;
-    left: -300px; /* Изменили right на left */
+    left: -300px; 
     width: 300px;
     height: 70vh;
     background-color: #f7f7f7;
     z-index: 1;
-    transition: left 0.3s ease; /* Изменили right на left */
+    transition: left 0.3s ease; 
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
     font-family: 'Nunito Sans', sans-serif;
 }
 
 .sidebar.open {
-    left: 0; /* При открытии сдвигаем вправо (изменили right на left) */
+    left: 0; 
 }
 .toggle-button img{
     width: 30px;
@@ -263,7 +263,7 @@ body {
 
 .slider {
     width: 70%;
-    margin-top: -5px; /* Уменьшаем расстояние между .slider и другим текстом на 5px */
+    margin-top: -5px; 
     margin-left: 15px;
 }
 
@@ -272,8 +272,8 @@ body {
 .MaxValue {
     padding-top: 30px;
     display: inline-block;
-    vertical-align: top; /* Выравниваем элементы по верхней границе */
-    margin-top: -5px; /* Оставляем расстояние между .CurrentValue, .equal, .MaxValue */
+    vertical-align: top; 
+    margin-top: -5px; 
 }
 
 .CurrentValue {
@@ -288,7 +288,7 @@ body {
     margin-bottom: 8px;
 }
 .BookingBtnA {
-    text-decoration: none; /* Убираем подчеркивание */
+    text-decoration: none; 
     font-family: 'Nunito Sans', sans-serif;
     width: 410px;
     height: 50px;
@@ -299,7 +299,7 @@ body {
     justify-content: center;
     font-size: 22px;
     cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.1); /* Прозрачный белый цвет */
-    border: none; /* Убираем обводку */
+    background-color: rgba(255, 255, 255, 0.1); 
+    border: none; 
 }
 

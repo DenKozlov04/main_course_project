@@ -4,7 +4,7 @@ body, html {
     padding: 0;
     height: 100%;
 }
-
+/* загрузить нормальный видос */
 .background-video {
     position: fixed;
     top: 0;
@@ -12,14 +12,14 @@ body, html {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    z-index: -1; /* Помещаем видео под контент */
+    z-index: -1; 
 }
 
 .background-video video {
     object-fit: cover;
     width: 100%;
     height: 100%;
-    filter: blur(2px); /* Замените 5px на нужную вам интенсивность размытия */
+    filter: blur(2px); 
 }
 
 
@@ -30,7 +30,7 @@ body, html {
     background: #F5F5F5;
     margin: auto;
     z-index: 1;
-    position: relative; /* Добавляем position: relative; для правильного позиционирования дочерних элементов */
+    position: relative; 
 }
 
 .custom-rectangle2 {
@@ -39,27 +39,27 @@ body, html {
     background: #D9D9D9;
     z-index: 2;
     position: absolute;
-    right: 1047px; /* Добавляем отступ справа */
+    right: 1047px; 
 }
 .GoogleMap {
     width: 1045px;
     height: 1046px;
-    left: 473px; /* Добавляем отступ справа */
+    left: 473px; 
     z-index: 2;
     position: absolute;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
-    overflow: hidden; /* Обрезаем содержимое, чтобы закругление работало */
+    overflow: hidden; 
 }
-/* styles.css */
+
 
 .Image {
     margin-left: 11px;
-    margin-top: 20px; /* Добавляем отступ вниз */
+    margin-top: 20px; 
     width: 438px;
     height: 468px;
     border-radius: 10px;
-    overflow: hidden; /* Обрезаем содержимое, чтобы показать закругление */
+    overflow: hidden;
 }
 
 
@@ -67,7 +67,7 @@ body, html {
     margin-top: 40px;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Заполняем контейнер сохраняя соотношение сторон */
+    object-fit: cover; 
     border-radius: 10px;
 }
 .text1{
@@ -85,13 +85,13 @@ body, html {
     font-family:'Nunito Sans', sans-serif;
     width: 437px;
     height: 350px;
-    overflow: hidden; /* Обрезаем содержимое, чтобы вписаться в размеры блока */
+    overflow: hidden; 
     font-size: 20px;
 }
 .PrevPage {
     margin-top: 50px;
     margin-left: 40px;
-    transform: translateY(30px); /* Используем трансформацию для перемещения вниз */
+    transform: translateY(30px); 
     font-family: 'Nunito Sans', sans-serif;
     font-size: 20px;
     color: #DE6A6A;
@@ -99,7 +99,7 @@ body, html {
 
 .PrevPage a {
     text-decoration: none;
-    outline: none; /* Убираем синюю обводку (outline) */
+    outline: none; 
     color: #DE6A6A;
 }
 .button1{
@@ -124,7 +124,7 @@ body, html {
     z-index: 1;
     position: relative;
     transform: translateY(10px);
-    margin-bottom: 10px; /* Добавлен отступ снизу в 10px */
+    margin-bottom: 10px; 
 }
 
 
@@ -170,14 +170,14 @@ body, html {
     padding-right:20px;
 }
 .Image2 {
-    text-align: center; /* Центрируем содержимое по горизонтали */
+    text-align: center; 
     position: relative; 
 }
 
 .Image2 img {
-    width: 100%; /* Убедитесь, что изображение занимает всю ширину контейнера */
+    width: 100%; 
     height: auto;
-    margin: 0 auto; /* Устанавливаем автоматические отступы с обеих сторон */
+    margin: 0 auto; 
     position: relative;
 }
 
@@ -189,17 +189,17 @@ body, html {
     z-index: 10;
     position: absolute;
     display: flex;
-    flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
+    flex-wrap: wrap; 
 }
 
 .buttonBox1 button {
     background-color: #06dd0d;
     width: 30px;
     height: 30px;
-    margin-right: 16px; /* Отступ между кнопками */
-    margin-top: 5px; /* Отступ между кнопками */
-    margin-bottom: 1px; /* Добавляем отступ снизу между кнопками */
-    transition: background-color 0.3s ease; /* Добавляем плавный переход для плавного изменения цвета */
+    margin-right: 16px; 
+    margin-top: 5px; 
+    margin-bottom: 1px; 
+    transition: background-color 0.3s ease; /*плавный переход для цвета */
 }
 .buttonBox1 button.active {
     background-color: rgb(252, 252, 123); /* Новый цвет при активации */
@@ -214,20 +214,20 @@ body, html {
     z-index: 10;
     position: absolute;
     display: flex;
-    flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
+    flex-wrap: wrap; 
 }
 .buttonBox2 button {
     background-color:#06dd0d;
     width: 30px;
     height: 30px;
-    margin-right: 16px; /* Отступ между кнопками */
-    margin-top: 5px; /* Отступ между кнопками */
-    margin-bottom: 1px; /* Добавляем отступ снизу между кнопками */
-    transition: background-color 0.3s ease; /* Добавляем плавный переход для плавного изменения цвета */
+    margin-right: 16px; 
+    margin-top: 5px; 
+    margin-bottom: 1px; 
+    transition: background-color 0.3s ease; 
     
 }
 .buttonBox2 button.active {
-    background-color: rgb(252, 252, 123); /* Новый цвет при активации */
+    background-color: rgb(252, 252, 123); 
 }
 .buttonBox3 {
     width: 160px;
@@ -237,30 +237,30 @@ body, html {
     z-index: 10;
     position: absolute;
     display: flex;
-    flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
+    flex-wrap: wrap; 
 }
 
-/* Центрируем текст внутри кнопки */
+
 .buttonBox3 button {
     text-align: right;
     font-size: 9px;
-    width: 100%; /* Ширина кнопки занимает 100% контейнера */
+    width: 100%; 
     padding-left: 2px;
-    transition: background-color 0.3s ease; /* Добавляем плавный переход для плавного изменения цвета */
+    transition: background-color 0.3s ease; 
 }
 .buttonBox3 button.active {
-    background-color: rgb(252, 252, 123); /* Новый цвет при активации */
+    background-color: rgb(252, 252, 123); 
 }
 .buttonBox3 button {
     background-color:#06dd0d;
     width: 25px;
     height: 25px;
-    margin-right: 14px; /* Отступ между кнопками */
-    margin-top: 1px; /* Отступ между кнопками */
-    margin-bottom: 0px; /* Добавляем отступ снизу между кнопками */
+    margin-right: 14px; 
+    margin-top: 1px; 
+    margin-bottom: 0px; 
     padding-left: 2px;
     font-weight: 700;
-    transition: background-color 0.3s ease; /* Добавляем плавный переход для плавного изменения цвета */
+    transition: background-color 0.3s ease; 
 }
 .buttonBox4{
     width: 160px;
@@ -270,22 +270,22 @@ body, html {
     z-index: 10;
     position: absolute;
     display: flex;
-    flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
+    flex-wrap: wrap; 
 }
 .buttonBox4 button {
     background-color:#06dd0d;
     width: 25px;
     height: 25px;
-    margin-right: 14px; /* Отступ между кнопками */
-    margin-top: 1px; /* Отступ между кнопками */
-    margin-bottom: 0px; /* Добавляем отступ снизу между кнопками */
+    margin-right: 14px; 
+    margin-top: 1px; 
+    margin-bottom: 0px; 
     font-size: 9px;
     padding-left: 2px;
     font-weight: 700;
-    transition: background-color 0.3s ease; /* Добавляем плавный переход для плавного изменения цвета */
+    transition: background-color 0.3s ease; 
 }
 .buttonBox4 button.active {
-    background-color: rgb(252, 252, 123); /* Новый цвет при активации */
+    background-color: rgb(252, 252, 123); 
 }
 .buttonBox5{
     width: 160px;
@@ -295,23 +295,23 @@ body, html {
     z-index: 10;
     position: absolute;
     display: flex;
-    flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
+    flex-wrap: wrap; 
     
 }
 .buttonBox5 button {
     background-color:#06dd0d;
     width: 25px;
     height: 25px;
-    margin-right: 14px; /* Отступ между кнопками */
-    margin-top: 1px; /* Отступ между кнопками */
-    margin-bottom: 0px; /* Добавляем отступ снизу между кнопками */
+    margin-right: 14px; 
+    margin-top: 1px; 
+    margin-bottom: 0px; 
     font-size: 9px;
     padding-left: 2px;
     font-weight: 700;
-    transition: background-color 0.3s ease; /* Добавляем плавный переход для плавного изменения цвета */
+    transition: background-color 0.3s ease; 
 }
 .buttonBox5 button.active {
-    background-color: rgb(252, 252, 123); /* Новый цвет при активации */
+    background-color: rgb(252, 252, 123); 
 }
 .buttonBox6{
     width: 160px;
@@ -321,22 +321,22 @@ body, html {
     z-index: 10;
     position: absolute;
     display: flex;
-    flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
+    flex-wrap: wrap; 
 }
 .buttonBox6 button {
     background-color:#06dd0d;
     width: 25px;
     height: 25px;
-    margin-right: 14px; /* Отступ между кнопками */
-    margin-top: 1px; /* Отступ между кнопками */
-    margin-bottom: 0px; /* Добавляем отступ снизу между кнопками */
+    margin-right: 14px; 
+    margin-top: 1px; 
+    margin-bottom: 0px; 
     font-size: 9px;
     padding-left: 3px;
     font-weight: 700;
-    transition: background-color 0.3s ease; /* Добавляем плавный переход для плавного изменения цвета */
+    transition: background-color 0.3s ease; 
 }
 .buttonBox6 button.active {
-    background-color: rgb(252, 252, 123); /* Новый цвет при активации */
+    background-color: rgb(252, 252, 123); 
 }
 .buttonBox7{
     width: 550px;
@@ -346,22 +346,22 @@ body, html {
     z-index: 10;
     position: absolute;
     display: flex;
-    flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
+    flex-wrap: wrap; 
 }
 .buttonBox7 button {
     background-color:#06dd0d;
     width: 25px;
     height: 25px;
-    margin-right: 6px; /* Отступ между кнопками */
-    margin-top: 1px; /* Отступ между кнопками */
-    margin-bottom: 0px; /* Добавляем отступ снизу между кнопками */
+    margin-right: 6px; 
+    margin-top: 1px; 
+    margin-bottom: 0px; 
     font-size: 9px;
-    padding-left: 3px; /* Сдвигаем текст влево на 5px */
+    padding-left: 3px; 
     font-weight: 700;
-    transition: background-color 0.3s ease; /* Добавляем плавный переход для плавного изменения цвета */
+    transition: background-color 0.3s ease; 
 }
 .buttonBox7 button.active {
-    background-color: rgb(252, 252, 123); /* Новый цвет при активации */
+    background-color: rgb(252, 252, 123); 
 }
 .buttonBox8{
     width: 550px;
@@ -371,22 +371,22 @@ body, html {
     z-index: 10;
     position: absolute;
     display: flex;
-    flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
+    flex-wrap: wrap; 
 }
 .buttonBox8 button {
     background-color: #06dd0d;
     width: 25px;
     height: 25px;
-    margin-right: 6px; /* Отступ между кнопками */
-    margin-top: 1px; /* Отступ между кнопками */
-    margin-bottom: 0px; /* Добавляем отступ снизу между кнопками */
+    margin-right: 6px; 
+    margin-top: 1px; 
+    margin-bottom: 0px; 
     font-size: 9px;
     padding-left: 3px;
     font-weight: 700;
-    transition: background-color 0.3s ease; /* Добавляем плавный переход для плавного изменения цвета */
+    transition: background-color 0.3s ease; 
 }
 .buttonBox8 button.active {
-    background-color: rgb(252, 252, 123); /* Новый цвет при активации */
+    background-color: rgb(252, 252, 123); 
 }
 .BestComment {
     width: 1520px;
@@ -409,7 +409,7 @@ body, html {
 .CommText a {
     margin-top: 20px;
     font-family:'Nunito Sans', sans-serif;
-    overflow: hidden; /* Обрезаем содержимое, чтобы вписаться в размеры блока */
+    overflow: hidden; 
     font-size: 20px;
 }
 .BestComment .textSize{

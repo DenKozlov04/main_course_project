@@ -74,17 +74,17 @@ class FlightDataValidator {
     
         $stmt1->execute();
     
-        // Получаем id только что добавленной записи в airports/airlines
+        // Получаю id добавленной записи в airports/airlines
         $flight_id = $stmt1->insert_id;
     
         $stmt1->close();
     
-        // Теперь добавляем описание и изображение в соответствующие таблицы
+        // добавления описания и изоражения
         if (!empty($this->data['description']) || isset($_FILES['image1']) && $_FILES['image1']['error'] == 0) {
             $stmt2 = $mysql->prepare("INSERT INTO `airflight_description` (`flight_id`, `description`, `flight_image`) VALUES (?, ?, ?)");
             $stmt2->bind_param("iss", $flight_id, $this->data['description'], $image1);
     
-            // Обработка изображения
+            
             if (isset($_FILES['image1']) && $_FILES['image1']['error'] == 0) {
                 $image1 = file_get_contents($_FILES['image1']['tmp_name']);
     
@@ -92,14 +92,14 @@ class FlightDataValidator {
                 $maxFileSize = 2 * 1024 * 1024; 
                 if (strlen($image1) <= $maxFileSize) {
                     $stmt2->execute();
-                    echo "Данные успешно добавлены в таблицы.";
+                    echo "The data has been successfully added to the tables.";
                 } else {
-                    echo "Ошибка: Размер файла превышает допустимый предел (2 МБ).";
+                    echo "Error: The file size exceeds the allowable limit (2 MB).";
                 }
             } else {
                 // Если изображение не было загружено
                 $stmt2->execute();
-                echo "Данные успешно добавлены в таблицы (без изображения).";
+                echo "Data successfully added to tables (no image)";
             }
     
             $stmt2->close();
@@ -121,14 +121,14 @@ class FlightDataValidator {
     private function addImageToDatabase($flight_id, $image1) {
         include 'dbconfig.php';
 
-        // безопасно подготавливаем
+        // подготавливаю безопасный запрос для бд
         $stmt = $mysql->prepare("INSERT INTO airflight_description (`flight_id`, `flight_image`) VALUES (?, ?)");
         $stmt->bind_param("is", $flight_id, $image1);
 
         if ($stmt->execute()) {
-            echo "Изображение успешно добавлено в таблицу.";
+            echo "The image has been successfully added to the table.";
         } else {
-            echo "Ошибка: " . $stmt->error;
+            echo "Error: " . $stmt->error;
         }
 
         $stmt->close();

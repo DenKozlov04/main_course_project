@@ -20,7 +20,7 @@ class ImageUploader {
 
     public function uploadImage() {
         if (isset($_POST['submit'])) {
-            // Проверяем, существует ли у пользователя изображение в базе данных
+            // Проверяю, существует ли у пользователя изображение в бд
             $userId = $_SESSION['user_id'];
             $checkQuery = "SELECT user_id FROM profile_images WHERE user_id = ?";
             $checkStmt = $this->mysqli->prepare($checkQuery);
@@ -38,17 +38,17 @@ class ImageUploader {
                     if ($deleteStmt) {
                         $deleteStmt->bind_param("i", $userId);
                         if (!$deleteStmt->execute()) {
-                            echo "Ошибка при удалении существующего изображения: " . $deleteStmt->error;
+                            echo "Error when deleting an existing image: " . $deleteStmt->error;
                         }
                         $deleteStmt->close();
                     } else {
-                        echo "Ошибка при подготовке SQL-запроса для удаления: " . $this->mysqli->error;
+                        echo "Error while preparing SQL query for deletion: " . $this->mysqli->error;
                     }
                 }
 
                 $checkStmt->close();
             } else {
-                echo "Ошибка при подготовке SQL-запроса для проверки наличия изображения: " . $this->mysqli->error;
+                echo "Error when preparing an SQL query to check if an image is available: " . $this->mysqli->error;
             }
 
             $fileTmpName = $_FILES['image']['tmp_name'];
@@ -63,10 +63,10 @@ class ImageUploader {
             // Полный путь к загружаемому файлу
             $uploadPath = $uploadDir . $fileName;
 
-            // Перемещаем загруженное изображение в папку
+            // перемещаю изображение в папку
             if (move_uploaded_file($fileTmpName, $uploadPath)) {
                 $imageData = file_get_contents($uploadPath);
-
+            // так же перемещаю изображение в бд
                 $sql = "INSERT INTO profile_images (user_id, profile_image, image_type) VALUES (?, ?, ?)";
                 $stmt = $this->mysqli->prepare($sql);
 
@@ -74,19 +74,19 @@ class ImageUploader {
                     $stmt->bind_param("iss", $userId, $imageData, $fileType);
 
                     if ($stmt->execute()) {
-                        echo "Изображение успешно загружено и сохранено в базе данных.";
+                        echo "The image has been successfully uploaded and saved in the database.";
                         header("Location: user_info.php");
                         exit();
                     } else {
-                        echo "Ошибка при загрузке изображения: " . $stmt->error;
+                        echo "Error when uploading an image: " . $stmt->error;
                     }
 
                     $stmt->close();
                 } else {
-                    echo "Ошибка при подготовке SQL-запроса: " . $this->mysqli->error;
+                    echo "An error during SQL query preparation: " . $this->mysqli->error;
                 }
             } else {
-                echo "Ошибка при перемещении файла в папку UserAvatar_Images.";
+                echo "Error when moving a file to the UserAvatar_Images folder.";
             }
         }
     }

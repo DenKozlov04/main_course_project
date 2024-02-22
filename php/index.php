@@ -47,9 +47,9 @@
   <div class='pict5'>
   <?php
 
-    // Проверяем, была ли страница открыта первый раз или была перенаправлена с другой страницы
+    // была ли страница открыта первый раз или была перенаправлена с другой страницы
     if (!isset($_SESSION['page_opened']) || !$_SESSION['page_opened'] || !isset($_SERVER['HTTP_REFERER']) || empty($_SERVER['HTTP_REFERER'])) {
-        $_SESSION['page_opened'] = true; // Помечаем, что страница была открыта
+        $_SESSION['page_opened'] = true; // отмечаю страницу открытой
         $_SESSION['user_id'] = 0; 
         $_SESSION['admin_id'] = 0; 
     }

@@ -24,11 +24,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->bind_param('siii', $edit_comment, $edit_comment_id, $user_id, $admin_id);
 
             if ($stmt->execute()) {
-                // После успешного обновления, перенаправляем пользователя на эту же страницу
+                // После успешного обновления, перенаправляет пользователя на эту же страницу
                 header('Location: ' . $_SERVER['PHP_SELF']);
                 exit();
             } else {
-                echo "Ошибка при выполнении запроса: " . $stmt->error;
+                echo "Error while executing the query: " . $stmt->error;
             }
 
             $stmt->close();
@@ -45,11 +45,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->bind_param('iii', $comment_id, $user_id, $admin_id);
 
             if ($stmt->execute()) {
-                // После успешного удаления, перенаправляем пользователя на эту же страницу
+                // После успешного удаления, перенаправляет пользователя на эту же страницу
                 header('Location: ' . $_SERVER['PHP_SELF']);
                 exit();
             } else {
-                echo "Ошибка при выполнении запроса: " . $stmt->error;
+                echo "Error while executing the query: " . $stmt->error;
             }
 
             $stmt->close();
@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $comment = $_POST['comment'];
         $created_at = date('Y-m-d H:i:s');
 
-        // Проверка на пустой комментарий
+        // Проверка на то, пустой ли комментарий
         if (!empty($comment)) {
             $sql = "INSERT INTO comments (name, email, user_id, comment, created_at) VALUES (?, ?, ?, ?, ?)";
 
@@ -68,19 +68,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $stmt->bind_param('sssss', $username, $email, $user_id, $comment, $created_at);
 
                 if ($stmt->execute()) {
-                    // После успешной вставки, перенаправляем пользователя на эту же страницу
+                    // После успешной вставки, перенаправляет пользователя на эту же страницу
                     header('Location: ' . $_SERVER['PHP_SELF']);
                     exit();
                 } else {
-                    echo "Ошибка при выполнении запроса: " . $stmt->error;
+                    echo "Error while executing the query: " . $stmt->error;
                 }
 
                 $stmt->close();
             } else {
-                echo "Ошибка при подготовке запроса: " . $mysqli->error;
+                echo "An error in the preparation of the request: " . $mysqli->error;
             }
         } else {
-            echo "Пожалуйста, введите комментарий.";
+            echo "Please enter a comment.";
         }
     }
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $flightname = $_POST['flightname'];
             $comment_id = $_POST['comment_id'];
     
-            // Запрос на обновление строки в таблице comments
+            // Запрос на обновление 
             $update_sql = "UPDATE comments SET comment_category = '$flightname' WHERE id = $comment_id";
             
             if ($conn->query($update_sql) === TRUE) {
@@ -100,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// Получение комментариев из базы данных
+// получаем комментарии в массив
 $comments = array();
 
 $sql = "SELECT id, name, comment, created_at, user_id FROM comments ORDER BY created_at DESC";
@@ -173,7 +173,7 @@ $mysqli->close();
                         // Вывод данных
                         if ($result->num_rows > 0) {
                             echo '<select id="flightname" name="flightname">';
-                            echo '<option value="None" selected>None</option>'; // Добавляем опцию "None" по умолчанию
+                            echo '<option value="None" selected>None</option>'; // Значение None по умолчанию
                             while ($row = $result->fetch_assoc()) {
                                 echo '<option value="' . $row["Airline"] . '">' . $row["Airline"] . '</option>';
                             }

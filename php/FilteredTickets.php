@@ -25,7 +25,7 @@
 </div>
 
     
-    <!-- <a href="https://www.flaticon.com/ru/free-icons/" title="воронка иконки">Воронка иконки от smashingstocks - Flaticon</a> -->
+    <!-- <a href="https://www.flaticon.com/ru/free-icons/" title="">Воронка иконки от smashingstocks - Flaticon</a> -->
 
 <div class='search_place'>
 <div class="search">
@@ -81,17 +81,17 @@ if ($_SESSION['user_id'] == 0 && $_SESSION['admin_id'] != 1) {
 } 
 
 
-// Получаем значение города из GET-параметра, если передано
+
 $SearchRoute = isset($_GET['SearchRoute']) ? $_GET['SearchRoute'] : '';
 $searchCountry = isset($_GET['SearchCountry']) ? $_GET['SearchCountry'] : '';
 $SearchArrival_date = isset($_GET['SearchArrival_date']) ? $_GET['SearchArrival_date'] : '';
 $SearchDeparture_date = isset($_GET['SearchDeparture_date']) ? $_GET['SearchDeparture_date'] : '';
 
 
-// Выполняем SQL-запрос для выбора данных из таблицы airports
+
 $sql_airports = "SELECT id, City, country, airport_name, T_price FROM `airports/airlines` WHERE 1";
 
-// Добавляем условия фильтрации, если параметры переданы
+// если параметры переданы
 if ($SearchRoute != '') {
     $searchRouteLower = strtolower($SearchRoute);
     $sql_airports .= " AND LOWER(Airline) LIKE '%$searchRouteLower%'";
@@ -119,7 +119,7 @@ if ($result_airports) {
     // Выводим данные из таблицы airports в карточках
     echo "<div class='Ticket_box'>";
     while ($row_airports = $result_airports->fetch_assoc()) {
-         // Выполняем запрос для получения flight_image из airflight_description
+         
          $stmt = $mysqli->prepare("SELECT flight_image FROM airflight_description WHERE flight_id = ?");
          $stmt->bind_param("i", $row_airports['id']);
          $stmt->execute();
@@ -151,11 +151,11 @@ if ($result_airports) {
     }
     echo "</div>";
 } else {
-    // В случае ошибки выводим сообщение
-    echo "Ошибка выполнения запроса: " . $mysqli->error;
+    
+    echo "Query Execution Error: " . $mysqli->error;
 }
 
-// Закрываем соединение
+
 $mysqli->close();
 ?>
 

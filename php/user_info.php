@@ -52,7 +52,7 @@ class UserBookings {
         } else {
             if ($result->num_rows > 0) {
                 echo '<div id="bookings-list">';
-                // Выводим данные из таблицы
+                // данные из таблицы
     
                 echo '<table id="bookings-table">';
                 echo '<tr>';
@@ -103,7 +103,7 @@ class UserBookings {
 
         if ($result && $result->num_rows > 0) {
             $row = $result->fetch_array();
-            $profile_image = $row['profile_image'];//выводим аватар пользователя
+            $profile_image = $row['profile_image'];//вывод аватара пользователя
             echo '<div style="width: 200px; height: 200px; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center;">';
             echo '<img src="data:image/jpeg;base64,' . base64_encode($profile_image) . '" width="200" height="200" />';
             echo '</div>';

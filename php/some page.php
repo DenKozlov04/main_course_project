@@ -24,7 +24,7 @@
                 <div class="rectange3"></div>
                 <div class="rectangle4"></div>
                 <div class="line3"></div>
-                <div class="text3">В пути: 16ч05м</div>
+                <div class="text3">On the road: 16ч05м</div>
                 <div class="ItadArriv">RIX</div>
                 <div class="ItadaDepart">PRS</div>
             </div>
@@ -46,7 +46,7 @@
                 <div class="rectange3"></div>
                 <div class="rectangle4"></div>
                 <div class="line3"></div>
-                <div class="text3">В пути: 16ч05м</div>
+                <div class="text3">On the road: 16ч05м</div>
                 <div class="ItadArriv">RIX</div>
                 <!-- здесь в итада арив вписывать департ и наоборот -->
                 <div class="ItadaDepart">PRS</div>

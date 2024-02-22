@@ -2,10 +2,10 @@
 
 include 'dbconfig.php';
 
-// Создаем соединение
+
 $conn = new mysqli(DatabaseConfig::$servername, DatabaseConfig::$dbusername, DatabaseConfig::$dbpassword, DatabaseConfig::$dbname);
 
-// Проверяем соединение
+
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
@@ -60,7 +60,7 @@ if (mysqli_num_rows($result) > 0) {
     echo "No results";
 }
 
-// Закрываем подключение к базе данных
+
 mysqli_close($conn);
 
  ?>
@@ -73,6 +73,7 @@ mysqli_close($conn);
     <title>Finded tickets</title>
 </head>
 <body>
+  <!-- перенести оформление в отдельный файл -->
 <style>
     table {
     border-collapse: collapse;

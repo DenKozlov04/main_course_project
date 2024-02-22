@@ -22,7 +22,7 @@ body {
     width: 1px;
     height: 402.011px;
     background: #BDBDBD;
-    margin-left: 165px; /* Смещение вправо на 100 пикселей */
+    margin-left: 165px;
   }
   
   
@@ -30,20 +30,20 @@ body {
     width: 534.015px;
     height: 1px;
     background: #BDBDBD;
-    margin-left: 185px; /* Смещение вправо на 155px */
-    margin-top: -210px; /* Поднять вверх на 100px */
+    margin-left: 185px; 
+    margin-top: -210px; 
   }
   .InsideBoxTicketUP {
-    width: 535px; /* Установите необходимую ширину */
-    height: 201px; /* Установите необходимую высоту */
+    width: 535px; 
+    height: 201px; 
     /* background: #7aff97;  */
     margin-left: 185px;
     margin-top: -193px;
     
   }
   .InsideBoxTicketDOWN{
-    width: 535px; /* Установите необходимую ширину */
-    height: 201px; /* Установите необходимую высоту */
+    width: 535px; 
+    height: 201px; 
      /* background: #7aff97;  */
     margin-left: 185px;
     margin-top: 0px;
@@ -60,8 +60,8 @@ body {
   }
 
   .InsideBoxTicketUP .text1 {
-    margin-top: -2px; /* Смещение вверх на 2 пикселя */
-    z-index: 2; /* Устанавливаем более высокий z-index */
+    margin-top: -2px; 
+    z-index: 2; 
   }
   .text1, .text2 {
     display: inline-block; /* Сделать оба текста блочными элементами */
@@ -88,7 +88,7 @@ body {
     margin-left: 10px;
   }
   .DepartTime {
-    display: block; /* Set DepartTime and ArrivTime as block elements */
+    display: block; 
     color: #000;
     font-family: 'Nunito Sans', sans-serif;
     font-size: 25px;
@@ -111,7 +111,7 @@ body {
 
   }
   .containerWithRectangles {
-    margin-right: 100px; /* Add a 100px margin to the right of the container */
+    margin-right: 100px; 
     margin-top: 5px;
   }
   
@@ -189,10 +189,10 @@ body {
   }
 
   .card-separator {
-    height: 15px; /* Выберите желаемую величину отступа */
+    height: 15px; 
 }
 .card-separator2 {
-  height: 60%; /* Выберите желаемую величину отступа */
+  height: 60%; 
 }
 
 
@@ -206,7 +206,7 @@ body {
   
 }
 .Price .button2, .Price .button3 {
-  /* Ваши стили для кнопок .button2 и .button3 внутри .Price */
+  
   z-index: 999;
   margin-left: -43px;
   justify-content: center;

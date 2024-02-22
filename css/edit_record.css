@@ -41,14 +41,14 @@ body {
     margin-top: 20px;
     border-radius: 20px;
     font-weight: 600;
-    font-size: 18px; /* Увеличение размера текста */
+    font-size: 18px; 
 }
 
 .editformtop {
     font-weight: 800;
     font-size: 20px;
-    text-align: center; /* Центрирование текста по горизонтали */
-    line-height: 70px; /* Центрирование текста по вертикали */
+    text-align: center; 
+    line-height: 70px; 
     margin-top: -365px;
     background-color: #5080FC;
     width: 500px;

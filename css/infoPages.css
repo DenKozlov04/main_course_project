@@ -1,31 +1,31 @@
 #linkBox {
     margin-bottom: 200px;
     margin-left: 350px;
-    margin-top: -420px; /* Отрицательное значение для поднятия блока выше */
-    width: 230px; /* Ширина блока */
-    padding: 10px; /* Внутренний отступ */
-    background-color: #f0f0f0; /* Цвет фона */
-    border: 1px solid #ccc; /* Граница блока */
-    border-radius: 5px; /* Скругление углов */
+    margin-top: -420px; 
+    width: 230px; 
+    padding: 10px; 
+    background-color: #f0f0f0; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
 }
 
 .text_area {
     font-size: 25px;
-    width: 1000px; /* Установка ширины блока */
-    top: 0; /* Позиция от верхнего края */
-    right: 0; /* Позиция от правого края */
-    padding: 20px; /* Внутренний отступ */
-    margin-right: 0px; /* Отступ справа */
+    width: 1000px; 
+    top: 0; 
+    right: 0; 
+    padding: 20px; 
+    margin-right: 0px; 
     margin-left: 700px;
 }
 
 
-/* Стили для ссылок */
+/* Стиль для ссылки */
 #linkBox a {
-    display: block; /* Ссылки как блочные элементы, чтобы шли одна под другой */
-    margin-bottom: 5px; /* Внешний отступ снизу между ссылками */
-    text-decoration: none; /* Убираем подчеркивание у ссылок */
-    color: #333; /* Цвет текста ссылок */
+    display: block; 
+    margin-bottom: 5px; 
+    text-decoration: none; 
+    color: #333; 
     font-size: 25px;
 }
 footer {
@@ -42,8 +42,8 @@ footer {
     margin: 0 auto; 
   }
   .social-links a {
-    color: #fff; /* Белый цвет текста */
-    text-decoration: none; /* Убираем подчеркивание */
+    color: #fff; 
+    text-decoration: none; 
   }
 
 
@@ -53,6 +53,6 @@ footer {
 }
 
 ul {
-    list-style-type: disc; /* Стиль буллетов (черные точки) */
-    margin-left: 20px; /* Отступ слева для улучшенного визуального восприятия */
+    list-style-type: disc; 
+    margin-left: 20px; 
 }

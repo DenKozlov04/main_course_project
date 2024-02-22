@@ -6,7 +6,7 @@ $user_id = $_SESSION['user_id'];
 $admin_id = $_SESSION['admin_id'];
 
 if(isset($_GET['buttonValue'])) {
-    // Получаем значение из URL
+    // получаю значение из URL
     $alert = '';
     $buttonValue = $_GET['buttonValue'];
     if($buttonValue === 0){

@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+// если сессия админа
 if (isset($_SESSION['admin_id'])) {
     // echo $_SESSION['admin_id'];
 
@@ -13,7 +13,7 @@ if (isset($_SESSION['admin_id'])) {
     $result = $mysqli->query("SELECT booking_id, user_id, flight_id, booking_date, seat_number FROM `bookings`");
 
     $data = array(); 
-
+// пока значения есть-выводить их
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             $data[] = $row; 
@@ -44,7 +44,7 @@ if (isset($_SESSION['admin_id'])) {
         $booking_date = $row['booking_date'];
         $seat_number = $row['seat_number'];
         
-        // Вывод данных для каждой строки
+        // Вывод данных 
         echo "<tr>";
         echo "<td>" . $booking_id . "</td>";
         echo "<td>" . $user_id . "</td>";
@@ -157,18 +157,18 @@ if (isset($_SESSION['admin_id'])) {
     </div>
 </form>
 
-
+<!-- форма добавления скидки -->
 <form class="city-form" action="../php/addCard.php" method="POST" enctype="multipart/form-data">
-    <label for="city-name">Название города отбытия:</label>
+    <label for="city-name">The name of the city of departure:</label>
     <input type="text" id="city-name" name="city">
 
-    <label for="arrival-city-name">Название города прибытия:</label>
+    <label for="arrival-city-name">Name of the city of arrival:</label>
     <input type="text" id="arrival-city-name" name="arrival_city">
 
-    <label for="price">Цена:$,€,₽,¥</label>
+    <label for="price">Price:$,€,₽,¥.</label>
     <input type="text" id="price" name="price">
 
-    <label for="image">Изображение(max 2mb):</label>
+    <label for="image">Image(max 2mb):</label>
     <input type="file" id="image" name="image">
 
     <input type="submit" value="Добавить">

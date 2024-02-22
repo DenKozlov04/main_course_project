@@ -18,9 +18,9 @@
   }
   .text-overlay {
       position: absolute;
-      top: 57%; /* Установите желаемое значение для вертикального положения текста */
-      left: 40%; /* Центрируем текст по горизонтали */
-      transform: translateX(-30%); /* Центрируем текст по горизонтали относительно его ширины */
+      top: 57%; 
+      left: 40%; 
+      transform: translateX(-30%); 
       display: flex;
       justify-content: center;
       justify-content: space-evenly;
@@ -28,7 +28,7 @@
       font-family: 'Poppins', sans-serif;
       font-weight: 800;
       font-size: 20px;
-      z-index: 1; /* Убедитесь, что z-index у текста выше, чем у других элементов, которые могут перекрывать его */ 
+      z-index: 1; 
   }
  
   .txt3{
@@ -312,18 +312,18 @@ select.dropdown-menu {
   border-radius: 3px;
   z-index: 999;
   text-transform: uppercase;
-  border: none; /* Убираем границу для элемента select */
-  appearance: none; /* Убираем стили по умолчанию (появляются в Firefox) */
+  border: none; 
+  appearance: none; 
   height: 72px;
   width: 70px;
   margin-top:4px;
 }
 
 select.dropdown-menu:focus {
-  outline: none; /* Добавлено свойство outline для убирания обводки при фокусировке */
+  outline: none; 
 }
 
-/* Стили для опций выпадающего списка */
+/* Стили для dropdown списка */
 option.dropdown-menu-content {
   font-family:'Nunito Sans', sans-serif;
   background: #dfdfdf;
@@ -343,7 +343,7 @@ font-weight: bold;
 nav ul{
   list-style: none;
   padding: 0;
-  display: flex; /* Используем flexbox для создания горизонтального меню */
+  display: flex; 
   margin-left: 20px; 
 }
 nav ul li{
@@ -438,8 +438,8 @@ footer {
   margin: 0 auto; 
 }
 .social-links a {
-  color: #fff; /* Белый цвет текста */
-  text-decoration: none; /* Убираем подчеркивание */
+  color: #fff; 
+  text-decoration: none; 
 }
 
 
@@ -447,17 +447,16 @@ footer {
   z-index: 999;
   position: absolute;
   margin-top: -105px;
-  /* top: 147%; Позиционируем по вертикали посередине */
-  transform: translateY(-145%); /* Корректируем вертикальное выравнивание */
-  right: 100px; /* Располагаем справа */
+  /* top: 147%;  */
+  transform: translateY(-145%); 
+  right: 100px; 
 }
 .special-link2 {
   z-index: 999;
   position: absolute;
   margin-top: 0px;
-  /* top: 147%; Позиционируем по вертикали посередине */
-  transform: translateY(-145%); /* Корректируем вертикальное выравнивание */
-  right: 100px; /* Располагаем справа */
+  transform: translateY(-145%); 
+  right: 100px; 
 }
 .sample-slider {
   width: 70%;
@@ -518,9 +517,9 @@ footer {
   z-index: 999;
   position: absolute;
   margin-top: -55px;
-  /* top: 147%; Позиционируем по вертикали посередине */
-  transform: translateY(-145%); /* Корректируем вертикальное выравнивание */
-  right: 110px; /* Располагаем справа */
+  /* top: 147%; */
+  transform: translateY(-145%); 
+  right: 110px; 
 }
 .special-link4:hover {
   background-color: initial; 

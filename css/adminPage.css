@@ -1,4 +1,4 @@
-/* Общие стили для страницы */
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
@@ -12,7 +12,7 @@ body {
     padding: 20px;
 }
 
-/* Стили для формы аутентификации */
+/* стиль формы */
 .form-container {
     background-color: #fff;
     border: 1px solid #ccc;
@@ -54,7 +54,7 @@ body {
     background-color: #0056b3;
 }
 
-/* Стили для добавления изменений */
+
 .changes {
     background-color: #fff;
     border: 1px solid #ccc;
@@ -94,7 +94,7 @@ body {
 .changes button:hover {
     background-color: #0056b3;
 }
-/* Стили для формы добавления города */
+
 .city-form {
     max-width: 400px;
     margin: 0 auto;

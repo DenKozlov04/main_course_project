@@ -9,26 +9,26 @@ if ($mysqli->connect_error) {
 
 $airline_id = $_POST['airline_id'];
 
-// Используем подготовленный запрос для избежания SQL-инъекций
+// подготовленный запрос для избежания sql-инъекций
 $stmt = $mysqli->prepare("SELECT `City`, `T_price`, `googleMapsLink` FROM `airports/airlines` WHERE `id` = ?");
 $stmt->bind_param("i", $airline_id);
 $stmt->execute();
 $stmt->bind_result($city, $t_price, $google_maps_link);
 
-// Выводим результат
+
 if ($stmt->fetch()) {
 
 
-    // Закрываем первый запрос
+    
     $stmt->close();
 
-    // Теперь добавим данные из airflight_description
+    
     $stmt2 = $mysqli->prepare("SELECT `flight_image`, `description` FROM `airflight_description` WHERE `flight_id` = ?");
     $stmt2->bind_param("i", $airline_id);
     $stmt2->execute();
     $stmt2->bind_result($flight_image, $description);
 
-    // Выводим данные из airflight_description
+  
     if ($stmt2->fetch()) {
 
     } else {
@@ -41,11 +41,11 @@ if ($stmt->fetch()) {
 }
 
 
-
+// нерабочий алерт
 
 
 // if(isset($_GET['buttonValue'])) {
-//     // Получаем значение из URL
+
 //     $buttonValue = $_GET['buttonValue'];
 //     if($buttonValue == 0){
 //         echo '<script>
@@ -90,15 +90,15 @@ if ($stmt->fetch()) {
         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </iframe>
     <?php
-        // Проверяем, открыта ли страница со страницы /php/FilteredTickets.php
+        // проверка открыта ли страница со страницы /php/FilteredTickets.php
         $prevPage = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
         $filteredTicketsPage = '/php/FilteredTickets.php';
 
         if (strpos($prevPage, $filteredTicketsPage) !== false) {
-            // Если открыта со страницы /php/FilteredTickets.php, то меняем ссылку
+            // Если открыта со страницы /php/FilteredTickets.php, то ссылка меняется
             echo '<div class="PrevPage"><a href="../php/FilteredTickets.php">← Back to page</a></div>';
         } else {
-            // В противном случае, используем обычную ссылку
+            // ссылка не меняется
             echo '<div class="PrevPage"><a href="../php/Buy_Tickets.php">← Back to page</a></div>';
         }
     ?>
@@ -311,12 +311,12 @@ if ($stmt->fetch()) {
 
 <?php
 $stmt3 = $mysqli->prepare("SELECT `name`,`comment` FROM `comments` WHERE `comment_category` = (SELECT `Airline` FROM `airports/airlines` WHERE `id` = ?)");
-// Привязка параметра
+// привязывает параметр
 $stmt3->bind_param("i", $airline_id);
 $stmt3->execute();
 $result = $stmt3->get_result();
 
-// Выводим общие блоки за пределами цикла
+
 echo '<div class="custom-rectangle2L">';
 echo '    <div class="CommentsPlace">';
 echo '        <div class="text3">Travel reviews</div>';

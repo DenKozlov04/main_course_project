@@ -1,4 +1,4 @@
-// translateScript.js
+
 
 function googleTranslateElementInit() {
     new google.translate.TranslateElement({
@@ -8,10 +8,10 @@ function googleTranslateElementInit() {
     }, 'google_translate_element');
 }
 
-// Создаем стиль и вставляем его в head документа
+
 var style = document.createElement('style');
 
-// CSS правила для скрытия элемента настроек и поднятия над контентом
+
 var cssText = `
     .goog-te-banner-frame.skiptranslate {
         display: none !important;
@@ -24,8 +24,8 @@ var cssText = `
     }
 `;
 
-// Присваиваем CSS правила
+
 style.appendChild(document.createTextNode(cssText));
 
-// Вставляем стиль в head документа
+
 document.head.appendChild(style);

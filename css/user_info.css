@@ -1,4 +1,4 @@
-/* Общий стиль для страницы */
+
 #bookings-table {
     border-collapse: collapse;
     width: 100%;
@@ -22,7 +22,7 @@ body {
     padding: 0;
 }
 
-/* Стиль для заголовков */
+
 h1 {
     background-color: #4caf50;
     color: white;
@@ -30,7 +30,7 @@ h1 {
     margin: 0;
 }
 
-/* Стиль для основной информации пользователя */
+
 #user-info {
     background-color: white;
     padding: 20px;
@@ -42,19 +42,19 @@ h1 {
     margin-right: auto;
 }
 
-/* Стиль для изображения пользователя */
+
 #user-image img {
     max-width: 200px;
     max-height: 200px;
     margin-top: 10px;
 }
 
-/* Стиль для списка бронирований */
+
 #bookings-list {
     margin-top: 20px;
 }
 
-/* Стиль для кнопки отмены бронирования */
+
 .delete-button {
     background-color: #f44336;
     color: white;

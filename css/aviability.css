@@ -1,0 +1,140 @@
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #EFEFEF;
+}
+/* .calendar {
+    display: flex;
+    flex-direction: column; 
+    padding: 20px;
+    width: 300px; 
+    margin-left: 20px; 
+} */
+/* .month {
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+} */
+.month h3 {
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+}
+.days {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+.day {
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+.day:hover {
+    background-color: lightgreen;
+    border-radius: 5px;
+}
+
+.rectangleHeader{
+    width: 1920px;
+    height: 80px;
+    background-color: #FFFFFF;
+}
+.logorectangle{
+    background: #DE6A6A;
+    width: 160px;
+    height: 80px;
+    margin-left: 330px;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+.logorectangle a {
+    font-size: 40px;
+    color: #FFFFFF;
+
+}
+.flightName {
+    color: #2a2b2c;
+    margin-left: 560px;
+    z-index: 15;
+    position: relative; 
+    top: -50px; 
+    font-weight: 600;
+}
+
+
+.scrollable-box {
+    background-color: #f0f0f0;
+    width: 370px;
+    height: 750px;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 330px;
+}
+
+.scrollable-box::-webkit-scrollbar {
+    width: 10px; 
+}
+
+
+.scrollable-box::-webkit-scrollbar-thumb {
+    background-color: #656a7e; 
+    border-radius: 5px; 
+}
+
+.calendar {
+    width: 100%; 
+    max-height: 100%; 
+    overflow: auto; 
+    display: flex;
+    flex-direction: column; 
+}
+
+.month {
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.scrollable-box {
+    background-color: #f0f0f0; 
+}
+
+
+.infoText{
+    
+    width:372px;
+    height:90px;
+    margin-left: 330px;
+}
+.infoText .Info1 {
+    position: relative; 
+    top: 25px;
+    font-weight: 600;
+}
+
+.infoText .Info2 {
+    display: block; 
+    margin-top: 25px;
+    font-size: 14px;
+    color: #afafaf;
+}
+
+
+
+
+

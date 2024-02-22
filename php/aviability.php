@@ -3,67 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="../css/aviability.css" rel="stylesheet">
 <title>documment</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f8f8f8;
-    }
-    .calendar {
-        display: flex;
-        flex-direction: column; 
-        padding: 20px;
-        width: 300px; 
-        margin-left: 20px; 
-    }
-    .month {
-        background-color: #ffffff;
-        margin-bottom: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    .month h3 {
-        background-color: #f0f0f0;
-        padding: 10px;
-        margin: 0;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        text-align: center;
-    }
-    .days {
-        padding: 10px;
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        gap: 5px;
-    }
-    .day {
-        padding: 5px;
-        text-align: center;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-    .day:hover {
-        background-color: lightgreen;
-    }
-    .scrollable-box {
-        width: 400px;
-        height: 1000px;
-        overflow: auto; /* или overflow: scroll; */
-        border: 1px solid #ccc;
-        padding: 10px;
-    }
-</style>
 </head>
 <body>
+<div class='rectangleHeader'>
+    <div class='logorectangle'>
+        <a>AVIA</a>
+    </div>
+    <a class='flightName'>Rīga (RIX)–Parīze (Charles de Gaulle) (CDG)</a> 
+</div>
+<div class='infoText'>
+    <a class='Info1'>Izvēlies lidojumu datumus</a>
+    <a class='Info2'>Izvēlies datumus, lai apskatītu lidojumus un cenas</a>
+</div>
 <div class="scrollable-box">
     <div class="calendar">
         <?php
         $months = [
-            "January", "February", "March", "April",
-            "May", "June", "July", "August",
-            "September", "October", "November", "December"
+            "January 2024", "February 2024", "March 2024", "April 2024",
+            "May 2024", "June 2024", "July 2024", "August 2024",
+            "September 2024", "October 2024", "November 2024", "December 2024"
         ];
 
         foreach ($months as $month) {

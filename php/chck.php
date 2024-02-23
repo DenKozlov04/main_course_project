@@ -108,9 +108,9 @@ class Registration {
         $isMailSent = $this->sendTheRegisterLetter($login, $email);
 
         // Если письмо успешно отправлено, добавляем пользователя в базу данных
-        if ($isMailSent) {
+        // if ($isMailSent) {
             $this->addUserToDatabase($login, $email, $phone, $con_password);
-        }
+        // }
 
         // Закрываем соединение с базой данных
         $this->mysql->close();

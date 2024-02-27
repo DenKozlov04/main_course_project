@@ -11,45 +11,143 @@
     <div class='logorectangle'>
         <a>AVIA</a>
     </div>
-    <a class='flightName'>Rīga (RIX)–Parīze (Charles de Gaulle) (CDG)</a> 
+    <!-- <a class='flightName'>Rīga (RIX)–Parīze (Charles de Gaulle) (CDG)</a>  -->
 </div>
 <div class='infoText'>
     <a class='Info1'>Izvēlies lidojumu datumus</a>
     <a class='Info2'>Izvēlies datumus, lai apskatītu lidojumus un cenas</a>
 </div>
 
-
 <div class="scrollable-box">
-    <div class="calendar">
-        <?php
-        $months = [
-            "January 2024", "February 2024", "March 2024", "April 2024",
-            "May 2024", "June 2024", "July 2024", "August 2024",
-            "September 2024", "October 2024", "November 2024", "December 2024"
-        ];
+    <form method="POST">
+        <div class="calendar">
+            <?php
+            $months = [
+                "January 2024", "February 2024", "March 2024", "April 2024",
+                "May 2024", "June 2024", "July 2024", "August 2024",
+                "September 2024", "October 2024", "November 2024", "December 2024"
+            ];
 
-        foreach ($months as $month) {
-            echo "<div class='month'>";
-            echo "<h3>$month</h3>";
-            echo "<div class='days'>";
-            $daysInMonth = cal_days_in_month(CAL_GREGORIAN, array_search($month, $months) + 1, 2024);
-            for ($i = 1; $i <= $daysInMonth; $i++) {
-                echo "<div class='day'>$i</div>";
+            foreach ($months as $month) {
+                echo "<div class='month'>";
+                echo "<h3>$month</h3>";
+                echo "<div class='days'>";
+                $daysInMonth = cal_days_in_month(CAL_GREGORIAN, array_search($month, $months) + 1, 2024);
+                for ($i = 1; $i <= $daysInMonth; $i++) {
+                    echo "<button type='submit' class='day' name='showDate' value='2024-" . sprintf("%02d", array_search($month, $months) + 1) . "-" . sprintf("%02d", $i) . "'>$i</button>";
+                }
+                echo "</div></div>";
             }
-            echo "</div></div>";
-        }
-        ?>
-    </div>
+            ?>
+        </div>
+    </form>
+   
 </div>
 
 <div class='greyRectangle'></div>
 <div class='greyRectangle2'></div>
 
-<a class='Info3'>Lidojums uz: Parīze (CDG)</a>
+<div class='Info3'>Lidojums uz: Parīze (CDG)</div>
 <div class='greyRectangle3'>
 </div>
 <div class='ticketPlace'>
-<div class = 'ticketForm'>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['showDate'])) {
+    $selectedDate = $_POST['showDate'];
+    echo "<div class='ChosenDate'>" . date('d.m.Y', strtotime($selectedDate)) . "</div>";
+    include 'dbconfig.php';
+
+
+    $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
+
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $sql = "SELECT `Airline`,`airport_name`,`ITADA`,`City`,`country`,`T_price`,`arrival_date`,`departure_date`,`arrival_time`,`departure_time` 
+    FROM `airports/airlines` WHERE `departure_date` = ?";
+
+    $stmt = $conn->prepare($sql);
+
+ 
+    if ($stmt) {
+ 
+        $stmt->bind_param("s", $selectedDate);
+        $stmt->execute();
+
+ 
+        $result = $stmt->get_result();
+
+
+
+
+        if ($result) {
+         
+            if ($result->num_rows > 0) {
+                
+                while ($row = $result->fetch_assoc()) {
+            
+                    $Airline = $row['Airline'];
+                    $airport_name = $row['airport_name'];
+                    $ITADA = $row['ITADA'];
+                    $City = $row['City'];
+                    $country = $row['country'];
+                    $T_price = $row['T_price'];
+                    $arrival_date = $row['arrival_date'];
+                    $departure_date = $row['departure_date'];
+                    $arrival_time = date('H:i', strtotime($row['arrival_time']));
+                    $departure_time = date('H:i', strtotime($row['departure_time']));
+
+            
+                    echo "<div class='ticketForm'>
+                        <div class='time'>
+                            <div class='departTime'>$departure_time</div>
+                            <div class='timeGap'></div>
+                            <div class='arrivTime'>$arrival_time</div>
+                        </div>
+                        <div class='ITADA'>
+                            <div class='departITADA'>RIX</div>
+                            <div class='ITADAGap'></div>
+                            <div class='arrivITADA'>$ITADA</div>
+                        </div>
+                        <div class='NOPrice'>no</div>
+                        <div class='Price'>$T_price</div>
+                        <div class='direction'>Tiešais reiss</div>
+                        <!-- <div class='allParts'>Lidojuma detaļas</div> -->
+                        <div class='wayTime'>16h 05min</div>
+                        <div class='line2'></div>
+                        <div class='StyleRect'>
+                            <!-- <div class='grey1'></div> -->
+                            <div class='line1'></div>
+                            <!-- <div class='grey2'></div> -->
+                        </div>
+                    </div>";
+                }
+                echo "<a class='flightName'>Rīga (RIX) – $City ($airport_name) ($ITADA)</a>";
+                // echo "<div class='Info3'>Lidojums uz: $City ($ITADA)</div>";
+            } else {
+                echo "There are no flights on that date:(";
+            }
+        } else {
+            
+            echo "ERROR in request " . $stmt->error;
+        }
+
+        $stmt->close();
+    } else {
+
+        echo "ERROR in preparing " . $conn->error;
+    }
+
+
+    $conn->close();
+}
+?>
+
+
+
+<!-- <div class = 'ticketForm'>
 <div class='time'>
         <div class='departTime'>12:30</div>
         <div class='timeGap'></div>
@@ -63,14 +161,15 @@
     <div class = 'NOPrice'>no</div>
     <div class = 'Price'>219.99$</div>
     <div class = 'direction'>Tiešais reiss</div>
-    <!-- <div class = 'allParts'>Lidojuma detaļas</div> -->
-    <div class = 'wayTime'>16h 05min</div>
+     <div class = 'allParts'>Lidojuma detaļas</div> -->
+    <!-- <div class = 'wayTime'>16h 05min</div>
     <div class = 'line2'></div>
-    <div class = 'StyleRect'>
+    <div class = 'StyleRect'> -->
             <!-- <div class = 'grey1'></div> -->
-            <div class = 'line1'></div>
+            <!-- <div class = 'line1'></div> -->
             <!-- <div class = 'grey2'></div> -->
-    </div>
+    <!-- </div>  -->
+
 </div>
 
 </div>
@@ -80,3 +179,11 @@
 </div>
 </body>
 </html>
+<?php
+
+
+
+///2024-01-01   2024-01-02
+?>
+
+	

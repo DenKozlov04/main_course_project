@@ -135,7 +135,7 @@ body {
 .greyRectangle2{
     background-color: #d1d1d1; 
     width:2px;
-    height:400px;
+    height:550px;
     margin-left: 1200px;
     z-index: 20;
     margin-top:-821px;
@@ -145,15 +145,16 @@ body {
     width:400px;
     height:2px;
     margin-left: 756px;
-    margin-top:-330px;
+    margin-top:-450px;
 }
 
 .Info3 {
     z-index: 21;
-    margin-left: 855px;
+    margin-left: 840px;
     font-weight: 600;
     position: relative; 
-    top: -350px;  
+    top: -485px; 
+    font-size: 18px; 
 }
 .ticketForm {
     background-color: #FAFAFA;
@@ -170,10 +171,10 @@ body {
     margin-top:20px;
     /* background-color: #85ffa3; */
     width: 430px;
-    height: 600px;
+    height: 400px;
     margin-left: 750px;
     overflow-y: scroll; 
-    max-height: 300px; 
+    max-height: 400px; 
     /* border: 1px solid #ccc;  */
     align-items: center;
     justify-content: center;
@@ -198,7 +199,7 @@ body {
     margin-top:-80px;
 }
 
-.grey2 {
+/* .grey2 {
     background-color: #BDBDBD;
     width: 60px;
     height: 5px;
@@ -213,16 +214,132 @@ body {
     border-radius: 10px;
  
 
-}
+} */
 
 
 .line1 {
     background-color: #BDBDBD;
-    width: 100px;
-    height: 3px;
-    margin-top:1px;
-    
-}
-.time{
+    width: 120px;
+    height: 2px;
+    margin-top:45px;
+    margin-left:0px;
+    display: flex;
+    position: absolute;
+    top: 0; 
 }
 
+ /* .time {
+    display: flex;
+    margin-left: 45px;
+    margin-top: 10px;
+} */
+
+.timeGap {
+    width: 140px;
+} 
+
+.time {
+    font-size: 20px;
+    display: flex;
+    position: absolute;
+    top: 0; 
+    left:30px;
+    margin-top:35px;
+
+}
+
+.ticketForm {
+    position: relative; 
+    font-family: 'Nunito Sans', sans-serif;
+    /* padding-top: 30px;  */
+}
+.ITADA{
+    color: #BDBDBD;
+    font-size: 13px;
+    margin-top:60px;
+    left: 44px;
+    display: flex;
+    position: absolute;
+    top: 0; 
+    font-weight:bold ;
+}
+.ITADAGap{
+    width: 165px;
+}
+.direction{
+    padding:3px;
+    position: absolute;
+    top: 0; 
+    left:108px; 
+    top:50px;
+    font-size: 13px;
+    background-color: #d7ebc1;
+    color: #7c9155;
+    font-weight:bold ;
+}
+.line2{
+    background-color: #BDBDBD;
+    width: 2px;
+    height: 100px;
+    margin-top:0px;
+    margin-left:300px;
+    display: flex;
+    position: absolute;
+    top: 0; 
+}
+.Price{
+    color: #0d057c;
+    display: flex;
+    position: absolute;
+    margin-left:317px;
+    font-weight:bold ;
+    margin-top: 50px;
+    font-size: 19px;
+}
+.NOPrice{
+    color: #0d057c;
+    display: flex;
+    position: absolute;
+    margin-left:340px;
+    margin-top: 25px;
+}
+.wayTime{
+    position: absolute;
+    top: 0; 
+    left:113px;
+    font-size:15px;
+    margin-top:22px;
+    color: #949494;
+}
+.ButtonPlace{
+    width:405px;
+    height: 100px;
+    background-color: #FAFAFA;
+    position: absolute;
+    top:0px;
+    left:756px;
+    top:640px;
+    border-radius: 7px;
+}
+.ContinueButton {
+    left:270px;
+    top:25px;
+    position: absolute;
+    background-color: #DE6A6A;
+    border: none; 
+    padding: 15px 25px; 
+    text-align: center; 
+    display: inline-block; 
+    text-decoration: none; 
+    color: white; 
+    font-size: 16px; 
+    cursor: pointer; 
+    border-radius: 5px;
+}
+.PricePlace{
+    position: absolute;
+    top:35px;
+    left:25px;
+    font-size: 25px;
+    font-weight: bold;
+}

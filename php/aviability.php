@@ -50,22 +50,33 @@
 </div>
 <div class='ticketPlace'>
 <div class = 'ticketForm'>
-    <div class='time'>
-        <div class = 'departTime'>12:30</div>
-        <div class = 'arrivTime'>14:30</div>
+<div class='time'>
+        <div class='departTime'>12:30</div>
+        <div class='timeGap'></div>
+        <div class='arrivTime'>14:30</div>
     </div>
-    <div class = 'departITADA'>RIX</div>
-    <div class = 'arrivITADA'>CMN</div>
+    <div class='ITADA'>
+        <div class = 'departITADA'>RIX</div>
+        <div class='ITADAGap'></div>
+        <div class = 'arrivITADA'>CMN</div>
+    </div>
+    <div class = 'NOPrice'>no</div>
+    <div class = 'Price'>219.99$</div>
     <div class = 'direction'>Tiešais reiss</div>
-    <div class = 'allParts'>Lidojuma detaļas</div>
-    <div class = 'wayTime'>В пути: 16ч05м</div>
+    <!-- <div class = 'allParts'>Lidojuma detaļas</div> -->
+    <div class = 'wayTime'>16h 05min</div>
+    <div class = 'line2'></div>
     <div class = 'StyleRect'>
-            <div class = 'grey1'></div>
+            <!-- <div class = 'grey1'></div> -->
             <div class = 'line1'></div>
-            <div class = 'grey2'></div>
+            <!-- <div class = 'grey2'></div> -->
     </div>
 </div>
 
+</div>
+<div class='ButtonPlace'>
+    <button class='ContinueButton'>Turpinat</button>
+    <div class='PricePlace'>219.99$</div>
 </div>
 </body>
 </html>

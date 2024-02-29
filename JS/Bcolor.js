@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
 
         // отправка занчения
-        window.location.href = '../php/OrderUserData.php?buttonValue=' + buttonValue;
+        // window.location.href = '../php/OrderUserData.php?buttonValue=' + buttonValue;
+        window.location.href = '../php/aviability.php?buttonValue=' + buttonValue;
     });
 });

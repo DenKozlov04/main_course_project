@@ -4,40 +4,36 @@ session_start();
 include 'dbconfig.php';
 
 if ($mysqli->connect_error) {
-    die("Ошибка подключения: " . $mysqli->connect_error);
+    die("Connection ERROR: " . $mysqli->connect_error);
 }
 
 $airline_id = $_POST['airline_id'];
 
-// подготовленный запрос для избежания sql-инъекций
-$stmt = $mysqli->prepare("SELECT `City`, `T_price`, `googleMapsLink` FROM `airports/airlines` WHERE `id` = ?");
+
+$stmt = $mysqli->prepare("SELECT `Airline`,`City`, `T_price`, `googleMapsLink` FROM `airports/airlines` WHERE `id` = ?");
 $stmt->bind_param("i", $airline_id);
 $stmt->execute();
-$stmt->bind_result($city, $t_price, $google_maps_link);
-
+$stmt->bind_result($Airline,$city, $t_price, $google_maps_link);
 
 if ($stmt->fetch()) {
+    $_SESSION['Airline'] = $Airline; // значение переменной $Airline
 
-
-    
     $stmt->close();
 
-    
     $stmt2 = $mysqli->prepare("SELECT `flight_image`, `description` FROM `airflight_description` WHERE `flight_id` = ?");
     $stmt2->bind_param("i", $airline_id);
     $stmt2->execute();
     $stmt2->bind_result($flight_image, $description);
 
-  
     if ($stmt2->fetch()) {
 
     } else {
-        echo "Дополнительные данные не найдены.";
+        echo "No data";
     }
 
     $stmt2->close();
 } else {
-    echo "Данные для указанного airline_id не найдены.";
+    echo "No data";
 }
 
 
@@ -107,9 +103,13 @@ if ($stmt->fetch()) {
     </div>
     <div class="text1"><?php echo $city; ?></div>
     <div class="text2"><?php echo $description; ?></div>
-    <form id="orderForm" method='POST' action='OrderUserData.php'>
+    <!-- <form id="orderForm" method='POST' action='OrderUserData.php'>
+    <button class="button1" type='submit'>Order</button>
+</form> -->
+<form id="orderForm" method='POST' action='availability.php'>
     <button class="button1" type='submit'>Order</button>
 </form>
+
 
 
 </div>

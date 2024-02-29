@@ -4,9 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="../css/aviability.css" rel="stylesheet">
+<script src='../JS/PopUP.js'></script>
 <title>documment</title>
 </head>
 <body>
+    
 <div class='rectangleHeader'>
     <div class='logorectangle'>
         <a>AVIA</a>
@@ -22,6 +24,8 @@
     <form method="POST">
         <div class="calendar">
             <?php
+            session_start();
+            $Airline = $_SESSION['Airline'];
             $months = [
                 "January 2024", "February 2024", "March 2024", "April 2024",
                 "May 2024", "June 2024", "July 2024", "August 2024",
@@ -51,11 +55,26 @@
 <div class='greyRectangle3'>
 </div>
 <div class='ticketPlace'>
+
+<div id="popup">
+    
+    <button onclick="closePopup()">Close</button>
+    
+    <div id="popupContent">
+
+    </div>
+    <div id="overlay" onclick="closePopup()"></div>
+</div>
 <?php
+$Airline = $_SESSION['Airline'];
+
+// echo $Airline;
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['showDate'])) {
     $selectedDate = $_POST['showDate'];
     echo "<div class='ChosenDate'>" . date('d.m.Y', strtotime($selectedDate)) . "</div>";
     include 'dbconfig.php';
+
 
 
     $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
@@ -65,15 +84,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['showDate'])) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "SELECT `Airline`,`airport_name`,`ITADA`,`City`,`country`,`T_price`,`arrival_date`,`departure_date`,`arrival_time`,`departure_time` 
-    FROM `airports/airlines` WHERE `departure_date` = ?";
-
+    $sql = "SELECT `Airline`, `airport_name`, `ITADA`, `City`, `country`, `T_price`, `arrival_date`, `departure_date`, `arrival_time`, `departure_time` 
+    FROM `airports/airlines` 
+    WHERE `departure_date` = ? AND `Airline` = ?";
     $stmt = $conn->prepare($sql);
 
- 
+
     if ($stmt) {
  
-        $stmt->bind_param("s", $selectedDate);
+        $stmt->bind_param("ss", $selectedDate, $Airline);
         $stmt->execute();
 
  
@@ -88,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['showDate'])) {
                 
                 while ($row = $result->fetch_assoc()) {
             
-                    $Airline = $row['Airline'];
+                    // $Airline = $row['Airline'];
                     $airport_name = $row['airport_name'];
                     $ITADA = $row['ITADA'];
                     $City = $row['City'];
@@ -99,35 +118,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['showDate'])) {
                     $arrival_time = date('H:i', strtotime($row['arrival_time']));
                     $departure_time = date('H:i', strtotime($row['departure_time']));
 
-            
-                    echo "<div class='ticketForm'>
-                        <div class='time'>
-                            <div class='departTime'>$departure_time</div>
-                            <div class='timeGap'></div>
-                            <div class='arrivTime'>$arrival_time</div>
-                        </div>
-                        <div class='ITADA'>
-                            <div class='departITADA'>RIX</div>
-                            <div class='ITADAGap'></div>
-                            <div class='arrivITADA'>$ITADA</div>
-                        </div>
-                        <div class='NOPrice'>no</div>
-                        <div class='Price'>$T_price</div>
-                        <div class='direction'>Tiešais reiss</div>
-                        <!-- <div class='allParts'>Lidojuma detaļas</div> -->
-                        <div class='wayTime'>16h 05min</div>
-                        <div class='line2'></div>
-                        <div class='StyleRect'>
-                            <!-- <div class='grey1'></div> -->
-                            <div class='line1'></div>
-                            <!-- <div class='grey2'></div> -->
-                        </div>
-                    </div>";
+   //передаю данные в поп ап      
+                    echo "<div class='ticketForm' style='cursor: pointer;' onclick='openPopup(\"$departure_time\", \"$arrival_time\", \"$ITADA\", \"$T_price\")'>
+                            <div class='time'>
+                                <div class='departTime'>$departure_time</div>
+                                <div class='timeGap'></div>
+                                <div class='arrivTime'>$arrival_time</div>
+                            </div>
+                            <div class='ITADA'>
+                                <div class='departITADA'>RIX</div>
+                                <div class='ITADAGap'></div>
+                                <div class='arrivITADA'>$ITADA</div>
+                            </div>
+                            <div class='NOPrice'>no</div>
+                            <div class='Price'>$T_price</div>
+                            <div class='direction'>Tiešais reiss</div>
+                            <a class='allParts' href='#'>Lidojuma detaļas</a>
+                            <div class='wayTime'>16h 05min</div>
+                            <div class='line2'></div>
+                            <div class='StyleRect'>
+                                <!-- <div class='grey1'></div> -->
+                                <div class='line1'></div>
+                                <!-- <div class='grey2'></div> -->
+                            </div>
+                        </div>";
                 }
                 echo "<a class='flightName'>Rīga (RIX) – $City ($airport_name) ($ITADA)</a>";
                 // echo "<div class='Info3'>Lidojums uz: $City ($ITADA)</div>";
             } else {
                 echo "There are no flights on that date:(";
+                echo $Airline;
             }
         } else {
             
@@ -177,13 +197,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['showDate'])) {
     <button class='ContinueButton'>Turpinat</button>
     <div class='PricePlace'>219.99$</div>
 </div>
+
+
 </body>
 </html>
-<?php
 
 
-
-///2024-01-01   2024-01-02
-?>
-
-	

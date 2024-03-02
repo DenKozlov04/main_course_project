@@ -68,7 +68,19 @@ body {
     top: 35px; /* Вертикальное расположение */
     z-index: 15;
 }
-
+.Info3 {
+    color: black;
+    z-index: 21;
+    margin-left: 840px;
+    font-weight: 600;
+    position: fixed; 
+    /* top: -485px;  */
+    font-size: 18px; 
+    width:300px;
+    height:30px;
+    left: -20px; /* Горизонтальное расположение */
+    top: 130px; /* Вертикальное расположение */
+}
 
 
 .scrollable-box {
@@ -148,16 +160,7 @@ body {
     margin-top:-450px;
 }
 
-.Info3 {
-    z-index: 21;
-    margin-left: 840px;
-    font-weight: 600;
-    position: relative; 
-    top: -485px; 
-    font-size: 18px; 
-    width:250px;
-    height:30px;
-}
+
 .ticketForm {
     background-color: #FAFAFA;
     width: 400px;
@@ -380,13 +383,11 @@ form {
     position: fixed;
     top: 0;
     left: 0;
-    width: 1920px;
-    height: 1080px;
+    width: 100%;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.5); 
     z-index: 1000; 
-    
 }
-
 
 #popup {
     display: none;
@@ -399,8 +400,16 @@ form {
     border-radius: 5px;
     z-index: 1001; 
 }
-
+/* #popup.CloseButton{
+    background-color: rgba(0, 0, 0, 0.5); 
+} */
 
 #popupContent {
-    
+    text-align: left;
+    line-height: 1.5;
 }
+
+#popupContent div {
+    margin-bottom: 10px;
+}
+

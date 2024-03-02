@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="../css/aviability.css" rel="stylesheet">
 <script src='../JS/PopUP.js'></script>
+
 <title>documment</title>
 </head>
 <body>
@@ -51,12 +52,12 @@
 <div class='greyRectangle'></div>
 <div class='greyRectangle2'></div>
 
-<div class='Info3'>Lidojums uz: Parīze (CDG)</div>
+<!-- <div class='Info3'>Lidojums uz: Parīze (CDG)</div> -->
 <div class='greyRectangle3'>
 </div>
 <div class='ticketPlace'>
 
-<div id="popup">
+<!-- <div id="popup">
     
     <button onclick="closePopup()">Close</button>
     
@@ -64,7 +65,13 @@
 
     </div>
     <div id="overlay" onclick="closePopup()"></div>
+</div> -->
+<div id="popup">
+    <!-- <button onclick="closePopup() class='CloseButton'">X</button> -->
+    <div id="popupContent"></div>
 </div>
+<div id="overlay" onclick="closePopup()"></div>
+
 <?php
 $Airline = $_SESSION['Airline'];
 
@@ -84,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['showDate'])) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "SELECT `Airline`, `airport_name`, `ITADA`, `City`, `country`, `T_price`, `arrival_date`, `departure_date`, `arrival_time`, `departure_time` 
+    $sql = "SELECT `Airline`, `airport_name`, `ITADA`, `City`, `country`, `T_price`, `arrival_date`, `departure_date`, `arrival_time`, `departure_time`,`id` 
     FROM `airports/airlines` 
     WHERE `departure_date` = ? AND `Airline` = ?";
     $stmt = $conn->prepare($sql);
@@ -106,8 +113,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['showDate'])) {
             if ($result->num_rows > 0) {
                 
                 while ($row = $result->fetch_assoc()) {
-            
+
+
                     // $Airline = $row['Airline'];
+                    $id = $row['id'];
                     $airport_name = $row['airport_name'];
                     $ITADA = $row['ITADA'];
                     $City = $row['City'];
@@ -117,37 +126,51 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['showDate'])) {
                     $departure_date = $row['departure_date'];
                     $arrival_time = date('H:i', strtotime($row['arrival_time']));
                     $departure_time = date('H:i', strtotime($row['departure_time']));
+                    
+   //передаю данные в поп ап      //(country, City, airport_name, ITADA, departure_date, arrival_date, departureTime, arrivalTime, price )
+                echo "<div class='ticketForm' style='cursor: pointer;' data-price='$T_price' data-id='$id'>
+                <div class='time'>
+                    <div class='departTime'>$departure_time</div>
+                    <div class='timeGap'></div>
+                    <div class='arrivTime'>$arrival_time</div>
+                </div>
+                <div class='ITADA'>
+                    <div class='departITADA'>RIX</div>
+                    <div class='ITADAGap'></div>
+                    <div class='arrivITADA'>$ITADA</div>
+                </div>
+                <div class='NOPrice'>no</div>
+                <div class='Price'>$T_price</div>
+                <div class='direction'>Tiešais reiss</div>
+                <a class='allParts' style='cursor: pointer;' onclick='openPopup(\"$country\", \"$City\", \"$airport_name\", \"$ITADA\" , \"$departure_date\" , \"$arrival_date\" , \"$departure_time\" , \"$arrival_time\" , \"$T_price\")'>Lidojuma detaļas</a>
+                <div class='wayTime'>";
+                
+                $arrival_time_obj = new DateTime($arrival_time);
+                $departure_time_obj = new DateTime($departure_time);
+                $difference = $arrival_time_obj->diff($departure_time_obj);
+                echo $difference->format('%Hh %Imin');
 
-   //передаю данные в поп ап      
-                    echo "<div class='ticketForm' style='cursor: pointer;' onclick='openPopup(\"$departure_time\", \"$arrival_time\", \"$ITADA\", \"$T_price\")'>
-                            <div class='time'>
-                                <div class='departTime'>$departure_time</div>
-                                <div class='timeGap'></div>
-                                <div class='arrivTime'>$arrival_time</div>
-                            </div>
-                            <div class='ITADA'>
-                                <div class='departITADA'>RIX</div>
-                                <div class='ITADAGap'></div>
-                                <div class='arrivITADA'>$ITADA</div>
-                            </div>
-                            <div class='NOPrice'>no</div>
-                            <div class='Price'>$T_price</div>
-                            <div class='direction'>Tiešais reiss</div>
-                            <a class='allParts' href='#'>Lidojuma detaļas</a>
-                            <div class='wayTime'>16h 05min</div>
-                            <div class='line2'></div>
-                            <div class='StyleRect'>
-                                <!-- <div class='grey1'></div> -->
-                                <div class='line1'></div>
-                                <!-- <div class='grey2'></div> -->
-                            </div>
-                        </div>";
+                echo "</div>
+                <div class='line2'></div>
+                <div class='StyleRect'>
+                    <!-- <div class='grey1'></div> -->
+                    <div class='line1'></div>
+                    <!-- <div class='grey2'></div> -->
+                </div>
+                </div>";
+
                 }
                 echo "<a class='flightName'>Rīga (RIX) – $City ($airport_name) ($ITADA)</a>";
+                echo "<div class='Info3'>Lidojums uz: {$City} ({$ITADA})</div>";
+                echo "<div class='ButtonPlace'>
+                        <button class='ContinueButton'>Turpinat</button>
+                        <div id='PricePlace'class='PricePlace'></div>
+                        <div id='idPlace'class='id'></div>
+                    </div>";
                 // echo "<div class='Info3'>Lidojums uz: $City ($ITADA)</div>";
             } else {
                 echo "There are no flights on that date:(";
-                echo $Airline;
+                // echo $Airline;
             }
         } else {
             
@@ -193,10 +216,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['showDate'])) {
 </div>
 
 </div>
-<div class='ButtonPlace'>
-    <button class='ContinueButton'>Turpinat</button>
-    <div class='PricePlace'>219.99$</div>
-</div>
+
 
 
 </body>

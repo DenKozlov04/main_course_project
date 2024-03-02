@@ -89,7 +89,9 @@ $SearchDeparture_date = isset($_GET['SearchDeparture_date']) ? $_GET['SearchDepa
 
 
 
-$sql_airports = "SELECT id, City, country, airport_name, T_price FROM `airports/airlines` WHERE 1";
+$sql_airports = "SELECT id, City, country, airport_name, T_price 
+                FROM `airports/airlines` 
+                WHERE id IN (SELECT MIN(id) FROM `airports/airlines` GROUP BY City)";
 
 // если параметры переданы
 if ($SearchRoute != '') {
@@ -131,7 +133,7 @@ if ($result_airports) {
 
          echo "
          <div class='Ticket_card'>
-             <img src='data:image/jpeg;base64," . base64_encode($flight_image) . "'> <!-- Замените это на путь, где у вас хранятся изображения -->
+             <img src='data:image/jpeg;base64," . base64_encode($flight_image) . "'> 
              <div class='text1'>" . $row_airports["country"] . $row_airports['id'] ."</div> 
              <div class='text2'>Direct flight</div>
              <div class='text3'>" . $row_airports["City"] . " (" . $row_airports["airport_name"] . ")</div>

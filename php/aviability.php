@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="../css/aviability.css" rel="stylesheet">
 <script src='../JS/PopUP.js'></script>
-
+<script src='../JS/ChooseTicket.js'></script>
+<script src='../JS/giveData.js'></script>
 <title>documment</title>
 </head>
 <body>
@@ -79,6 +80,8 @@ $Airline = $_SESSION['Airline'];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['showDate'])) {
     $selectedDate = $_POST['showDate'];
+    // $_SESSION['selected_ticket_price'] = $T_price;
+    // $_SESSION['selected_ticket_id'] = $id;
     echo "<div class='ChosenDate'>" . date('d.m.Y', strtotime($selectedDate)) . "</div>";
     include 'dbconfig.php';
 
@@ -162,11 +165,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['showDate'])) {
                 }
                 echo "<a class='flightName'>Rīga (RIX) – $City ($airport_name) ($ITADA)</a>";
                 echo "<div class='Info3'>Lidojums uz: {$City} ({$ITADA})</div>";
-                echo "<div class='ButtonPlace'>
-                        <button class='ContinueButton'>Turpinat</button>
-                        <div id='PricePlace'class='PricePlace'></div>
-                        <div id='idPlace'class='id'></div>
-                    </div>";
+                echo "<form class='buttonForm' action='details1.php' method='POST'>
+                        <div class='ButtonPlace'>
+                                <button class='ContinueButton'>Turpinat</button>
+                                <div id='price' class='PricePlace'></div>
+                                <div id='id' class='id'></div>
+                            </div>
+                     </form>";
                 // echo "<div class='Info3'>Lidojums uz: $City ($ITADA)</div>";
             } else {
                 echo "There are no flights on that date:(";
@@ -216,6 +221,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['showDate'])) {
 </div>
 
 </div>
+
 
 
 

@@ -175,7 +175,7 @@ body {
 
 .ticketForm:hover {
     /* border-color: #7c9155; */
-    border: 2px solid #a6cc61;
+    /* border: 2px solid #a6cc61; */
 }
 
 
@@ -364,6 +364,9 @@ body {
     font-weight: bold;
 }
 form {
+    display: contents; /* невидимая форма */
+}
+.buttonForm{
     display: contents; /* невидимая форма */
 }
 .ChosenDate{

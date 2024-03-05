@@ -161,7 +161,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['showDate'])) {
                     <!-- <div class='grey2'></div> -->
                 </div>
                 </div>";
-
                 }
                 echo "<a class='flightName'>Rīga (RIX) – $City ($airport_name) ($ITADA)</a>";
                 echo "<div class='Info3'>Lidojums uz: {$City} ({$ITADA})</div>";

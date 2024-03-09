@@ -2,36 +2,14 @@
 session_start();
 include 'dbconfig.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['price']) && isset($_POST['id'])) {
-    $price = $_POST['price'];
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($_POST['id'] ) && isset($_POST['class'] ) && isset($_POST['price'] )) {
+    $cardType = $_POST['cardType'];
+    $class = $_POST['class'];
     $id = $_POST['id'];
-    // echo $id;
-    // echo $price;
-
-    // echo $id;
-    // $result1 = 25 /
-    $price = preg_replace('/[^0-9.]/', '', $price); //убираю символ для вычислений
-    $price = floatval($price);
-    ///бронзовая карточка
-    $result = (25 * $price) / 100;
-    $result1 = number_format($result + $price, 2);//вывод с десятичным значением
-    // echo $result1;
-
-    ///серебрянная карточка
-    $result = (45 * $price) / 100;
-    $result2 = number_format($result + $price, 2);
-
-    // echo $result2;
-
-    ///золотая карточка
-    $result = (65 * $price) / 100;
-    $result3 = number_format($result + $price, 2);
-    
-    // echo $result3;
-
-    ////Вывод данных
-    ///<a href="https://www.flaticon.com/ru/free-icons/" title="бакалея иконки">Бакалея иконки от Radhe Icon - Flaticon</a>
-
+    $price = $_POST['price'];
+    // echo $id;price
+    // echo $class;
+    // echo $price; vivoditj v evro
     $sql = "SELECT `Airline`, `airport_name`, `ITADA`, `City`, `country`, `T_price`, `arrival_date`, `departure_date`, `arrival_time`, `departure_time`,`id` 
     FROM `airports/airlines` 
     WHERE  `id` = ?";
@@ -60,4 +38,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['price']) && isset($_PO
             $departure_time = date('H:i', strtotime($row['departure_time']));
     }
 }
+
 ?>
+

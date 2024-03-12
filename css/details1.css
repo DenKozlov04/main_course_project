@@ -59,13 +59,15 @@ body {
     width: 340px;
     height: 480px;
     /* background-color: #DDDDDD; */
-    background-color: #e4e4e4;
+    /* background-color: #e4e4e4; */
+    background-color: #ececec;
     margin-top: 30px;
     margin-left: 15px;
     margin-right: 15px;
     border-radius: 10px;
     position: relative; 
     overflow: hidden; 
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .parallelogram3 {

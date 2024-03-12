@@ -85,3 +85,157 @@ body {
     font-size:14px;
     font-weight: bold;
 }
+.PricePlaceBox {
+    /* background-color: #f0f0f0; */
+    width: 70%;
+    height: 60%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* border: 2px solid rgb(204, 204, 204); */
+    margin-top:22%;
+}
+.PriceCard1{
+    background-color:#FFFFFF;
+    width: 100%;
+    height: 22%;
+    border-radius: 5px;
+    border: 2px solid #d3d3d3;
+}
+
+
+.ChooseButton {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 60px;
+    height: 60px;
+    margin: 0;
+    margin-left: 5%;
+    margin-top: 2.5%;
+    border-radius: 50%;
+    outline: none;
+    border: 2px solid #0d0768;
+    transition: border-width 0.3s;
+    position: relative; 
+}
+
+.ChooseButton:checked::after {
+    content: ''; /* псевдоэлемент */
+    width: 43px; 
+    height: 43px;
+    border-radius: 50%; 
+    background-color: #0d0768; 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+}
+.Text1{
+    position: absolute;
+    margin-left: 10%;
+    top: 2.3%;
+    font-size: 14px;
+    font-weight:bold;
+}
+.Text2{
+    position: absolute;
+    margin-left: 12%;
+    font-size: 60px;
+    top: 5%;
+}
+.Text3{
+    position: absolute;
+    margin-left: 87%;
+    top: 9.6%;
+    font-size: 25px;
+}
+.PriceCard2{
+    background-color:#FFFFFF;
+    width: 100%;
+    height: 45%;
+    border-radius: 5px;
+    border: 2px solid #d3d3d3;
+}
+  
+.Text4{
+    position: absolute;
+    margin-left: 10%;
+    top: 24.7%;
+    font-size: 14px;
+    font-weight:bold;
+}
+.Text5{
+    position: absolute;
+    margin-left: 12%;
+    font-size: 60px;
+    top: 28%;
+}
+.Text6 {
+    position: absolute;
+    margin-left: 87%;
+    top: 31%;
+    font-size: 25px;
+    color: #0d0768; 
+}
+.Text7{
+    position: absolute;
+    margin-left: 87%;
+    top: 36%;
+    font-size: 14px;
+    color: #b8b8b8;
+}
+.Text8 {
+    position: absolute;
+    margin-left: 36%;
+    top: 29%;
+    font-size: 18px;
+    list-style-type: disc; 
+
+}
+.Text8 li {
+    line-height: 1.5; 
+}
+.Text9 {
+    position: absolute;
+    margin-left: 5%;
+    top: 72%;
+    font-size: 22px;
+}
+.Text10 {
+    position: absolute;
+    margin-left: 19.5%;
+    top: 72.1%;
+    font-size: 22px;
+    text-decoration: underline;
+}
+.ContinueButton{
+    left:88.5%;
+    top:90%;
+    position: absolute;
+    background-color: #DE6A6A;
+    border: none; 
+    padding: 20px 50px; 
+    text-align: center; 
+    display: inline-block; 
+    text-decoration: none; 
+    color: white; 
+    font-size: 16px; 
+    cursor: pointer; 
+    border-radius: 5px;
+}
+.BackButton{
+    left:76.5%;
+    top:90%;
+    position: absolute;
+    background-color: #DE6A6A;
+    border: none; 
+    padding: 20px 50px; 
+    text-align: center; 
+    display: inline-block; 
+    text-decoration: none; 
+    color: white; 
+    font-size: 16px; 
+    cursor: pointer; 
+    border-radius: 5px;
+}

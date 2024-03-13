@@ -10,6 +10,8 @@ function ButtonClick(element) {
 
     let priceElement = document.querySelector('.price');
     priceElement.innerText = plusPrice.toFixed(2) + '€';
+
+    
 }
 
 function ButtonClick2(element) {

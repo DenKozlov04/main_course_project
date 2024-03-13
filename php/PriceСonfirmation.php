@@ -53,10 +53,14 @@ include 'InfoOutput.php';
     </div>
     <div class='Text9'>Summa apmaksai:</div>
     <div class='Text10'><?= $price ,'€'?></div>
-    <div class='ButtonBox'>
-            <button class='ContinueButton' type='submit' name='' value=''>Turpinat</button>
-            <button class='BackButton' type='submit' name='' value=''>Atpakaļ</button>
-    </div>
+    <form class='buttonForm' action="BaggagePrice.php" method='POST'>
+    <input type="hidden" name="id" value="<?= $id ?>">
+        <div class='ButtonBox'>
+                <button class='ContinueButton' type='submit' name='cardType' value=''>Turpinat</button>
+                
+        </div>
+    </form>
+    <button class='BackButton' type='submit' name='' value=''>Atpakaļ</button>
 </div>
 
 </body>

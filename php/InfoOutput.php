@@ -10,6 +10,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($
     // echo $id;price
     // echo $class;
     // echo $price; vivoditj v evro
+    $Percents = number_format(($price * 34)/100 , 2);
+    $PlusPrice = number_format($price + $Percents, 2);
+ 
     $sql = "SELECT `Airline`, `airport_name`, `ITADA`, `City`, `country`, `T_price`, `arrival_date`, `departure_date`, `arrival_time`, `departure_time`,`id` 
     FROM `airports/airlines` 
     WHERE  `id` = ?";

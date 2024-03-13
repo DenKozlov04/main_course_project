@@ -9,7 +9,8 @@ include 'InfoOutput.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../css/PriceСonfirmation.css" rel="stylesheet">
-    <title>Document</title>
+    <title>Choose price</title>
+    <script src='../JS/givePrice.js'></script>
 </head>
 <body>
 <div class='rectangleHeader'>
@@ -27,18 +28,19 @@ include 'InfoOutput.php';
     <a class='Info4'><?="$formattedDepartDate. &bull;  $departure_time - $arrival_time"?></a>
     <div class='PricePlaceBox'>
     <div class='PriceCard1'>
-        <input class='ChooseButton' type="radio" id="circleSelect" name="circleSelection" checked>
+        <input class='ChooseButton' type="radio" id="circleSelect" name="circleSelection" value='<?= $price?>' onclick='ButtonClick2(this)' checked>
         <div class='Text1'>SILVER</div>
         <div class='Text2'>Classic</div>
         <div class='Text3'><?= $price ,'€' ?></div>
     </div>
 
     <div class='PriceCard2'>
-        <input class='ChooseButton' type="radio" id="chooseRadio" name="circleSelection"></input>
+        <!-- <input class='ChooseButton2' type="radio" id="chooseRadio" name="circleSelection" value='<?php $PlusPrice?>' onclick='ButtonClick(this)'></input> -->
+        <input class='ChooseButton2' type="radio" id="chooseRadio" name="circleSelection" value='<?= $PlusPrice; ?>' onclick='ButtonClick(this)'>
         <div class='Text4'>SILVER</div>
         <div class='Text5'>Business</div>
-        <div class='Text6'>+350.00€</div>
-        <div class='Text7'>743.99€ kopā</div>
+        <div class='Text6'><?='+', $Percents ,'€' ?></div>
+        <div class='Text7'><?= $PlusPrice ,'€',' kopā' ?></div>
         <ul class="Text8">
             <li>Sēdvieta Biznesa klasē un garda maltīte lidmašīnā</li>
             <li>Ātrā drošības kontrole un lidostas biznesa zāles apmeklējums</li>
@@ -50,7 +52,7 @@ include 'InfoOutput.php';
 
     </div>
     <div class='Text9'>Summa apmaksai:</div>
-    <div class='Text10'>145.00€</div>
+    <div class='Text10'><?= $price ,'€'?></div>
     <div class='ButtonBox'>
             <button class='ContinueButton' type='submit' name='' value=''>Turpinat</button>
             <button class='BackButton' type='submit' name='' value=''>Atpakaļ</button>
@@ -60,4 +62,3 @@ include 'InfoOutput.php';
 </body>
 </html>
 <!-- border: 1px solid #ccc; -->
- 

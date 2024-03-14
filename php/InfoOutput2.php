@@ -2,13 +2,14 @@
 session_start();
 include 'dbconfig.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($_POST['id'] )) {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($_POST['id'] ) && isset($_POST['plusPrice'])) {
     $cardType = $_POST['cardType'];
     $id = $_POST['id'];
+    $CurrPrice = $_POST['plusPrice'];
     // echo $id;price
     // echo $class;
     // echo $price; vivoditj v evro
- 
+   
     $sql = "SELECT `Airline`, `airport_name`, `ITADA`, `City`, `country`, `T_price`, `arrival_date`, `departure_date`, `arrival_time`, `departure_time`,`id` 
     FROM `airports/airlines` 
     WHERE  `id` = ?";

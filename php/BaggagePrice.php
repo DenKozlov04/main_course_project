@@ -35,6 +35,30 @@ include 'InfoOutput2.php';
             <div class='ImgBox'>
                 <img class='img' src='../images/5beb4031dde8677a6866a1e2.png'>
             </div>
+            <div class='PriceBox'>
+                <div class='PricePlc'>
+                    <div class='price1'>no</div>
+                    <div class='price2'>12.99€</div>
+                    <div class='price3'>vienā virzienā</div>
+                </div>
+            </div>
+        </div>
+        <div class='ServiceCard'>
+            <div class='txt1'>Rokas bagāža</div>
+            <div class='txt2'>1 x 8 kg</div>
+            <div class='textrect'>
+                <div class='txt3'>Iekļauts cenā</div>
+            </div>
+            <div class='greyRect'></div>
+            <div class='ImgBox'>
+                <img class='img' src='../images/5beb4031dde8677a6866a1e2.png'>
+            </div>
+            <div class='PriceBox'>
+                <div class='PricePlc'>
+                    <div class='price1'>no</div>
+                    <div class='price2'>12.99€</div>
+                    <div class='price3'>vienā virzienā</div>
+                </div>
         </div>
     </div>
     

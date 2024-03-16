@@ -77,23 +77,22 @@ body {
     margin-left: 890px;
     position: absolute;
 }
-.ServiceBox {
+/* .ServiceBox {
     margin-top: 7%;
-    /* background-color: #85ffa3; */
+   
     width: 60%;
     height: 750%;
-    margin-left: 19%; /* Центрирование по горизонтали */
+    margin-left: 19%;
     overflow-y: scroll; 
-    /* max-height: 400px;  */
-    /* border: 1px solid #ccc;  */
-    display: flex; /* Добавлено */
-    align-items: center; /* Добавлено */
+
+    display: flex; 
+    align-items: center; 
     flex-direction: column;
-    justify-content: center; /* Добавлено */
-}
+    justify-content: center; 
+} */
 
 
-.ServiceBox::-webkit-scrollbar {
+/* .ServiceBox::-webkit-scrollbar {
     width: 20px; 
 }
 
@@ -103,41 +102,44 @@ body {
 }
 
 .ServiceBox::-webkit-scrollbar-track {
-    /* background-color: #f1f1f1;  */
+   
     background-color: #E7E7E7; 
     width:10px;
-    /* border-radius: 10px;  */
-}
-.ServiceCard {
+   
+} */
+/* .ServiceCard {
     margin-top: -13.5%;
     background-color: #ffffff; 
     width: 98%;
     height: 70%;
     border-radius: 5px; 
-    border: 2px solid #e7e7e7; /* Цвет обводки */
-}
+    border: 2px solid #e7e7e7; 
+} */
 
 .ImgBox {
-    width: 100%; 
-    height: 60%; 
+    width: 103.8%; 
+    height: 300px; 
     overflow: hidden; 
     background-color: #6e3434; 
     margin-top:6%;
+    padding: 0;
+    margin-left: -20.1px;
 }
 
 .ImgBox img {
     width: 100%; 
-    height: auto; 
+    height: auto;
+    padding: 0; 
 }
 .txt1{
     font-size: 30px;
-    margin-top: 1%;
+    margin-top: 0.5%;
     margin-left: 2%;
     position: absolute;
 }
 .txt2{
     font-size: 40px;
-    margin-top: 18.5%;
+    margin-top: 20.7%;
     margin-left: 4%;
     position: absolute;
 }
@@ -145,17 +147,18 @@ body {
     margin-left: 4.6%;
     margin-top: 1%;
 }
+
 .greyRect{
     width:0.15%;
     height: 10.8%;
     background-color: #e6e6e6; 
     position: absolute;
     margin-left: 16%;
-    margin-top:16.95%;
+    margin-top:19.5%;
 }
 .textrect{
     font-size: 13px;
-    margin-top: 21%;
+    margin-top: 23%;
     width:4.5%;
     height: 2%;
     margin-left: 5.3%;
@@ -163,3 +166,73 @@ body {
     border-radius: 10px;
     background-color: #C3FD7A;  
 }
+
+
+.ServiceBox {
+    margin-top: 13%;
+    width: 60%;
+    height:1000%;
+    margin-left: 15%;
+    /* overflow-y: scroll; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ServiceCard {
+    background-color: #ffffff;
+    width: 98%;
+    height: 80% !important; /* Изменяем высоту */
+    border-radius: 5px;
+    border: 2px solid #e7e7e7;
+    margin-top: 50px;
+    padding: 20px;
+    padding-bottom: 100px;
+    box-sizing: border-box;
+}
+
+.PriceBox{
+    width:200px;
+    height:150px;
+    background: #DE6A6A;
+    position: absolute;
+    margin-top:-240px;
+    border-radius: 10px;
+    margin-left: 10px;
+    font-size: 50px;
+    color: #fafafa;
+}
+
+ /* .ImgBox {
+    width: 100%;
+    height: 60%;
+    overflow: hidden;
+    background-color: #6e3434;
+    margin-top: 10px; 
+    position: relative; 
+}  */
+ /* .ImgBox img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; 
+}  */
+.price1{
+    margin-bottom: 10px;
+    font-size: 15px;
+    margin-left:90px;
+   
+}
+.price2{
+    margin-left:22px;
+    margin-top:0px;
+}
+.price3{
+    font-size: 15px;
+    margin-left:50px;
+}
+.PricePlc{
+    margin-top:20px;
+    margin-left:1px;
+}
+

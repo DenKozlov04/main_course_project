@@ -26,6 +26,7 @@ include 'InfoOutput2.php';
     <a class='Info4'><?="$formattedDepartDate. &bull;  $departure_time - $arrival_time"?></a>
     <div class='ServiceBox'>
         <div class='ServiceCard'>
+            <!-- то что берешь в самолет в салрн-->
             <div class='txt1'>Rokas bagāža</div>
             <div class='txt2'>1 x 8 kg</div>
             <div class='textrect'>
@@ -41,10 +42,16 @@ include 'InfoOutput2.php';
                     <div class='price2'>12.99€</div>
                     <div class='price3'>vienā virzienā</div>
                 </div>
+                
+                <button class='Button2' id="choose" name="Selection" value='<?= '' ?>' onclick='PlusPrice1(this)'>+8</button>
+                <button class='Button3' id="choose" name="Selection2" value='<?= '' ?>' onclick='PlusPrice2(this)'>+16</button>
+                <button class='Button4' id="choose" name="Selection3" value='<?= '' ?>' onclick='PlusPrice3(this)'>+32</button>
+                <button class='Button5' id="choose" name="Selection4" value='<?= '' ?>' onclick='PlusPrice4(this)'>+64</button>
             </div>
         </div>
         <div class='ServiceCard'>
-            <div class='txt1'>Rokas bagāža</div>
+             <!-- то что помещается в багажный отсек-->
+            <div class='txt1'>Reģistrētā bagāža</div>
             <div class='txt2'>1 x 8 kg</div>
             <div class='textrect'>
                 <div class='txt3'>Iekļauts cenā</div>
@@ -58,6 +65,11 @@ include 'InfoOutput2.php';
                     <div class='price1'>no</div>
                     <div class='price2'>12.99€</div>
                     <div class='price3'>vienā virzienā</div>
+                </div>
+                <div class='BtnPlace'>
+                    <input class='ChooseButton2' type="radio" id="chooseRadio" name="circleSelection" value='<?= 1; ?>' onclick='ButtonClick(this)'>-</input>
+                    <div class='quantity'>0</div>
+                    <input class='ChooseButton2' type="radio" id="chooseRadio" name="circleSelection" value='<?= 1; ?>' onclick='ButtonClick(this)'>+</input>
                 </div>
         </div>
     </div>

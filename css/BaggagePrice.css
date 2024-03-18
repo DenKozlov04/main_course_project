@@ -172,7 +172,7 @@ body {
     margin-top: 13%;
     width: 60%;
     height:1000%;
-    margin-left: 15%;
+    margin-left: 20%;
     /* overflow-y: scroll; */
     display: flex;
     align-items: center;
@@ -236,3 +236,70 @@ body {
     margin-left:1px;
 }
 
+.Button2{
+    left:400px;
+    top:265px;
+    position: absolute;
+    background-color: #DE6A6A;
+    border: none; 
+    padding: 10px 20px; 
+    text-align: center; 
+    display: inline-block; 
+    text-decoration: none; 
+    color: white; 
+    font-size: 25px; 
+    cursor: pointer; 
+    border-radius: 5px;
+
+}
+.Button3{
+    left:480px;
+    top:265px;
+    position: absolute;
+    background-color: #DE6A6A;
+    border: none; 
+    padding: 10px 20px; 
+    text-align: center; 
+    display: inline-block; 
+    text-decoration: none; 
+    color: white; 
+    font-size: 25px; 
+    cursor: pointer; 
+    border-radius: 5px;
+}
+.Button4{
+    left:575px;
+    top:265px;
+    position: absolute;
+    background-color: #DE6A6A;
+    border: none; 
+    padding: 10px 20px; 
+    text-align: center; 
+    display: inline-block; 
+    text-decoration: none; 
+    color: white; 
+    font-size: 25px; 
+    cursor: pointer; 
+    border-radius: 5px;
+}
+.Button5{
+    left:670px;
+    top:265px;
+    position: absolute;
+    background-color: #DE6A6A;
+    border: none; 
+    padding: 10px 20px; 
+    text-align: center; 
+    display: inline-block; 
+    text-decoration: none; 
+    color: white; 
+    font-size: 25px; 
+    cursor: pointer; 
+    border-radius: 5px;
+}
+.BtnPlace {
+    display: flex;
+    color:#000000;
+    margin-left:500px;
+    margin-top:145px;
+}

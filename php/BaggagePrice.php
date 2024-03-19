@@ -10,6 +10,8 @@ include 'InfoOutput2.php';
     <link href="../css/BaggagePrice.css" rel="stylesheet">
     <title>additional services</title>
     <script src='../JS/givePrice.js'></script>
+    <script src='../JS/OpenInfoPopUp.js'></script>
+    <script src='../JS/AddRegBag.js'></script>
 </head>
 <body>
 <div class='rectangleHeader'>
@@ -69,9 +71,9 @@ include 'InfoOutput2.php';
                     <div class='price3'>vienā virzienā</div>
                 </div>
                 <div class='BtnPlace'>
-                    <button class='ChooseButton2'  id="choose22" name="circleSelection" value='<?= 1; ?>' onclick='ButtonClick(this)'>-</button>
+                    <button class='ChooseButton2'  id="choose22" name="circleSelection" value='<?= 1; ?>' onclick='ButtonClick1(this)'>-</button>
                     <div class='quantity'>0</div>
-                    <button class='ChooseButton21'  id="choose33" name="circleSelection" value='<?= 1; ?>' onclick='ButtonClick(this)'>+</button>
+                    <button class='ChooseButton21'  id="choose33" name="circleSelection" value='<?= 1; ?>' onclick='ButtonClick2(this)'>+</button>
                 </div>
         </div>
     </div>
@@ -83,5 +85,29 @@ include 'InfoOutput2.php';
                 
         </div>
     </form>
+    <div class='InfoButtonField'>
+        <button class='InfoButton1' onclick="openModal('modal1')">Kas ir Rokas bagāža</button>
+        <button class='InfoButton2' onclick="openModal('modal2')">Kas ir Reģistrētā bagāža</button>
+    </div>
+
+    <!-- окна поп апа -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal1')">&times;</span>
+            <p>Rokas bagāža lidostā ir bagāža, ko pasažieris var ņemt līdzi lidmašīnas salonā un turēt lidojuma laikā pie rokas. Tā parasti ir neliela izmēra un svara, un to var viegli ievietot bagāžas nodalījumos virs sēdekļiem vai zem pasažiera sēdekļa.
+                Rokas bagāžā ietilpst svarīgi personiski priekšmeti un vērtslietas, ko pasažieris nevēlas atstāt reģistrētajā bagāžā. Tie var būt dokumenti, nauda, atslēgas, elektroniskās ierīces, medikamenti un citas pirmās nepieciešamības lietas, kas var būt nepieciešamas lidojuma laikā vai tūlīt pēc ielidošanas.
+                Atkarībā no biļetes nosacījumiem un aviosabiedrības noteikumiem pasažieriem parasti ir tiesības uz noteiktu rokas bagāžas daudzumu. Tomēr ir vērts atcerēties, ka aviosabiedrība ir noteikusi ierobežojumus rokas bagāžas izmēram un svaram, lai nodrošinātu, ka tā viegli iekļaujas bagāžas nodalījumos un nerada problēmas lidojuma laikā.</p>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal2')">&times;</span>
+            <p>Reģistrētā bagāža lidostā ir bagāža, ko pasažieris pirms izlidošanas atstāj pie reģistrācijas un kas tiek nosūtīta uz lidmašīnas bagāžas nodalījumu. Parasti tie ir lieli un smagi priekšmeti, kurus nevar ievietot rokas bagāžā vai kuri ir nepieciešami galamērķī.
+                Tās var būt drēbes, apavi, personīgie priekšmeti un citi nepieciešamie priekšmeti, kurus pasažieris nevēlas pārvadāt lidmašīnas salonā. Reģistrēto bagāžu apstrādā un iekrauj lidmašīnā aviosabiedrība.
+                Pasažieriem parasti ir tiesības uz noteiktu bezmaksas reģistrētās bagāžas daudzumu atkarībā no biļetes noteikumiem un pakalpojuma klases. Tomēr, ja reģistrētās bagāžas svars pārsniedz bezmaksas bagāžas limitu, pasažierim var nākties maksāt papildu maksu par lieko svaru.</p>
+        </div>
+    </div>
+
 </body>
 </html>

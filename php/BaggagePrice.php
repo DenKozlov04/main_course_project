@@ -12,6 +12,7 @@ include 'InfoOutput2.php';
     <script src='../JS/givePrice.js'></script>
     <script src='../JS/OpenInfoPopUp.js'></script>
     <script src='../JS/AddRegBag.js'></script>
+    <script src='../JS/PricePlusPrice.js'></script>
 </head>
 <body>
 <div class='rectangleHeader'>

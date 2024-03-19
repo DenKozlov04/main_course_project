@@ -94,6 +94,7 @@ function PlusPrice2(button) {
     // console.log("Total price2:", totalPrice2.toFixed(2));
     let priceElement = document.querySelector('.price');
     priceElement.innerText = newPrice.toFixed(2) + '€';
+    
 }
 
 function PlusPrice3(button) {
@@ -160,12 +161,12 @@ function toggleButtonColor(button) {
     var buttons = document.querySelectorAll('.Button2, .Button3, .Button4, .Button5');
 
     if (button.style.backgroundColor === "grey") {
-        button.style.backgroundColor = "#DE6A6A"; // Если текущий цвет серый, меняем обратно на основной цвет
+        button.style.backgroundColor = "#DE6A6A"; // Если текущий цвет серый, то цвет меняется обратно
     } else {
         buttons.forEach(function(btn) {
-            btn.style.backgroundColor = "#DE6A6A"; // Возврат цвета по умолчанию для всех кнопок
+            btn.style.backgroundColor = "#DE6A6A"; // Возврат цвета для всех кнопок
         });
-        button.style.backgroundColor = "grey"; // Изменение цвета только для нажатой кнопки
+        button.style.backgroundColor = "grey"; // Изменение цвета для нажатой кнопки
     }
 }
 

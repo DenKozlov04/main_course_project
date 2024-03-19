@@ -9,6 +9,7 @@ include 'InfoOutput2.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../css/BaggagePrice.css" rel="stylesheet">
     <title>additional services</title>
+    <script src='../JS/givePrice.js'></script>
 </head>
 <body>
 <div class='rectangleHeader'>
@@ -42,11 +43,12 @@ include 'InfoOutput2.php';
                     <div class='price2'>12.99€</div>
                     <div class='price3'>vienā virzienā</div>
                 </div>
-                
-                <button class='Button2' id="choose" name="Selection" value='<?= '' ?>' onclick='PlusPrice1(this)'>+8</button>
-                <button class='Button3' id="choose" name="Selection2" value='<?= '' ?>' onclick='PlusPrice2(this)'>+16</button>
-                <button class='Button4' id="choose" name="Selection3" value='<?= '' ?>' onclick='PlusPrice3(this)'>+32</button>
-                <button class='Button5' id="choose" name="Selection4" value='<?= '' ?>' onclick='PlusPrice4(this)'>+64</button>
+                <button class='Button2' id="choose" name="Selection" value='<?= $CurrPrice ?>' onclick='PlusPrice1(this); toggleButtonColor(this)'>+8</button>
+                <button class='Button3' id="choose2" name="Selection2" value='<?= $CurrPrice ?>' onclick='PlusPrice2(this); toggleButtonColor(this)'>+16</button>
+                <button class='Button4' id="choose3" name="Selection3" value='<?= $CurrPrice ?>' onclick='PlusPrice3(this); toggleButtonColor(this)'>+24</button>
+                <button class='Button5' id="choose4" name="Selection4" value='<?= $CurrPrice ?>' onclick='PlusPrice4(this); toggleButtonColor(this)'>+32</button>
+
+
             </div>
         </div>
         <div class='ServiceCard'>
@@ -67,12 +69,19 @@ include 'InfoOutput2.php';
                     <div class='price3'>vienā virzienā</div>
                 </div>
                 <div class='BtnPlace'>
-                    <input class='ChooseButton2' type="radio" id="chooseRadio" name="circleSelection" value='<?= 1; ?>' onclick='ButtonClick(this)'>-</input>
+                    <button class='ChooseButton2'  id="choose22" name="circleSelection" value='<?= 1; ?>' onclick='ButtonClick(this)'>-</button>
                     <div class='quantity'>0</div>
-                    <input class='ChooseButton2' type="radio" id="chooseRadio" name="circleSelection" value='<?= 1; ?>' onclick='ButtonClick(this)'>+</input>
+                    <button class='ChooseButton21'  id="choose33" name="circleSelection" value='<?= 1; ?>' onclick='ButtonClick(this)'>+</button>
                 </div>
         </div>
     </div>
-    
+    <form class='buttonForm' action="" method='POST'>
+    <input type="hidden" name="id" value="<?= $id ?>">
+    <input type="hidden" name="plusPrice" id="PriceField2" value="">
+        <div class='ButtonBox'>
+                <button class='ContinueButton' type='submit' name='cardType' value=''>Turpinat</button>
+                
+        </div>
+    </form>
 </body>
 </html>

@@ -240,52 +240,28 @@ body {
     left:400px;
     top:265px;
     position: absolute;
-    background-color: #DE6A6A;
-    border: none; 
-    padding: 10px 20px; 
-    text-align: center; 
-    display: inline-block; 
-    text-decoration: none; 
-    color: white; 
-    font-size: 25px; 
-    cursor: pointer; 
-    border-radius: 5px;
 
 }
 .Button3{
     left:480px;
     top:265px;
     position: absolute;
-    background-color: #DE6A6A;
-    border: none; 
-    padding: 10px 20px; 
-    text-align: center; 
-    display: inline-block; 
-    text-decoration: none; 
-    color: white; 
-    font-size: 25px; 
-    cursor: pointer; 
-    border-radius: 5px;
+
 }
 .Button4{
     left:575px;
     top:265px;
     position: absolute;
-    background-color: #DE6A6A;
-    border: none; 
-    padding: 10px 20px; 
-    text-align: center; 
-    display: inline-block; 
-    text-decoration: none; 
-    color: white; 
-    font-size: 25px; 
-    cursor: pointer; 
-    border-radius: 5px;
+
 }
 .Button5{
     left:670px;
     top:265px;
     position: absolute;
+
+}
+
+.Button2, .Button3, .Button4, .Button5 {
     background-color: #DE6A6A;
     border: none; 
     padding: 10px 20px; 
@@ -297,9 +273,53 @@ body {
     cursor: pointer; 
     border-radius: 5px;
 }
+
+.Button2.active, .Button3.active, .Button4.active, .Button5.active {
+    background-color: grey; /* Цвет для активной кнопки */
+}
+
+
+
 .BtnPlace {
     display: flex;
     color:#000000;
-    margin-left:500px;
-    margin-top:145px;
+    margin-left: 270px;
+    margin-top: 160px;
+}
+.ChooseButton2 {
+    /* Другие стили */
+    position: absolute;
+    width: 50px; /* Фиксированная ширина */
+    height: 50px; /* Фиксированная высота */
+    margin-left: 200px;
+}
+.ChooseButton21 {
+    /* Другие стили */
+    position: absolute;
+    width: 50px; /* Фиксированная ширина */
+    height: 50px; /* Фиксированная высота */
+    margin-left: 300px;
+}
+
+.ChooseButton2 {
+    width: 30px; height: 30px; /* Размеры кнопки */
+    background-color: #DE6A6A;
+    color: white; 
+    font-size: 25px; 
+    cursor: pointer; 
+    border-radius: 50%; /* Радиус скругления */
+    border: none; /* Убираем рамку вокруг кнопки */
+}
+.quantity{
+    margin-left: 250px;
+    margin-top: -12px; 
+}
+.ChooseButton21{
+    width: 30px; height: 30px; /* Размеры кнопки */
+    background-color: #DE6A6A;
+    color: white; 
+    font-size: 25px; 
+    cursor: pointer; 
+    border-radius: 50%; /* Радиус скругления */
+    border: none; /* Убираем рамку вокруг кнопки */
 }

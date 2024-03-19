@@ -365,3 +365,42 @@ body {
     text-decoration: none;
     cursor: pointer;
 }
+/* .Open{
+    display: none;
+
+}    
+
+.OpenWindow {
+    position:absolute;
+    width: 770px;
+    margin-left:-227px;
+    height: 150px;
+    background-color: #ffffff;
+    color: black;
+    border-radius: 0 0 5px 5px; 
+    border: 2px solid #e7e7e7;
+    border-top: none; 
+} */
+.txt9{
+    font-size: 30px;
+    margin-left: 170px;
+    margin-top: 0px;
+    width:100px;
+    height: 100px;
+    color: #1d10cf7e;
+}
+.KgBtn{
+    position:absolute;
+    background-color: #DE6A6A;
+    border: none; 
+    padding: 3px 3px; 
+    text-align: center; 
+    display: inline-block; 
+    text-decoration: none; 
+    color: white; 
+    font-size: 20px; 
+    cursor: pointer; 
+    border-radius: 5px;
+    left:130px;
+    top:5px;
+}

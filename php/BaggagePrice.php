@@ -56,7 +56,7 @@ include 'InfoOutput2.php';
         <div class='ServiceCard'>
              <!-- то что помещается в багажный отсек-->
             <div class='txt1'>Reģistrētā bagāža</div>
-            <div class='txt2'>1 x 8 kg</div>
+            <div class='txt2'>1 x 24 kg</div>
             <div class='textrect'>
                 <div class='txt3'>Iekļauts cenā</div>
             </div>
@@ -67,16 +67,24 @@ include 'InfoOutput2.php';
             <div class='PriceBox'>
                 <div class='PricePlc'>
                     <div class='price1'>no</div>
-                    <div class='price2'>12.99€</div>
+                    <div class='price2'>29.99€</div>
                     <div class='price3'>vienā virzienā</div>
                 </div>
                 <div class='BtnPlace'>
-                    <button class='ChooseButton2'  id="choose22" name="circleSelection" value='<?= 1; ?>' onclick='ButtonClick1(this)'>-</button>
-                    <div class='quantity'>0</div>
-                    <button class='ChooseButton21'  id="choose33" name="circleSelection" value='<?= 1; ?>' onclick='ButtonClick2(this)'>+</button>
+                <button class='ChooseButton2' id="choose22" name="circleSelection" value='' onclick='ButtonClick1(this)'>-</button>
+                <div class='quantity'>0</div>
+                <button class='ChooseButton21' id="choose33" name="circleSelection" value='' onclick='ButtonClick2(this)'>+</button>
+                <div class='txt9'></div>
+
                 </div>
         </div>
     </div>
+    <!-- <div id="Open" class="Open">       ; OpenPlace("Open")
+        <div class="OpenWindow">
+        <div class='txt9'>1 x 24 kg</div>
+        <button class='KgBtn' id="KgBtnId" value='' onclick='KgBtnClick(this)'>+9 kg</button>
+            </div>
+    </div> -->
     <form class='buttonForm' action="" method='POST'>
     <input type="hidden" name="id" value="<?= $id ?>">
     <input type="hidden" name="plusPrice" id="PriceField2" value="">
@@ -105,9 +113,14 @@ include 'InfoOutput2.php';
             <span class="close" onclick="closeModal('modal2')">&times;</span>
             <p>Reģistrētā bagāža lidostā ir bagāža, ko pasažieris pirms izlidošanas atstāj pie reģistrācijas un kas tiek nosūtīta uz lidmašīnas bagāžas nodalījumu. Parasti tie ir lieli un smagi priekšmeti, kurus nevar ievietot rokas bagāžā vai kuri ir nepieciešami galamērķī.
                 Tās var būt drēbes, apavi, personīgie priekšmeti un citi nepieciešamie priekšmeti, kurus pasažieris nevēlas pārvadāt lidmašīnas salonā. Reģistrēto bagāžu apstrādā un iekrauj lidmašīnā aviosabiedrība.
-                Pasažieriem parasti ir tiesības uz noteiktu bezmaksas reģistrētās bagāžas daudzumu atkarībā no biļetes noteikumiem un pakalpojuma klases. Tomēr, ja reģistrētās bagāžas svars pārsniedz bezmaksas bagāžas limitu, pasažierim var nākties maksāt papildu maksu par lieko svaru.</p>
-        </div>
+                Pasažieriem parasti ir tiesības uz noteiktu bezmaksas reģistrētās bagāžas daudzumu atkarībā no biļetes noteikumiem un pakalpojuma klases. Tomēr, ja reģistrētās bagāžas svars pārsniedz bezmaksas bagāžas limitu, pasažierim var nākties maksāt papildu maksu par lieko svaru.
+                Sporta inventārs ir iekļauts lidostā reģistrētajā bagāžā, kas ir bagāža, kuru pasažieris atstāj pie reģistrācijas pirms izlidošanas un kura tiek nosūtīta uz lidmašīnas bagāžas nodalījumu. Tā ir daļa no kravas svara, par kuru tiek iekasēta maksa. Reģistrētajā bagāžā parasti ietilpst
+                 lieli un smagi priekšmeti, kurus nevar ievietot rokas bagāžā vai kuri ir nepieciešami galamērķī. Tie var būt apģērbs, apavi, personīgie priekšmeti un citi nepieciešamie priekšmeti, kurus pasažieris nevēlas pārvadāt lidmašīnas salonā. Reģistrēto bagāžu apstrādā un iekrauj lidmašīnā aviosabiedrība. 
+                 Pasažieriem parasti ir noteikts reģistrētās bagāžas bezmaksas daudzums atkarībā no biļetes noteikumiem un pakalpojuma klases. Tomēr, ja reģistrētās bagāžas svars pārsniedz bezmaksas bagāžas limitu, pasažierim var nākties maksāt papildu maksu par lieko svaru.</p>
+        
+            </div>
     </div>
+
 
 </body>
 </html>

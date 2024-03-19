@@ -62,7 +62,9 @@ function PlusPrice1(button) {
     } 
     
     console.log("New price1:", newPrice.toFixed(2));
-    console.log("Total price1:", totalPrice1.toFixed(2));
+    let priceElement = document.querySelector('.price');
+    priceElement.innerText = newPrice.toFixed(2) + '€';
+    // console.log("Total price1:", totalPrice1.toFixed(2));
 }
 
 function PlusPrice2(button) {
@@ -89,7 +91,9 @@ function PlusPrice2(button) {
     } 
     
     console.log("New price2:", newPrice.toFixed(2));
-    console.log("Total price2:", totalPrice2.toFixed(2));
+    // console.log("Total price2:", totalPrice2.toFixed(2));
+    let priceElement = document.querySelector('.price');
+    priceElement.innerText = newPrice.toFixed(2) + '€';
 }
 
 function PlusPrice3(button) {
@@ -116,7 +120,9 @@ function PlusPrice3(button) {
     } 
     
     console.log("New price3:", newPrice.toFixed(2));
-    console.log("Total price3:", totalPrice3.toFixed(2));
+    // console.log("Total price3:", totalPrice3.toFixed(2));
+    let priceElement = document.querySelector('.price');
+    priceElement.innerText = newPrice.toFixed(2) + '€';
 }
 
 function PlusPrice4(button) {
@@ -143,7 +149,9 @@ function PlusPrice4(button) {
     } 
     
     console.log("New price4:", newPrice.toFixed(2));
-    console.log("Total price4:", totalPrice4.toFixed(2));
+    // console.log("Total price4:", totalPrice4.toFixed(2));
+    let priceElement = document.querySelector('.price');
+    priceElement.innerText = newPrice.toFixed(2) + '€';
 }
 
 

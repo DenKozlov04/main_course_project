@@ -90,7 +90,7 @@ include 'InfoOutput2.php';
     </div> -->
     <form class='buttonForm' action="SeatChoose.php" method='POST'>
     <input type="hidden" name="id" value="<?= $id ?>">
-    <input type="hidden" name="plusPrice2" id="PriceField2" value="<?= $CurrPrice ,'€' ?>">
+    <input type="hidden" name="plusPrice2" id="PriceField2" value="<?= $CurrPrice ?>">
         <div class='ButtonBox'>
                 <button class='ContinueButton' type='submit' name='cardType' value=''>Turpinat</button>
                 

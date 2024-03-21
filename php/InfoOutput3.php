@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($
     $id = $_POST['id'];
     $PricePlusQuant= $_POST['plusPrice2'];
     // echo $id;price
-    echo  $PricePlusQuant;
+    // echo  $PricePlusQuant;
     // echo $price; vivoditj v evro
    
     $sql = "SELECT `Airline`, `airport_name`, `ITADA`, `City`, `country`, `T_price`, `arrival_date`, `departure_date`, `arrival_time`, `departure_time`,`id` 

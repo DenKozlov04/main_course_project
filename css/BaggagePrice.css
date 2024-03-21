@@ -275,7 +275,7 @@ body {
 }
 
 .Button2.active, .Button3.active, .Button4.active, .Button5.active {
-    background-color: grey; /* Цвет для активной кнопки */
+    background-color: grey; 
 }
 
 
@@ -287,41 +287,41 @@ body {
     margin-top: 160px;
 }
 .ChooseButton2 {
-    /* Другие стили */
+   
     position: absolute;
-    width: 50px; /* Фиксированная ширина */
-    height: 50px; /* Фиксированная высота */
+    width: 50px;
+    height: 50px; 
     margin-left: 200px;
 }
 .ChooseButton21 {
-    /* Другие стили */
+   
     position: absolute;
-    width: 50px; /* Фиксированная ширина */
-    height: 50px; /* Фиксированная высота */
+    width: 50px; 
+    height: 50px; 
     margin-left: 300px;
 }
 
 .ChooseButton2 {
-    width: 30px; height: 30px; /* Размеры кнопки */
+    width: 30px; height: 30px; 
     background-color: #DE6A6A;
     color: white; 
     font-size: 25px; 
     cursor: pointer; 
-    border-radius: 50%; /* Радиус скругления */
-    border: none; /* Убираем рамку вокруг кнопки */
+    border-radius: 50%; 
+    border: none; 
 }
 .quantity{
     margin-left: 250px;
     margin-top: -12px; 
 }
 .ChooseButton21{
-    width: 30px; height: 30px; /* Размеры кнопки */
+    width: 30px; height: 30px; 
     background-color: #DE6A6A;
     color: white; 
     font-size: 25px; 
     cursor: pointer; 
-    border-radius: 50%; /* Радиус скругления */
-    border: none; /* Убираем рамку вокруг кнопки */
+    border-radius: 50%; 
+    border: none; 
 }
 .InfoButtonField {
     width:200px;
@@ -403,4 +403,16 @@ body {
     border-radius: 5px;
     left:130px;
     top:5px;
+}
+.ContinueButton{
+    width: 120px; 
+    height: 50px; 
+    background-color: #DE6A6A;
+    color: white; 
+    font-size: 25px; 
+    cursor: pointer; 
+    border-radius: 5px; 
+    border: none; 
+    margin-top:40px;
+    margin-left:970px;
 }

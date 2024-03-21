@@ -1,3 +1,4 @@
+///------------------------Добавление цены в файле PriceСonfirmation.php ----------------------------------
 function ButtonClick(element) {
     let plusPrice = parseFloat(element.value);
     document.getElementById("PriceField").value = plusPrice; // Установка значения скрытого поля
@@ -23,7 +24,7 @@ function ButtonClick2(element) {
 }
 
 
-
+///------------------------Код кнопок на BaggagePrice.php ----------------------------------
 
 var count = 0; 
 var totalPrice = 0; 
@@ -60,11 +61,12 @@ function PlusPrice1(button) {
         // button.style.backgroundColor = "#DE6A6A";
         count1 = 0; 
     } 
-    
+    document.getElementById("PriceField2").value = newPrice.toFixed(2);
     console.log("New price1:", newPrice.toFixed(2));
     let priceElement = document.querySelector('.price');
     priceElement.innerText = newPrice.toFixed(2) + '€';
     // console.log("Total price1:", totalPrice1.toFixed(2));
+    return newPrice;
 }
 
 function PlusPrice2(button) {
@@ -89,12 +91,13 @@ function PlusPrice2(button) {
         // button.style.backgroundColor = "#DE6A6A";
         count2 = 0; 
     } 
-    
+    document.getElementById("PriceField2").value = newPrice.toFixed(2);
     console.log("New price2:", newPrice.toFixed(2));
     // console.log("Total price2:", totalPrice2.toFixed(2));
     let priceElement = document.querySelector('.price');
     priceElement.innerText = newPrice.toFixed(2) + '€';
     
+    return newPrice;
 }
 
 function PlusPrice3(button) {
@@ -119,11 +122,12 @@ function PlusPrice3(button) {
         // button.style.backgroundColor = "#DE6A6A";
         count3 = 0; 
     } 
-    
+    document.getElementById("PriceField2").value = newPrice.toFixed(2);
     console.log("New price3:", newPrice.toFixed(2));
     // console.log("Total price3:", totalPrice3.toFixed(2));
     let priceElement = document.querySelector('.price');
     priceElement.innerText = newPrice.toFixed(2) + '€';
+    return newPrice;
 }
 
 function PlusPrice4(button) {
@@ -135,7 +139,7 @@ function PlusPrice4(button) {
         currentPrice -= 51.98; 
         totalPrice4 -= 51.98; 
     }
-
+    document.getElementById("PriceField2").value = newPrice.toFixed(2);
     var newPrice = currentPrice + totalPrice4;
     button.value = newPrice.toFixed(2);
     
@@ -148,15 +152,17 @@ function PlusPrice4(button) {
         // button.style.backgroundColor = "#DE6A6A";
         count4 = 0; 
     } 
-    
+    document.getElementById("PriceField2").value = newPrice.toFixed(2);
     console.log("New price4:", newPrice.toFixed(2));
     // console.log("Total price4:", totalPrice4.toFixed(2));
     let priceElement = document.querySelector('.price');
     priceElement.innerText = newPrice.toFixed(2) + '€';
+
+    return newPrice;
 }
 
 
-///изменение цвета кнопок
+///-------------------изменение цвета кнопок----------------------------------------------
 function toggleButtonColor(button) {
     var buttons = document.querySelectorAll('.Button2, .Button3, .Button4, .Button5');
 
@@ -170,6 +176,65 @@ function toggleButtonColor(button) {
     }
 }
 
+///-------------------Второе добавление цены----------------------------------------------
+
+
+let num = 0; // num
+let regPrice = 0;// цена за 1 штуку регестрированного багажа, весом 24 кг
+
+function ButtonClick2(button) {
+    var currentPrice = parseFloat(button.value);
+    if (num < 4) {
+        num = num + 1;
+        regPrice = regPrice + 29.99;
+        newPrice2 = currentPrice + regPrice;
+        console.log(num); // Вывод значения num в консоль
+        if (num >= 4) {
+            document.getElementById("choose33").style.backgroundColor = "grey";
+        } else {
+            document.getElementById("choose33").style.backgroundColor = "#DE6A6A";
+        }
+    }
+    if (num < 4) {
+        document.getElementById("choose22").style.backgroundColor = "#DE6A6A";
+    }
+    document.querySelector('.txt9').innerText = "+" + regPrice.toFixed(2) + "€";
+    document.querySelector('.quantity').innerText = num;
+    document.getElementById("PriceField2").value = newPrice2.toFixed(2);
+    let priceElement = document.querySelector('.price');
+    priceElement.innerText = newPrice2 .toFixed(2) + '€';
+}
+
+function ButtonClick1(button) {
+    var currentPrice = parseFloat(button.value);
+    if (num > 0) {
+        num = num - 1;
+        regPrice = regPrice - 29.99;
+        newPrice2 = currentPrice - regPrice;
+        console.log(num); 
+        if (num <= 0) {
+            document.getElementById("choose22").style.backgroundColor = "grey";
+        } else {
+            document.getElementById("choose22").style.backgroundColor = "#DE6A6A";
+        }
+    }
+    if (num > 0) {
+        document.getElementById("choose33").style.backgroundColor = "#DE6A6A";
+    }
+    document.querySelector('.txt9').innerText = "+" + regPrice.toFixed(2) + "€";
+    document.querySelector('.quantity').innerText = num;
+    document.getElementById("PriceField2").value = newPrice2.toFixed(2);
+    let priceElement = document.querySelector('.price');
+    priceElement.innerText = newPrice2 .toFixed(2) + '€';
+    // console.log("Price for Register Baggage:", newPrice2 .toFixed(2) + '€');
+}
+
+document.querySelector('.txt9').innerText = "+" + regPrice.toFixed(2) + "€";
+document.querySelector('.quantity').innerText = num;
+document.getElementById("PriceField2").value = newPrice2.toFixed(2);
+let priceElement = document.querySelector('.price');
+priceElement.innerText = newPrice2 .toFixed(2) + '€';
+// console.log("Price for Register Baggage:", newPrice2);
 
 
 

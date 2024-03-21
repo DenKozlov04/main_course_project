@@ -55,7 +55,7 @@ include 'InfoOutput.php';
     <div class='Text10'><?= $price ,'€'?></div>
     <form class='buttonForm' action="BaggagePrice.php" method='POST'>
     <input type="hidden" name="id" value="<?= $id ?>">
-    <input type="hidden" name="plusPrice" id="PriceField" value="">
+    <input type="hidden" name="plusPrice" id="PriceField" value="<?= $price ?>">
         <div class='ButtonBox'>
                 <button class='ContinueButton' type='submit' name='cardType' value=''>Turpinat</button>
                 

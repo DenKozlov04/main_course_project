@@ -1,5 +1,6 @@
 <?php
 include 'InfoOutput2.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +13,7 @@ include 'InfoOutput2.php';
     <script src='../JS/givePrice.js'></script>
     <script src='../JS/OpenInfoPopUp.js'></script>
     <script src='../JS/AddRegBag.js'></script>
-    <script src='../JS/PricePlusPrice.js'></script>
+    <!-- <script src='../JS/PricePlusPrice.js'></script> -->
 </head>
 <body>
 <div class='rectangleHeader'>
@@ -22,6 +23,7 @@ include 'InfoOutput2.php';
     <a class='flightName'><?= "Rīga (RIX)–$City ($airport_name) ($ITADA)"; ?></a>
     <img class='CartImg'src='../images/free-icon-grocery-store-7205450.png'>
     <div class='price'><?= $CurrPrice ,'€' ?></div>
+ 
     <div class='InfoBox'>
         <a class='Info'>Izvēlies sev piemērotāko biļetes veidu</a>
         <a class='Info2'>Cena norādīta vienam pasažierim</a>
@@ -50,7 +52,7 @@ include 'InfoOutput2.php';
                 <button class='Button3' id="choose2" name="Selection2" value='<?= $CurrPrice ?>' onclick='PlusPrice2(this); toggleButtonColor(this)'>+16</button>
                 <button class='Button4' id="choose3" name="Selection3" value='<?= $CurrPrice ?>' onclick='PlusPrice3(this); toggleButtonColor(this)'>+24</button>
                 <button class='Button5' id="choose4" name="Selection4" value='<?= $CurrPrice ?>' onclick='PlusPrice4(this); toggleButtonColor(this)'>+32</button>
-
+<!-- ОБЩАЯ СУММА С УЧЕТОМ ВСЕХ ЦЕН ВСЕ ЕЩЕ НЕ РАБОТАЕТ ПРАВИЛЬНО ( НЕ ДОБАВЛЯЕТ В) -->
 
             </div>
         </div>
@@ -72,9 +74,9 @@ include 'InfoOutput2.php';
                     <div class='price3'>vienā virzienā</div>
                 </div>
                 <div class='BtnPlace'>
-                <button class='ChooseButton2' id="choose22" name="circleSelection" value='' onclick='ButtonClick1(this)'>-</button>
+                <button class='ChooseButton2' id="choose22" name="circleSelection" value='<?= $CurrPrice ?>' onclick='ButtonClick1(this)'>-</button>
                 <div class='quantity'>0</div>
-                <button class='ChooseButton21' id="choose33" name="circleSelection" value='' onclick='ButtonClick2(this)'>+</button>
+                <button class='ChooseButton21' id="choose33" name="circleSelection" value='<?= $CurrPrice ?>' onclick='ButtonClick2(this)'>+</button>
                 <div class='txt9'></div>
 
                 </div>
@@ -86,9 +88,9 @@ include 'InfoOutput2.php';
         <button class='KgBtn' id="KgBtnId" value='' onclick='KgBtnClick(this)'>+9 kg</button>
             </div>
     </div> -->
-    <form class='buttonForm' action="" method='POST'>
+    <form class='buttonForm' action="SeatChoose.php" method='POST'>
     <input type="hidden" name="id" value="<?= $id ?>">
-    <input type="hidden" name="plusPrice" id="PriceField2" value="">
+    <input type="hidden" name="plusPrice2" id="PriceField2" value="<?= $CurrPrice ,'€' ?>">
         <div class='ButtonBox'>
                 <button class='ContinueButton' type='submit' name='cardType' value=''>Turpinat</button>
                 

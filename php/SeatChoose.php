@@ -26,8 +26,76 @@ include "InfoOutput3.php";
     <a class='Info3'><?="✈ Rīga – $City ($airport_name)"?></a>
     <a class='Info4'><?="$formattedDepartDate. &bull;  $departure_time - $arrival_time"?></a>
 </div>
-<div class="custom-rectangle2L">
-    <div class="CommentsPlace">
+<div class='PlaneCabinRectangle'>
+    <div class ='RowLettersAll'>
+        <div class='RowLetters1'>
+            <a class='Letter'>A</a>
+            <a class='Letter'>B</a>
+        </div>
+        <div class='RowLetters2'>
+            <a class='Letter'>E</a>
+            <a class='Letter'>F</a>
+        </div>
+    </div>
+    <div class='ButtonRect1'>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+    </div>
+    <div class='ButtonRect2'>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+    </div>
+    <div class='ButtonRect3'>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+    </div>
+    <div class='ButtonRect4'>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+    </div>
+</div>
+<!-- <div class="custom-rectangle2L"> -->
+    <!-- <div class="CommentsPlace">
 
         <div class="Image2">
             <img src="../images/planeSeats.png " alt="Plane places" width='300px'>
@@ -215,7 +283,7 @@ include "InfoOutput3.php";
             <button type="submit" name="seat" value="A37">A37</button>
             <button type="submit" name="seat" value="A38">A38</button>
         </div>
-        </div>
-    </div>
+        </div> -->
+    <!-- </div> -->
 </body>
 </html>

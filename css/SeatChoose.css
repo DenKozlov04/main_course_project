@@ -310,3 +310,92 @@ body {
     position: relative;
     transform: rotate(90deg);
 }
+
+.PlaneCabinRectangle{
+    background-color: #ffffff;
+    width:720px;
+    height: 1000px;
+    position: absolute;
+    margin-top:200px;
+    margin-left:550px;
+}
+
+.RowLetters1{
+    display: flex;
+    color:#B1B1B1;
+    font-size: 50px;
+}
+
+.RowLetters2{
+    display: flex;
+    color:#B1B1B1;
+    font-size: 50px;
+    margin-left:265px;
+}
+.RowLettersAll{
+    display: flex; 
+    margin-top:120px;
+    margin-left:50px;
+}
+.RowLetters1 a.Letter,
+.RowLetters2 a.Letter {
+    margin-right: 75px; 
+}
+.PlaceButton {
+    width: 90px;
+    height: 90px;
+    background-color: #D9D9D9; 
+    border: none; 
+    border-radius: 10px;
+    margin-bottom: 20px; 
+    
+}
+.ButtonRect1 {
+    display: flex;
+    flex-direction: column; 
+    margin-left: 20px; 
+}
+.PricePlace {
+    margin-top: 70px;
+    position: relative; /* Заменили absolute на relative */
+    left: 0px;
+    width: 70px;
+    height: 26px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 17px;
+    box-shadow: 0 2px 4px rgba(104, 104, 104, 0.4);
+    padding-top: 6px;
+}
+
+.ButtonRect2 {
+    /* position: absolute; */
+    display: flex;
+    flex-direction: column; 
+    margin-left: 130px; 
+    margin-top:-440px;
+
+}
+.ButtonRect3 {
+    /* position: absolute; */
+    display: flex;
+    flex-direction: column; 
+    margin-left: 500px; 
+    margin-top:-440px;
+
+}
+.ButtonRect4 {
+    /* position: absolute; */
+    display: flex;
+    flex-direction: column; 
+    margin-left: 610px; 
+    margin-top:-440px;
+
+}
+
+
+
+

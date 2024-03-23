@@ -51,7 +51,7 @@ include 'InfoOutput2.php';
                 <button class='Button2' id="choose" name="Selection" value='<?= $CurrPrice ?>' onclick='PlusPrice1(this); toggleButtonColor(this)'>+8</button>
                 <button class='Button3' id="choose2" name="Selection2" value='<?= $CurrPrice ?>' onclick='PlusPrice2(this); toggleButtonColor(this)'>+16</button>
                 <button class='Button4' id="choose3" name="Selection3" value='<?= $CurrPrice ?>' onclick='PlusPrice3(this); toggleButtonColor(this)'>+24</button>
-                <button class='Button5' id="choose4" name="Selection4" value='<?= $CurrPrice ?>' onclick='PlusPrice4(this); toggleButtonColor(this)'>+32</button>
+                <!-- <button class='Button5' id="choose4" name="Selection4" value='<?= $CurrPrice ?>' onclick='PlusPrice4(this); toggleButtonColor(this)'>+32</button> -->
 <!-- ОБЩАЯ СУММА С УЧЕТОМ ВСЕХ ЦЕН ВСЕ ЕЩЕ НЕ РАБОТАЕТ ПРАВИЛЬНО ( НЕ ДОБАВЛЯЕТ В) -->
 
             </div>

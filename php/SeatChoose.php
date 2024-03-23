@@ -27,12 +27,28 @@ include "InfoOutput3.php";
     <a class='Info4'><?="$formattedDepartDate. &bull;  $departure_time - $arrival_time"?></a>
 </div>
 <div class='PlaneCabinRectangle'>
+    <div class='RectRect'>
+        <div class='Greyrect1'></div>
+        <div class='Greyrect2'></div>
+    </div>
     <div class ='RowLettersAll'>
         <div class='RowLetters1'>
             <a class='Letter'>A</a>
             <a class='Letter'>B</a>
         </div>
         <div class='RowLetters2'>
+            <a class='Letter'>E</a>
+            <a class='Letter'>F</a>
+        </div>
+    </div>
+    <div class ='RowLettersAll2'>
+        <div class='RowLetters3'>
+            <a class='Letter'>A</a>
+            <a class='Letter'>B</a>
+            <a class='Letter'>C</a>
+        </div>
+        <div class='RowLetters4'>
+            <a class='Letter'>D</a>
             <a class='Letter'>E</a>
             <a class='Letter'>F</a>
         </div>
@@ -80,6 +96,270 @@ include "InfoOutput3.php";
         </button>
     </div>
     <div class='ButtonRect4'>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+    </div>
+    <div class='ButtonRect5'>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+    </div>
+    <div class='ButtonRect6'>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+    </div>
+    <div class='ButtonRect7'>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+    </div>
+    <div class='ButtonRect8'>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+    </div>
+    <div class='ButtonRect9'>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+    </div>
+    <div class='ButtonRect10'>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
+        <button class='PlaceButton'>
+            <div class='PricePlace'>19.99€</div>
+        </button>
         <button class='PlaceButton'>
             <div class='PricePlace'>19.99€</div>
         </button>

@@ -96,7 +96,7 @@ include "InfoOutput3.php";
         </div>
     </div>
     <div class='ButtonRect1'>
-        <button class='PlaceButton'>
+        <button class='PlaceButton' id="Seat1" name="PlaceSelection" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice(this); toggleButtonColor(this)'>
             <div class='PricePlace'>19.99€</div>
         </button>
         <button class='PlaceButton'>
@@ -109,6 +109,10 @@ include "InfoOutput3.php";
             <div class='PricePlace'>19.99€</div>
         </button>
     </div>
+
+    <input type="hidden" name="plusPrice2" id="PriceField" value="<?= $PricePlusQuant  ?>">
+    <!-- потом убрать -->
+
     <div class='ButtonRect2'>
         <button class='PlaceButton'>
             <div class='PricePlace'>19.99€</div>
@@ -414,6 +418,7 @@ include "InfoOutput3.php";
         <button class='PlaceButton'>
             <div class='PricePlace'>19.99€</div>
         </button>
+
     </div>
 </div>
 <!-- <div class="custom-rectangle2L"> -->

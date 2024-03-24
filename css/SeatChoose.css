@@ -481,3 +481,228 @@ body {
     margin-left: 430px; 
     width:40px;
 }
+.RowNumbers1{
+    position:absolute;
+    display: flex;
+    flex-direction: column; 
+    margin-left:370px;
+    margin-top:135px;
+
+}
+
+.RowNumber{
+font-size:30px;
+padding-top: 77px;
+}
+.RowNumbers2{
+    position:absolute;
+    display: flex;
+    flex-direction: column; 
+    margin-left:370px;
+    margin-top:660px;
+
+}
+.RowNumber1{
+    font-size:30px;
+    padding-top: 77px;
+    margin-left:-10px;
+}
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 40px solid transparent; 
+    border-right: 40px solid transparent; 
+    border-bottom: 70.6px solid rgb(0, 0, 0); 
+    position:absolute;
+    transform: rotate(-90deg);
+    margin-left: -90px;
+    margin-top:50px;
+}
+.triangle2 {
+    width: 0;
+    height: 0;
+    border-left: 40px solid transparent; 
+    border-right: 40px solid transparent; 
+    border-bottom: 70.6px solid rgb(0, 0, 0); 
+    position:absolute;
+    transform: rotate(-90deg);
+    margin-left: -90px;
+    margin-top:640px;
+}
+.triangle3 {
+    width: 0;
+    height: 0;
+    border-left: 40px solid transparent; 
+    border-right: 40px solid transparent; 
+    border-bottom: 70.6px solid rgb(0, 0, 0); 
+    position:absolute;
+    transform: rotate(-90deg);
+    margin-left: -90px;
+    margin-top:2250px;
+}
+
+
+.triangle4 {
+    width: 0;
+    height: 0;
+    border-left: 40px solid transparent; 
+    border-right: 40px solid transparent; 
+    border-bottom: 70.6px solid rgb(0, 0, 0); 
+    position:absolute;
+    transform: rotate(90deg);
+    margin-left: 770px;
+    margin-top:50px;
+}
+.triangle5 {
+    width: 0;
+    height: 0;
+    border-left: 40px solid transparent; 
+    border-right: 40px solid transparent; 
+    border-bottom: 70.6px solid rgb(0, 0, 0); 
+    position:absolute;
+    transform: rotate(90deg);
+    margin-left: 770px;
+    margin-top:640px;
+}
+.triangle6 {
+    width: 0;
+    height: 0;
+    border-left: 40px solid transparent; 
+    border-right: 40px solid transparent; 
+    border-bottom: 70.6px solid rgb(0, 0, 0); 
+    position:absolute;
+    transform: rotate(90deg);
+    margin-left: 770px;
+    margin-top:2250px;
+}
+
+.WCSign {
+    position: absolute;
+    background-color: #ffffff;
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 70px;
+    height: 70px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center; 
+    line-height: 70px; 
+    margin-top:20px;
+    margin-left:30px;
+}
+
+.WCSign2 {
+    position: absolute;
+    background-color: #ffffff;
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 70px;
+    height: 70px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center; 
+    line-height: 70px; 
+    margin-top:2320px;
+    margin-left:50px;
+}
+
+.WCSign3 {
+    position: absolute;
+    background-color: #ffffff;
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 70px;
+    height: 70px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center; 
+    line-height: 70px; 
+    margin-top:2320px;
+    margin-left:640px;
+}
+.infoBox{
+    position: absolute;
+    /* background-color: #ffffff; */
+    width:500px;
+    height: 400px;
+    margin-top:180px;
+    margin-left: 800px;
+}
+.InfoTr{
+    border-left: 25px solid transparent; 
+    border-right: 25px solid transparent; 
+    border-bottom: 50.6px solid rgb(0, 0, 0); 
+    position:absolute;
+    transform: rotate(-90deg);
+}
+.InfoTextTr{
+    margin-top:10px;
+    font-size: 22px;
+    margin-left:60px;
+    position: absolute;
+}
+
+.InfoTextTr:before {
+
+    content: "\00B7"; 
+    margin-right: 5px; 
+}
+.InfoWCSign{
+    position: absolute;
+    background-color: #ffffff;
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center; 
+    line-height: 50px; 
+    margin-top:70px;
+
+}
+.InfoTextWC{
+    margin-top:85px;
+    font-size: 22px;
+    margin-left:60px;
+    position: absolute;
+}
+.InfoTextWC:before {
+
+    content: "\00B7"; 
+    margin-right: 5px; 
+}
+.InfoRow{
+    font-size:30px;
+    margin-top:140px;
+    margin-left:18px;
+    position: absolute; 
+}
+.InfoTextRow{
+    margin-top:145px;
+    font-size: 22px;
+    margin-left:60px;
+    position: absolute; 
+}
+.InfoTextRow:before {
+
+    content: "\00B7"; 
+    margin-right: 5px; 
+}
+.InfoColumn{
+    position: absolute; 
+    margin-top:177px;
+    color:#B1B1B1;
+    font-size: 50px;
+    left:12px;
+}
+.InfoTextColumn{
+    margin-top:195px;
+    font-size: 22px;
+    margin-left:60px;
+    position: absolute; 
+}
+.InfoTextColumn:before {
+    content: "\00B7"; 
+    margin-right: 5px; 
+}

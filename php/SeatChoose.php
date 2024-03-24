@@ -8,6 +8,7 @@ include "InfoOutput3.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../css/SeatChoose.css" rel="stylesheet">
+    <script src="../JS/Bcolor.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -27,6 +28,47 @@ include "InfoOutput3.php";
     <a class='Info4'><?="$formattedDepartDate. &bull;  $departure_time - $arrival_time"?></a>
 </div>
 <div class='PlaneCabinRectangle'>
+    <div class='infoBox'>
+        <div class='InfoTr'></div>
+        <div class='InfoTextTr'>Gaisa kuģa ieejas/izkāpšanas apzīmējums.</div>
+        <div class='InfoWCSign'>WC</div>
+        <div class='InfoTextWC'>Gaisa kuģa tualetes apzīmējums.</div>
+        <div class='InfoRow'>1</div>
+        <div class='InfoTextRow'>Rindas numurs.</div>
+        <div class='InfoColumn'>A</div>
+        <div class='InfoTextColumn'>Sēdekļu rindu apzīmējums.</div>
+    </div>
+    <div class='WCSign'>WC</div>
+    <div class='WCSign2'>WC</div>
+    <div class='WCSign3'>WC</div>
+    <div class = 'RowNumbers1'>
+        <div class= 'RowNumber'>1</div>
+        <div class= 'RowNumber'>2</div>
+        <div class= 'RowNumber'>3</div>
+        <div class= 'RowNumber'>4</div>
+    </div>
+    <div class = 'RowNumbers2'>
+        <div class= 'RowNumber'>5</div>
+        <div class= 'RowNumber'>6</div>
+        <div class= 'RowNumber'>7</div>
+        <div class= 'RowNumber'>8</div>
+        <div class= 'RowNumber'>9</div>
+        <div class= 'RowNumber1'>10</div>
+        <div class= 'RowNumber1'>11</div>
+        <div class= 'RowNumber1'>12</div>
+        <div class= 'RowNumber1'>13</div>
+        <div class= 'RowNumber1'>14</div>
+        <div class= 'RowNumber1'>15</div>
+        <div class= 'RowNumber1'>16</div>
+        <div class= 'RowNumber1'>17</div>
+        <div class= 'RowNumber1'>18</div>
+    </div>
+    <div class="triangle"></div>
+    <div class="triangle2"></div>
+    <div class="triangle3"></div>
+    <div class="triangle4"></div>
+    <div class="triangle5"></div>
+    <div class="triangle6"></div>
     <div class='RectRect'>
         <div class='Greyrect1'></div>
         <div class='Greyrect2'></div>

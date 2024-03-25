@@ -44,10 +44,10 @@ function PlusSeatPrice(button) {
     var PricePlusQuant = parseFloat(button.value);
 
     if (count === 0) {
-        totalPrice += 12.99; 
+        totalPrice += 19.99; 
     } else if (count === 1) {
-        currentPrice -= 12.99;
-        totalPrice -= 12.99;
+        PricePlusQuant -= 19.99;
+        totalPrice -= 19.99;
     }
 
     var LastPrice = PricePlusQuant + totalPrice;
@@ -73,16 +73,22 @@ function PlusSeatPrice(button) {
 
 ///-------------------изменение цвета кнопок сидений----------------------------------------------
 function toggleButtonColor(button) {
+    var activeClass = 'active';
     var buttons = document.querySelectorAll('.PlaceButton');
 
-    if (button.style.backgroundColor === "grey") {
-        button.style.backgroundColor = "#DE6A6A"; // Если текущий цвет серый, то цвет меняется обратно
-    } else {
-        buttons.forEach(function(btn) {
-            btn.style.backgroundColor = "#DE6A6A"; // Возврат цвета для всех кнопок
-        });
-        button.style.backgroundColor = "grey"; // Изменение цвета для нажатой кнопки
-    }
+    // Снимаем выделение со всех кнопок
+    buttons.forEach(function(btn) {
+        btn.classList.remove(activeClass);
+        btn.style.backgroundColor = "#D9D9D9";
+    });
+
+    // Выделяем текущую кнопку
+    button.classList.add(activeClass);
+    button.style.backgroundColor = "#DE6A6A";
 }
+
+
+
+
 
 

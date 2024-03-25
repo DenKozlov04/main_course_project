@@ -706,3 +706,7 @@ padding-top: 77px;
     content: "\00B7"; 
     margin-right: 5px; 
 }
+
+/* .PlaceButton.active {
+    background-color: #DE6A6A; Цвет кнопки при активации 
+} */

@@ -96,12 +96,14 @@ include "InfoOutput3.php";
         </div>
     </div>
     <div class='ButtonRect1'>
-        <button class='PlaceButton' id="Seat1" name="PlaceSelection" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice(this); toggleButtonColor(this)'>
+            <button class='PlaceButton' id="Seat1" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice(this); toggleButtonColor(this)'>
             <div class='PricePlace'>19.99€</div>
         </button>
-        <button class='PlaceButton'>
+
+        <button class='PlaceButton' id="Seat2" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice(this); toggleButtonColor(this)'>
             <div class='PricePlace'>19.99€</div>
         </button>
+
         <button class='PlaceButton'>
             <div class='PricePlace'>19.99€</div>
         </button>

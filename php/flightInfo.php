@@ -106,7 +106,7 @@ if ($stmt->fetch()) {
     <!-- <form id="orderForm" method='POST' action='OrderUserData.php'>
     <button class="button1" type='submit'>Order</button>
 </form> -->
-<form id="orderForm" method='POST' action='availability.php'>
+<form id="orderForm" method='POST' action='aviability.php'>
     <button class="button1" type='submit'>Order</button>
 </form>
 

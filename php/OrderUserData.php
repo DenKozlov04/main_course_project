@@ -1,23 +1,5 @@
 <?php
-session_start();
-
-
-$user_id = $_SESSION['user_id'];
-$admin_id = $_SESSION['admin_id'];
-
-if(isset($_GET['buttonValue'])) {
-    // получаю значение из URL
-    $alert = '';
-    $buttonValue = $_GET['buttonValue'];
-    if($buttonValue === 0){
-        $alert = "test";
-    }
-    echo "Received buttonValue: " . $buttonValue;
-
-} 
-
-echo $user_id;
-echo $admin_id;
+include "InfoOutput4.php";
 ?>
    
 

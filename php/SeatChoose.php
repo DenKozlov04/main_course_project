@@ -537,7 +537,7 @@ include "InfoOutput3.php";
 </body>
     <form class='buttonForm' action="OrderUserData.php" method='POST'>
         <input type="hidden" name="id" value="<?= $id ?>">
-        <input type="hidden" name="plusPrice2" id="PriceField2" value="<?= $CurrPrice ?>">
+        <input type="hidden" name="plusPrice2" id="PriceField2" value="<?= $PricePlusQuant ?>">
             <div class='ButtonBox'>
                     <button class='ContinueButton' type='submit' name='cardType' value=''>Turpinat</button>
                     

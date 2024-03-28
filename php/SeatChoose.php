@@ -95,524 +95,452 @@ include "InfoOutput3.php";
             <a class='Letter'>F</a>
         </div>
     </div>
+    <!-- A -->
     <div class='ButtonRect1'>
-            <button class='PlaceButton' id="Seat1" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice(this); toggleButtonColor(this)'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat1" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>29.99€</div>
         </button>
 
         <button class='PlaceButton' id="Seat2" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice(this); toggleButtonColor(this)'>
-            <div class='PricePlace'>19.99€</div>
+            <div class='PricePlace'>29.99€</div>
         </button>
 
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+        <button class='PlaceButton' id="Seat3" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>29.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat4" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>29.99€</div>
         </button>
+
     </div>
 
     <input type="hidden" name="plusPrice2" id="PriceField" value="<?= $PricePlusQuant  ?>">
     <!-- потом убрать -->
-
+     <!-- B -->
     <div class='ButtonRect2'>
-        <button class='PlaceButton'>
+
+        <button class='PlaceButton' id="Seat5" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice2(this); toggleButtonColor(this)'>
             <div class='PricePlace'>19.99€</div>
         </button>
-        <button class='PlaceButton'>
+
+        <button class='PlaceButton' id="Seat6" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice2(this); toggleButtonColor(this)'>
             <div class='PricePlace'>19.99€</div>
         </button>
-        <button class='PlaceButton'>
+
+        <button class='PlaceButton' id="Seat7" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice2(this); toggleButtonColor(this)'>
             <div class='PricePlace'>19.99€</div>
         </button>
-        <button class='PlaceButton'>
+
+        <button class='PlaceButton' id="Seat8" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice2(this); toggleButtonColor(this)'>
             <div class='PricePlace'>19.99€</div>
         </button>
+
     </div>
+     <!-- E -->
     <div class='ButtonRect3'>
-        <button class='PlaceButton'>
+
+        <button class='PlaceButton' id="Seat9" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice2(this); toggleButtonColor(this)'>
             <div class='PricePlace'>19.99€</div>
         </button>
-        <button class='PlaceButton'>
+
+        <button class='PlaceButton' id="Seat10" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice2(this); toggleButtonColor(this)'>
             <div class='PricePlace'>19.99€</div>
         </button>
-        <button class='PlaceButton'>
+
+        <button class='PlaceButton' id="Seat11" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice2(this); toggleButtonColor(this)'>
             <div class='PricePlace'>19.99€</div>
         </button>
-        <button class='PlaceButton'>
+
+        <button class='PlaceButton' id="Seat12" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice2(this); toggleButtonColor(this)'>
             <div class='PricePlace'>19.99€</div>
         </button>
+
     </div>
+    <!-- F -->
     <div class='ButtonRect4'>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+        <button class='PlaceButton' id="Seat13" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>29.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat14" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>29.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat15" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>29.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat16" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>29.99€</div>
         </button>
     </div>
+    <!-- A2 -->
     <div class='ButtonRect5'>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat17" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice3(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>9.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat18" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice3(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>9.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat19" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice3(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>9.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat20" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice3(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>9.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat21" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice3(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>9.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat22" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice3(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>9.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat23" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice3(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>9.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat24" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice3(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>9.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat25" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice3(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>9.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat26" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice3(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>9.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat27" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice3(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>9.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat28" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice3(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>9.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat29" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice3(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>9.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat30" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice3(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>9.99€</div>
         </button>
+
     </div>
+     <!-- B2 -->
     <div class='ButtonRect6'>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat31" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat32" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat33" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat34" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat35" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat36" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat37" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat38" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat39" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat40" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat41" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat42" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat43" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat44" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
+
     </div>
+     <!-- C -->
     <div class='ButtonRect7'>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat45" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat46" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat47" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat48" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat49" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat50" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat51" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat52" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat53" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat54" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat55" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat56" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat57" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat58" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
     </div>
+     <!-- F2 -->
     <div class='ButtonRect8'>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+       
+    <button class='PlaceButton' id="Seat59" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice3(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>9.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat60" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice3(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>9.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat61" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice3(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>9.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat62" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice3(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>9.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat63" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice3(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>9.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat64" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice3(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>9.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat65" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice3(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>9.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat66" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice3(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>9.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat67" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice3(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>9.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat68" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice3(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>9.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat69" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice3(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>9.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat70" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice3(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>9.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat71" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice3(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>9.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat72" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice3(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>9.99€</div>
         </button>
     </div>
+     <!-- E2 -->
     <div class='ButtonRect9'>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat73" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat74" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat75" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat76" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat77" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat78" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat79" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat80" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat81" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat82" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat83" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat84" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat85" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat86" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
     </div>
+     <!-- D -->
     <div class='ButtonRect10'>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+    <button class='PlaceButton' id="Seat87" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat88" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat89" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat90" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat91" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat92" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat93" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat94" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat95" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat96" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat97" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat98" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat99" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
-        <button class='PlaceButton'>
-            <div class='PricePlace'>19.99€</div>
+
+        <button class='PlaceButton' id="Seat100" name="PlaceSelection" data-clicked="false" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice4(this); toggleButtonColor(this)'>
+            <div class='PricePlace'>6.99€</div>
         </button>
 
     </div>
-</div>
-<!-- <div class="custom-rectangle2L"> -->
-    <!-- <div class="CommentsPlace">
 
-        <div class="Image2">
-            <img src="../images/planeSeats.png " alt="Plane places" width='300px'>
-            <div id="selectedValue"></div>
-            <div class="buttonBox1 colorButton" method="post">
-                <button type="submit" name="seat" value="F1">F1</button>
-                <button type="submit" name="seat" value="F2">F2</button>
-                <button type="submit" name="seat" value="F3">F3</button>
-                <button type="submit" name="seat" value="F4">F4</button>
-                <button type="submit" name="seat" value="E1">E1</button>
-                <button type="submit" name="seat" value="E2">E2</button>
-                <button type="submit" name="seat" value="E3">E3</button>
-                <button type="submit" name="seat" value="E4">E4</button>
-        </div>
-        <div class="buttonBox2 colorButton" method="post">
-            <button type="submit" name="seat" value="B1">B1</button>
-            <button type="submit" name="seat" value="B2">B2</button>
-            <button type="submit" name="seat" value="B3">B3</button>
-            <button type="submit" name="seat" value="B4">B4</button>
-            <button type="submit" name="seat" value="A1">A1</button>
-            <button type="submit" name="seat" value="A2">A2</button>
-            <button type="submit" name="seat" value="A3">A3</button>
-            <button type="submit" name="seat" value="A4">A4</button>
-        </div>
-        <div class="buttonBox3 colorButton" method="post">
-            
-            <button type="submit" name="seat" value="F7">F7</button>
-            <button type="submit" name="seat" value="F8">F8</button>
-            <button type="submit" name="seat" value="F9">F10</button>
-            <button type="submit" name="seat" value="F10">F11</button>
-            <button type="submit" name="seat" value="E7">E7</button>
-            <button type="submit" name="seat" value="E8">E8</button>
-            <button type="submit" name="seat" value="E10">E10</button>
-            <button type="submit" name="seat" value="E11">E11</button>
-            <button type="submit" name="seat" value="D7">D7</button>
-            <button type="submit" name="seat" value="D8">D8</button>
-            <button type="submit" name="seat" value="D10">D10</button>
-            <button type="submit" name="seat" value="D11">D11</button>
-        </div>
-        <div class="buttonBox4 colorButton" method="post">
-            <button type="submit" name="seat" value="C7">C7</button>
-            <button type="submit" name="seat" value="C8">C8</button>
-            <button type="submit" name="seat" value="C10">C10</button>
-            <button type="submit" name="seat" value="C11">C11</button>
-            <button type="submit" name="seat" value="B7">B7</button>
-            <button type="submit" name="seat" value="B8">B8</button>
-            <button type="submit" name="seat" value="B10">B10</button>
-            <button type="submit" name="seat" value="B11">B11</button>
-            <button type="submit" name="seat" value="A7">A7</button>
-            <button type="submit" name="seat" value="A8">A8</button>
-            <button type="submit" name="seat" value="A10">A10</button>
-            <button type="submit" name="seat" value="A11">A11</button>
-        </div>
-        <div class="buttonBox5 colorButton" method="post">
-            <button type="submit" name="seat" value="F12">F12</button>
-            <button type="submit" name="seat" value="F14">F14</button>
-            <button type="submit" name="seat" value="F15">F15</button>
-            <button type="submit" name="seat" value="F20">F20</button>
-            <button type="submit" name="seat" value="E12">E12</button>
-            <button type="submit" name="seat" value="E14">E14</button>
-            <button type="submit" name="seat" value="E15">E15</button>
-            <button type="submit" name="seat" value="E20">E20</button>
-            <button type="submit" name="seat" value="D12">D12</button>
-            <button type="submit" name="seat" value="D14">D14</button>
-            <button type="submit" name="seat" value="D15">D15</button>
-            <button type="submit" name="seat" value="D20">D20</button>
-        </div>
-        <div class="buttonBox6 colorButton"method="post">
-            <button type="submit" name="seat" value="C12">C12</button>
-            <button type="submit" name="seat" value="C14">C14</button>
-            <button type="submit" name="seat" value="C15">C15</button>
-            <button type="submit" name="seat" value="C20">C20</button>
-            <button type="submit" name="seat" value="B12">B12</button>
-            <button type="submit" name="seat" value="B14">B14</button>
-            <button type="submit" name="seat" value="B15">B15</button>
-            <button type="submit" name="seat" value="B20">B20</button>
-            <button type="submit" name="seat" value="A12">A12</button>
-            <button type="submit" name="seat" value="A14">A14</button>
-            <button type="submit" name="seat" value="A15">A15</button>
-            <button type="submit" name="seat" value="A20">A20</button>
-        </div>
-        <div class="buttonBox7 colorButton" method="post">
-            <button type="submit" name="seat" value="F21">F21</button>
-            <button type="submit" name="seat" value="F22">F22</button>
-            <button type="submit" name="seat" value="F23">F23</button>
-            <button type="submit" name="seat" value="F24">F24</button>
-            <button type="submit" name="seat" value="F25">F25</button>
-            <button type="submit" name="seat" value="F26">F26</button>
-            <button type="submit" name="seat" value="F27">F27</button>
-            <button type="submit" name="seat" value="F28">F28</button>
-            <button type="submit" name="seat" value="F29">F29</button>
-            <button type="submit" name="seat" value="F30">F30</button>
-            <button type="submit" name="seat" value="F31">F31</button>
-            <button type="submit" name="seat" value="F32">F32</button>
-            <button type="submit" name="seat" value="F34">F34</button>
-            <button type="submit" name="seat" value="F35">F35</button>
-            <button type="submit" name="seat" value="F36">F36</button>
-            <button type="submit" name="seat" value="F37">F37</button>
-            <button type="submit" name="seat" value="F38">F38</button>
-            <button type="submit" name="seat" value="E21">E21</button>
-            <button type="submit" name="seat" value="E22">E22</button>
-            <button type="submit" name="seat" value="E23">E23</button>
-            <button type="submit" name="seat" value="E24">E24</button>
-            <button type="submit" name="seat" value="E25">E25</button>
-            <button type="submit" name="seat" value="E26">E26</button>
-            <button type="submit" name="seat" value="E27">E27</button>
-            <button type="submit" name="seat" value="E28">E28</button>
-            <button type="submit" name="seat" value="E29">E29</button>
-            <button type="submit" name="seat" value="E30">E30</button>
-            <button type="submit" name="seat" value="E31">E31</button>
-            <button type="submit" name="seat" value="E32">E32</button>
-            <button type="submit" name="seat" value="E33">E34</button>
-            <button type="submit" name="seat" value="E35">E35</button>
-            <button type="submit" name="seat" value="E36">E36</button>
-            <button type="submit" name="seat" value="E37">E37</button>
-            <button type="submit" name="seat" value="E38">E38</button>
-            <button type="submit" name="seat" value="D21">D21</button>
-            <button type="submit" name="seat" value="D22">D22</button>
-            <button type="submit" name="seat" value="D23">D23</button>
-            <button type="submit" name="seat" value="D24">D24</button>
-            <button type="submit" name="seat" value="D25">D25</button>
-            <button type="submit" name="seat" value="D26">D26</button>
-            <button type="submit" name="seat" value="D27">D27</button>
-            <button type="submit" name="seat" value="D28">D28</button>
-            <button type="submit" name="seat" value="D29">D29</button>
-            <button type="submit" name="seat" value="D30">D30</button>
-            <button type="submit" name="seat" value="D31">D31</button>
-            <button type="submit" name="seat" value="D32">D32</button>
-            <button type="submit" name="seat" value="D34">D34</button>
-            <button type="submit" name="seat" value="D35">D35</button>
-            <button type="submit" name="seat" value="D36">D36</button>
-            <button type="submit" name="seat" value="D37">D37</button>
-            <button type="submit" name="seat" value="D38">D38</button>
-        </div>
-        <div class="buttonBox8 colorButton" method="post">
-            <button type="submit" name="seat" value="C21">C21</button>
-            <button type="submit" name="seat" value="C22">C22</button>
-            <button type="submit" name="seat" value="C23">C23</button>
-            <button type="submit" name="seat" value="C24">C24</button>
-            <button type="submit" name="seat" value="C25">C25</button>
-            <button type="submit" name="seat" value="C26">C26</button>
-            <button type="submit" name="seat" value="C27">C27</button>
-            <button type="submit" name="seat" value="C28">C28</button>
-            <button type="submit" name="seat" value="C29">C29</button>
-            <button type="submit" name="seat" value="C30">C30</button>
-            <button type="submit" name="seat" value="C31">C31</button>
-            <button type="submit" name="seat" value="C32">C32</button>
-            <button type="submit" name="seat" value="C34">C34</button>
-            <button type="submit" name="seat" value="C35">C35</button>
-            <button type="submit" name="seat" value="C36">C36</button>
-            <button type="submit" name="seat" value="C37">C37</button>
-            <button type="submit" name="seat" value="C38">C38</button>
-            <button type="submit" name="seat" value="B21">B21</button>
-            <button type="submit" name="seat" value="B22">B22</button>
-            <button type="submit" name="seat" value="B23">B23</button>
-            <button type="submit" name="seat" value="B24">B24</button>
-            <button type="submit" name="seat" value="B25">B25</button>
-            <button type="submit" name="seat" value="B26">B26</button>
-            <button type="submit" name="seat" value="B27">B27</button>
-            <button type="submit" name="seat" value="B28">B28</button>
-            <button type="submit" name="seat" value="B29">B29</button>
-            <button type="submit" name="seat" value="B30">B30</button>
-            <button type="submit" name="seat" value="B31">B31</button>
-            <button type="submit" name="seat" value="B32">B32</button>
-            <button type="submit" name="seat" value="B34">B34</button>
-            <button type="submit" name="seat" value="B35">B35</button>
-            <button type="submit" name="seat" value="B36">B36</button>
-            <button type="submit" name="seat" value="B37">B37</button>
-            <button type="submit" name="seat" value="B38">B38</button>
-            <button type="submit" name="seat" value="A21">A21</button>
-            <button type="submit" name="seat" value="A22">A22</button>
-            <button type="submit" name="seat" value="A23">A23</button>
-            <button type="submit" name="seat" value="A24">A24</button>
-            <button type="submit" name="seat" value="A25">A25</button>
-            <button type="submit" name="seat" value="A26">A26</button>
-            <button type="submit" name="seat" value="A27">A27</button>
-            <button type="submit" name="seat" value="A28">A28</button>
-            <button type="submit" name="seat" value="A29">A29</button>
-            <button type="submit" name="seat" value="A30">A30</button>
-            <button type="submit" name="seat" value="A31">A31</button>
-            <button type="submit" name="seat" value="A32">A32</button>
-            <button type="submit" name="seat" value="A34">A34</button>
-            <button type="submit" name="seat" value="A35">A35</button>
-            <button type="submit" name="seat" value="A36">A36</button>
-            <button type="submit" name="seat" value="A37">A37</button>
-            <button type="submit" name="seat" value="A38">A38</button>
-        </div>
-        </div> -->
-    <!-- </div> -->
+</div>
 </body>
+    <form class='buttonForm' action="OrderUserData.php" method='POST'>
+        <input type="hidden" name="id" value="<?= $id ?>">
+        <input type="hidden" name="plusPrice2" id="PriceField2" value="<?= $CurrPrice ?>">
+            <div class='ButtonBox'>
+                    <button class='ContinueButton' type='submit' name='cardType' value=''>Turpinat</button>
+                    
+            </div>
+        </form>
 </html>

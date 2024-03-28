@@ -16,8 +16,8 @@ if(isset($_GET['buttonValue'])) {
 
 } 
 
-echo $user_id;
-echo $admin_id;
+// echo $user_id;
+// echo $admin_id;
 
 
 
@@ -26,8 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($
 
     $id = $_POST['id'];
     $LastPrice= $_POST['plusPrice2'];
-    echo $id;
-    echo  $LastPrice;
+    // echo $id;
+    // echo  $LastPrice;
     // echo $price;
    
     $sql = "SELECT `Airline`, `airport_name`, `ITADA`, `City`, `country`, `T_price`, `arrival_date`, `departure_date`, `arrival_time`, `departure_time`,`id` 

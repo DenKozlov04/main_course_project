@@ -1,11 +1,7 @@
 <?php
 include "InfoOutput4.php";
 ?>
-   
 
-<script>
-
-</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +13,22 @@ include "InfoOutput4.php";
     <script src="../php/alertscripts.php"></script>
 </head>
 <body>
+<div class='rectangleHeader'>
+    <div class='logorectangle'>
+        <a>AVIA</a>
+    </div>
+    <a class='flightName'><?= "Rīga (RIX)–$City ($airport_name) ($ITADA)"; ?></a>
+    <img class='CartImg'src='../images/free-icon-grocery-store-7205450.png'>
+    <div class='price'><?= $LastPrice,'€' ?></div>
+ 
+    <div class='InfoBox'>
+        <a class='Info'>Izvēlies sev piemērotāko biļetes veidu</a>
+        <a class='Info2'>Cena norādīta vienam pasažierim</a>
+    </div>
+    <a class='Info3'><?="✈ Rīga – $City ($airport_name)"?></a>
+    <a class='Info4'><?="$formattedDepartDate. &bull;  $departure_time - $arrival_time"?></a>
+</div>
+</div>
     <script>   
         const urlParams = new URLSearchParams(window.location.search);
         const alertMessage = urlParams.get('alert');

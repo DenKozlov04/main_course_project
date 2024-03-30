@@ -22,10 +22,12 @@ if(isset($_GET['buttonValue'])) {
 
 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($_POST['id'] ) && isset($_POST['plusPrice2'])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($_POST['id'] ) && isset($_POST['plusPrice2']) && isset($_POST['seat'])) {
 
     $id = $_POST['id'];
     $LastPrice= $_POST['plusPrice2'];
+    $SeatPlace=$_POST['seat'];
+    // echo $SeatPlace;
     // echo $id;
     // echo  $LastPrice;
     // echo $price;

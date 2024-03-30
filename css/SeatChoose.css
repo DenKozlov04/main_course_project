@@ -710,3 +710,15 @@ padding-top: 77px;
 /* .PlaceButton.active {
     background-color: #DE6A6A; Цвет кнопки при активации 
 } */
+.ContinueButton{
+    width: 125px; height: 50px; 
+    background-color: #DE6A6A;
+    color: white; 
+    font-size: 25px; 
+    cursor: pointer; 
+    border-radius:5px; 
+    border: none; 
+    position: absolute;
+    margin-left: 1400px;
+    margin-top:2650px;
+}

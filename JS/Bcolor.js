@@ -110,6 +110,7 @@
 function PlusSeatPrice(button) {
     var PricePlusQuant = parseFloat(button.value);
     var clicked = button.getAttribute('data-clicked') === "true";
+    var extraValue = button.getAttribute('data-extra-value'); // значение data-extra-value
 
     if (clicked) {
         PricePlusQuant -= 29.99;
@@ -126,6 +127,8 @@ function PlusSeatPrice(button) {
     console.log("New price:", PricePlusQuant.toFixed(2));
     let priceElement = document.querySelector('.price');
     document.getElementById("PriceField2").value = PricePlusQuant.toFixed(2);
+    document.getElementById("seat").value = extraValue;
+    priceElement.innerText = extraValue;
     priceElement.innerText = PricePlusQuant.toFixed(2) + '€';
 
     return PricePlusQuant;
@@ -135,6 +138,7 @@ function PlusSeatPrice(button) {
 function PlusSeatPrice2(button) {
     var PricePlusQuant = parseFloat(button.value);
     var clicked = button.getAttribute('data-clicked') === "true";
+    var extraValue = button.getAttribute('data-extra-value');
 
     if (clicked) {
         PricePlusQuant -= 19.99;
@@ -151,6 +155,8 @@ function PlusSeatPrice2(button) {
     console.log("New price:", PricePlusQuant.toFixed(2));
     let priceElement = document.querySelector('.price');
     document.getElementById("PriceField2").value = PricePlusQuant.toFixed(2);
+    document.getElementById("seat").value = extraValue;
+    priceElement.innerText = extraValue;
     priceElement.innerText = PricePlusQuant.toFixed(2) + '€';
 
     return PricePlusQuant;
@@ -160,6 +166,7 @@ function PlusSeatPrice2(button) {
 function PlusSeatPrice3(button) {
     var PricePlusQuant = parseFloat(button.value);
     var clicked = button.getAttribute('data-clicked') === "true";
+    var extraValue = button.getAttribute('data-extra-value');
 
     if (clicked) {
         PricePlusQuant -= 9.99;
@@ -176,6 +183,8 @@ function PlusSeatPrice3(button) {
     console.log("New price:", PricePlusQuant.toFixed(2));
     let priceElement = document.querySelector('.price');
     document.getElementById("PriceField2").value = PricePlusQuant.toFixed(2);
+    document.getElementById("seat").value = extraValue;
+    priceElement.innerText = extraValue;
     priceElement.innerText = PricePlusQuant.toFixed(2) + '€';
 
     return PricePlusQuant;
@@ -186,6 +195,7 @@ function PlusSeatPrice3(button) {
 function PlusSeatPrice4(button) {
     var PricePlusQuant = parseFloat(button.value);
     var clicked = button.getAttribute('data-clicked') === "true";
+    var extraValue = button.getAttribute('data-extra-value');
 
     if (clicked) {
         PricePlusQuant -= 6.99;
@@ -202,6 +212,8 @@ function PlusSeatPrice4(button) {
     console.log("New price:", PricePlusQuant.toFixed(2));
     let priceElement = document.querySelector('.price');
     document.getElementById("PriceField2").value = PricePlusQuant.toFixed(2);
+    document.getElementById("seat").value = extraValue;
+    priceElement.innerText = extraValue;
     priceElement.innerText = PricePlusQuant.toFixed(2) + '€';
 
     return PricePlusQuant;

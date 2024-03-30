@@ -82,13 +82,13 @@ body {
 .FormRectangle {
     background-color: #ffffff;
     width: 1000px;
-    height: 1400px;
+    height: 1200px;
     margin: 200px auto 0;
     border-radius: 5px; 
 }
 
 .Formtext1 {
-    margin-left: 230px;
+    margin-left: 340px;
     padding-top: 20px;
     font-size: 30px;
     font-weight: bold;
@@ -99,7 +99,7 @@ body {
     padding-top: 20px;
     font-size: 20px;
     margin-left: 65px;
-    width: 680px;
+    width: 890px;
     font-weight: bold;
 }
 .Formtext3{
@@ -135,7 +135,7 @@ body {
   }
 
   #user-info-form input {
-    width: 640px;
+    width: 340px;
     height: 35px;
     /* border-radius: 15px; */
     background: #E7E7E7;
@@ -217,15 +217,19 @@ body {
     background: #DE6A6A;
     font-size: 20px;
     margin-top: 20px;
-    margin-left: 65px;
+    margin-left: 180px;
     font-weight: bold;
     border: none; 
     outline: none; 
+    position: absolute;
+    margin-top:320px;
   }
   .infotext{
     color: #F30000;
     font-size: 15.6px;
-    margin-left: 68px;
+    margin-left: 185px;
+    margin-top:420px;
+    position: absolute;
   }
 footer {
     width: 100%; 
@@ -248,4 +252,174 @@ footer {
     color: inherit; 
     text-decoration: none; 
   }
+  .user-info-form2-lined{
+    font-size: 20px;
+    margin-top: 20px;
+    margin-left: 65px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+}
+#user-info-form2-lined input{
+    width: 115px;
+    height: 35px;
+    /* border-radius: 15px; */
+    border-radius: 0px;
+    background: #E7E7E7;
+    border: none; 
+    outline: none; 
+}
+#user-info-form2-lined {
+    display: flex;
+    flex-direction: row; 
+  }
+
+  #user-info-form2 {
+    font-size: 20px;
+    margin-top: -299px;
+    margin-left: 550px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+  }
+
+  #user-info-form2 label {
+    margin-bottom: 5px;
+  }
+
+  #user-info-form2 input,
+  #user-info-form2 select {
+    margin-bottom: 10px;
+  }
+
+  #user-info-form2 input {
+    width: 340px;
+    height: 35px;
+    /* border-radius: 15px; */
+    background: #E7E7E7;
+    border: none; 
+    outline: none; 
+    padding-left: 10px; 
+  }
+  #user-info-form2 input::placeholder {
+    color: #B1B1B1;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-left: 10px; 
+  }
   
+  #user-info-form2 select {
+    color: #B1B1B1;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-left: 10px; 
+    width: 80px;
+    height: 35px;
+    /* border-radius: 15px; */
+    background: #E7E7E7;
+    border: none; 
+    outline: none; 
+  }
+  .Formtext6{
+    font-size: 25px;
+    font-weight: bold;
+    padding-top: 20px;
+    margin-left: 550px;
+    width: 270px;
+    margin-top:-365px;
+    position: absolute;
+}
+.Formtext7{
+  font-size: 25px;
+  font-weight: bold;
+  padding-top: 35px;
+  margin-left: 65px;
+  width: 680px;
+  position:absolute;
+}
+
+
+.user-info-form3-lined{
+  font-size: 20px;
+  margin-top: 20px;
+  margin-left: 65px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+}
+#user-info-form3-lined input{
+  width: 115px;
+  height: 35px;
+  /* border-radius: 15px; */
+  border-radius: 0px;
+  background: #E7E7E7;
+  border: none; 
+  outline: none; 
+}
+#user-info-form3-lined {
+  display: flex;
+  flex-direction: row; 
+}
+
+#user-info-form3 {
+  font-size: 20px;
+  margin-top: 85px;
+  margin-left: 65px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+
+}
+
+#user-info-form3 label {
+  margin-bottom: 5px;
+}
+
+#user-info-form3 input,
+#user-info-form3 select {
+  margin-bottom: 10px;
+}
+
+#user-info-form3 input {
+  width: 340px;
+  height: 35px;
+  /* border-radius: 15px; */
+  background: #E7E7E7;
+  border: none; 
+  outline: none; 
+  padding-left: 10px; 
+}
+#user-info-form3 input::placeholder {
+  color: #B1B1B1;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-left: 10px; 
+}
+
+#user-info-form3 select {
+  color: #B1B1B1;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-left: 10px; 
+  width: 80px;
+  height: 35px;
+  /* border-radius: 15px; */
+  background: #E7E7E7;
+  border: none; 
+  outline: none; 
+}
+

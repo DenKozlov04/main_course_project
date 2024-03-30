@@ -72,9 +72,9 @@ include "InfoOutput4.php";
                     <input type="text" id="nationality" name="nationality" placeholder="Latvian">
                 </div>
 
-                <div class = 'Formtext5'>2.Contact information:</div>
+                <div class = 'Formtext6'>2.Contact information:</div>
 
-                <div id="user-info-form">
+                <div id="user-info-form2">
                     <label for="name">Email</label>
                     <input type="text" id="Email" name="Email" placeholder="user email">
 
@@ -82,13 +82,14 @@ include "InfoOutput4.php";
                     <input type="text" id="Phone Number" name="Phone Number" placeholder="user phone number">
                 </div>
                 
-                <div class = 'Formtext5'>3.Passport details:</div>
+                <div class = 'Formtext7'>3.Passport details:</div>
 
-                <div id="user-info-form">
+                <div id="user-info-form3">
                     <label for="name">Passport number</label>
-                    <input type="text" id="Passport number" name="Passport number" placeholder="XXXXXXX(The length of the passport number may vary depending on the country of issue)">
+                    <input type="text" id="Passport_number" name="Passport number" placeholder="XXXXXXX (The length of the passport number may vary depending on the country of issue)" style="width: 640px;">
 
-                    <div id="user-info-form-lined">
+
+                    <div id="user-info-form3-lined">
                         <div class="form-group">
                             <label for="passportIssuedDate">Passport Issued Date:</label>
                             <input type="text" id="passportIssuedDate" name="passportIssuedDate" placeholder="YYYY-MM-DD">

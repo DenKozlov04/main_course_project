@@ -289,7 +289,7 @@ body .txt1 {
     margin: 0;
   }
 
-nav {
+/* nav {
   z-index:999 ;
   position: fixed;
   padding: 0;
@@ -302,8 +302,8 @@ nav {
   width:100%;
   font-family:'Nunito Sans', sans-serif;
     
-}
-select.dropdown-menu {
+} */
+/* select.dropdown-menu {
   font-family: 'Nunito Sans', sans-serif;
   background: #3d3d3d;
   color: white;
@@ -317,17 +317,17 @@ select.dropdown-menu {
   height: 72px;
   width: 70px;
   margin-top:4px;
-}
+} */
 
-select.dropdown-menu:focus {
+/* select.dropdown-menu:focus {
   outline: none; 
 }
 
-/* Стили для dropdown списка */
+ Стили для dropdown списка 
 option.dropdown-menu-content {
   font-family:'Nunito Sans', sans-serif;
   background: #dfdfdf;
-}
+} */
 
 
 label.pict1{
@@ -340,19 +340,19 @@ font-weight: bold;
 }
 
 
-nav ul{
+/* nav ul{
   list-style: none;
   padding: 0;
   display: flex; 
   margin-left: 20px; 
-}
-nav ul li{
+} */
+/* nav ul li{
   display: inline-block;
   line-height: 80px;
   margin:0 5px;
 
-}
-nav ul li a{
+} */
+/* nav ul li a{
   text-decoration: none;
   color:white;
   font-size: 15px;
@@ -360,17 +360,18 @@ nav ul li a{
   border-radius: 3px;
   z-index: 999;
   text-transform: uppercase;
-}
-a.active,a:hover{
+} */
+/* a.active,a:hover{
   background: #1b9bff;
   transition:.5s ;
-}
+} */
 a.special-link {
   background: none;
-  transform: translate(20px, 5px); /* Сдвиг вправо и вниз */
+  transform: translate(20px, 5px); 
+   
 }
 
-.checkbtn{
+/* .checkbtn{
   font-size: 30px;
   color:rgb(255, 255, 255);
   float: right;
@@ -381,8 +382,8 @@ a.special-link {
 
 #check{
   display: none;
-}
-@media (max-width:952px){
+} */
+/* @media (max-width:952px){
   label.pict1{
     font-size: 30px;
     padding-left: 50px;
@@ -423,7 +424,7 @@ a.special-link {
     left:0;
 
   }
-}
+} */
 
 footer {
   background-color: #333;
@@ -444,12 +445,13 @@ footer {
 
 
 .special-link {
-  z-index: 999;
+  /* z-index: 999; */
   position: absolute;
-  margin-top: -105px;
+  margin-top: -81px;
   /* top: 147%;  */
   transform: translateY(-145%); 
-  right: 100px; 
+  left:1290px;
+  z-index: 999;
 }
 .special-link2 {
   z-index: 999;
@@ -513,15 +515,103 @@ footer {
 }
 
 .special-link4{
-  margin-right:60px;
-  z-index: 999;
+  left:1265px;
   position: absolute;
-  margin-top: -55px;
+  /* margin-top: -2px; */
   /* top: 147%; */
   transform: translateY(-145%); 
   right: 110px; 
 }
-.special-link4:hover {
+
+/* .special-link4:hover {
   background-color: initial; 
   color: initial; 
+} */
+
+
+
+
+
+
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f3f3f3;
+}
+.rectangleHeader{
+  width: 100%;
+  height: 80px;
+  background-color: #FFFFFF;
+}
+.logorectangle{
+  background: #DE6A6A;
+  width: 160px;
+  height: 80px;
+  margin-left: 330px;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
+.logorectangle a {
+  font-size: 40px;
+  color: #FFFFFF;
+
+}
+.ButtonRect {
+  position: absolute;
+  padding: 0; /* Убираем отступы внутри .ButtonRect */
+  margin-left: 550px;
+  margin-top:-55px;
+}
+
+.ButtonRect a {
+  font-size:20px;
+  display: inline-block;
+  margin-right: 35px; /* Добавляем отступ между элементами a */
+  text-decoration: none;
+  color: #0D057C;
+}
+
+.UserImgBox{
+  position: absolute;
+  width:315px;
+  height:55px;
+  background-color: #DE6A6A;
+  border-radius: 30px;
+  margin-left:1300px;
+  margin-top:-68px;
+  font-size:20px;
+  color: #ffffff;
+}
+
+.TextElemment{
+  position: absolute;
+  margin-left: 80px;
+  margin-top:13px;
+}
+.greyRect1{
+  width:100%;
+  height:1px;
+  background-color: #D9D9D9;
+}
+.rectangleHeader2{
+  width: 100%;
+  height: 60px;
+  background-color: #FFFFFF;
+}
+
+.ButtonRect2 {
+  position: absolute;
+  padding: 0; /* Убираем отступы внутри .ButtonRect */
+  margin-left: 550px;
+  margin-top:50px;
+}
+
+.ButtonRect2 a {
+  font-size:20px;
+  display: inline-block;
+  margin-right: 35px; /* Добавляем отступ между элементами a */
+  text-decoration: none;
+  color: #0D057C;
 }

@@ -128,46 +128,82 @@
 
 <!-- </nav> -->
 
+<div class='SearchBox'>
+    <div class="search">
+        <form method="GET" action="../php/FilteredTickets.php">
+            <div class="box1-input" style="">
+                <div class="input-data">
+                    <input type="text" id="input" name="SearchRoute" placeholder="Riga-Paris">
+                    <label for="input-field">Enter the route:</label>
+                </div>
+            </div>
+            <div class="box2-input">
+                <div class="input-data">
+                    <input type="text" name="SearchCountry" placeholder="France">
+                    <label for="input-field">Choose country:</label>
+                </div>
+            </div>
+            <div class="box3-input">
+                <div class="input-data">
+                    <input type="date" id="date" name="SearchArrival_date">
+                    <label for="input-field">Set your arrival date:</label>
+                </div>
+            </div>
+            <div class="box4-input">
+                <div class="input-data">
+                    <input type="date" name="SearchDeparture_date">
+                    <label for="input-field">Set your departure date:</label>
+                </div>
+            </div>
+            <div class="box5-input" style="">
+                <div class="input-data">
+                    <button class="Search_button" type="submit" name="passenger_number" placeholder="plc1">
+                      <p class='InfoText2'>Uz</p>
+                      <p class='InfoText1'>Meklēt biļetes</p>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+  <div class='DepartBox'>
+      <p class='InfoText3'>No</p>
+      <p class='InfoText4'>RIX</p>
+      <p class='InfoText5'>Rīga</p>
+  </div>
+</div>
+<div class="swiper sample-slider2">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" ><a href=""><img src="../images\airplane-seats-2570438_1920.jpg"></a>
+          
+            </div>
+            <div class="swiper-slide"><a href=""><img src="../images\architecture-3337988_1920.jpg"></a>
+   
+          </div>
+            <div class="swiper-slide"><a href=""><img src="../images\pexels-maria-tyutina-249581 (1).jpg"></a>
+      
+          </div>
+            <div class="swiper-slide"><a href=""><img src="../images\pexels-tanathip-rattanatum-2026324.jpg"></a>
+      
+          </div>
+            <div class="swiper-slide"><a href=""><img src="../images\pexels-victor-freitas-1381415.jpg"></a>
+     
+          </div>
+            <div class="swiper-slide"><a href=""><img src="../images\travel-5219496_1920.jpg"></a>
+    
+          </div>
+        </div>
+        <div class="swiper-pagination2"></div>
+
+    </div>
+    <script src="../JS/BigSwiper.js"></script>
 
 <!-- <body bgcolor="#e9a2a2"> -->
-<body bgcolor="FFFFFF">
+<!-- <body bgcolor="FFFFFF"> -->
 
-<div class="pict3"><img src="../images/pexels-arina-krasnikova-5708951.jpg"></div>
+<!-- <div class="pict3"><img src="../images/pexels-arina-krasnikova-5708951.jpg"></div> -->
 <!-- <p class="txt1">EXPLORE THE WORLD WITH US</p> -->
 
-<div class="search">
-    <form method="GET" action="../php/FilteredTickets.php">
-        <div class="box1-input" style="border-radius: 50px 0 0 50px;">
-            <div class="input-data">
-                <input type="text" id="input" name="SearchRoute" placeholder="Riga-Paris">
-                <label for="input-field">Enter the route:</label>
-            </div>
-        </div>
-        <div class="box1-input">
-            <div class="input-data">
-                <input type="text" name="SearchCountry" placeholder="France">
-                <label for="input-field">Choose country:</label>
-            </div>
-        </div>
-        <div class="box1-input">
-            <div class="input-data">
-                <input type="date" id="date" name="SearchArrival_date">
-                <label for="input-field">Set your arrival date:</label>
-            </div>
-        </div>
-        <div class="box1-input">
-            <div class="input-data">
-                <input type="date" name="SearchDeparture_date">
-                <label for="input-field">Set your departure date:</label>
-            </div>
-        </div>
-        <div class="box1-input" style="border-radius: 0 50px 50px 0;">
-            <div class="input-data">
-                <button class="Search_button" type="submit" name="passenger_number" placeholder="for example: 1">Search Tickets🔍</button>
-            </div>
-        </div>
-    </form>
-</div>
+
 
 
 
@@ -177,7 +213,7 @@
 
 
 <div class=rect1></div>
-<div class="pict4"><img src="../images/bgSales.png"></div>
+<!-- <div class="pict4"><img src="../images/bgSales.png"></div> -->
  <style>
 </style>
 <p class="txt2">Don't miss out on hot discounts!!</p>

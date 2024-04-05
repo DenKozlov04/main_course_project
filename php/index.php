@@ -108,11 +108,17 @@
         $row = $result->fetch_array();
 
         $profile_image = $row['profile_image'];
-        echo '<div class="special-link2" style="width: 55px; height: 55px; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center; margin-top: -5px;">';
-        echo '<a href="user_info.php" ><img src="data:image/jpeg;base64,' . base64_encode($profile_image) . '" width="90" height="85" /></a>';
+        echo '<div class="UserImgBox2">
+                  <div class="TextElemment">Jūsu profils</div>
+              </div>
+        <div class="special-link2" style="width: 45px; height: 45px; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center; margin-top: -5px;">';
+        echo '<a href="user_info.php" ><img src="data:image/jpeg;base64,' . base64_encode($profile_image) . '" width="70" height="65" /></a>';
         echo '</div>';
     } else {
-        echo '<p><a class="special-link" href="user_info.php"><img src="../images/user_foto.png"  width="80" height="80"></a></p>';
+        echo '<div class="UserImgBox2">
+                <div class="TextElemment">Jūsu profils</div>
+            </div>
+        <p><a class="special-link" href="user_info.php"><img src="../images/user_foto.png"  width="70" height="70"></a></p>';
     }
     // echo $_SESSION['user_id'];
     // echo $_SESSION['admin_id'];
@@ -173,22 +179,22 @@
 </div>
 <div class="swiper sample-slider2">
         <div class="swiper-wrapper">
-            <div class="swiper-slide" ><a href=""><img src="../images\airplane-seats-2570438_1920.jpg"></a>
+            <div class="swiper-slide" ><a ><img src="../images\airplane-seats-2570438_1920.jpg"></a>
           
             </div>
-            <div class="swiper-slide"><a href=""><img src="../images\architecture-3337988_1920.jpg"></a>
+            <div class="swiper-slide"><a ><img src="../images\architecture-3337988_1920.jpg"></a>
    
           </div>
-            <div class="swiper-slide"><a href=""><img src="../images\pexels-maria-tyutina-249581 (1).jpg"></a>
+            <div class="swiper-slide"><a ><img src="../images\pexels-maria-tyutina-249581 (1).jpg"></a>
       
           </div>
-            <div class="swiper-slide"><a href=""><img src="../images\pexels-tanathip-rattanatum-2026324.jpg"></a>
+            <div class="swiper-slide"><a ><img src="../images\pexels-tanathip-rattanatum-2026324.jpg"></a>
       
           </div>
-            <div class="swiper-slide"><a href=""><img src="../images\pexels-victor-freitas-1381415.jpg"></a>
+            <div class="swiper-slide"><a ><img src="../images\pexels-victor-freitas-1381415.jpg"></a>
      
           </div>
-            <div class="swiper-slide"><a href=""><img src="../images\travel-5219496_1920.jpg"></a>
+            <div class="swiper-slide"><a ><img src="../images\travel-5219496_1920.jpg"></a>
     
           </div>
         </div>

@@ -17,16 +17,16 @@ include "InfoOutput4.php";
     <div class='logorectangle'>
         <a>AVIA</a>
     </div>
-    <a class='flightName'><?= "Rīga (RIX)–$City ($airport_name) ($ITADA)"; ?></a>
+    <a class='flightName'><?= "Rīga (RIX)– () ()"; ?></a>
     <img class='CartImg'src='../images/free-icon-grocery-store-7205450.png'>
-    <div class='price'><?= $LastPrice,'€' ?></div>
+    <div class='price'><?= '€' ?></div>
  
     <div class='InfoBox'>
         <a class='Info'>Izvēlies sev piemērotāko biļetes veidu</a>
         <a class='Info2'>Cena norādīta vienam pasažierim</a>
     </div>
-    <a class='Info3'><?="✈ Rīga – $City ($airport_name)"?></a>
-    <a class='Info4'><?="$formattedDepartDate. &bull;  $departure_time - $arrival_time"?></a>
+    <a class='Info3'><?="✈ Rīga – ()"?></a>
+    <a class='Info4'><?=". &bull;   - "?></a>
 </div>
 </div>
     <script>   
@@ -43,77 +43,79 @@ include "InfoOutput4.php";
         }
     </script>
     </script>
-    <div class='FormRectangle'>
-        <div class = 'Formtext1'>Finalize your reservation</div>
-        <div class = 'Formtext2'>Please complete the form below to finalize your 
-            reservation and guarantee your seat on the flight. Your personal data 
-            is required to create your airline ticket 
-            and to ensure the wholehearted security of your flight. We ensure the privacy and security of your 
-            data by following all standards and requirements. It will only take a 
-            few minutes to fill out the form and then you can easily pay for your chosen services. </div>
-            <div class = 'UserDataForm'>
-                <div class = 'Formtext3'>Thank you for your attention and we look forward to seeing you on board!</div>
-                <div class = 'Formtext4'>1.Information about passenger:</div>
-                <div id="user-info-form">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" placeholder="Your real name">
+    <form action='' method='POST'>
+        <div class='FormRectangle'>
+            <div class = 'Formtext1'>Finalize your reservation</div>
+            <div class = 'Formtext2'>Please complete the form below to finalize your 
+                reservation and guarantee your seat on the flight. Your personal data 
+                is required to create your airline ticket 
+                and to ensure the wholehearted security of your flight. We ensure the privacy and security of your 
+                data by following all standards and requirements. It will only take a 
+                few minutes to fill out the form and then you can easily pay for your chosen services. </div>
+                <div class = 'UserDataForm'>
+                    <div class = 'Formtext3'>Thank you for your attention and we look forward to seeing you on board!</div>
+                    <div class = 'Formtext4'>1.Information about passenger:</div>
+                    <div id="user-info-form">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your real name">
 
-                    <label for="surname">Surname</label>
-                    <input type="text" id="surname" name="surname" placeholder="Your real surname">
+                        <label for="surname">Surname</label>
+                        <input type="text" id="surname" name="surname" placeholder="Your real surname">
 
-                    <label for="gender">Gender</label>
-                    <select id="gender" name="gender">
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="N/M">N/M</option>
-                    </select>
+                        <label for="gender">Gender</label>
+                        <select id="gender" name="gender">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="N/M">N/M</option>
+                        </select>
 
-                    <label for="nationality">Nationality</label>
-                    <input type="text" id="nationality" name="nationality" placeholder="Latvian">
-                </div>
+                        <label for="nationality">Nationality</label>
+                        <input type="text" id="nationality" name="nationality" placeholder="Latvian">
+                    </div>
 
-                <div class = 'Formtext6'>2.Contact information:</div>
+                    <div class = 'Formtext6'>2.Contact information:</div>
 
-                <div id="user-info-form2">
-                    <label for="name">Email</label>
-                    <input type="text" id="Email" name="Email" placeholder="user email">
+                    <div id="user-info-form2">
+                        <label for="name">Email</label>
+                        <input type="text" id="Email" name="Email" placeholder="user email">
 
-                    <label for="surname">Phone Number</label>
-                    <input type="text" id="Phone Number" name="Phone Number" placeholder="user phone number">
-                </div>
-                
-                <div class = 'Formtext7'>3.Passport details:</div>
-
-                <div id="user-info-form3">
-                    <label for="name">Passport number</label>
-                    <input type="text" id="Passport_number" name="Passport number" placeholder="XXXXXXX (The length of the passport number may vary depending on the country of issue)" style="width: 640px;">
-
-
-                    <div id="user-info-form3-lined">
-                        <div class="form-group">
-                            <label for="passportIssuedDate">Passport Issued Date:</label>
-                            <input type="text" id="passportIssuedDate" name="passportIssuedDate" placeholder="YYYY-MM-DD">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="passportExpirationDate">Passport Expiration Date:</label>
-                            <input type="text" id="passportExpirationDate" name="passportExpirationDate" placeholder="YYYY-MM-DD">
-                        </div>
-                        </div>
-
+                        <label for="surname">Phone Number</label>
+                        <input type="text" id="Phone Number" name="Phone_Number" placeholder="user phone number">
+                    </div>
                     
-                    <label for="surname">Country that issued the passport</label>
-                    <input type="text" id="Phone Number" name="Phone Number" placeholder="Latvija">
+                    <div class = 'Formtext7'>3.Passport details:</div>
+
+                    <div id="user-info-form3">
+                        <label for="name">Passport number</label>
+                        <input type="text" id="Passport_number" name="Passport_number" placeholder="XXXXXXX (The length of the passport number may vary depending on the country of issue)" style="width: 640px;">
+
+
+                        <div id="user-info-form3-lined">
+                            <div class="form-group">
+                                <label for="passportIssuedDate">Passport Issued Date:</label>
+                                <input type="text" id="passportIssuedDate" name="passportIssuedDate" placeholder="YYYY-MM-DD">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="passportExpirationDate">Passport Expiration Date:</label>
+                                <input type="text" id="passportExpirationDate" name="passportExpirationDate" placeholder="YYYY-MM-DD">
+                            </div>
+                            </div>
+
+                        
+                        <label for="surname">Country that issued the passport</label>
+                        <input type="text" id="country" name="country" placeholder="Latvija">
+
+                    </div>
+
+                    <!-- <form method='POST' action=''> -->
+                        <button class="submitButton" type='submit'>Send and pay</button>
+                    <!-- </form> -->
+                    <p class="infotext">!!! Please do not enter real data, this site is only a project and not a real place to buy tickets !!!</p>
 
                 </div>
-
-                <form method='POST' action=''>
-                    <button class="submitButton" type='submit'>Send and pay</button>
-                </form>
-                <p class="infotext">!!! Please do not enter real data, this site is only a project and not a real place to buy tickets !!!</p>
-
-            </div>
-    </div>
+        </div>
+    </form>
     <footer>
     <div class="footer-content">
         <p>&copy; 2023 AVIA. All rights reserved..</p>

@@ -392,9 +392,10 @@ footer {
 .special-link2 {
   z-index: 999;
   position: absolute;
-  margin-top: 0px;
-  transform: translateY(-145%); 
-  right: 100px; 
+  margin-top: -10px;
+  /* transform: translateY(-145%);  */
+  left:1321px;
+  top:-58px;
 }
 .sample-slider {
   width: 70%;
@@ -484,6 +485,17 @@ body {
 .UserImgBox{
   position: absolute;
   width:315px;
+  height:55px;
+  background-color: #DE6A6A;
+  border-radius: 30px;
+  margin-left:1300px;
+  margin-top:-68px;
+  font-size:20px;
+  color: #ffffff;
+}
+.UserImgBox2{
+  position: absolute;
+  width:220px;
   height:55px;
   background-color: #DE6A6A;
   border-radius: 30px;
@@ -780,4 +792,7 @@ body {
   margin-top:-80px;
   position:absolute;
   background-color: #e0e0e0;
+}
+#input:focus {
+  outline: none;
 }

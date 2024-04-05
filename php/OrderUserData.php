@@ -17,16 +17,16 @@ include "InfoOutput4.php";
     <div class='logorectangle'>
         <a>AVIA</a>
     </div>
-    <a class='flightName'><?= "Rīga (RIX)– () ()"; ?></a>
+    <a class='flightName'><?= "Rīga (RIX)–$City ($airport_name) ($ITADA)"; ?></a>
     <img class='CartImg'src='../images/free-icon-grocery-store-7205450.png'>
-    <div class='price'><?= '€' ?></div>
+    <div class='price'><?= $LastPrice,'€' ?></div>
  
     <div class='InfoBox'>
         <a class='Info'>Izvēlies sev piemērotāko biļetes veidu</a>
         <a class='Info2'>Cena norādīta vienam pasažierim</a>
     </div>
-    <a class='Info3'><?="✈ Rīga – ()"?></a>
-    <a class='Info4'><?=". &bull;   - "?></a>
+    <a class='Info3'><?="✈ Rīga – $City ($airport_name)"?></a>
+    <a class='Info4'><?="$formattedDepartDate. &bull;  $departure_time - $arrival_time"?></a>
 </div>
 </div>
     <script>   

@@ -5,36 +5,20 @@ include 'dbconfig.php';
 $user_id = $_SESSION['user_id'];
 $admin_id = $_SESSION['admin_id'];
 
-// if(isset($_GET['buttonValue'])) {
-//     // получаю значение из URL
-//     $alert = '';
-//     $buttonValue = $_GET['buttonValue'];
-//     if($buttonValue === 0){
-//         $alert = "test";
-//     }
-//     echo "Received buttonValue: " . $buttonValue;
-
-// } 
-
-// echo $user_id;
-// echo $admin_id;
-
-
-
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($_POST['id'] ) && isset($_POST['plusPrice2']) && isset($_POST['seat'])) {
 
     $id = $_POST['id'];
-    $LastPrice= $_POST['plusPrice2'];
-    $SeatPlace=$_POST['seat'];
-    // echo $SeatPlace;
     // echo $id;
-    // echo  $LastPrice;
-    // echo $price;
-   
+    $LastPrice= $_POST['plusPrice2'];
+    // echo $LastPrice;
+    $SeatPlace=$_POST['seat'];
+
+    
     $sql = "SELECT `Airline`, `airport_name`, `ITADA`, `City`, `country`, `T_price`, `arrival_date`, `departure_date`, `arrival_time`, `departure_time`,`id` 
     FROM `airports/airlines` 
     WHERE  `id` = ?";
+
 
     $stmt = $conn->prepare($sql);
 
@@ -45,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($
         $stmt->execute();
         $result = $stmt->get_result();
     }
+    
     while ($row = $result->fetch_assoc()) {
             $id = $row['id'];
             $airport_name = $row['airport_name'];
@@ -59,11 +44,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($
             $arrival_time = date('H:i', strtotime($row['arrival_time']));
             $departure_time = date('H:i', strtotime($row['departure_time']));
     }
-}
 
 
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+} elseif ($_SERVER["REQUEST_METHOD"] == "POST") { // Если это уже второй POST-запрос, который не связан с id, LastPrice, SeatPlace
     try {
         $PassportDataInput = new PassportDataInput();
         $PassportDataInput->CheckAndSubmit(
@@ -77,10 +60,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_POST['passportIssuedDate'],
             $_POST['passportExpirationDate'],
             $_POST['country']
+
         );
     } catch (Exception $e) {
         echo $e->getMessage();
     }
+
 }
 
 class PassportDataInput
@@ -127,9 +112,10 @@ class PassportDataInput
         }
         header('Location: ../php/OrderUserData.php');
 
-    
+       
         $this->addPassportDataToDatabase($name, $surname, $nationality, $gender, $Email, $Phone_Number, $Passport_number, $passportIssuedDate, $passportExpirationDate, $country, $_SESSION['user_id']);
-    
+
+
     }
 
     private function addPassportDataToDatabase($name, $surname, $nationality, $gender, $Email, $Phone_Number, $Passport_number, $passportIssuedDate, $passportExpirationDate, $country, $user_id)
@@ -140,7 +126,37 @@ class PassportDataInput
         $stmt->bind_param("sssssssssss", $name, $surname, $nationality, $gender, $Email, $Phone_Number, $Passport_number, $passportIssuedDate, $passportExpirationDate, $country, $user_id);
         $stmt->execute();
     }
+
+        
 }
+// if(isset($_POST['submitButton'])) {
+//     // Ваш PHP-код
+//     $sql = "SELECT `Airline`, `airport_name`, `ITADA`, `City`, `country`, `T_price`, `arrival_date`, `departure_date`, `arrival_time`, `departure_time`,`id` 
+//     FROM `airports/airlines` 
+//     WHERE  `id` = ?";
+//     $stmt = $conn->prepare($sql);
+//     $stmt->bind_param("i", $id);
+//     $stmt->execute();
+//     // Проверяем успешность выполнения запроса
+//     if ($stmt->affected_rows > 0) {
+//         $stmt->bind_result($Airline, $airport_name, $ITADA, $City, $country, $T_price, $arrival_date, $departure_date, $arrival_time, $departure_time, $id);
+//         $stmt->fetch();
+//         // выполнение запроса на вставку
+//         $stmt = $conn->prepare("INSERT INTO tickets (user_id, airlines_id, Seat, price) VALUES (?, ?, ?, ?)");
+//         $stmt->bind_param("iiss", $user_id, $id, $SeatPlace, $LastPrice);
+//         $stmt->execute();
+//         // Проверяем успешность выполнения запроса на вставку
+//         if ($stmt->affected_rows > 0) {
+//             echo "Билет успешно забронирован.";
+//         } else {
+//             echo "Ошибка при бронировании билета.";
+//         }
+//         $stmt->close();
+//     } else {
+//         echo "Не удалось найти данные о рейсе.";
+//     }
+// }
+
 ?>
 
 

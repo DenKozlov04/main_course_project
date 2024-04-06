@@ -1,5 +1,28 @@
 <?php
 include "InfoOutput4.php";
+
+// if (!isset($_SESSION['saved_city'])) {
+    // Если нет, сохраняем значения переменных в сессии
+    // $_SESSION['saved_city'] = $City;
+    // $_SESSION['saved_airport_name'] = $airport_name;
+    // $_SESSION['saved_ITADA'] = $ITADA;
+    // $_SESSION['saved_last_price'] = $LastPrice;
+    // $_SESSION['saved_formatted_depart_date'] = $formattedDepartDate;
+    // $_SESSION['saved_departure_time'] = $departure_time;
+    // $_SESSION['saved_arrival_time'] = $arrival_time;
+// } else {
+    // Если есть, используем сохраненные значения
+    // $City = $_SESSION['saved_city'];
+    // $airport_name = $_SESSION['saved_airport_name'];
+    // $ITADA = $_SESSION['saved_ITADA'];
+    // $LastPrice = $_SESSION['saved_last_price'];
+    // $formattedDepartDate = $_SESSION['saved_formatted_depart_date'];
+    // $departure_time = $_SESSION['saved_departure_time'];
+    // $arrival_time = $_SESSION['saved_arrival_time'];
+// }
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -19,14 +42,15 @@ include "InfoOutput4.php";
     </div>
     <a class='flightName'><?= "Rīga (RIX)–$City ($airport_name) ($ITADA)"; ?></a>
     <img class='CartImg'src='../images/free-icon-grocery-store-7205450.png'>
-    <div class='price'><?= $LastPrice,'€' ?></div>
+    <!-- Используем переменную с установленным значением по умолчанию -->
+    <div class='price'><?= $LastPrice .'€'  ?></div>
  
     <div class='InfoBox'>
         <a class='Info'>Izvēlies sev piemērotāko biļetes veidu</a>
         <a class='Info2'>Cena norādīta vienam pasažierim</a>
     </div>
     <a class='Info3'><?="✈ Rīga – $City ($airport_name)"?></a>
-    <a class='Info4'><?="$formattedDepartDate. &bull;  $departure_time - $arrival_time"?></a>
+    <!-- <a class='Info4'><?="$formattedDepartDate. &bull;  $departure_time - $arrival_time"?></a> -->
 </div>
 </div>
     <script>   

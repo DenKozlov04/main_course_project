@@ -14,6 +14,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($
     // echo $LastPrice;
     $SeatPlace=$_POST['seat'];
 
+
+            // $stmt = $conn->prepare("INSERT INTO `tickets` (`user_id`, `airlines_id`, `Seat`, `price`) VALUES (?, ?, ?, ?)");
+            // $stmt->bind_param("iiss", $user_id, $id, $SeatPlace, $LastPrice);
+            // $stmt->execute();
+            // if ($stmt->affected_rows > 0) {
+            //     echo "Билет успешно забронирован.";
+            // } else {
+            //     echo "Ошибка при бронировании билета.";
+            // }
+            // $stmt->close();
+
+    
     
     $sql = "SELECT `Airline`, `airport_name`, `ITADA`, `City`, `country`, `T_price`, `arrival_date`, `departure_date`, `arrival_time`, `departure_time`,`id` 
     FROM `airports/airlines` 
@@ -66,7 +78,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($
         echo $e->getMessage();
     }
 
-}
+} 
+     
 
 class PassportDataInput
 {
@@ -118,6 +131,7 @@ class PassportDataInput
 
     }
 
+
     private function addPassportDataToDatabase($name, $surname, $nationality, $gender, $Email, $Phone_Number, $Passport_number, $passportIssuedDate, $passportExpirationDate, $country, $user_id)
     {
         global $conn;
@@ -125,39 +139,32 @@ class PassportDataInput
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now())");
         $stmt->bind_param("sssssssssss", $name, $surname, $nationality, $gender, $Email, $Phone_Number, $Passport_number, $passportIssuedDate, $passportExpirationDate, $country, $user_id);
         $stmt->execute();
+
+        // if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($_POST['id'] ) && isset($_POST['plusPrice2']) && isset($_POST['seat'])) {
+        //         $id = $_POST['id'];
+        //         // echo $id;
+        //         $LastPrice= $_POST['plusPrice2'];
+        //         // echo $LastPrice;
+        //         $SeatPlace=$_POST['seat'];
+            
+            
+        //                 $stmt = $conn->prepare("INSERT INTO `tickets` (`user_id`, `airlines_id`, `Seat`, `price`) VALUES (?, ?, ?, ?)");
+        //                 $stmt->bind_param("iiss", $user_id, $id, $SeatPlace, $LastPrice);
+        //                 $stmt->execute();
+        //                 if ($stmt->affected_rows > 0) {
+        //                     echo "Билет успешно забронирован.";
+        //                 } else {
+        //                     echo "Ошибка при бронировании билета.";
+        //                 }
+        //                 $stmt->close();
+        // }
     }
+    
 
         
 }
-// if(isset($_POST['submitButton'])) {
-//     // Ваш PHP-код
-//     $sql = "SELECT `Airline`, `airport_name`, `ITADA`, `City`, `country`, `T_price`, `arrival_date`, `departure_date`, `arrival_time`, `departure_time`,`id` 
-//     FROM `airports/airlines` 
-//     WHERE  `id` = ?";
-//     $stmt = $conn->prepare($sql);
-//     $stmt->bind_param("i", $id);
-//     $stmt->execute();
-//     // Проверяем успешность выполнения запроса
-//     if ($stmt->affected_rows > 0) {
-//         $stmt->bind_result($Airline, $airport_name, $ITADA, $City, $country, $T_price, $arrival_date, $departure_date, $arrival_time, $departure_time, $id);
-//         $stmt->fetch();
-//         // выполнение запроса на вставку
-//         $stmt = $conn->prepare("INSERT INTO tickets (user_id, airlines_id, Seat, price) VALUES (?, ?, ?, ?)");
-//         $stmt->bind_param("iiss", $user_id, $id, $SeatPlace, $LastPrice);
-//         $stmt->execute();
-//         // Проверяем успешность выполнения запроса на вставку
-//         if ($stmt->affected_rows > 0) {
-//             echo "Билет успешно забронирован.";
-//         } else {
-//             echo "Ошибка при бронировании билета.";
-//         }
-//         $stmt->close();
-//     } else {
-//         echo "Не удалось найти данные о рейсе.";
-//     }
-// }
+
 
 ?>
-
 
 

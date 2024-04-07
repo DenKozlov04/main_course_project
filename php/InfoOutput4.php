@@ -5,6 +5,25 @@ include 'dbconfig.php';
 $user_id = $_SESSION['user_id'];
 $admin_id = $_SESSION['admin_id'];
 
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType2']) && isset($_POST['id2'] ) && isset($_POST['plusPrice3']) && isset($_POST['SeatPlace'])) {
+    $id = $_POST['id2'];
+    // echo $id;
+    $LastPrice= $_POST['plusPrice3'];
+    // echo $LastPrice;
+    $SeatPlace=$_POST['SeatPlace'];
+    
+        $stmt = $conn->prepare("INSERT INTO `tickets` (`user_id`, `airlines_id`, `Seat`, `price`) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("iiss", $user_id, $id, $SeatPlace, $LastPrice);
+        $stmt->execute();
+        if ($stmt->affected_rows > 0) {
+            echo "Билет успешно забронирован.";
+        } else {
+            echo "Ошибка при бронировании билета.";
+        }
+        $stmt->close();
+
+}
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($_POST['id'] ) && isset($_POST['plusPrice2']) && isset($_POST['seat'])) {
 
@@ -24,8 +43,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($
             //     echo "Ошибка при бронировании билета.";
             // }
             // $stmt->close();
-
-    
     
     $sql = "SELECT `Airline`, `airport_name`, `ITADA`, `City`, `country`, `T_price`, `arrival_date`, `departure_date`, `arrival_time`, `departure_time`,`id` 
     FROM `airports/airlines` 

@@ -2,23 +2,23 @@
 include "InfoOutput4.php";
 
 // if (!isset($_SESSION['saved_city'])) {
-    // Если нет, сохраняем значения переменных в сессии
-    // $_SESSION['saved_city'] = $City;
-    // $_SESSION['saved_airport_name'] = $airport_name;
-    // $_SESSION['saved_ITADA'] = $ITADA;
-    // $_SESSION['saved_last_price'] = $LastPrice;
-    // $_SESSION['saved_formatted_depart_date'] = $formattedDepartDate;
-    // $_SESSION['saved_departure_time'] = $departure_time;
-    // $_SESSION['saved_arrival_time'] = $arrival_time;
+  
+//     $_SESSION['saved_city'] = $City;
+//     $_SESSION['saved_airport_name'] = $airport_name;
+//     $_SESSION['saved_ITADA'] = $ITADA;
+//     $_SESSION['saved_last_price'] = $LastPrice;
+//     $_SESSION['saved_formatted_depart_date'] = $formattedDepartDate;
+//     $_SESSION['saved_departure_time'] = $departure_time;
+//     $_SESSION['saved_arrival_time'] = $arrival_time;
 // } else {
-    // Если есть, используем сохраненные значения
-    // $City = $_SESSION['saved_city'];
-    // $airport_name = $_SESSION['saved_airport_name'];
-    // $ITADA = $_SESSION['saved_ITADA'];
-    // $LastPrice = $_SESSION['saved_last_price'];
-    // $formattedDepartDate = $_SESSION['saved_formatted_depart_date'];
-    // $departure_time = $_SESSION['saved_departure_time'];
-    // $arrival_time = $_SESSION['saved_arrival_time'];
+   
+//     $City = $_SESSION['saved_city'];
+//     $airport_name = $_SESSION['saved_airport_name'];
+//     $ITADA = $_SESSION['saved_ITADA'];
+//     $LastPrice = $_SESSION['saved_last_price'];
+//     $formattedDepartDate = $_SESSION['saved_formatted_depart_date'];
+//     $departure_time = $_SESSION['saved_departure_time'];
+//     $arrival_time = $_SESSION['saved_arrival_time'];
 // }
 
 
@@ -132,9 +132,12 @@ include "InfoOutput4.php";
 
                     </div>
 
-                    <!-- <form method='POST' action=''> -->
-                        <button class="submitButton" type='submit'>Send and pay</button>
-                    <!-- </form> -->
+                    <form class='buttonForm' method='POST' action=''>
+                    <input type="hidden" name="id2" value="<?= $id ?>">
+                    <input type="hidden" name="plusPrice3" id="PriceField3" value="<?= $LastPrice ?>">
+                    <input type="hidden" name="SeatPlace" id="SeatPlace" value="<?= $SeatPlace ?>">
+                        <button class="submitButton" type='submit' name='cardType2'>Send and pay</button>
+                    </form>
                     <p class="infotext">!!! Please do not enter real data, this site is only a project and not a real place to buy tickets !!!</p>
 
                 </div>

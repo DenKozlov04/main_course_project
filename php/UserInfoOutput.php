@@ -18,10 +18,27 @@ class UserBookings {
     }
 
     public function displayUserInfo() {
-        echo '<div id="user-info">';
-        echo "<h1>Welcome, {$_SESSION['username']} !</h1>";
-        echo "<h1>Your user ID is: {$_SESSION['user_id']}</h1>";
-        echo "<p>Your email is: {$_SESSION['email']} </p>";
+        // echo '<div id="user-info">';
+        // echo "<h1>Welcome, {$_SESSION['username']} !</h1>";
+        // echo "<h1>Your user ID is: {$_SESSION['user_id']}</h1>";
+        // echo "<p>Your email is: {$_SESSION['email']} </p>";
+        $user_id = $_SESSION['user_id'];
+        $sql = "SELECT * FROM users WHERE user_id = $user_id";
+
+        $result = $this->mysqli->query($sql);
+
+        if ($result && $result->num_rows > 0) {
+            $row = $result->fetch_array();
+            $phone = $row['phone'];
+            $password = $row['password'];
+            // echo  $password;
+            echo '<div class="InfoNumberInfo">' . $phone . '</div>';
+            echo '<div class="InfoPassword1">
+                    <input type="text" value="' . htmlspecialchars($password) . '">
+                </div>';
+    
+
+        }
     }
 
     public function getUserBookings() {
@@ -86,18 +103,21 @@ class UserBookings {
     public function displayUserProfileImage() {
         $user_id = $_SESSION['user_id'];
         $sql = "SELECT * FROM profile_images WHERE user_id = $user_id";
+        // $sql = "SELECT * FROM users WHERE user_id = $user_id";
         $result = $this->mysqli->query($sql);
 
         if ($result && $result->num_rows > 0) {
             $row = $result->fetch_array();
             $profile_image = $row['profile_image'];//вывод аватара пользователя
-            echo '<div style="width: 200px; height: 200px; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center;">';
-            echo '<img src="data:image/jpeg;base64,' . base64_encode($profile_image) . '" width="200" height="200" />';
+            echo '<div class="AvatharImgBox1" style="width: 280px; height: 280px; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center;  ">';
+            echo '<img src="data:image/jpeg;base64,' . base64_encode($profile_image) . '" width="280" height="280" />';
             echo '</div>';
             
 
         } else {
-            echo "Изображение не найдено.";
+            echo '<div class="AvatharImgBox2" style="width: 400px; height: 400px; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center;  ">';
+            echo '<img src="../images/user_foto.png" width="400" height="400" />';
+            echo '</div>';
         }
     }
 }
@@ -107,17 +127,15 @@ $userBookings->displayUserInfo();
 $userBookings->deleteBooking();
 $userBookings->displayUserProfileImage();
 
-echo "<li><a href='../php/index.php'>Back to the main page</a></li>";
+echo "<a class='BackBtn' href='../php/index.php'>Atpakaļ</a>";
 echo '<form action="upload.php" method="POST" enctype="multipart/form-data">
         <input type="file" name="image" accept="image/*">
         <input type="submit" value="Upload image" name="submit">
       </form>';
       
-echo '<body>
-        <form action="logout.php" method="POST">
-            <button type="submit">LOGOUT</button>
-        </form>
-      </body>';
+echo '<form action="logout.php" method="POST">
+        <button class="BackBtn2"type="submit">Iziet no profila</button>
+     </form>';
       $userBookings->getUserBookings();
       
 ?>

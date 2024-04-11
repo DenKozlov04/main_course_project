@@ -76,6 +76,55 @@
                     <div class='IerLaiks'>12:30</div>
                 </div>
             </div>
+            <div class='BoxTitle3'>Vēsture</div>
+            <div class=ScrollBox>
+            <div class='RezBox2'>
+                <div class='GreyLine'></div>
+                <div class='GreyLine2'></div>
+                <div class='GreyLine3'></div>
+                <div class='GreyLine4'></div>
+                <div class='GreyLine5'></div>
+                <div class='GreyPlc'></div>
+                <div class='RezInfo'>
+                    <div class='RezInfoText1'>Reiss</div>
+                    <div class='RezInfoText2'>Vieta</div>
+                    <div class='RezInfoText3'>Cena</div>
+                    <div class='RezInfoText4'>Atiešanas datums</div>
+                    <div class='RezInfoText5'>Ierašanas datums</div>
+                    <button class='CopyBtn'>Kopēt visu </button>
+                </div>
+                <div class='RezInfo2'>
+                    <div class='Reiss'>Rīga-Parize</div>
+                    <div class='Vieta'>F31</div>
+                    <div class='Cena'>120$</div>
+                    <div class='Atiešanas_datums'>2022/10/10</div>
+                    <div class='Ierašanas_datums'>2022/10/11</div>
+                </div>
+                <button class='downloadBtn2'>Saglabāt kā PDF </button>
+                <div class='TimeInfo1'>
+                    <div class='AtLaiks'>10:30</div>
+                    <div class='IerLaiks'>12:30</div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class='BoxTitle21'>Dažādas funkcijas</div>
+        <div class='InfoBox3'>
+        <div class='RezBox3'>
+                <div class='GreyPlc'>
+                    <div class='Infotxt1'>Profilu dzēšana</div>
+                </div>
+            </div>
+            <div class='RezBox4'>
+                <div class='GreyPlc'>
+                <div class='Infotxt1'>Privātuma politika</div>
+                </div>
+            </div>
+            <div class='RezBox5'>
+                <div class='GreyPlc'>
+                <div class='Infotxt1'>Bērnu un jauniešu reģistrācija (2-16 gadi)</div>
+                </div>
+            </div>
         </div>
     </div>
 

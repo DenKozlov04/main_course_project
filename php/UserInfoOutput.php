@@ -39,8 +39,18 @@ class UserBookings {
     
 
         }
+    
     }
 
+    public function displayFlightInfo() {///potom sdelaty
+        // $sql = "SELECT bookings.booking_id, bookings.user_id, bookings.flight_id, bookings.booking_date, bookings.seat_number 
+        // FROM bookings
+        // INNER JOIN users ON bookings.user_id = users.user_id
+        // WHERE bookings.user_id = {$_SESSION['user_id']}";
+
+        // $result = $this->mysqli->query($sql);
+    }
+    
     public function getUserBookings() {
         $sql = "SELECT bookings.booking_id, bookings.user_id, bookings.flight_id, bookings.booking_date, bookings.seat_number 
                 FROM bookings

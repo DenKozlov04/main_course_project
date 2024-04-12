@@ -18,40 +18,137 @@ class UserBookings {
     }
 
     public function displayUserInfo() {
-        // echo '<div id="user-info">';
-        // echo "<h1>Welcome, {$_SESSION['username']} !</h1>";
-        // echo "<h1>Your user ID is: {$_SESSION['user_id']}</h1>";
-        // echo "<p>Your email is: {$_SESSION['email']} </p>";
+        $userInfo = array();
+    
         $user_id = $_SESSION['user_id'];
         $sql = "SELECT * FROM users WHERE user_id = $user_id";
-
-        $result = $this->mysqli->query($sql);
-
-        if ($result && $result->num_rows > 0) {
-            $row = $result->fetch_array();
-            $phone = $row['phone'];
-            $password = $row['password'];
-            // echo  $password;
-            echo '<div class="InfoNumberInfo">' . $phone . '</div>';
-            echo '<div class="InfoPassword1">
-                    <input type="text" value="' . htmlspecialchars($password) . '">
-                </div>';
     
+        $result = $this->mysqli->query($sql);
+    
+        if ($result && $result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            
+            $userInfo['username'] = $row['username'];
+            $userInfo['email'] = $row['email'];
+            $userInfo['phone'] = $row['phone'];
+            $userInfo['password'] = $row['password'];
+        }
+    
+        return $userInfo;
+    }
+    // public function deleteProfile() {
+    //     if (isset($_POST['deleteUser'])) {
+    //         $user_id = $_SESSION['user_id']; 
+    //         if (!is_numeric($user_id)) {
+    //             echo "Ошибка: Некорректный ID пользователя";
+    //             return; 
+    //         }
+    
+    //
+    //         $delsql = "DELETE FROM `users` WHERE `user_id` = $user_id";
+    //         $delsql = "DELETE FROM `user_details` WHERE `user_id` = $user_id";
+    //         $delsql = "DELETE FROM `tickets` WHERE `user_id` = $user_id";
+    //         $delsql = "DELETE FROM `profile_images` WHERE `user_id` = $user_id";
+    //   
+    //         $result = $this->mysqli->query($delsql);
+    
+    //      
+    //         if ($result) {
+    // 
+    //             session_destroy();
+    //            
+    //             header("Location: index.php");
+    //             exit();
+    //         } else {
+    //            
+    //             echo "Ошибка при удалении пользователя: " . $this->mysqli->error;
+    //         }
+    //         
+    //     }
+    // }
+    
+    
+    public function deleteProfile() {
+        if (isset($_POST['deleteUser'])) {
+            $user_id = $_SESSION['user_id']; 
+            if (!is_numeric($user_id)) {
+                // echo "Ошибка: Некорректный ID пользователя";
+                return; 
+            }
+    
+            // Подготавливаем и выполняем запросы на удаление информации о пользователе
+            $this->deleteFromTable('users', $user_id);
+            $this->deleteFromTable('user_details', $user_id);
+            $this->deleteFromTable('tickets', $user_id);
+            $this->deleteFromTable('profile_images', $user_id);
+    
+ 
+            session_destroy();
+    
+         
+            header("Location: index.php");
+            exit();
+        }
+    }
+    
+    private function deleteFromTable($tableName, $userId) {
+        $delsql = "DELETE FROM `$tableName` WHERE `user_id` = $userId";
+        $result = $this->mysqli->query($delsql);
+        if (!$result) {
+            
+            // echo "Ошибка при удалении из таблицы $tableName: " . $this->mysqli->error;
+        }
+    }
+    
+    
+    
+    
+    
+    public function displayFlightInfo() {
+        // Инициализируем массив для хранения данных
+        $flightInfo = array();
+    
+      
+        $sql_tickets = "SELECT Seat, price, airlines_id FROM tickets WHERE user_id = {$_SESSION['user_id']}";
+        $result_tickets = $this->mysqli->query($sql_tickets);
+    
+    
+        if ($result_tickets->num_rows > 0) {
+            // Извлечение данных из результата первого запроса
+            $row = $result_tickets->fetch_assoc();
+            $airlines_id = $row['airlines_id'];
+    
+            // Выполнение второго SQL запроса
+            $sql_airlines = "SELECT Airline, arrival_date, departure_date, arrival_time, departure_time FROM `airports/airlines` WHERE id = $airlines_id";
+            $result_airlines = $this->mysqli->query($sql_airlines);
+    
+            // Проверка наличия результатов второго запроса
+            if ($result_airlines->num_rows > 0) {
+           
+                $row_airlines = $result_airlines->fetch_assoc();
+    
+                // Сохранение полученных данных в массив
+                $flightInfo['seat'] = $row['Seat'];
+                $flightInfo['price'] = $row['price'];
+                $flightInfo['airline'] = $row_airlines['Airline'];
+                $flightInfo['arrival_date'] = $row_airlines['arrival_date'];
+                $flightInfo['departure_date'] = $row_airlines['departure_date'];
+                $flightInfo['arrival_time'] = date('H:i', strtotime($row_airlines['arrival_time']));
+                $flightInfo['departure_time'] = date('H:i', strtotime($row_airlines['departure_time']));
+            } else {
+
+            }
+        } else {
 
         }
     
-    }
-
-    public function displayFlightInfo() {///potom sdelaty
-        // $sql = "SELECT bookings.booking_id, bookings.user_id, bookings.flight_id, bookings.booking_date, bookings.seat_number 
-        // FROM bookings
-        // INNER JOIN users ON bookings.user_id = users.user_id
-        // WHERE bookings.user_id = {$_SESSION['user_id']}";
-
-        // $result = $this->mysqli->query($sql);
+       
+        return $flightInfo;
     }
     
-    public function getUserBookings() {
+    
+    
+    public function getUserBookings() {////переделать 
         $sql = "SELECT bookings.booking_id, bookings.user_id, bookings.flight_id, bookings.booking_date, bookings.seat_number 
                 FROM bookings
                 INNER JOIN users ON bookings.user_id = users.user_id
@@ -65,17 +162,17 @@ class UserBookings {
 
         } else {
             if ($result->num_rows > 0) {
-                echo '<div id="bookings-list">';
+                // echo '<div id="bookings-list">';
                 // данные из таблицы
     
-                echo '<table id="bookings-table">';
-                echo '<tr>';
-                echo '<th>Booking ID</th>';
-                echo '<th>User ID</th>';
-                echo '<th>Flight ID</th>';
-                echo '<th>Booking Date</th>';
-                echo '<th>Seat Number</th>';
-                echo '</tr>';
+                // echo '<table id="bookings-table">';
+                // echo '<tr>';
+                // echo '<th>Booking ID</th>';
+                // echo '<th>User ID</th>';
+                // echo '<th>Flight ID</th>';
+                // echo '<th>Booking Date</th>';
+                // echo '<th>Seat Number</th>';
+                // echo '</tr>';
     
                 while ($row = $result->fetch_assoc()) {
                     echo '<tr>';
@@ -134,6 +231,7 @@ class UserBookings {
 
 $userBookings = new UserBookings();
 $userBookings->displayUserInfo();
+// $userBookings->deleteProfile(); // Вызов метода для удаления профиля
 $userBookings->deleteBooking();
 $userBookings->displayUserProfileImage();
 

@@ -5,7 +5,17 @@
     $flightInfo = $userBookings->displayFlightInfo();
     $userInfo = $userBookings->displayUserInfo();
     $userOutput = $userBookings->deleteProfile();
-    ?>
+
+    // Вызываем метод ChangeUserInfo для обновления информации о пользователе
+    $userBookings->ChangeUserInfo();
+
+    // После обновления информации, снова вызываем метод displayUserInfo, чтобы получить обновленные данные
+    $userInfo = $userBookings->displayUserInfo();
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,18 +54,22 @@
             </div>
             
             <div class='InfoBoxSmallOutput'>
-                <div class='InfoName1'><?=$_SESSION['username']?>
-                    <button class='changebtn1'>✎</button>
-                </div>
+            <div class='InfoName1'>
+                <?= $userInfo['username'] ?> 
+                <button onclick="openModal('modal3')" class='changebtn1'>✎</button>
+            </div>
+
                 <div class="InfoNumberInfo"><?=$userInfo['phone']?>
-                    <button class='changebtn2'>✎</button>
+                    <button onclick="openModal('modal4')" class='changebtn2'>✎</button>
                 </div>
-                <div class='InfoPost1'><?=$_SESSION['email']?>
-                    <button class='changebtn3'>✎</button>
+                <div class='InfoPost1'>
+                    <?=$userInfo['email']?>
+                    <button onclick="openModal('modal5')" class='changebtn3'>✎</button>
                 </div>
+
                 <div class="InfoPassword1">
                     <input type="password" value="<?= htmlspecialchars($userInfo['password']) ?>">
-                    <button class='changebtn4'>✎</button>
+                    <button onclick="openModal('modal6')" class='changebtn4'>✎</button>
                 </div>
 
 
@@ -148,6 +162,7 @@
         </div>
     </div>
     <!-- окна поп апа -->
+
     <div id="modal1" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal1')"style="cursor: pointer;">&times;</span>
@@ -190,6 +205,44 @@ Pateicamies par uzticību mūsu pakalpojumiem!</p>
             </form>
 
             </div>
+    </div>
+    <div id="modal3" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal3')" style="cursor: pointer;">&times;</span>
+        <p>Vai vēlaties rediģēt savu lietotājvaru?</p>
+        <form class='ChangeUserForm' action="user_info.php" method='POST'>
+            <input name='ChangeUser' value="<?= $userInfo['username'] ?>">
+            <button name='ChangeUserBtn' type='submit' class="cancel-btn">Rediģēt</button>
+        </form>
+    </div>
+</div>
+<div id="modal4" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal4')" style="cursor: pointer;">&times;</span>
+        <p>Vai vēlaties rediģēt savu tālruni?</p>
+        <form class='ChangePhoneForm' action="user_info.php" method='POST'>
+            <input name='ChangePhone' value="<?= $userInfo['phone'] ?>">
+            <button name='ChangePhoneBtn' type='submit' class="cancel-btn">Rediģēt</button>
+        </form>
+    </div>
+</div>
+<div id="modal5" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal5')" style="cursor: pointer;">&times;</span>
+        <p>Vai vēlaties rediģēt savu e-pastu?</p>
+        <form class='ChangeEmailForm' action="user_info.php" method='POST'>
+            <input name='ChangeEmail' value="<?= $userInfo['email'] ?>">
+            <button name='ChangeEmailBtn' type='submit' class="cancel-btn">Rediģēt</button>
+        </form>
+    </div>
+</div>
+
+    <div id="modal6" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal6')"style="cursor: pointer;">&times;</span>
+            <p>Vai vēlaties rediģēt savu lietotājvaru?</p>
+
+        </div>
     </div>
 </body>
 </html>

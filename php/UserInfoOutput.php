@@ -17,6 +17,7 @@ class UserBookings {
         }
     }
 
+///------------------------Код вывода информации о пользователе---------------------------------- 
     public function displayUserInfo() {
         $userInfo = array();
     
@@ -36,38 +37,8 @@ class UserBookings {
     
         return $userInfo;
     }
-    // public function deleteProfile() {
-    //     if (isset($_POST['deleteUser'])) {
-    //         $user_id = $_SESSION['user_id']; 
-    //         if (!is_numeric($user_id)) {
-    //             echo "Ошибка: Некорректный ID пользователя";
-    //             return; 
-    //         }
-    
-    //
-    //         $delsql = "DELETE FROM `users` WHERE `user_id` = $user_id";
-    //         $delsql = "DELETE FROM `user_details` WHERE `user_id` = $user_id";
-    //         $delsql = "DELETE FROM `tickets` WHERE `user_id` = $user_id";
-    //         $delsql = "DELETE FROM `profile_images` WHERE `user_id` = $user_id";
-    //   
-    //         $result = $this->mysqli->query($delsql);
-    
-    //      
-    //         if ($result) {
-    // 
-    //             session_destroy();
-    //            
-    //             header("Location: index.php");
-    //             exit();
-    //         } else {
-    //            
-    //             echo "Ошибка при удалении пользователя: " . $this->mysqli->error;
-    //         }
-    //         
-    //     }
-    // }
-    
-    
+
+///------------------------Код удаления профиля ----------------------------------       
     public function deleteProfile() {
         if (isset($_POST['deleteUser'])) {
             $user_id = $_SESSION['user_id']; 
@@ -86,11 +57,12 @@ class UserBookings {
             session_destroy();
     
          
-            header("Location: index.php");
+            echo "<meta http-equiv='refresh' content='0;url=index.php'>";
             exit();
         }
     }
-    
+
+///------------------------Код удаления всех данных о пользователе ----------------------------------    
     private function deleteFromTable($tableName, $userId) {
         $delsql = "DELETE FROM `$tableName` WHERE `user_id` = $userId";
         $result = $this->mysqli->query($delsql);
@@ -99,11 +71,8 @@ class UserBookings {
             // echo "Ошибка при удалении из таблицы $tableName: " . $this->mysqli->error;
         }
     }
-    
-    
-    
-    
-    
+
+///------------------------Вывод информации о билете пользователя и полете ----------------------------------
     public function displayFlightInfo() {
         // Инициализируем массив для хранения данных
         $flightInfo = array();
@@ -139,15 +108,91 @@ class UserBookings {
 
             }
         } else {
-
+            $flightInfo['seat'] = '';
+            $flightInfo['price'] = '';
+            $flightInfo['airline'] = 'biļešu nav.';
+            $flightInfo['arrival_date'] = '';
+            $flightInfo['departure_date'] = '';
+            $flightInfo['arrival_time'] = '';
+            $flightInfo['departure_time'] = '';
         }
     
        
         return $flightInfo;
     }
     
+///------------------------Функция смены информации ----------------------------------
+
+public function ChangeUserInfo(){
+    if (isset($_POST['ChangeUserBtn'])) {
+        $newUsername = $_POST['ChangeUser']; 
+        $user_id = $_SESSION['user_id']; 
+      
+        if (!is_numeric($user_id)) {
+          
+            return; 
+        }
+      
+        $sql = "UPDATE `users` SET `username` = '$newUsername' WHERE `user_id` = $user_id";
+        $result = $this->mysqli->query($sql);
+       
+        if ($result) {
+
+            echo "<meta http-equiv='refresh' content='0;url=user_info.php'>";
+            exit();
+        } else {
+
+        }
+    }
+
+  
+    if (isset($_POST['ChangePhoneBtn'])) {
+        $newPhone = $_POST['ChangePhone']; 
+        $user_id = $_SESSION['user_id']; 
+   
+        if (!is_numeric($user_id)) {
+          
+            return; 
+        }
+
+        $sql = "UPDATE `users` SET `phone` = '$newPhone' WHERE `user_id` = $user_id";
+        $result = $this->mysqli->query($sql);
     
-    
+        if ($result) {
+
+            echo "<meta http-equiv='refresh' content='0;url=user_info.php'>";
+            exit();
+        } else {
+
+        }
+    }
+
+
+    if (isset($_POST['ChangeEmailBtn'])) {
+        $newEmail = $_POST['ChangeEmail']; 
+        $user_id = $_SESSION['user_id']; 
+      
+        if (!is_numeric($user_id)) {
+        
+            return; 
+        }
+
+        $sql = "UPDATE `users` SET `email` = '$newEmail' WHERE `user_id` = $user_id";
+        $result = $this->mysqli->query($sql);
+      
+        if ($result) {
+
+            echo "<meta http-equiv='refresh' content='0;url=user_info.php'>";
+            exit();
+        } else {
+
+        }
+    }
+}
+
+
+///------------------------Функция получения данных из таблицы Booking ПОТОМ УДАЛИТЬ ----------------------------------
+
     public function getUserBookings() {////переделать 
         $sql = "SELECT bookings.booking_id, bookings.user_id, bookings.flight_id, bookings.booking_date, bookings.seat_number 
                 FROM bookings
@@ -195,7 +240,7 @@ class UserBookings {
         }
     }
     
-
+ ///------------------------Функция удаления данных из таблицы Booking ПОТОМ УДАЛИТЬ ----------------------------------
     public function deleteBooking() {
         if (isset($_POST['delete'])) {
             $id = $_POST['delete'];
@@ -203,10 +248,12 @@ class UserBookings {
         }
     }
 
+ ///------------------------Закрытие подключения к бд ----------------------------------
     public function closeDatabaseConnection() {
         $this->mysqli->close();
     }
 
+///------------------------Вывод картинки пользователя/админа ----------------------------------
     public function displayUserProfileImage() {
         $user_id = $_SESSION['user_id'];
         $sql = "SELECT * FROM profile_images WHERE user_id = $user_id";
@@ -246,4 +293,5 @@ echo '<form action="logout.php" method="POST">
      </form>';
       $userBookings->getUserBookings();
       
+ob_start(); // Начать буферизацию вывода
 ?>

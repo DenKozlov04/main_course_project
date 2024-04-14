@@ -1,4 +1,5 @@
 <?php 
+    // include 'download_pdf.php';
     include 'UserInfoOutput.php';
     
     $userBookings = new UserBookings();
@@ -9,7 +10,7 @@
     // Вызываем метод ChangeUserInfo для обновления информации о пользователе
     $userBookings->ChangeUserInfo();
 
-    // После обновления информации, снова вызываем метод displayUserInfo, чтобы получить обновленные данные
+    // снова вызываем метод displayUserInfo, чтобы получить обновленные данные
     $userInfo = $userBookings->displayUserInfo();
 
 
@@ -92,7 +93,8 @@
                     <div class='RezInfoText3'>Cena</div>
                     <div class='RezInfoText4'>Atiešanas datums</div>
                     <div class='RezInfoText5'>Ierašanas datums</div>
-                    <button class='CopyBtn'>Kopēt visu </button>
+                    <button class='CopyBtn'>Kopēt visu  <img class='printerImg'src="../images/printer.png" alt=""></button>
+                    <button class='denieBtn'>Atcelt</button>
                 </div>
                 <div class='RezInfo2'>
                 <div class='Reiss'><?= $flightInfo['airline'] ?></div>
@@ -101,13 +103,17 @@
                     <div class='Atiešanas_datums'><?= $flightInfo['departure_date']?></div>
                     <div class='Ierašanas_datums'><?= $flightInfo['arrival_date']?></div>
                 </div>
-                <button class='downloadBtn'>Saglabāt kā PDF </button>
+                <button id="downloadBtn" class='downloadBtn'>Saglabāt kā PDF </button>
+                <script src='../JS/DownloadPdf.js'></script>
+
+
+
                 <div class='TimeInfo1'>
                     <div class='AtLaiks'><?= $flightInfo['departure_time']?></div>
                     <div class='IerLaiks'><?= $flightInfo['arrival_time']?></div>
                 </div>
             </div>
-            <div class='BoxTitle3'>Vēsture</div>
+            <div class='BoxTitle3'>Vēsture(šeit jus varat redzēt jūsu lidojumu vēsture)</div>
             <div class=ScrollBox>
             <div class='RezBox2'>
                 <div class='GreyLine'></div>
@@ -122,7 +128,8 @@
                     <div class='RezInfoText3'>Cena</div>
                     <div class='RezInfoText4'>Atiešanas datums</div>
                     <div class='RezInfoText5'>Ierašanas datums</div>
-                    <button class='CopyBtn'>Kopēt visu </button>
+                    <button class='CopyBtn'>Kopēt visu <img class='printerImg2'src="../images/printer.png" alt=""></button>
+                   
                 </div>
                 <div class='RezInfo2'>
                     <div class='Reiss'>Rīga-Parize</div>
@@ -241,7 +248,10 @@ Pateicamies par uzticību mūsu pakalpojumiem!</p>
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal6')"style="cursor: pointer;">&times;</span>
             <p>Vai vēlaties rediģēt savu lietotājvaru?</p>
-
+            <form class='ChangePasswordForm' action="user_info.php" method='POST'>
+                <input name='ChangePassword' value="" placeholder='jauna parole'>
+                <button name='ChangePasswordBtn' type='submit' class="cancel-btn">Rediģēt</button>
+            </form>
         </div>
     </div>
 </body>

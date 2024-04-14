@@ -133,13 +133,39 @@ body {
     margin-left: 400px;
     margin-top:1335px;
   }
+  .printerImg{
+    position: absolute;
+    width:15px;
+    height:15px;
+    margin-top: 1px;
+    margin-left: 3px;
+  }
+  .printerImg2{
+    position: absolute;
+    width:15px;
+    height:15px;
+    margin-top: 1px;
+    margin-left: 3px;
+  }
   .AvatharImgBox1{
     position: absolute;
     z-index: 1;
     margin-top:285px;
     margin-left:430px;
   } 
-
+  .denieBtn{
+    position: absolute;
+    margin-left: 800px;
+    color: #ffffff;
+    width:60px;
+    height: 27px;
+    background-color: #DE6A6A;
+    font: inherit; 
+    cursor: pointer; 
+    outline: none; 
+    border: none; 
+    border-radius:5px;
+  }
   .Info1{
     position: absolute;
     font-size: 25px;
@@ -383,11 +409,14 @@ body {
 }
 .CopyBtn {
     position: absolute;
-    margin-left: 880px;
+    margin-left: 870px;
     color: #b4b4b4;
     background-color: #e7e7e7;
     border: none; 
     padding: 4; 
+    padding-left: 0;
+
+    width: 110px;
     border-radius: 5px;
     font: inherit; 
     cursor: pointer; 

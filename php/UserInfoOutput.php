@@ -188,6 +188,27 @@ public function ChangeUserInfo(){
 
         }
     }
+    if (isset($_POST['ChangePasswordBtn'])) {
+        $newPassword = $_POST['ChangePassword']; 
+        $hashedPassword = md5($newPassword . "356ads34749ad9s");
+        $user_id = $_SESSION['user_id']; 
+      
+        if (!is_numeric($user_id)) {
+        
+            return; 
+        }
+
+        $sql = "UPDATE `users` SET `password` = '$hashedPassword' WHERE `user_id` = $user_id";
+        $result = $this->mysqli->query($sql);
+      
+        if ($result) {
+
+            echo "<meta http-equiv='refresh' content='0;url=user_info.php'>";
+            exit();
+        } else {
+
+        }
+    }
 }
 
 

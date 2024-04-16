@@ -93,7 +93,7 @@
                     <div class='RezInfoText3'>Cena</div>
                     <div class='RezInfoText4'>Atiešanas datums</div>
                     <div class='RezInfoText5'>Ierašanas datums</div>
-                    <button class='CopyBtn'>Kopēt visu  <img class='printerImg'src="../images/printer.png" alt=""></button>
+                    <!-- <button class='CopyBtn'>Kopēt visu  <img class='printerImg'src="../images/printer.png" alt=""></button> -->
                     <button class='denieBtn'>Atcelt</button>
                 </div>
                 <div class='RezInfo2'>
@@ -128,7 +128,7 @@
                     <div class='RezInfoText3'>Cena</div>
                     <div class='RezInfoText4'>Atiešanas datums</div>
                     <div class='RezInfoText5'>Ierašanas datums</div>
-                    <button class='CopyBtn'>Kopēt visu <img class='printerImg2'src="../images/printer.png" alt=""></button>
+                    <!-- <button class='CopyBtn'>Kopēt visu <img class='printerImg2'src="../images/printer.png" alt=""></button> -->
                    
                 </div>
                 <div class='RezInfo2'>

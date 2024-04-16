@@ -4,6 +4,8 @@
         xhr.responseType = 'blob'; // указываем, что мы ожидаем ответ в виде blob (бинарные данные)
         xhr.onload = function() {
             if (this.status === 200) {
+                var blob = this.response;
+                console.log('Received blob:', blob);
                 var blob = new Blob([this.response], {type: 'application/pdf'});
                 var link = document.createElement('a');
                 link.href = window.URL.createObjectURL(blob);

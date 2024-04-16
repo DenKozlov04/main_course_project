@@ -1,2 +1,4 @@
 # .gitattributes
 # * text=auto eol=lf может сломать проект
+composer.lock text eol=lf
+vendor/* text eol=lf

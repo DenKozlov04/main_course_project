@@ -113,7 +113,7 @@ body {
   .InfoBox3{
     position:absolute;
     width:1050px;
-    height:400px;
+    height:1100px;
     background-color: #FFFFFF;
     border-radius: 10px;
     border: 2px solid #e9e9e9;
@@ -124,7 +124,7 @@ body {
     position: absolute;
     margin-left:400px;
     z-index: 1;
-    margin-top:220px;
+    margin-top:50px;
     margin-left:370px;
   } 
   .BoxTitle21{
@@ -241,7 +241,7 @@ body {
     z-index: 1;
   } 
   .BigBox{
-    margin-top:200px;
+    margin-top:170px;
   }
 
   .InfoPost1{
@@ -310,12 +310,31 @@ body {
   position:absolute;
   margin-top:275px;
   width:99.80%;
+  height:460px;
+  background-color: #FFFFFF;
+  /* border-radius: 10px; */
+  border: 1px solid #e9e9e9;
+
+  justify-content: space-between;
+}
+
+.RezBox6{
+  position:absolute;
+  margin-top:660px;
+  margin-top:0px;
+  width:99.80%;
   height:110px;
   background-color: #FFFFFF;
   /* border-radius: 10px; */
   border: 1px solid #e9e9e9;
 
 }
+.BigBox2{
+  margin-top:500px;
+}
+/* .BigBox{
+  margin-top:500px;
+} */
 .ScrollBox{
   position:absolute;
   margin-top:230px;
@@ -510,3 +529,72 @@ body {
 .IerLaiks{
 margin-left: 130px;
 } 
+.AddChildrenForm select,
+.AddChildrenForm input {
+  z-index: 1;
+  /* position: absolute; */
+  border: 1px solid rgb(224, 224, 224); 
+  background-color: rgb(245, 245, 245); 
+  padding: 8px;
+  margin-left:20px;
+  margin-top: 0px;
+
+}
+.AddChildrenDiv{
+  margin-left:320px;
+  margin-top:-310px;
+}
+.AddChildrenForm label{
+  z-index: 1;
+  /* position: absolute; */
+  padding: 8px;
+  margin-left:20px;
+  margin-top: 10px;
+
+}
+.AddChildrenForm label {
+  display: block; /* Установить блочный тип для элемента label */
+  margin-bottom: 0px; /* Отступ снизу между label и input/select */
+}
+.add-btn{
+  color: #ffffff;
+  position: absolute; 
+  margin-left: 20px;
+  background-color: #DE6A6A;
+  width: 180px;
+  height: 45px;
+  font: inherit; 
+  cursor: pointer; 
+  outline: none; 
+  border: none; 
+  border-radius:5px;
+margin-top: 20px;
+}
+/* .AddChildrenName{
+  position: absolute;
+  margin-top:40px;
+}
+.AddChildrenSurname{
+  position: absolute;
+  margin-top:90px;
+}
+.AddChildrenGender{
+  position: absolute;
+  margin-top:140px;
+}
+.AddChildrenNationality{
+  position: absolute;
+  margin-top:200px;
+}
+.AddChildrenPassNumber{
+  position: absolute;
+  margin-top:240px;
+}
+.AddChildrenpassIssuedDate{
+  position: absolute;
+  margin-top:290px;
+}
+.AddChildrenpassExpirationDate{
+  position: absolute;
+  margin-top:340px;
+} */

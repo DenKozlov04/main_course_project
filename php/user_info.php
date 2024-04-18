@@ -165,7 +165,69 @@
                 <div class='GreyPlc'>
                 <div class='Infotxt1'>Bērnu un jauniešu reģistrācija (2-16 gadi)</div>
                 </div>
+                <form class='AddChildrenForm' action="user_info.php" method='POST'>
+                    <label for="AddChildrenName">Bērna vārds</label>
+                    <input name='AddChildrenName' value="" placeholder='Bērna vārds'><br>
+
+                    <label for="AddChildrenSurname">Bērna uzvārds</label>
+                    <input name='AddChildrenSurname' value="" placeholder='Bērna uzvārds'><br>
+
+                    <label for="AddChildrenGender">Dzimums</label>
+                    <select id="gender" name="AddChildrenGender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="N/M">N/M</option>
+                    </select><br>
+
+                    <label for="AddChildrenNationality">Valstspiederība</label>
+                    <input type="text" id="nationality" name="AddChildrenNationality" placeholder="Latvian"><br>
+                    <div class='AddChildrenDiv'>
+                        <label for="AddChildrenPassNumber">Pases numurs</label>
+                        <input type="text" id="Passport_number" name="AddChildrenPassNumber" placeholder="XXXXXXX (The length of the passport number may vary depending on the country of issue)" style="width: 640px;"><br>
+
+                        <label for="AddChildrenpassIssuedDate">Pases izdošanas datums</label>
+                        <input type="text" id="passportIssuedDate" name="AddChildrenpassIssuedDate" placeholder="YYYY-MM-DD"><br>
+
+                        <label for="AddChildrenpassExpirationDate">Pases izņemšanas datums</label>
+                        <input type="text" id="passportExpirationDate" name="AddChildrenpassExpirationDate" placeholder="YYYY-MM-DD"><br>
+
+                        <button name='AddChildrenBtn' type='submit' class="add-btn">Pievienot Bērnu</button>
+                    </div>
+                </form>
+
             </div>
+            <div class='BigBox2'>
+            <div class='BoxTitle3'>Bērni:</div>
+            <div class=ScrollBox>
+            <div class='RezBox6'>
+                <div class='GreyLine'></div>
+                <div class='GreyLine2'></div>
+                <div class='GreyLine3'></div>
+                <div class='GreyLine4'></div>
+                <div class='GreyLine5'></div>
+                <div class='GreyPlc'></div>
+                <div class='RezInfo'>
+                    <div class='RezInfoText1'>Vārds</div>
+                    <div class='RezInfoText2'>Uzvārds</div>
+                    <div class='RezInfoText3'>Vieta</div>
+                    <div class='RezInfoText4'>Valstspiederība</div>
+                    <div class='RezInfoText5'>Pases numurs</div>
+                    <!-- <button class='CopyBtn'>Kopēt visu <img class='printerImg2'src="../images/printer.png" alt=""></button> -->
+                   
+                </div>
+                <div class='RezInfo2'>
+                    <div class='Reiss'>Max</div>
+                    <div class='Vieta'>Maximov</div>
+                    <div class='Cena'>F31</div>
+                    <div class='Atiešanas_datums'>Latvietis</div>
+                    <div class='Ierašanas_datums'>ABC2623636</div>
+                </div>
+                <button class='downloadBtn2'>Dzēst </button>
+
+            </div>
+            </div>
+        </div>
+
         </div>
     </div>
     <!-- окна поп апа -->
@@ -247,7 +309,7 @@ Pateicamies par uzticību mūsu pakalpojumiem!</p>
     <div id="modal6" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal6')"style="cursor: pointer;">&times;</span>
-            <p>Vai vēlaties rediģēt savu lietotājvaru?</p>
+            <p>Vai vēlaties rediģēt savu paroli?</p>
             <form class='ChangePasswordForm' action="user_info.php" method='POST'>
                 <input name='ChangePassword' value="" placeholder='jauna parole'>
                 <button name='ChangePasswordBtn' type='submit' class="cancel-btn">Rediģēt</button>

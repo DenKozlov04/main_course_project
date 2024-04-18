@@ -37,7 +37,10 @@ class UserBookings {
     
         return $userInfo;
     }
+///------------------------Вывод/добавления информации ребенке ----------------------------------
+    public function displayAddChildInfo() {
 
+    }
 ///------------------------Код удаления профиля ----------------------------------       
     public function deleteProfile() {
         if (isset($_POST['deleteUser'])) {

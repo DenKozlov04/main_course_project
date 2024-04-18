@@ -1,7 +1,7 @@
 <?php 
     // include 'download_pdf.php';
     include 'UserInfoOutput.php';
-    
+
     $userBookings = new UserBookings();
     $flightInfo = $userBookings->displayFlightInfo();
     $userInfo = $userBookings->displayUserInfo();

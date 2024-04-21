@@ -2,16 +2,20 @@
     // include 'download_pdf.php';
     include 'UserInfoOutput.php';
     include 'ChooseChildrenSeat.php';
-    
+    include 'BigPopUpOutput.php';
+
+    $Childdelete = new AddInfo();
     $userBookings = new UserBookings();
     $flightInfo = $userBookings->displayFlightInfo();
     $userInfo = $userBookings->displayUserInfo();
     $userOutput = $userBookings->deleteProfile();
     $AddChildInfo = $userBookings->AddChildInfo();
     $childInfo = $userBookings->displayChildInfo();
+    $DeleteChild = $Childdelete->DeleteChildren();
+    $DenieFlight = $userBookings->DenieFlight();
 
     $userBookings->ChangeUserInfo();
-    // $userBookings->AddChildInfo();
+    $userBookings->DenieFlight();
     $userBookings->displayChildInfo();
     // снова вызываем метод displayUserInfo, чтобы получить обновленные данные
     $userInfo = $userBookings->displayUserInfo();
@@ -112,7 +116,7 @@
                     <div class='RezInfoText4'>Atiešanas datums</div>
                     <div class='RezInfoText5'>Ierašanas datums</div>
                     <!-- <button class='CopyBtn'>Kopēt visu  <img class='printerImg'src="../images/printer.png" alt=""></button> -->
-                    <button class='denieBtn'>Atcelt</button>
+                    <button class='denieBtn'onclick="openModal('modal8')">Atcelt</button>
                 </div>
                 <div class='RezInfo2'>
                 <div class='Reiss'><?= $flightInfo['airline'] ?></div>
@@ -215,6 +219,7 @@
                 </form>
 
             </div>
+            <button name='Btn'onclick="openModal('modal7')" type='submit' class="downloadBtn3">Izvelēt vietu</button>
             <div class='BigBox2'>
             <div class='BoxTitle3'>Bērni:</div>
             <div class=ScrollBox>
@@ -234,6 +239,11 @@
                     <!-- <button class='CopyBtn'>Kopēt visu <img class='printerImg2'src="../images/printer.png" alt=""></button> -->
                    
                 </div>
+                <!-- <form class='ChooseSeatForm' action="user_info.php" method='POST'>
+                    <input type='hidden' name='ChooseSeat'>
+                    <button name='ChooseSeatBtn' type='submit' class="downloadBtn3">Izvelēt vietu</button>
+                </form> -->
+                
                 <div class='RezInfo2'>
                     <div class='Reiss'><?= $childInfo['Name'] ?></div>
                     <div class='Vieta'><?= $childInfo['Surname'] ?></div>
@@ -241,7 +251,10 @@
                     <div class='Atiešanas_datums'><?= $childInfo['Nationality'] ?></div>
                     <div class='Ierašanas_datums'><?= $childInfo['PassportNumber'] ?></div>
                 </div>
-                <button class='downloadBtn2'>Dzēst </button>
+                <form class='DeleteForm' action="user_info.php" method='POST'>
+                    <input type='hidden' name='DeleteChildren'>
+                    <button name='DeleteChildrenBtn' type='submit' class="downloadBtn2">Dzēst</button>
+                </form>
             </div>
             </div>
         </div>
@@ -331,6 +344,16 @@ Pateicamies par uzticību mūsu pakalpojumiem!</p>
             <form class='ChangePasswordForm' action="user_info.php" method='POST'>
                 <input name='ChangePassword' value="" placeholder='jauna parole'>
                 <button name='ChangePasswordBtn' type='submit' class="cancel-btn">Rediģēt</button>
+            </form>
+        </div>
+    </div>
+    <div id="modal8" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal8')"style="cursor: pointer;">&times;</span>
+            <p>Vai vēlaties dzēst savu lidojumu?</p>
+            <form class='DenieFlightForm' action="user_info.php" method='POST'>
+                <input type='hidden' name='DenieFlight' value="">
+                <button name='DenieFlightBtn' type='submit' class="cancel-btn">Atcelt</button>
             </form>
         </div>
     </div>

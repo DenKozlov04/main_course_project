@@ -210,7 +210,31 @@ class UserBookings {
        
         return $flightInfo;
     }
-    
+///------------------------Функция омены полета ----------------------------------
+    public function DenieFlight(){
+        if (isset($_POST['DenieFlight'])) {
+            $user_id = $_SESSION['user_id']; 
+
+            // Удаляем из таблицы tickets
+            $sql_tickets = "DELETE FROM tickets WHERE user_id = $user_id";
+            $result_tickets = $this->mysqli->query($sql_tickets);
+            
+            // Удаляем из таблицы children (если она не пустая)
+            $sql_children = "DELETE FROM children WHERE user_id = $user_id";
+            $result_children = $this->mysqli->query($sql_children);
+
+            // Проверяем успешность выполнения обоих запросов
+            if ($result_tickets !== false || $result_children !== false) {
+                echo "<meta http-equiv='refresh' content='0;url=user_info.php'>";
+                exit();
+            } else {
+                // Обработка ошибки, если не удалось выполнить один из запросов
+            }
+        }
+    }
+
+
+
 ///------------------------Функция смены информации ----------------------------------
 
 public function ChangeUserInfo(){

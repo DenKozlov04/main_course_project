@@ -347,6 +347,21 @@ body {
   
   
 }
+.downloadBtn3{
+  position: absolute;
+  color: #ffffff;
+  position: absolute; 
+  margin-top: 567px; 
+  margin-left: 550px;
+  background-color: #DE6A6A;
+  width: 165px;
+  height: 45px;
+  font: inherit; 
+  cursor: pointer; 
+  outline: none; 
+  border: none; 
+  border-radius:5px;
+}
 .downloadBtn2{
   position: absolute;
   color: #ffffff;

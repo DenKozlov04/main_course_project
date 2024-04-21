@@ -37,10 +37,97 @@ class UserBookings {
     
         return $userInfo;
     }
-///------------------------Вывод/добавления информации ребенке ----------------------------------
-    public function displayAddChildInfo() {
+///------------------------добавления информации ребенке ----------------------------------
+    public function AddChildInfo() {
+        if (isset($_POST['AddChildrenBtn'])) {
+            $user_id = $_SESSION['user_id']; 
+            $child_name = $_POST['AddChildrenName'];
+            $child_surname = $_POST['AddChildrenSurname'];
+            $child_gender = $_POST['AddChildrenGender'];
+            $child_nationality = $_POST['AddChildrenNationality'];
+            $passport_number = $_POST['AddChildrenPassNumber'];
+            $passport_issued_date = $_POST['AddChildrenpassIssuedDate'];
+            $passport_expiration_date = $_POST['AddChildrenpassExpirationDate'];
+            
+            $alert = ''; // Инициализируем переменную $alert
 
+            if (mb_strlen($child_name) < 1 || mb_strlen($child_name) > 255) {
+                $alert = 'Incorrect child name';
+            } elseif (mb_strlen($child_surname) < 1 || mb_strlen( $child_surname) > 255) {
+                $alert = 'Incorrect child surname';
+            } elseif (mb_strlen($child_nationality) < 1 || mb_strlen($child_nationality) > 255) {
+                $alert = 'Incorrect child nationality';
+            } elseif (mb_strlen($passport_number) < 5 || mb_strlen($passport_number) > 17) {
+                $alert = 'Incorrect passport_number length (from 5 to 17 symbols)';
+            }
+
+            // Проверяем, существует ли паспортный номер в базе данных
+            if (empty($alert)) {
+                $sql_check_passport = "SELECT Passport_number FROM children WHERE Passport_number = ?";
+                $stmt_check_passport = $this->mysqli->prepare($sql_check_passport);
+                $stmt_check_passport->bind_param("s", $passport_number);
+                $stmt_check_passport->execute();
+                $result_check_passport = $stmt_check_passport->get_result();
+                if ($result_check_passport->num_rows > 0) {
+                    $alert = "This passport number already exists";
+                } else {
+                    // Подготавливаем и выполняем запрос на вставку новой записи
+                    $stmt = $this->mysqli->prepare("INSERT INTO children (user_id, Name, Surname, Gender, Nationality, Passport_number, passportIssuedDate, passportExpirationDate) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+                    $stmt->bind_param("isssssss", $user_id, $child_name, $child_surname, $child_gender, $child_nationality, $passport_number, $passport_issued_date, $passport_expiration_date);
+                    if ($stmt->execute()) {
+                        // Успешно добавлено
+                    } else {
+                        echo "Error: " . $this->mysqli->error;
+                    }
+                }
+            }
+
+            // Выводим алерт, если есть ошибка
+            if ($alert) {
+                echo "<meta http-equiv='refresh' content='0;url=user_info.php?alert=" . urlencode($alert) . "'>";
+                exit();
+            }
+        }
     }
+
+///------------------------вывод информации ребенке ----------------------------------
+    public function displayChildInfo() {
+        // Инициализируем массив для хранения данных
+        $childInfo = array();
+
+        // Выполняем SQL запрос для получения данных о детях пользователя
+        $sql = "SELECT Name, Surname, Gender, Nationality, Passport_number, passportIssuedDate, passportExpirationDate FROM children WHERE user_id = {$_SESSION['user_id']}";
+        $result = $this->mysqli->query($sql);
+
+        // Проверяем, есть ли результаты запроса
+        if ($result->num_rows > 0) {
+            // Извлекаем данные из результата запроса
+            $row = $result->fetch_assoc();
+
+            // Сохраняем полученные данные в массив
+            $childInfo['Name'] = $row['Name'];
+            $childInfo['Surname'] = $row['Surname'];
+            $childInfo['Gender'] = $row['Gender'];
+            $childInfo['Nationality'] = $row['Nationality'];
+            $childInfo['PassportNumber'] = $row['Passport_number'];
+            $childInfo['PassportIssuedDate'] = $row['passportIssuedDate'];
+            $childInfo['PassportExpirationDate'] = $row['passportExpirationDate'];
+        } else {
+            // Если данные о детях не найдены, устанавливаем значения по умолчанию
+            $childInfo['Name'] = '';
+            $childInfo['Surname'] = '';
+            $childInfo['Gender'] = '';
+            $childInfo['Nationality'] = '';
+            $childInfo['PassportNumber'] = '';
+            $childInfo['PassportIssuedDate'] = '';
+            $childInfo['PassportExpirationDate'] = '';
+        }
+
+        // Возвращаем массив данных о детях
+        return $childInfo;
+    }
+
+
 ///------------------------Код удаления профиля ----------------------------------       
     public function deleteProfile() {
         if (isset($_POST['deleteUser'])) {

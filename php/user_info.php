@@ -1,20 +1,25 @@
 <?php 
     // include 'download_pdf.php';
     include 'UserInfoOutput.php';
-
+    include 'ChooseChildrenSeat.php';
+    
     $userBookings = new UserBookings();
     $flightInfo = $userBookings->displayFlightInfo();
     $userInfo = $userBookings->displayUserInfo();
     $userOutput = $userBookings->deleteProfile();
+    $AddChildInfo = $userBookings->AddChildInfo();
+    $childInfo = $userBookings->displayChildInfo();
 
-    // Вызываем метод ChangeUserInfo для обновления информации о пользователе
     $userBookings->ChangeUserInfo();
-
+    // $userBookings->AddChildInfo();
+    $userBookings->displayChildInfo();
     // снова вызываем метод displayUserInfo, чтобы получить обновленные данные
     $userInfo = $userBookings->displayUserInfo();
 
 
+
 ?>
+
 
 
 <!DOCTYPE html>
@@ -26,6 +31,19 @@
     <script src='../JS/OpenInfoPopUp.js'></script>
     <title>profile</title>
 </head>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const alertMessage = urlParams.get('alert');
+
+    if (alertMessage) {
+        swal({
+            title: 'Error!',
+            text: decodeURIComponent(alertMessage),
+            icon: 'error',
+            button: 'OK'
+        });
+    }
+</script>
 <body>
 
     <div class='rectangleHeader'>
@@ -166,6 +184,7 @@
                 <div class='Infotxt1'>Bērnu un jauniešu reģistrācija (2-16 gadi)</div>
                 </div>
                 <form class='AddChildrenForm' action="user_info.php" method='POST'>
+                    <input type='hidden' name='AddChild'>
                     <label for="AddChildrenName">Bērna vārds</label>
                     <input name='AddChildrenName' value="" placeholder='Bērna vārds'><br>
 
@@ -216,14 +235,13 @@
                    
                 </div>
                 <div class='RezInfo2'>
-                    <div class='Reiss'>Max</div>
-                    <div class='Vieta'>Maximov</div>
-                    <div class='Cena'>F31</div>
-                    <div class='Atiešanas_datums'>Latvietis</div>
-                    <div class='Ierašanas_datums'>ABC2623636</div>
+                    <div class='Reiss'><?= $childInfo['Name'] ?></div>
+                    <div class='Vieta'><?= $childInfo['Surname'] ?></div>
+                    <div class='Cena'><?= $childInfo['Gender'] ?></div>
+                    <div class='Atiešanas_datums'><?= $childInfo['Nationality'] ?></div>
+                    <div class='Ierašanas_datums'><?= $childInfo['PassportNumber'] ?></div>
                 </div>
                 <button class='downloadBtn2'>Dzēst </button>
-
             </div>
             </div>
         </div>

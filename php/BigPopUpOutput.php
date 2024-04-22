@@ -1,29 +1,35 @@
+<?php
+// include 'ChooseChildrenSeat.php';
+?>
+
 
 <div id="modal7" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal7')"style="cursor: pointer;">&times;</span>
             <p>Visas vietas</p>
             <form class='ChooseSeatForm' action="user_info.php" method='POST'>
-                <input type='hidden' name='ChooseSeat'>
-                <button name='ChooseSeatBtn' type='submit' class="downloadBtn3">Izvelēt vietu</button>
+            <input type='hidden' name='ChooseSeat'>
+            <input type='hidden' name='Price' id='priceField'>
+            <input type='hidden' name='PlaceName' id='placeNameField'>
+            <button name='ChooseSeatBtn' type='submit' class="downloadBtn3">Izvelēt vietu</button>
                 <div class='ButtonRect1'>
 
-    <button class='PlaceButton' id="Seat1" name="PlaceSelection" data-clicked="false" data-extra-value="A1" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice(this); toggleButtonColor(this)'>
+    <button class='PlaceButton' id="Seat1" name="PlaceSelection" data-clicked="false" data-extra-value="A1" value='' onclick='PlusChildSeatPrice(this); toggleButtonColor(this)'>
         <div class='PricePlace'>29.99€</div>
         <span class='SeatLocation'>A1</span>
     </button>
 
-    <button class='PlaceButton' id="Seat2" name="PlaceSelection" data-clicked="false" data-extra-value="A2" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice(this); toggleButtonColor(this)'>
+    <button class='PlaceButton' id="Seat2" name="PlaceSelection" data-clicked="false" data-extra-value="A2" value='' onclick='PlusChildSeatPrice(this); toggleButtonColor(this)'>
         <div class='PricePlace'>29.99€</div>
         <span class='SeatLocation'>A2</span>
     </button>
 
-    <button class='PlaceButton' id="Seat3" name="PlaceSelection" data-clicked="false" data-extra-value="A3" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice(this); toggleButtonColor(this)'>
+    <button class='PlaceButton' id="Seat3" name="PlaceSelection" data-clicked="false" data-extra-value="A3" value='' onclick='PlusChildSeatPrice(this); toggleButtonColor(this)'>
         <div class='PricePlace'>29.99€</div>
         <span class='SeatLocation'>A3</span>
     </button>
 
-    <button class='PlaceButton' id="Seat4" name="PlaceSelection" data-clicked="false" data-extra-value="A4" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice(this); toggleButtonColor(this)'>
+    <button class='PlaceButton' id="Seat4" name="PlaceSelection" data-clicked="false" data-extra-value="A4" value='' onclick='PlusChildSeatPrice(this); toggleButtonColor(this)'>
         <div class='PricePlace'>29.99€</div>
         <span class='SeatLocation'>A4</span>
     </button>

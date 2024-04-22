@@ -37,6 +37,19 @@ class UserBookings {
     
         return $userInfo;
     }
+///------------------------Данные о билете---------------------------------- 
+    public function AddChildrenSeat() {
+        if (isset($_POST['ChooseSeat'])) {
+            $user_id = $_SESSION['user_id']; 
+            $price = $_POST['Price'];
+            $Seat = $_POST['PlaceName'];
+            
+        
+            // error_log("Price: $price, Seat: $Seat");
+            
+        
+        } 
+    }
 ///------------------------добавления информации ребенке ----------------------------------
     public function AddChildInfo() {
         if (isset($_POST['AddChildrenBtn'])) {
@@ -75,7 +88,7 @@ class UserBookings {
                     $stmt = $this->mysqli->prepare("INSERT INTO children (user_id, Name, Surname, Gender, Nationality, Passport_number, passportIssuedDate, passportExpirationDate) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
                     $stmt->bind_param("isssssss", $user_id, $child_name, $child_surname, $child_gender, $child_nationality, $passport_number, $passport_issued_date, $passport_expiration_date);
                     if ($stmt->execute()) {
-                        // Успешно добавлено
+                        
                     } else {
                         echo "Error: " . $this->mysqli->error;
                     }

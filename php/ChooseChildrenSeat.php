@@ -17,18 +17,7 @@ class AddInfo {
             die("Connection failed: " . $this->mysqli->connect_error);
         }
     }
-    public function AddChildrenSeat() {
-        if (isset($_POST['ChooseSeat'])) {
-            $user_id = $_SESSION['user_id']; 
-            $price = $_POST['Price'];
-            $Seat = $_POST['PlaceName'];
-            
-           
-            // error_log("Price: $price, Seat: $Seat");
-            
-          
-        } 
-    }
+
     
     public function DeleteChildren() {
         if (isset($_POST['DeleteChildren'])) {

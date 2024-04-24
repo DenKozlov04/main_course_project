@@ -497,7 +497,7 @@ body {
     white-space: nowrap; 
 } */
 .RezInfo2 {
-  position: relative; /* Устанавливаем позиционирование родительского контейнера */
+  position: relative; 
   margin-left:32px;
   margin-top:30px;
   font-size: 20px;
@@ -505,9 +505,8 @@ body {
 }
 
 .RezInfo2 > * {
-  position: absolute; /* Устанавливаем позиционирование для дочерних элементов */
-  /* Укажите нужные значения top, left, right, bottom, чтобы разместить элементы */
-  /* Например: */
+  position: absolute; 
+
   top: 0;
   left: 15px;
   /* или */
@@ -583,8 +582,8 @@ margin-left: 130px;
 
 }
 .AddChildrenForm label {
-  display: block; /* Установить блочный тип для элемента label */
-  margin-bottom: 0px; /* Отступ снизу между label и input/select */
+  display: block;
+  margin-bottom: 0px; 
 }
 .add-btn{
   color: #ffffff;

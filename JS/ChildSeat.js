@@ -1,19 +1,22 @@
-function PlusChildSeatPrice(button) {
-    // Предотвращаем обновление страницы
-    event.preventDefault();
 
-    // Получаем цену и название места
+function PlusChildSeatPrice(button) {
+    event.preventDefault();
+    
     var price = button.querySelector('.PricePlace').innerText;
     var placeName = button.querySelector('.SeatLocation').innerText;
 
-    // Выводим значения в консоль
-    console.log("Цена: " + price);
-    console.log("Название места: " + placeName);
+   
+    console.log("price: " + price);
+    console.log("seat: " + placeName);
 
-    // Присваиваем значения скрытым полям формы
-    document.getElementById('priceField').value = price;
-    document.getElementById('placeNameField').value = placeName;
+   
+    document.getElementById('AddChildrenPrice').value = price;
+    document.getElementById('AddChildrenPlaceName').value = placeName;
+
+  
+    // document.querySelector('.AddChildrenForm').submit();
 }
+
 function toggleButtonColor(button){
     var activeClass = 'active';
     var buttons = document.querySelectorAll('.PlaceButton');
@@ -31,7 +34,7 @@ function toggleButtonColor(button){
     if (isActive) {
         button.style.backgroundColor = "#D9D9D9";
     } else {
-        // Иначе, выделяем текущую кнопку
+       
         button.classList.add(activeClass);
         button.style.backgroundColor = "#DE6A6A";
     } 

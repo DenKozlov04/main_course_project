@@ -7,12 +7,13 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal7')"style="cursor: pointer;">&times;</span>
             <p>Visas vietas</p>
-            <form class='ChooseSeatForm' action="user_info.php" method='POST'>
+            <form class='ChooseSeatForm' action="" method='POST'>
             <input type='hidden' name='ChooseSeat'>
             <input type='hidden' name='Price' id='priceField'>
             <input type='hidden' name='PlaceName' id='placeNameField'>
-            <button name='ChooseSeatBtn' type='submit' class="downloadBtn4">Izvelēt vietu</button>
+            <button name='ChooseSeatBtn' type='button' class="close" onclick="closeModal('modal7')">Izvelēt vietu</button>
                 <div class='ButtonRect1'>
+                    <!-- type='submit' -->
 
     <button class='PlaceButton' id="Seat1" name="PlaceSelection" data-clicked="false" data-extra-value="A1" value='' onclick='PlusChildSeatPrice(this); toggleButtonColor(this)'>
         <div class='PricePlace'>29.99€</div>

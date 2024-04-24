@@ -38,18 +38,19 @@ class UserBookings {
         return $userInfo;
     }
 ///------------------------Данные о билете---------------------------------- 
-    public function AddChildrenSeat() {
-        if (isset($_POST['ChooseSeat'])) {
-            $user_id = $_SESSION['user_id']; 
-            $price = $_POST['Price'];
-            $Seat = $_POST['PlaceName'];
+    // public function AddChildrenSeat() {
+    //     if (isset($_POST['ChooseSeat'])) {
+    //         $user_id = $_SESSION['user_id']; 
+    //         // $price = $_POST['Price'];
+    //         // $Seat = $_POST['PlaceName'];
+    //         $this->price = $_POST['Price'];
+    //         $this->seat = $_POST['PlaceName'];      
+        
+    //         // error_log("Price: $price, Seat: $Seat");
             
         
-            // error_log("Price: $price, Seat: $Seat");
-            
-        
-        } 
-    }
+    //     } 
+    // }
 ///------------------------добавления информации ребенке ----------------------------------
     public function AddChildInfo() {
         if (isset($_POST['AddChildrenBtn'])) {
@@ -61,8 +62,12 @@ class UserBookings {
             $passport_number = $_POST['AddChildrenPassNumber'];
             $passport_issued_date = $_POST['AddChildrenpassIssuedDate'];
             $passport_expiration_date = $_POST['AddChildrenpassExpirationDate'];
-            
-            $alert = ''; // Инициализируем переменную $alert
+            $price = $_POST['AddChildrenPrice'];
+            $seat = $_POST['AddChildrenPlaceName'];
+            // $price = $this->price;
+            // $seat = $this->seat;
+
+            $alert = ''; // alert перем.
 
             if (mb_strlen($child_name) < 1 || mb_strlen($child_name) > 255) {
                 $alert = 'Incorrect child name';
@@ -74,7 +79,7 @@ class UserBookings {
                 $alert = 'Incorrect passport_number length (from 5 to 17 symbols)';
             }
 
-            // Проверяем, существует ли паспортный номер в базе данных
+            // проверка пасспортного номера
             if (empty($alert)) {
                 $sql_check_passport = "SELECT Passport_number FROM children WHERE Passport_number = ?";
                 $stmt_check_passport = $this->mysqli->prepare($sql_check_passport);
@@ -84,9 +89,12 @@ class UserBookings {
                 if ($result_check_passport->num_rows > 0) {
                     $alert = "This passport number already exists";
                 } else {
-                    // Подготавливаем и выполняем запрос на вставку новой записи
-                    $stmt = $this->mysqli->prepare("INSERT INTO children (user_id, Name, Surname, Gender, Nationality, Passport_number, passportIssuedDate, passportExpirationDate) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-                    $stmt->bind_param("isssssss", $user_id, $child_name, $child_surname, $child_gender, $child_nationality, $passport_number, $passport_issued_date, $passport_expiration_date);
+                    // подг.запр к бд
+                    $stmt = $this->mysqli->prepare("INSERT INTO children (user_id, Name, Surname, Gender, Nationality, Passport_number, passportIssuedDate, passportExpirationDate, seat, seatprice) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                    $stmt->bind_param("isssssssss", $user_id, $child_name, $child_surname, $child_gender, $child_nationality, $passport_number, $passport_issued_date, $passport_expiration_date, $seat, $price);
+                                        
+                    
+                    
                     if ($stmt->execute()) {
                         
                     } else {
@@ -95,7 +103,7 @@ class UserBookings {
                 }
             }
 
-            // Выводим алерт, если есть ошибка
+            // alert  (ПОТОМ ИСПРАВИТЬ НЕ ВЫВОДИТСЯ)
             if ($alert) {
                 echo "<meta http-equiv='refresh' content='0;url=user_info.php?alert=" . urlencode($alert) . "'>";
                 exit();
@@ -105,19 +113,19 @@ class UserBookings {
 
 ///------------------------вывод информации ребенке ----------------------------------
     public function displayChildInfo() {
-        // Инициализируем массив для хранения данных
+        
         $childInfo = array();
 
-        // Выполняем SQL запрос для получения данных о детях пользователя
+        
         $sql = "SELECT Name, Surname, Gender, Nationality, Passport_number, passportIssuedDate, passportExpirationDate FROM children WHERE user_id = {$_SESSION['user_id']}";
         $result = $this->mysqli->query($sql);
 
-        // Проверяем, есть ли результаты запроса
+        
         if ($result->num_rows > 0) {
-            // Извлекаем данные из результата запроса
+            
             $row = $result->fetch_assoc();
 
-            // Сохраняем полученные данные в массив
+            
             $childInfo['Name'] = $row['Name'];
             $childInfo['Surname'] = $row['Surname'];
             $childInfo['Gender'] = $row['Gender'];
@@ -126,7 +134,7 @@ class UserBookings {
             $childInfo['PassportIssuedDate'] = $row['passportIssuedDate'];
             $childInfo['PassportExpirationDate'] = $row['passportExpirationDate'];
         } else {
-            // Если данные о детях не найдены, устанавливаем значения по умолчанию
+           
             $childInfo['Name'] = '';
             $childInfo['Surname'] = '';
             $childInfo['Gender'] = '';
@@ -136,7 +144,7 @@ class UserBookings {
             $childInfo['PassportExpirationDate'] = '';
         }
 
-        // Возвращаем массив данных о детях
+    
         return $childInfo;
     }
 
@@ -146,11 +154,11 @@ class UserBookings {
         if (isset($_POST['deleteUser'])) {
             $user_id = $_SESSION['user_id']; 
             if (!is_numeric($user_id)) {
-                // echo "Ошибка: Некорректный ID пользователя";
+                // echo "error";
                 return; 
             }
     
-            // Подготавливаем и выполняем запросы на удаление информации о пользователе
+           
             $this->deleteFromTable('users', $user_id);
             $this->deleteFromTable('user_details', $user_id);
             $this->deleteFromTable('tickets', $user_id);
@@ -171,13 +179,13 @@ class UserBookings {
         $result = $this->mysqli->query($delsql);
         if (!$result) {
             
-            // echo "Ошибка при удалении из таблицы $tableName: " . $this->mysqli->error;
+            // echo  $this->mysqli->error;
         }
     }
 
 ///------------------------Вывод информации о билете пользователя и полете ----------------------------------
     public function displayFlightInfo() {
-        // Инициализируем массив для хранения данных
+        
         $flightInfo = array();
     
       
@@ -186,20 +194,20 @@ class UserBookings {
     
     
         if ($result_tickets->num_rows > 0) {
-            // Извлечение данных из результата первого запроса
+            
             $row = $result_tickets->fetch_assoc();
             $airlines_id = $row['airlines_id'];
     
-            // Выполнение второго SQL запроса
+           
             $sql_airlines = "SELECT Airline, arrival_date, departure_date, arrival_time, departure_time FROM `airports/airlines` WHERE id = $airlines_id";
             $result_airlines = $this->mysqli->query($sql_airlines);
     
-            // Проверка наличия результатов второго запроса
+        
             if ($result_airlines->num_rows > 0) {
            
                 $row_airlines = $result_airlines->fetch_assoc();
     
-                // Сохранение полученных данных в массив
+          
                 $flightInfo['seat'] = $row['Seat'];
                 $flightInfo['price'] = $row['price'];
                 $flightInfo['airline'] = $row_airlines['Airline'];
@@ -228,20 +236,20 @@ class UserBookings {
         if (isset($_POST['DenieFlight'])) {
             $user_id = $_SESSION['user_id']; 
 
-            // Удаляем из таблицы tickets
+         
             $sql_tickets = "DELETE FROM tickets WHERE user_id = $user_id";
             $result_tickets = $this->mysqli->query($sql_tickets);
             
-            // Удаляем из таблицы children (если она не пустая)
+          
             $sql_children = "DELETE FROM children WHERE user_id = $user_id";
             $result_children = $this->mysqli->query($sql_children);
 
-            // Проверяем успешность выполнения обоих запросов
+     
             if ($result_tickets !== false || $result_children !== false) {
                 echo "<meta http-equiv='refresh' content='0;url=user_info.php'>";
                 exit();
             } else {
-                // Обработка ошибки, если не удалось выполнить один из запросов
+               
             }
         }
     }
@@ -426,7 +434,7 @@ public function ChangeUserInfo(){
 
 $userBookings = new UserBookings();
 $userBookings->displayUserInfo();
-// $userBookings->deleteProfile(); // Вызов метода для удаления профиля
+// $userBookings->deleteProfile(); 
 $userBookings->deleteBooking();
 $userBookings->displayUserProfileImage();
 
@@ -441,5 +449,5 @@ echo '<form action="logout.php" method="POST">
      </form>';
       $userBookings->getUserBookings();
       
-ob_start(); // Начать буферизацию вывода
+ob_start(); //буферизация вывода
 ?>

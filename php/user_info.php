@@ -17,7 +17,7 @@
     $userBookings->ChangeUserInfo();
     $userBookings->DenieFlight();
     $userBookings->displayChildInfo();
-    // снова вызываем метод displayUserInfo, чтобы получить обновленные данные
+    // displayUserInfo
     $userInfo = $userBookings->displayUserInfo();
 
 
@@ -215,6 +215,13 @@
                         <input type="text" id="passportExpirationDate" name="AddChildrenpassExpirationDate" placeholder="YYYY-MM-DD"><br>
 
                         
+                        <!-- <input type="text" id="AddChildrenPrice" name="AddChildrenPrice" readonly>                      
+                        <input type="text" id="AddChildrenPlaceName" name="AddChildrenPlaceName" readonly> -->
+                        <input type="hidden" id="AddChildrenPrice" name="AddChildrenPrice" readonly>
+                        <input type="hidden" id="AddChildrenPlaceName" name="AddChildrenPlaceName" readonly>
+
+
+
                         <button name='AddChildrenBtn' type='submit' class="add-btn">Pievienot Bērnu</button>
                     </div>
                 </form>

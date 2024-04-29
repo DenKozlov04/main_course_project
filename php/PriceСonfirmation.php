@@ -27,6 +27,7 @@ include 'InfoOutput.php';
     <a class='Info3'><?="✈ Rīga – $City ($airport_name)"?></a>
     <a class='Info4'><?="$formattedDepartDate. &bull;  $departure_time - $arrival_time"?></a>
     <div class='PricePlaceBox'>
+    <input type="hidden" name="originalPrice" id="OriginalPriceField" value="<?= $price ?>">
     <div class='PriceCard1'>
         <input class='ChooseButton' type="radio" id="circleSelect" name="circleSelection" value='<?= $price?>' onclick='ButtonClick2(this)' checked>
         <div class='Text1'>SILVER</div>
@@ -35,7 +36,7 @@ include 'InfoOutput.php';
     </div>
 
     <div class='PriceCard2'>
-        <!-- <input class='ChooseButton2' type="radio" id="chooseRadio" name="circleSelection" value='<?php $PlusPrice?>' onclick='ButtonClick(this)'></input> -->
+        <!-- <input class='ChooseButton2' type="radio" id="chooseRadio" name="circleSelection" value='' onclick='ButtonClick(this)'></input> -->
         <input class='ChooseButton2' type="radio" id="chooseRadio" name="circleSelection" value='<?= $PlusPrice; ?>' onclick='ButtonClick(this)'>
         <div class='Text4'>SILVER</div>
         <div class='Text5'>Business</div>
@@ -54,6 +55,7 @@ include 'InfoOutput.php';
     <div class='Text9'>Summa apmaksai:</div>
     <div class='Text10'><?= $price ,'€'?></div>
     <form class='buttonForm' action="BaggagePrice.php" method='POST'>
+        
     <input type="hidden" name="id" value="<?= $id ?>">
     <input type="hidden" name="plusPrice" id="PriceField" value="<?= $price ?>">
         <div class='ButtonBox'>

@@ -2,13 +2,15 @@
 session_start();
 include 'dbconfig.php';
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($_POST['id'] ) && isset($_POST['plusPrice2'])) {
 
     $id = $_POST['id'];
     $PricePlusQuant= $_POST['plusPrice2'];
-    // echo $id;price
+    // echo $id;
     // echo  $PricePlusQuant;
     // echo $price; vivoditj v evro
+
    
     $sql = "SELECT `Airline`, `airport_name`, `ITADA`, `City`, `country`, `T_price`, `arrival_date`, `departure_date`, `arrival_time`, `departure_time`,`id` 
     FROM `airports/airlines` 
@@ -37,6 +39,51 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($
             $arrival_time = date('H:i', strtotime($row['arrival_time']));
             $departure_time = date('H:i', strtotime($row['departure_time']));
     }
+}
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+   
+    $json = file_get_contents("php://input");
+
+    
+    $data = json_decode($json, true);
+
+   
+    if ($data !== null && isset($data['seatNumbers']) && isset($data['id'])) {
+        $seatNumbers = $data['seatNumbers'];
+        $id = $data['id'];
+
+     
+        $availabilityResults = [];
+
+     
+        foreach ($seatNumbers as $seatNumber) {
+            $sql = "SELECT COUNT(*) AS count FROM tickets WHERE Seat = ? AND airlines_id = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("si", $seatNumber, $id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+    
+           
+            $row = $result->fetch_assoc();
+    
+         
+            $available = ($row['count'] == 0) ? true : false;
+            
+       
+            $availabilityResults[] = array('seatNumber' => $seatNumber, 'available' => $available);
+        }
+        
+     
+        echo json_encode($availabilityResults);
+    } else {
+      
+        echo json_encode(array('error' => 'Данные не были получены или отсутствует идентификатор'));
+    }
+} else {
+    
+    echo json_encode(array('error' => 'Метод запроса не поддерживается'));
 }
 
 ?>

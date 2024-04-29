@@ -1,5 +1,11 @@
 <?php
 include "InfoOutput3.php";
+include "seats_check.php";
+
+echo '<script>';
+echo 'var flightId = ' . json_encode($id) . ';';
+echo '</script>';
+
 ?>
 
 <!DOCTYPE html>
@@ -98,11 +104,11 @@ include "InfoOutput3.php";
     <!-- A -->
     <div class='ButtonRect1'>
 
-    <button class='PlaceButton' id="Seat1" name="PlaceSelection" data-clicked="false" data-extra-value="A1" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice(this); toggleButtonColor(this)'>
+    <button class='PlaceButton' id="Seat1" name="PlaceSelection" data-clicked="false" data-extra-value="A1" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice(this); toggleButtonColor(this) '>
         <div class='PricePlace'>29.99€</div>
     </button>
 
-    <button class='PlaceButton' id="Seat2" name="PlaceSelection" data-clicked="false" data-extra-value="A2" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice(this); toggleButtonColor(this)'>
+    <button class='PlaceButton' id="Seat2" name="PlaceSelection" data-clicked="false" data-extra-value="A2" value='<?= $PricePlusQuant ?>' onclick='PlusSeatPrice(this); toggleButtonColor(this) '>
         <div class='PricePlace'>29.99€</div>
     </button>
 

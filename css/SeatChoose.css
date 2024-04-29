@@ -722,3 +722,7 @@ padding-top: 77px;
     margin-left: 1400px;
     margin-top:2650px;
 }
+.unavailable {
+    background-color: #add8e6; /* Цвет фона для недоступных кнопок */
+    cursor: not-allowed; /* Запрещаем курсору меняться при наведении */
+}

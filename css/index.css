@@ -1,6 +1,6 @@
 
   ::placeholder {
-    color:#cacaca;
+    color:#858585;
    }
   .pict5{
     transform: translateY(-18px);
@@ -676,6 +676,13 @@ body {
   border-bottom: 2px solid silver;
   
 }  */
+.input-data  input {
+  z-index: 1;
+  position: absolute;
+  border: 1px solid #afafaf;
+  background-color: rgb(245, 245, 245); 
+  padding: 8px;
+}
 
 .swiper.sample-slider {
   margin-top: 1200px;
@@ -765,21 +772,21 @@ body {
 {
   
   position: absolute;
-  top: 25px; 
-  margin-left:-170px;
+  top: -16px; 
+  margin-left:0px;
   width:180px;
   font-size: 14px;
-  color: #c0c0c0;
+  color: #858585;
 }
 
 .box3-input label,
 .box4-input label {
   position: absolute; 
-  top: 25px; 
-  margin-left:-110px;
+  top: -16px; 
+  margin-left:0px;
   width:180px;
   font-size: 14px;
-  color: #c0c0c0;
+  color: #858585;
 }
 .box1-input input[type="date"] {
   font-size: 15px;

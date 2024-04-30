@@ -30,13 +30,16 @@ body {
     width: 450px;
     height: 440px;
     margin-bottom: 10px; 
+    border-radius: 10px;
 }
 
 
 .Ticket_card img {
     width: 450px;
     height: 200px;
-    object-fit: cover; 
+    object-fit: cover;
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px; 
 }
 .text1{
     margin-left: 10px;

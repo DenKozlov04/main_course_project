@@ -213,7 +213,8 @@
 
 
 
-  <?php include 'card_data.php'; ?>
+  <?php include 'card_data.php'; 
+  ?>
 
 
 
@@ -222,11 +223,11 @@
 <!-- <div class="pict4"><img src="../images/bgSales.png"></div> -->
  <style>
 </style>
-<p class="txt2">Don't miss out on hot discounts!!</p>
+<!-- <p class="txt2">Don't miss out on hot discounts!!</p> -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 
-<div class= "txt3">Travel comfortably with us.</div>
+<!-- <div class= "txt3">Travel comfortably with us.</div> -->
 <div class="swiper sample-slider">
         <div class="swiper-wrapper">
             <div class="swiper-slide" ><a href="../html/baggage_check_in.html"><img src="../images/1card.png"></a>

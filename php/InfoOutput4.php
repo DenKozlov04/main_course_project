@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType2']) && isset(
     $LastPrice= $_POST['plusPrice3'];
     // echo $LastPrice;
     $SeatPlace=$_POST['SeatPlace'];
-    
+    // echo $LastPrice;
         $stmt = $conn->prepare("INSERT INTO `tickets` (`user_id`, `airlines_id`, `Seat`, `price`) VALUES (?, ?, ?, ?)");
         $stmt->bind_param("iiss", $user_id, $id, $SeatPlace, $LastPrice);
         $stmt->execute();

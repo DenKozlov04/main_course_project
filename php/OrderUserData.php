@@ -36,6 +36,7 @@ include "InfoOutput4.php";
     <script src="../php/alertscripts.php"></script>
 </head>
 <body>
+
 <div class='rectangleHeader'>
     <div class='logorectangle'>
         <a>AVIA</a>

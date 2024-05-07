@@ -1,5 +1,9 @@
 <?php
-// include 'ChooseChildrenSeat.php';
+include "ChildSeatCheck.php";
+
+echo '<script>';
+echo 'var flightId = ' . json_encode($id) . ';';
+echo '</script>';
 ?>
 
 <script src="../JS/ChildSeat.js"></script>

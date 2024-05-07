@@ -33,6 +33,7 @@
     <link rel="stylesheet" type="text/css" href="../css/user_info.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src='../JS/OpenInfoPopUp.js'></script>
+    <script src="../JS/sweetalert.min.js"></script>
     <title>profile</title>
 </head>
 <script>

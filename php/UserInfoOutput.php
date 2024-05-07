@@ -52,64 +52,74 @@ class UserBookings {
     //     } 
     // }
 ///------------------------добавления информации ребенке ----------------------------------
-    public function AddChildInfo() {
-        if (isset($_POST['AddChildrenBtn'])) {
-            $user_id = $_SESSION['user_id']; 
-            $child_name = $_POST['AddChildrenName'];
-            $child_surname = $_POST['AddChildrenSurname'];
-            $child_gender = $_POST['AddChildrenGender'];
-            $child_nationality = $_POST['AddChildrenNationality'];
-            $passport_number = $_POST['AddChildrenPassNumber'];
-            $passport_issued_date = $_POST['AddChildrenpassIssuedDate'];
-            $passport_expiration_date = $_POST['AddChildrenpassExpirationDate'];
-            $price = $_POST['AddChildrenPrice'];
-            $seat = $_POST['AddChildrenPlaceName'];
-            // $price = $this->price;
-            // $seat = $this->seat;
+public function AddChildInfo() {
+    if (isset($_POST['AddChildrenBtn'])) {
+        $user_id = $_SESSION['user_id']; 
+        $child_name = $_POST['AddChildrenName'];
+        $child_surname = $_POST['AddChildrenSurname'];
+        $child_gender = $_POST['AddChildrenGender'];
+        $child_nationality = $_POST['AddChildrenNationality'];
+        $passport_number = $_POST['AddChildrenPassNumber'];
+        $passport_issued_date = $_POST['AddChildrenpassIssuedDate'];
+        $passport_expiration_date = $_POST['AddChildrenpassExpirationDate'];
+        $price = $_POST['AddChildrenPrice'];
+        $seat = $_POST['AddChildrenPlaceName'];
+        $airlines_id = null; // Инициализация переменной
 
-            $alert = ''; // alert перем.
+        $alert = ''; // alert перем.
 
-            if (mb_strlen($child_name) < 1 || mb_strlen($child_name) > 255) {
-                $alert = 'Incorrect child name';
-            } elseif (mb_strlen($child_surname) < 1 || mb_strlen( $child_surname) > 255) {
-                $alert = 'Incorrect child surname';
-            } elseif (mb_strlen($child_nationality) < 1 || mb_strlen($child_nationality) > 255) {
-                $alert = 'Incorrect child nationality';
-            } elseif (mb_strlen($passport_number) < 5 || mb_strlen($passport_number) > 17) {
-                $alert = 'Incorrect passport_number length (from 5 to 17 symbols)';
-            }
+        if (mb_strlen($child_name) < 1 || mb_strlen($child_name) > 255) {
+            $alert = 'Incorrect child name';
+        } elseif (mb_strlen($child_surname) < 1 || mb_strlen( $child_surname) > 255) {
+            $alert = 'Incorrect child surname';
+        } elseif (mb_strlen($child_nationality) < 1 || mb_strlen($child_nationality) > 255) {
+            $alert = 'Incorrect child nationality';
+        } elseif (mb_strlen($passport_number) < 5 || mb_strlen($passport_number) > 17) {
+            $alert = 'Incorrect passport_number length (from 5 to 17 symbols)';
+        }
 
-            // проверка пасспортного номера
-            if (empty($alert)) {
-                $sql_check_passport = "SELECT Passport_number FROM children WHERE Passport_number = ?";
-                $stmt_check_passport = $this->mysqli->prepare($sql_check_passport);
-                $stmt_check_passport->bind_param("s", $passport_number);
-                $stmt_check_passport->execute();
-                $result_check_passport = $stmt_check_passport->get_result();
-                if ($result_check_passport->num_rows > 0) {
-                    $alert = "This passport number already exists";
+      
+        $sql_airlines_id = "SELECT `airlines_id` FROM `tickets` WHERE `user_id` = ?";
+        $stmt_airlines_id = $this->mysqli->prepare($sql_airlines_id);
+        $stmt_airlines_id->bind_param("i", $user_id);
+        $stmt_airlines_id->execute();
+        $result_airlines_id = $stmt_airlines_id->get_result();
+        if ($row_airlines_id = $result_airlines_id->fetch_assoc()) {
+            $airlines_id = $row_airlines_id['airlines_id'];
+        }
+
+        // проверка пасспортного номера
+        if (empty($alert)) {
+            $sql_check_passport = "SELECT Passport_number FROM children WHERE Passport_number = ?";
+            $stmt_check_passport = $this->mysqli->prepare($sql_check_passport);
+            $stmt_check_passport->bind_param("s", $passport_number);
+            $stmt_check_passport->execute();
+            $result_check_passport = $stmt_check_passport->get_result();
+            if ($result_check_passport->num_rows > 0) {
+                $alert = "This passport number already exists";
+            } else {
+                // подг.запр к бд
+                $stmt = $this->mysqli->prepare("INSERT INTO children (user_id, airline_id, Name, Surname, Gender, Nationality, Passport_number, passportIssuedDate, passportExpirationDate, seat, seatprice) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                $stmt->bind_param("iisssssssss", $user_id, $airlines_id, $child_name, $child_surname, $child_gender, $child_nationality, $passport_number, $passport_issued_date, $passport_expiration_date, $seat, $price);
+                                    
+                
+                
+                if ($stmt->execute()) {
+                    
                 } else {
-                    // подг.запр к бд
-                    $stmt = $this->mysqli->prepare("INSERT INTO children (user_id, Name, Surname, Gender, Nationality, Passport_number, passportIssuedDate, passportExpirationDate, seat, seatprice) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                    $stmt->bind_param("isssssssss", $user_id, $child_name, $child_surname, $child_gender, $child_nationality, $passport_number, $passport_issued_date, $passport_expiration_date, $seat, $price);
-                                        
-                    
-                    
-                    if ($stmt->execute()) {
-                        
-                    } else {
-                        echo "Error: " . $this->mysqli->error;
-                    }
+                    echo "Error: " . $this->mysqli->error;
                 }
             }
+        }
 
-            // alert  (ПОТОМ ИСПРАВИТЬ НЕ ВЫВОДИТСЯ)
-            if ($alert) {
-                echo "<meta http-equiv='refresh' content='0;url=user_info.php?alert=" . urlencode($alert) . "'>";
-                exit();
-            }
+       
+        if ($alert) {
+            echo "<meta http-equiv='refresh' content='0;url=user_info.php?alert=" . urlencode($alert) . "'>";
+            exit();
         }
     }
+}
+
 
 ///------------------------вывод информации ребенке ----------------------------------
     public function displayChildInfo() {
@@ -207,7 +217,7 @@ class UserBookings {
            
                 $row_airlines = $result_airlines->fetch_assoc();
     
-          
+                
                 $flightInfo['seat'] = $row['Seat'];
                 $flightInfo['price'] = $row['price'];
                 $flightInfo['airline'] = $row_airlines['Airline'];
@@ -215,6 +225,7 @@ class UserBookings {
                 $flightInfo['departure_date'] = $row_airlines['departure_date'];
                 $flightInfo['arrival_time'] = date('H:i', strtotime($row_airlines['arrival_time']));
                 $flightInfo['departure_time'] = date('H:i', strtotime($row_airlines['departure_time']));
+                // $this->AddChildInfo($airlines_id);
             } else {
 
             }

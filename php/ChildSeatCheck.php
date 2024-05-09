@@ -36,6 +36,46 @@ include 'dbconfig.php';
             $arrival_time = date('H:i', strtotime($row['arrival_time']));
             $departure_time = date('H:i', strtotime($row['departure_time']));
     }
+
+    
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $json = file_get_contents("php://input");
+        $data = json_decode($json, true);
+    
+        if ($data !== null && isset($data['seatNumbers']) && isset($data['id'])) {
+            $seatNumbers = $data['seatNumbers'];
+            $id = $data['id'];
+    
+            $availabilityResults = [];
+    
+            // Запрос для обеих таблиц
+            foreach ($seatNumbers as $seatNumber) {
+                $sql = "SELECT COUNT(*) AS count FROM (
+                            SELECT seat FROM tickets WHERE seat = ? AND airlines_id = ?
+                            UNION ALL
+                            SELECT seat FROM children WHERE seat = ? AND airline_id = ?
+                        ) AS combinedSeats";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("sisi", $seatNumber, $id, $seatNumber, $id);
+                $stmt->execute();
+                $result = $stmt->get_result();
+    
+                $row = $result->fetch_assoc();
+    
+                $available = ($row['count'] == 0) ? true : false;
+    
+                $availabilityResults[] = array('seatNumber' => $seatNumber, 'available' => $available);
+            }
+    
+            echo json_encode($availabilityResults);
+        } else {
+            echo json_encode(array('error' => 'Данные не были получены или отсутствует идентификатор'));
+        }
+    } else {
+        echo json_encode(array('error' => 'Метод запроса не поддерживается'));
+    }
+    
+    
     // if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //     $json = file_get_contents("php://input");
     //     $data = json_decode($json, true);
@@ -82,50 +122,6 @@ include 'dbconfig.php';
     // } else {
     //     echo json_encode(array('error' => 'Метод запроса не поддерживается'));
     // }
-    
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-   
-    $json = file_get_contents("php://input");
-
-    
-    $data = json_decode($json, true);
-
-   
-    if ($data !== null && isset($data['seatNumbers']) && isset($data['id'])) {
-        $seatNumbers = $data['seatNumbers'];
-        $id = $data['id'];
-
-     
-        $availabilityResults = [];
-
-     
-        foreach ($seatNumbers as $seatNumber) {
-            $sql = "SELECT COUNT(*) AS count FROM tickets WHERE Seat = ? AND airlines_id = ? SELECT COUNT(*) AS count FROM children WHERE seat = ? AND airline_id = ?";
-            $stmt = $conn->prepare($sql);
-            $stmt->bind_param("si", $seatNumber, $id);
-            $stmt->execute();
-            $result = $stmt->get_result();
-    
-           
-            $row = $result->fetch_assoc();
-    
-         
-            $available = ($row['count'] == 0) ? true : false;
-            
-       
-            $availabilityResults[] = array('seatNumber' => $seatNumber, 'available' => $available);
-        }
-        
-        echo json_encode($availabilityResults);
-    } else {
-      
-        echo json_encode(array('error' => 'Данные не были получены или отсутствует идентификатор'));
-    }
-} else {
-    
-    echo json_encode(array('error' => 'Метод запроса не поддерживается'));
-}
-
 
 
 ?>

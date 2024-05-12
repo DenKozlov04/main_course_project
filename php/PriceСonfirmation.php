@@ -30,7 +30,7 @@ include 'InfoOutput.php';
     <input type="hidden" name="originalPrice" id="OriginalPriceField" value="<?= $price ?>">
     <div class='PriceCard1'>
         <input class='ChooseButton' type="radio" id="circleSelect" name="circleSelection" value='<?= $price?>' onclick='ButtonClick2(this)' checked>
-        <div class='Text1'>SILVER</div>
+        <div class='Text1'><?= $class ?></div>
         <div class='Text2'>Classic</div>
         <div class='Text3'><?= $price ,'€' ?></div>
     </div>
@@ -38,7 +38,7 @@ include 'InfoOutput.php';
     <div class='PriceCard2'>
         <!-- <input class='ChooseButton2' type="radio" id="chooseRadio" name="circleSelection" value='' onclick='ButtonClick(this)'></input> -->
         <input class='ChooseButton2' type="radio" id="chooseRadio" name="circleSelection" value='<?= $PlusPrice; ?>' onclick='ButtonClick(this)'>
-        <div class='Text4'>SILVER</div>
+        <div class='Text4'><?= $class ?></div>
         <div class='Text5'>Business</div>
         <div class='Text6'><?='+', $Percents ,'€' ?></div>
         <div class='Text7'><?= $PlusPrice ,'€',' kopā' ?></div>

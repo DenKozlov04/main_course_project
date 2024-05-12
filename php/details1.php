@@ -46,10 +46,10 @@ include 'priceCalculation.php';
         </div>
         <form class='buttonForm' action="PriceСonfirmation.php" method='POST'>
         <input type="hidden" name="id" value="<?= $id ?>">
-        <input type="hidden" name="class" value="Bronze">
+        <input type="hidden" name="class" value="BRONZE">
         <input type="hidden" name="price" value="<?= $result1 ?>">
             <div class='ButtonPlace'>
-                <button class='ContinueButton'  type='submit'  name='cardType' value='Bronze'>Turpinat</button>
+                <button class='ContinueButton'  type='submit'  name='cardType' value='BRONZE'>Turpinat</button>
             </div>
         </form>
     </div>
@@ -73,10 +73,10 @@ include 'priceCalculation.php';
         </div>
         <form class='buttonForm' action="PriceСonfirmation.php" method='POST'>
         <input type="hidden" name="id" value="<?= $id ?>">
-        <input type="hidden" name="class" value="Silver">
+        <input type="hidden" name="class" value="SILVER">
         <input type="hidden" name="price" value="<?= $result2 ?>">
             <div class='ButtonPlace'>
-                <button class='ContinueButton' type='submit' name='cardType' value='Silver'>Turpinat</button>
+                <button class='ContinueButton' type='submit' name='cardType' value='SILVER'>Turpinat</button>
             </div>
         </form>
     </div>
@@ -100,10 +100,10 @@ include 'priceCalculation.php';
         </div>
         <form class='buttonForm' action="PriceСonfirmation.php" method='POST'>
         <input type="hidden" name="id" value="<?= $id ?>">
-        <input type="hidden" name="class" value="Gold">
+        <input type="hidden" name="class" value="GOLD">
         <input type="hidden" name="price" value="<?= $result3 ?>">
             <div class='ButtonPlace'>
-                <button class='ContinueButton' type='submit' name='cardType' value='Gold'>Turpinat</button>
+                <button class='ContinueButton' type='submit' name='cardType' value='GOLD'>Turpinat</button>
             </div>
         </form>
     </div>

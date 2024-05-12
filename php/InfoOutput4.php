@@ -23,6 +23,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType2']) && isset(
         $stmt->close();
 
 }
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($_POST['id'] ) && isset($_POST['plusPrice2']) && isset($_POST['seat'])) {
+    $id = $_POST['id'];
+    // echo $id;
+    $LastPrice= $_POST['plusPrice2'];
+    // echo $LastPrice;
+    $SeatPlace=$_POST['seat'];
+
+   
+    $stmt = $conn->prepare("SELECT COUNT(*) as count FROM user_details WHERE user_id = ?");
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+    $count = $row['count'];
+
+    if ($count > 0) {
+
+        $stmt = $conn->prepare("INSERT INTO `tickets` (`user_id`, `airlines_id`, `Seat`, `price`) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("iiss", $user_id, $id, $SeatPlace, $LastPrice);
+        $stmt->execute();
+        if ($stmt->affected_rows > 0) {
+            // echo "Билет успешно забронирован.";
+            header('Location: ../php/index.php');
+        } else {
+           
+        }
+
+    } else {
+ 
+        // echo "Записи отсутствуют для данного ID.";
+    }
+
+}
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($_POST['id'] ) && isset($_POST['plusPrice2']) && isset($_POST['seat'])) {
@@ -166,5 +199,3 @@ class PassportDataInput
 
 
 ?>
-
-

@@ -21,7 +21,7 @@ class ImageUploader {
 
     public function uploadImage() {
         if (isset($_POST['submit'])) {
-            // Проверяю, существует ли у пользователя изображение в бд
+            // Проверяем, существует ли у пользователя изображение в бд
             $userId = $_SESSION['user_id'];
             $checkQuery = "SELECT user_id FROM profile_images WHERE user_id = ?";
             $checkStmt = $this->mysqli->prepare($checkQuery);
@@ -54,50 +54,34 @@ class ImageUploader {
 
             $fileTmpName = $_FILES['image']['tmp_name'];
             $fileType = $_FILES['image']['type'];
+            $imageData = file_get_contents($fileTmpName); // Получаем содержимое изображения
 
-            // Путь к папке, где будут храниться изображения
-            $uploadDir = '../images/UserAvatar_Images/';
+            // Также перемещаем изображение в бд
+            $sql = "INSERT INTO profile_images (user_id, profile_image, image_type) VALUES (?, ?, ?)";
+            $stmt = $this->mysqli->prepare($sql);
 
-            // Имя файла
-            $fileName = basename($_FILES['image']['name']);
+            if ($stmt) {
+                $stmt->bind_param("iss", $userId, $imageData, $fileType);
 
-            // Полный путь к загружаемому файлу
-            $uploadPath = $uploadDir . $fileName;
-
-            // перемещаю изображение в папку
-            if (move_uploaded_file($fileTmpName, $uploadPath)) {
-                $imageData = file_get_contents($uploadPath);
-                // так же перемещаю изображение в бд
-                $sql = "INSERT INTO profile_images (user_id, profile_image, image_type) VALUES (?, ?, ?)";
-                $stmt = $this->mysqli->prepare($sql);
-    
-                if ($stmt) {
-                    $stmt->bind_param("iss", $userId, $imageData, $fileType);
-    
-                    try {
-                        if ($stmt->execute()) {
-                            echo "The image has been successfully uploaded and saved in the database.";
-                            header("Location: user_info.php");
-                            exit();
-                        } else {
-                            echo "Error when uploading an image: " . $stmt->error;
-                        }
-                    } catch (mysqli_sql_exception $e) {
-                        // Обработка ошибки при превышении лимита max_allowed_packet
-                        echo "Error: The uploaded image exceeds the maximum allowed size.";
+                try {
+                    if ($stmt->execute()) {
+                        echo "The image has been successfully uploaded and saved in the database.";
                         header("Location: user_info.php");
+                        exit();
+                    } else {
+                        echo "Error when uploading an image: " . $stmt->error;
                     }
-    
-                    $stmt->close();
-                } else {
-                    echo "An error during SQL query preparation: " . $this->mysqli->error;
+                } catch (mysqli_sql_exception $e) {
+                    // Обработка ошибки при превышении лимита max_allowed_packet
+                    echo "Error: The uploaded image exceeds the maximum allowed size.";
+                    header("Location: user_info.php");
                 }
+
+                $stmt->close();
             } else {
-                echo "Error when moving a file to the UserAvatar_Images folder.";
-                header("Location: user_info.php");
+                echo "An error during SQL query preparation: " . $this->mysqli->error;
             }
         }
-    
     }
 
     public function closeDatabaseConnection() {

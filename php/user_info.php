@@ -95,11 +95,12 @@
                     <input type="password" value="<?= htmlspecialchars($userInfo['password']) ?>">
                     <button onclick="openModal('modal6')" class='changebtn4'>✎</button>
                 </div>
-
+                <button onclick="openModal('modal9')" class='changebtn5'>✎</button>
 
             </div>
             
         </div>
+        
         <div class='BoxTitle2'>Mānas rezervācijas</div>
         <div class='InfoBox2'>
             <!-- <div class='Info1'>Māna kontaktinformācija</div> -->
@@ -364,6 +365,17 @@ Pateicamies par uzticību mūsu pakalpojumiem!</p>
                 <input type='hidden' name='DenieFlight' value="">
                 <button name='DenieFlightBtn' type='submit' class="cancel-btn">Atcelt</button>
             </form>
+        </div>
+    </div>
+    <div id="modal9" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal9')"style="cursor: pointer;">&times;</span>
+            <div class="upload">
+                    <form action="upload.php" method="POST" enctype="multipart/form-data">
+                            <input type="file" name="image" accept="image/*">
+                            <input type="submit" value="Upload image" name="submit">
+                        </form>
+                </div>
         </div>
     </div>
 </body>

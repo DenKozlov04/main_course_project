@@ -99,6 +99,13 @@ body {
     margin-top:-15px;
 
   }
+  .upload{
+    /* z-index: 2; */
+    /* position: absolute;  */
+    /* margin-top:50px;  */
+    /* margin-left:100px;  */
+
+  }
   .InfoBox2{
     position:absolute;
     width:1050px;
@@ -124,7 +131,7 @@ body {
     position: absolute;
     margin-left:400px;
     z-index: 1;
-    margin-top:50px;
+    margin-top:-50px;
     margin-left:370px;
   } 
   .BoxTitle21{
@@ -150,7 +157,7 @@ body {
   .AvatharImgBox1{
     position: absolute;
     z-index: 1;
-    margin-top:285px;
+    margin-top:25px;
     margin-left:430px;
   } 
   .denieBtn{
@@ -197,7 +204,7 @@ body {
     align-items: center; 
     position: absolute;
     border-radius: 5px;
-    margin-top:600px;
+    margin-top:330px;
     margin-left:440px;
     z-index: 1;
 }
@@ -215,7 +222,7 @@ body {
     align-items: center; 
     position: absolute;
     border-radius: 5px;
-    margin-top:563px;
+    margin-top:330px;
     margin-left:580px;
     z-index: 1;
 }
@@ -241,9 +248,14 @@ body {
     z-index: 1;
   } 
   .BigBox{
-    margin-top:170px;
+    margin-top:260px;
   }
-
+  .changebtn5{
+    position: absolute;
+    margin-top:-180px;
+    margin-left:-350px;
+    z-index: 1;
+  }
   .InfoPost1{
     margin-top:72px;
   }
@@ -258,8 +270,8 @@ body {
 }
 .changebtn3{
   position: absolute;
-  margin-left: 190px;
-  margin-top:-20px;
+  margin-left: 0px;
+  margin-top:0px;
 }
 .changebtn4{
   position: absolute;

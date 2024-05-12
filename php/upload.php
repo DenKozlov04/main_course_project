@@ -11,7 +11,8 @@ class ImageUploader {
     private function initializeDatabase() {
         include 'dbconfig.php';
 
-        $this->mysql = new mysqli(DatabaseConfig::$servername, DatabaseConfig::$dbusername, DatabaseConfig::$dbpassword, DatabaseConfig::$dbname);
+        $this->mysqli = new mysqli(DatabaseConfig::$servername, DatabaseConfig::$dbusername, DatabaseConfig::$dbpassword, DatabaseConfig::$dbname);
+
 
         if ($this->mysqli->connect_error) {
             die("Connection failed: " . $this->mysqli->connect_error);
@@ -66,29 +67,37 @@ class ImageUploader {
             // перемещаю изображение в папку
             if (move_uploaded_file($fileTmpName, $uploadPath)) {
                 $imageData = file_get_contents($uploadPath);
-            // так же перемещаю изображение в бд
+                // так же перемещаю изображение в бд
                 $sql = "INSERT INTO profile_images (user_id, profile_image, image_type) VALUES (?, ?, ?)";
                 $stmt = $this->mysqli->prepare($sql);
-
+    
                 if ($stmt) {
                     $stmt->bind_param("iss", $userId, $imageData, $fileType);
-
-                    if ($stmt->execute()) {
-                        echo "The image has been successfully uploaded and saved in the database.";
+    
+                    try {
+                        if ($stmt->execute()) {
+                            echo "The image has been successfully uploaded and saved in the database.";
+                            header("Location: user_info.php");
+                            exit();
+                        } else {
+                            echo "Error when uploading an image: " . $stmt->error;
+                        }
+                    } catch (mysqli_sql_exception $e) {
+                        // Обработка ошибки при превышении лимита max_allowed_packet
+                        echo "Error: The uploaded image exceeds the maximum allowed size.";
                         header("Location: user_info.php");
-                        exit();
-                    } else {
-                        echo "Error when uploading an image: " . $stmt->error;
                     }
-
+    
                     $stmt->close();
                 } else {
                     echo "An error during SQL query preparation: " . $this->mysqli->error;
                 }
             } else {
                 echo "Error when moving a file to the UserAvatar_Images folder.";
+                header("Location: user_info.php");
             }
         }
+    
     }
 
     public function closeDatabaseConnection() {

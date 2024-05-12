@@ -10,7 +10,7 @@ include 'dbconfig.php';
     $stmt->execute();
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();
-    $id = $row['airlines_id'];
+    // $id = $row['airlines_id'];
     
 
 
@@ -69,10 +69,10 @@ include 'dbconfig.php';
     
             echo json_encode($availabilityResults);
         } else {
-            echo json_encode(array('error' => 'Данные не были получены или отсутствует идентификатор'));
+            // echo json_encode(array('error' => 'Данные не были получены или отсутствует идентификатор'));
         }
     } else {
-        echo json_encode(array('error' => 'Метод запроса не поддерживается'));
+        // echo json_encode(array('error' => 'Метод запроса не поддерживается'));
     }
     
     

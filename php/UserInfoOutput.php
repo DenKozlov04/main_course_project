@@ -387,22 +387,22 @@ public function ChangeUserInfo(){
                 // echo '</tr>';
     
                 while ($row = $result->fetch_assoc()) {
-                    echo '<tr>';
-                    echo '<td>' . $row["booking_id"] . '</td>';
-                    echo '<td>' . $row["user_id"] . '</td>';
-                    echo '<td>' . $row["flight_id"] . '</td>';
-                    echo '<td>' . $row["booking_date"] . '</td>';
-                    echo '<td>' . $row["seat_number"] . '</td>';
-                    echo '</tr>';  
+                    // echo '<tr>';
+                    // echo '<td>' . $row["booking_id"] . '</td>';
+                    // echo '<td>' . $row["user_id"] . '</td>';
+                    // echo '<td>' . $row["flight_id"] . '</td>';
+                    // echo '<td>' . $row["booking_date"] . '</td>';
+                    // echo '<td>' . $row["seat_number"] . '</td>';
+                    // echo '</tr>';  
     
-                    echo "<form method='POST' action='user_info.php'>
-                            <input type='hidden' name='delete' value='" . $row["user_id"] . "'>
-                            <button  type='submit'>Deny</button>
-                          </form>";
+                    // echo "<form method='POST' action='user_info.php'>
+                    //         <input type='hidden' name='delete' value='" . $row["user_id"] . "'>
+                    //         <button  type='submit'>Deny</button>
+                    //       </form>";
                 } 
-                echo '</table>';
+                // echo '</table>';
             } else {
-                echo "No bookings found, add booking: <li><a href='../php/Buy_Tickets.php'>ADD</a></li>";
+                // echo "No bookings found, add booking: <li><a href='../php/Buy_Tickets.php'>ADD</a></li>";
             }
         }
     }
@@ -450,10 +450,12 @@ $userBookings->deleteBooking();
 $userBookings->displayUserProfileImage();
 
 echo "<a class='BackBtn' href='../php/index.php'>Atpakaļ</a>";
-echo '<form action="upload.php" method="POST" enctype="multipart/form-data">
-        <input type="file" name="image" accept="image/*">
-        <input type="submit" value="Upload image" name="submit">
-      </form>';
+// echo '<div class="upload2">
+//         <form action="upload.php" method="POST" enctype="multipart/form-data">
+//                 <input type="file" name="image" accept="image/*">
+//                 <input type="submit" value="Upload image" name="submit">
+//             </form>
+//       </div>';
       
 echo '<form action="logout.php" method="POST">
         <button class="BackBtn2"type="submit">Iziet no profila</button>

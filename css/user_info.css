@@ -258,6 +258,7 @@ body {
   }
   .InfoPost1{
     margin-top:72px;
+
   }
   .InfoPassword1 input {
     z-index: 1;
@@ -268,11 +269,23 @@ body {
     margin-top: -5px;
     margin-left:0px;
 }
-.changebtn3{
+/* .changebtn3{
+  
   position: absolute;
   margin-left: 0px;
   margin-top:0px;
+} */
+.InfoPost1 {
+  position: relative;
+  padding-right: 20px; /* Устанавливаем отступ справа для кнопки */
 }
+
+.changebtn3 {
+  position: absolute;
+  top: 0;
+  right: -70px;
+}
+
 .changebtn4{
   position: absolute;
   margin-left: 190px;

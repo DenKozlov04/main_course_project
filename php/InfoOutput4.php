@@ -5,15 +5,22 @@ include 'dbconfig.php';
 $user_id = $_SESSION['user_id'];
 $admin_id = $_SESSION['admin_id'];
 
+$stmt4 = $conn->prepare("SELECT `email`, `phone` FROM users WHERE user_id = ?");
+$stmt4->bind_param("i", $user_id);
+$stmt4->execute();
+$stmt4->bind_result($email, $phone); 
+$stmt4->fetch();
+$stmt4->close();
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType2']) && isset($_POST['id2'] ) && isset($_POST['plusPrice3']) && isset($_POST['SeatPlace'])) {
     $id = $_POST['id2'];
-    // echo $id;
     $LastPrice= $_POST['plusPrice3'];
-    // echo $LastPrice;
     $SeatPlace=$_POST['SeatPlace'];
-    // echo $LastPrice;
-        $stmt = $conn->prepare("INSERT INTO `tickets` (`user_id`, `airlines_id`, `Seat`, `price`) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("iiss", $user_id, $id, $SeatPlace, $LastPrice);
+    $condition = 'active';
+    $prefix = 'Y4Y'; 
+    $ticketCode = $prefix . uniqid(); 
+
+        $stmt = $conn->prepare("INSERT INTO `tickets` (`user_id`, `airlines_id`, `Seat`, `price`, `сondition`, `code`) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("iissss", $user_id, $id, $SeatPlace, $LastPrice, $condition, $ticketCode);
         $stmt->execute();
         if ($stmt->affected_rows > 0) {
             echo "Билет успешно забронирован.";
@@ -25,12 +32,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType2']) && isset(
 }
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($_POST['id'] ) && isset($_POST['plusPrice2']) && isset($_POST['seat'])) {
     $id = $_POST['id'];
-    // echo $id;
     $LastPrice= $_POST['plusPrice2'];
-    // echo $LastPrice;
     $SeatPlace=$_POST['seat'];
+    $condition = 'active';
+    $prefix = 'Y4Y'; 
+    $ticketCode = $prefix . uniqid(); 
 
-   
     $stmt = $conn->prepare("SELECT COUNT(*) as count FROM user_details WHERE user_id = ?");
     $stmt->bind_param("i", $user_id);
     $stmt->execute();
@@ -40,8 +47,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($
 
     if ($count > 0) {
 
-        $stmt = $conn->prepare("INSERT INTO `tickets` (`user_id`, `airlines_id`, `Seat`, `price`) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("iiss", $user_id, $id, $SeatPlace, $LastPrice);
+        $stmt = $conn->prepare("INSERT INTO `tickets` (`user_id`, `airlines_id`, `Seat`, `price`, `сondition`, `code`) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("iissss", $user_id, $id, $SeatPlace, $LastPrice, $condition, $ticketCode);
         $stmt->execute();
         if ($stmt->affected_rows > 0) {
             // echo "Билет успешно забронирован.";

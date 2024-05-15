@@ -55,10 +55,10 @@ class Registration {
         return $isMailSent;
     }
 
-    public function validateAndRegister($login, $email, $phone, $con_password,$password) {
+    public function validateAndRegister($login, $email, $con_password,$password) { //$phone,
         $login = htmlspecialchars(filter_var(trim($login), FILTER_SANITIZE_STRING));
         $email = htmlspecialchars(filter_var(trim($email), FILTER_SANITIZE_STRING));
-        $phone = htmlspecialchars(filter_var(trim($phone), FILTER_SANITIZE_STRING));
+        // $phone = htmlspecialchars(filter_var(trim($phone), FILTER_SANITIZE_STRING));
         $con_password = htmlspecialchars(filter_var(trim($con_password), FILTER_SANITIZE_STRING));
         $password = htmlspecialchars(filter_var(trim($password), FILTER_SANITIZE_STRING));
 
@@ -70,8 +70,8 @@ class Registration {
             $alert = 'Incorrect username length';
         } elseif (mb_strlen($email) < 2 || mb_strlen($email) > 90) {
             $alert = 'Incorrect email length';
-        } elseif (mb_strlen($phone) !== 12) {
-            $alert = 'Incorrect phone length';
+        // } elseif (mb_strlen($phone) !== 12) {
+        //     $alert = 'Incorrect phone length';
         } elseif (mb_strlen($con_password) < 8 || mb_strlen($con_password) > 32) {
             $alert = 'Incorrect confirm password length (from 8 to 32 symbols)';
         } elseif (mb_strlen($password) < 8 || mb_strlen($password) > 32) {
@@ -87,9 +87,9 @@ class Registration {
             $alert = "This email already exists";
         }
         
-        if ($this->isUserExists('phone', $phone)) {
-            $alert = "This phone already exists";
-        }
+        // if ($this->isUserExists('phone', $phone)) {
+        //     $alert = "This phone already exists";
+        // }
         
         if ($con_password != $password) {
             $alert = "These passwords do not match";
@@ -109,7 +109,7 @@ class Registration {
 
         // Если письмо успешно отправлено, добавляем пользователя в базу данных
         // if ($isMailSent) {
-            $this->addUserToDatabase($login, $email, $phone, $con_password);
+            $this->addUserToDatabase($login, $email, $con_password); //$phone,
         // }
 
         // Закрываем соединение с базой данных
@@ -127,10 +127,10 @@ class Registration {
         return $result->num_rows > 0;
     }
 
-    private function addUserToDatabase($login, $email, $phone, $con_password) {
-        $stmt = $this->mysql->prepare("INSERT INTO `users` (`username`, `email`, `phone`, `password`, `created_at`) 
-            VALUES (?, ?, ?, ?, now())");
-        $stmt->bind_param("ssss", $login, $email, $phone, $con_password);
+    private function addUserToDatabase($login, $email, $con_password) {//$phone,
+        $stmt = $this->mysql->prepare("INSERT INTO `users` (`username`, `email`, `password`, `created_at`) 
+            VALUES (?, ?, ?, now())"); //  ?,   `phone`,
+        $stmt->bind_param("sss", $login, $email, $con_password); // s $phone,
         $stmt->execute();
     }
 }
@@ -138,7 +138,7 @@ class Registration {
 if (isset($_POST['register'])) {
     try {
         $registration = new Registration();
-        $registration->validateAndRegister($_POST['username'], $_POST['email'], $_POST['phone'], $_POST['con-password'],$_POST['password']);
+        $registration->validateAndRegister($_POST['username'], $_POST['email'], $_POST['con-password'],$_POST['password']); // $_POST['phone'],
     } catch (Exception $e) {
         echo $e->getMessage();
     }
@@ -146,7 +146,7 @@ if (isset($_POST['register'])) {
 
 
 
-echo "PHP is working!";
+// echo "PHP is working!";
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 ?>

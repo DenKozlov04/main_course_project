@@ -105,9 +105,9 @@ include "InfoOutput4.php";
                         <input type="text" id="Email" name="Email" value=<?=$email?> placeholder="user email">
 
                         <label for="surname">Phone Number</label>
-                        <input type="text" id="Phone Number" name="Phone_Number" value=<?=$phone?> placeholder="user phone number">
+                        <input type="text" id="Phone Number" name="Phone_Number"  placeholder="user phone number">
                     </div>
-                    
+
                     <div class = 'Formtext7'>3.Passport details:</div>
 
                     <div id="user-info-form3">

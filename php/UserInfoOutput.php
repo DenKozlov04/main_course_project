@@ -37,6 +37,25 @@ class UserBookings {
     
         return $userInfo;
     }
+    public function displayUserPhone() {
+        $userPhone = array();
+    
+        $user_id = $_SESSION['user_id'];
+        $sql = "SELECT Phone_number FROM user_details WHERE user_id = $user_id";
+    
+        $result = $this->mysqli->query($sql);
+    
+        if ($result && $result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            
+            $userPhone['Phone_number'] = $row['Phone_number'];
+        } else {
+            $userPhone['Phone_number'] = 'Jūsu tālruņa numurs tiks parādīts pēc biļetes izsniegšanas.';
+            
+        }
+    
+        return $userPhone;
+    }
 ///------------------------Данные о билете---------------------------------- 
     // public function AddChildrenSeat() {
     //     if (isset($_POST['ChooseSeat'])) {
@@ -301,7 +320,7 @@ public function ChangeUserInfo(){
             return; 
         }
 
-        $sql = "UPDATE `users` SET `phone` = '$newPhone' WHERE `user_id` = $user_id";
+        $sql = "UPDATE `user_details` SET `Phone_number` = '$newPhone' WHERE `user_id` = $user_id";
         $result = $this->mysqli->query($sql);
     
         if ($result) {

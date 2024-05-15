@@ -9,3 +9,14 @@ function closeModal(id) {
     var modal = document.getElementById(id);
     modal.style.display = "none";
 }
+//------------------скрывает кнопку------------------------------
+if (userPhoneData.button_visibility === 'hidden') {
+    hideButton('editButton');
+}
+
+function hideButton(buttonId) {
+    var button = document.getElementById(buttonId);
+    if (button) {
+        button.style.display = 'none';
+    }
+}

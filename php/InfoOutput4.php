@@ -192,12 +192,14 @@ class PassportDataInput
     private function addPassportDataToDatabase($name, $surname, $nationality, $gender, $Email, $Phone_Number, $Passport_number, $passportIssuedDate, $passportExpirationDate, $country, $user_id)
     {
         global $conn;
-        $stmt = $conn->prepare("INSERT INTO `user_details` (`Name`, `Surname`, `Nationality`, `Gender`, `Email`, `Phone_number`, `Passport_number`, `Passport_issued_date`, `Passport_expiration_date`, `Issued_country_passport`, `user_id`, `created_at`) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now())");
-        $stmt->bind_param("sssssssssss", $name, $surname, $nationality, $gender, $Email, $Phone_Number, $Passport_number, $passportIssuedDate, $passportExpirationDate, $country, $user_id);
+        $stmt = $conn->prepare("INSERT INTO `user_details` (`Name`, `Surname`, `Nationality`, `Gender`, `Phone_number`, `Passport_number`, `Passport_issued_date`, `Passport_expiration_date`, `Issued_country_passport`, `user_id`, `created_at`) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now())");//  ?, `Email`,
+        $stmt->bind_param("ssssssssss", $name, $surname, $nationality, $gender, $Phone_Number, $Passport_number, $passportIssuedDate, $passportExpirationDate, $country, $user_id);//s $Email,
         $stmt->execute();
 
-
+        $updateStmt = $conn->prepare("UPDATE `users` SET `email` = ? WHERE `user_id` = ?");
+        $updateStmt->bind_param("ss", $Email, $user_id);
+        $updateStmt->execute();
     }
     
 

@@ -8,6 +8,7 @@
     $userBookings = new UserBookings();
     $flightInfo = $userBookings->displayFlightInfo();
     $userInfo = $userBookings->displayUserInfo();
+    $userPhone = $userBookings->displayUserPhone();
     $userOutput = $userBookings->deleteProfile();
     $AddChildInfo = $userBookings->AddChildInfo();
     $childInfo = $userBookings->displayChildInfo();
@@ -19,7 +20,7 @@
     $userBookings->displayChildInfo();
     // displayUserInfo
     $userInfo = $userBookings->displayUserInfo();
-
+    $userPhone = $userBookings->displayUserPhone();
 
 
 ?>
@@ -83,8 +84,8 @@
                 <button onclick="openModal('modal3')" class='changebtn1'>✎</button>
             </div>
 
-                <div class="InfoNumberInfo"><?=$userInfo['phone']?>
-                    <button onclick="openModal('modal4')" class='changebtn2'>✎</button>
+                <div class="InfoNumberInfo"><?=$userPhone['Phone_number']?>
+                    <button id="editButton" onclick="openModal('modal4')" class='changebtn2'>✎</button>
                 </div>
                 <div class='InfoPost1'>
                     <?=$userInfo['email']?>
@@ -331,7 +332,7 @@ Pateicamies par uzticību mūsu pakalpojumiem!</p>
         <span class="close" onclick="closeModal('modal4')" style="cursor: pointer;">&times;</span>
         <p>Vai vēlaties rediģēt savu tālruni?</p>
         <form class='ChangePhoneForm' action="user_info.php" method='POST'>
-            <input name='ChangePhone' value="<?= $userInfo['phone'] ?>">
+            <input name='ChangePhone' value="<?= $userPhone['Phone_number'] ?>">
             <button name='ChangePhoneBtn' type='submit' class="cancel-btn">Rediģēt</button>
         </form>
     </div>

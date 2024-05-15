@@ -3,6 +3,7 @@ include "ChildSeatCheck.php";
 
 echo '<script>';
 echo 'var flightId = ' . json_encode($id) . ';';
+// echo $id;
 echo '</script>';
 ?>
 

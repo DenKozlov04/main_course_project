@@ -58,32 +58,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $availabilityResults = [];
 
      
-        foreach ($seatNumbers as $seatNumber) {
-            $sql = "SELECT COUNT(*) AS count FROM tickets WHERE Seat = ? AND airlines_id = ?";
-            $stmt = $conn->prepare($sql);
-            $stmt->bind_param("si", $seatNumber, $id);
-            $stmt->execute();
-            $result = $stmt->get_result();
+        // foreach ($seatNumbers as $seatNumber) {
+        //     $sql = "SELECT COUNT(*) AS count FROM tickets WHERE Seat = ? AND airlines_id = ?";
+        //     $stmt = $conn->prepare($sql);
+        //     $stmt->bind_param("si", $seatNumber, $id);
+        //     $stmt->execute();
+        //     $result = $stmt->get_result();
     
            
-            $row = $result->fetch_assoc();
+        //     $row = $result->fetch_assoc();
     
          
-            $available = ($row['count'] == 0) ? true : false;
+        //     $available = ($row['count'] == 0) ? true : false;
             
        
+        //     $availabilityResults[] = array('seatNumber' => $seatNumber, 'available' => $available);
+        // }
+        foreach ($seatNumbers as $seatNumber) {
+            $sql = "SELECT COUNT(*) AS count FROM (
+                        SELECT seat FROM tickets WHERE seat = ? AND airlines_id = ?
+                        UNION ALL
+                        SELECT seat FROM children WHERE seat = ? AND airline_id = ?
+                    ) AS combinedSeats";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("sisi", $seatNumber, $id, $seatNumber, $id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            $row = $result->fetch_assoc();
+
+            $available = ($row['count'] == 0) ? true : false;
+
             $availabilityResults[] = array('seatNumber' => $seatNumber, 'available' => $available);
         }
-        
      
         echo json_encode($availabilityResults);
     } else {
       
-        echo json_encode(array('error' => 'Данные не были получены или отсутствует идентификатор'));
+        // echo json_encode(array('error' => 'Данные не были получены или отсутствует идентификатор'));
     }
 } else {
     
-    echo json_encode(array('error' => 'Метод запроса не поддерживается'));
+    // echo json_encode(array('error' => 'Метод запроса не поддерживается'));
 }
 
 ?>

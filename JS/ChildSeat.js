@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // отправка массива в php переменную
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "InfoOutput3.php", true);
+    xhr.open("POST", "ChildSeatCheck.php", true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {

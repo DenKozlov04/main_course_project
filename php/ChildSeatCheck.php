@@ -16,7 +16,13 @@ include 'dbconfig.php';
     $stmt->execute();
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();
-    $id = $row['airlines_id'];
+    // $id = $row['airlines_id'];
+    ///просто для того чтобы ошибка не сдвигала элемменты на экране
+    if (isset($row['airlines_id'])) {
+        $id = $row['airlines_id'];
+    } else {
+        $id = 0;
+    }
     
 
 

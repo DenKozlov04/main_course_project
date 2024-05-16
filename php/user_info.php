@@ -85,7 +85,7 @@
             </div>
 
                 <div class="InfoNumberInfo"><?=$userPhone['Phone_number']?>
-                    <button id="editButton" onclick="openModal('modal4')" class='changebtn2'>✎</button>
+                    <button id="editButton" onclick="openModal('modal4')" class='changebtn2' style="visibility: <?= $flightInfo['visibility']?>" >✎</button>
                 </div>
                 <div class='InfoPost1'>
                     <?=$userInfo['email']?>
@@ -119,7 +119,7 @@
                     <div class='RezInfoText4'>Atiešanas datums</div>
                     <div class='RezInfoText5'>Ierašanas datums</div>
                     <!-- <button class='CopyBtn'>Kopēt visu  <img class='printerImg'src="../images/printer.png" alt=""></button> -->
-                    <button class='denieBtn'onclick="openModal('modal8')">Atcelt</button>
+                    <button class='denieBtn'onclick="openModal('modal8')"style="visibility: <?= $flightInfo['visibility']?>">Atcelt</button>
                 </div>
                 <div class='RezInfo2'>
                 <div class='Reiss'><?= $flightInfo['airline'] ?></div>
@@ -128,7 +128,7 @@
                     <div class='Atiešanas_datums'><?= $flightInfo['departure_date']?></div>
                     <div class='Ierašanas_datums'><?= $flightInfo['arrival_date']?></div>
                 </div>
-                <button id="downloadBtn" class='downloadBtn'>Saglabāt kā PDF </button>
+                <button id="downloadBtn" class='downloadBtn'style="visibility: <?= $flightInfo['visibility']?>">Saglabāt kā PDF </button>
                 <script src='../JS/DownloadPdf.js'></script>
 
 
@@ -225,12 +225,12 @@
 
 
 
-                        <button name='AddChildrenBtn' type='submit' class="add-btn">Pievienot Bērnu</button>
+                        <button name='AddChildrenBtn' type='submit' class="add-btn" style="visibility: <?= $flightInfo['visibility']?>">Pievienot Bērnu</button>
                     </div>
                 </form>
 
             </div>
-            <button name='Btn'onclick="openModal('modal7')" type='submit' class="downloadBtn3">Izvelēt vietu</button>
+            <button name='Btn'onclick="openModal('modal7')" type='submit' class="downloadBtn3" style="visibility: <?= $flightInfo['visibility']?>">Izvelēt vietu</button>
             <div class='BigBox2'>
             <div class='BoxTitle3'>Bērni:</div>
             <div class=ScrollBox>

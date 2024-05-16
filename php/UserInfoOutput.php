@@ -31,7 +31,7 @@ class UserBookings {
             
             $userInfo['username'] = $row['username'];
             $userInfo['email'] = $row['email'];
-            $userInfo['phone'] = $row['phone'];
+            // $userInfo['phone'] = $row['phone'];
             $userInfo['password'] = $row['password'];
         }
     
@@ -49,9 +49,12 @@ class UserBookings {
             $row = $result->fetch_assoc();
             
             $userPhone['Phone_number'] = $row['Phone_number'];
+            // $visibility = 'visible';
+            // $userData['visibility'] = 'visible';
         } else {
             $userPhone['Phone_number'] = 'Jūsu tālruņa numurs tiks parādīts pēc biļetes izsniegšanas.';
-            
+            // $visibility = 'hidden';
+            // $userData['visibility'] = 'hidden';
         }
     
         return $userPhone;
@@ -245,6 +248,7 @@ public function AddChildInfo() {
                 $flightInfo['arrival_time'] = date('H:i', strtotime($row_airlines['arrival_time']));
                 $flightInfo['departure_time'] = date('H:i', strtotime($row_airlines['departure_time']));
                 // $this->AddChildInfo($airlines_id);
+                $flightInfo['visibility'] = 'visible';
             } else {
 
             }
@@ -256,6 +260,7 @@ public function AddChildInfo() {
             $flightInfo['departure_date'] = '';
             $flightInfo['arrival_time'] = '';
             $flightInfo['departure_time'] = '';
+            $flightInfo['visibility'] = 'hidden';
         }
     
        

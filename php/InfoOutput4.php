@@ -5,10 +5,10 @@ include 'dbconfig.php';
 $user_id = $_SESSION['user_id'];
 $admin_id = $_SESSION['admin_id'];
 
-$stmt4 = $conn->prepare("SELECT `email`, `phone` FROM users WHERE user_id = ?");
+$stmt4 = $conn->prepare("SELECT `email` FROM users WHERE user_id = ?");//`phone`
 $stmt4->bind_param("i", $user_id);
 $stmt4->execute();
-$stmt4->bind_result($email, $phone); 
+$stmt4->bind_result($email); //, $phone
 $stmt4->fetch();
 $stmt4->close();
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType2']) && isset($_POST['id2'] ) && isset($_POST['plusPrice3']) && isset($_POST['SeatPlace'])) {

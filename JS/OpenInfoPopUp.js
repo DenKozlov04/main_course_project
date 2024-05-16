@@ -10,13 +10,27 @@ function closeModal(id) {
     modal.style.display = "none";
 }
 //------------------скрывает кнопку------------------------------
-if (userPhoneData.button_visibility === 'hidden') {
-    hideButton('editButton');
-}
+// var userPhoneData = <?php echo json_encode(displayUserPhone()); ?>;
 
-function hideButton(buttonId) {
-    var button = document.getElementById(buttonId);
-    if (button) {
-        button.style.display = 'none';
-    }
-}
+// if (userPhoneData.button_visibility === 'hidden') {
+//     hideButton('editButton');
+// }
+
+// function hideButton(buttonId) {
+//     var button = document.getElementById(buttonId);
+//     if (button) {
+//         button.style.display = 'none';
+//     }
+// }
+
+// if (visibility === 'hidden') {
+//     hideButton('editButton');
+// }
+
+// function hideButton(buttonId) {
+//     var button = document.getElementById(buttonId);
+//     if (button) {
+//         button.style.display = 'none';
+//     }
+// }
+// document.getElementById("editButton").style.display="none";

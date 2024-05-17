@@ -26,7 +26,7 @@ if (isset($_SESSION['admin_id'])) {
 }
 ?>
 
-<table action="SubmitInfo_php">
+<!-- <table action="SubmitInfo_php">
   <tr>
     <th>booking ID</th>
     <th>user ID</th>
@@ -37,26 +37,26 @@ if (isset($_SESSION['admin_id'])) {
 
   <?php
     // data содержит все строки из результата запроса
-    foreach ($data as $row) {
-        $booking_id = $row['booking_id'];
-        $user_id = $row['user_id'];
-        $flight_id = $row['flight_id'];
-        $booking_date = $row['booking_date'];
-        $seat_number = $row['seat_number'];
+    // foreach ($data as $row) {
+    //     $booking_id = $row['booking_id'];
+    //     $user_id = $row['user_id'];
+    //     $flight_id = $row['flight_id'];
+    //     $booking_date = $row['booking_date'];
+    //     $seat_number = $row['seat_number'];
         
-        // Вывод данных 
-        echo "<tr>";
-        echo "<td>" . $booking_id . "</td>";
-        echo "<td>" . $user_id . "</td>";
-        echo "<td>" . $flight_id . "</td>";
-        echo "<td>" . $booking_date . "</td>";
-        echo "<td>" . $seat_number . "</td>";
-        echo "</tr>";
-    }
+    //     // Вывод данных 
+    //     echo "<tr>";
+    //     echo "<td>" . $booking_id . "</td>";
+    //     echo "<td>" . $user_id . "</td>";
+    //     echo "<td>" . $flight_id . "</td>";
+    //     echo "<td>" . $booking_date . "</td>";
+    //     echo "<td>" . $seat_number . "</td>";
+    //     echo "</tr>";
+    // }
   ?>
 
 </table>
-<li><a href="" action="" name="delete">delete</a></li>
+<li><a href="" action="" name="delete">delete</a></li> -->
 </body>
 </html> 
 <!DOCTYPE html>
@@ -158,7 +158,7 @@ if (isset($_SESSION['admin_id'])) {
 </form>
 
 <!-- форма добавления скидки -->
-<form class="city-form" action="../php/addCard.php" method="POST" enctype="multipart/form-data">
+<!-- <form class="city-form" action="../php/addCard.php" method="POST" enctype="multipart/form-data">
     <label for="city-name">The name of the city of departure:</label>
     <input type="text" id="city-name" name="city">
 
@@ -173,7 +173,7 @@ if (isset($_SESSION['admin_id'])) {
 
     <input type="submit" value="Добавить">
 
-</form>
+</form> -->
 
 
 

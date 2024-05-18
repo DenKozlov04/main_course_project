@@ -18,25 +18,54 @@ class UserBookings {
     }
 
 ///------------------------Код вывода информации о пользователе---------------------------------- 
-    public function displayUserInfo() {
-        $userInfo = array();
-    
-        $user_id = $_SESSION['user_id'];
-        $sql = "SELECT * FROM users WHERE user_id = $user_id";
-    
-        $result = $this->mysqli->query($sql);
-    
-        if ($result && $result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            
-            $userInfo['username'] = $row['username'];
-            $userInfo['email'] = $row['email'];
-            // $userInfo['phone'] = $row['phone'];
-            $userInfo['password'] = $row['password'];
-        }
-    
-        return $userInfo;
+public function displayUserInfo() {
+    $userInfo = array();
+
+    $user_id = $_SESSION['user_id'];
+    $sql = "SELECT * FROM users WHERE user_id = $user_id";
+
+    $result = $this->mysqli->query($sql);
+
+    if ($result && $result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        
+        $userInfo['username'] = $row['username'];
+        $userInfo['email'] = $row['email'];
+        // $userInfo['phone'] = $row['phone'];
+        $userInfo['password'] = $row['password'];
+        $userInfo['visibility'] = 'visible';
+        $userInfo['visibility2'] = 'hidden';
+    } else {
+        $userInfo['username'] = 'Admin';
+        $userInfo['email'] = 'Admin';
+        // $userInfo['phone'] = 'Admin';
+        $userInfo['password'] = 'Admin';
+        $userInfo['visibility'] = 'hidden';
+        $userInfo['visibility2'] = 'visible';
     }
+
+    return $userInfo;
+}
+
+    // public function displayUserInfo() {
+    //     $userInfo = array();
+    
+    //     $user_id = $_SESSION['user_id'];
+    //     $sql = "SELECT * FROM users WHERE user_id = $user_id";
+    
+    //     $result = $this->mysqli->query($sql);
+    
+    //     if ($result && $result->num_rows > 0) {
+    //         $row = $result->fetch_assoc();
+            
+    //         $userInfo['username'] = $row['username'];
+    //         $userInfo['email'] = $row['email'];
+    //         // $userInfo['phone'] = $row['phone'];
+    //         $userInfo['password'] = $row['password'];
+    //     } 
+    
+    //     return $userInfo;
+    // }
     public function displayUserPhone() {
         $userPhone = array();
     
@@ -393,8 +422,8 @@ public function ChangeUserInfo(){
         $result = $this->mysqli->query($sql);
     
         if ($_SESSION['admin_id'] != 0) {
-            echo "Hello admin
-            <li><a href='adminPage.php'>Go to the admin page</a></li>";
+            // echo "Hello admin
+            // <li><a href='adminPage.php'>Go to the admin page</a></li>";
 
         } else {
             if ($result->num_rows > 0) {

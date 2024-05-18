@@ -227,7 +227,23 @@ body {
     margin-left:580px;
     z-index: 1;
 }
-
+.BackBtn3 {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  background-color: #DE6A6A;
+  width: 190px;
+  height: 70px;
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  position: absolute;
+  border-radius: 5px;
+  margin-top: 270px;
+  margin-left: 630px;
+  z-index: 1;
+  font-size: 16px; 
+  text-align: center; 
+}
 .InfoBoxSmallOutput{
     width:150px;
     height:200px;

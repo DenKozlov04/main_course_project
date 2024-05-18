@@ -81,7 +81,7 @@
             <div class='InfoBoxSmallOutput'>
             <div class='InfoName1'>
                 <?= $userInfo['username'] ?> 
-                <button onclick="openModal('modal3')" class='changebtn1'>✎</button>
+                <button onclick="openModal('modal3')" class='changebtn1'style="visibility: <?= $userInfo['visibility']?>">✎</button>
             </div>
 
                 <div class="InfoNumberInfo"><?=$userPhone['Phone_number']?>
@@ -89,17 +89,17 @@
                 </div>
                 <div class='InfoPost1'>
                     <?=$userInfo['email']?>
-                    <button onclick="openModal('modal5')" class='changebtn3'>✎</button>
+                    <button onclick="openModal('modal5')" class='changebtn3' style="visibility: <?= $userInfo['visibility']?>">✎</button>
                 </div>
 
                 <div class="InfoPassword1">
                     <input type="password" value="<?= htmlspecialchars($userInfo['password']) ?>">
-                    <button onclick="openModal('modal6')" class='changebtn4'>✎</button>
+                    <button onclick="openModal('modal6')" class='changebtn4' style="visibility: <?= $userInfo['visibility']?>">✎</button>
                 </div>
-                <button onclick="openModal('modal9')" class='changebtn5'>✎</button>
+                <button onclick="openModal('modal9')" class='changebtn5' style="visibility: <?= $userInfo['visibility']?>">✎</button>
 
             </div>
-            
+            <a class='BackBtn3' href='adminPage.php'style="visibility: <?= $userInfo['visibility2']?>">Atvert Admina lapu</a>
         </div>
         
         <div class='BoxTitle2'>Mānas rezervācijas</div>
@@ -163,7 +163,7 @@
                     <div class='Atiešanas_datums'>2022/10/10</div>
                     <div class='Ierašanas_datums'>2022/10/11</div>
                 </div>
-                <button class='downloadBtn2'>Saglabāt kā PDF </button>
+                <button class='downloadBtn2'style="visibility: <?= $userInfo['visibility']?>">Saglabāt kā PDF </button>
                 <div class='TimeInfo1'>
                     <div class='AtLaiks'>10:30</div>
                     <div class='IerLaiks'>12:30</div>
@@ -177,7 +177,7 @@
                 <div class='GreyPlc'>
                     <div class='Infotxt1'>Profilu dzēšana</div>
                 </div>              
-                    <div class='policy'>  Ja vēlaties dzēst profilu  <button class='policyBtn'onclick="openModal('modal2')">Spiediet šeit.</button> 
+                    <div class='policy'>  Ja vēlaties dzēst profilu  <button class='policyBtn'onclick="openModal('modal2')" style="visibility: <?= $userInfo['visibility']?>">Spiediet šeit.</button> 
                 </div>
             </div>
             <div class='RezBox4'>
@@ -264,7 +264,7 @@
                 </div>
                 <form class='DeleteForm' action="user_info.php" method='POST'>
                     <input type='hidden' name='DeleteChildren'>
-                    <button name='DeleteChildrenBtn' type='submit' class="downloadBtn2">Dzēst</button>
+                    <button name='DeleteChildrenBtn' type='submit' class="downloadBtn2"style="visibility: <?= $userInfo['visibility']?>">Dzēst</button>
                 </form>
             </div>
             </div>

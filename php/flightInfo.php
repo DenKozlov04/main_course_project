@@ -82,7 +82,7 @@ if ($stmt->fetch()) {
     </div>
     <div class="custom-rectangle">
         <div class="custom-rectangle2"></div>
-        <iframe class="GoogleMap" src="<?php echo $google_maps_link; ?>"
+        <iframe class="GoogleMap" src="<?= $google_maps_link; ?>"
         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </iframe>
     <?php
@@ -113,7 +113,7 @@ if ($stmt->fetch()) {
 
 
 </div>
-<div class="custom-rectangle2L">
+<!-- <div class="custom-rectangle2L">
     <div class="CommentsPlace">
         <div class="text3">Choosing a seat on the plane</div>
         <div class="text4">Lorem Ipsum is simply dummy text of the printing and typesetting industry.(описание того что на картинке)</div>
@@ -305,7 +305,7 @@ if ($stmt->fetch()) {
         </div>
         </div>
         <div class="text5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
-    </div>
+    </div> -->
     
 </div>
 

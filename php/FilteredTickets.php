@@ -18,7 +18,7 @@
         <div class='ButtonRect'>
             <a>Find the perfect flights for your trip.</a>
         </div>  
-    <a class='BackButton' href='index.php'>Back</a>
+    <a class='BackButton' href='index.php'>← Back</a>
     <!-- <button class="toggle-button">
         <img src='../images/free-icon-funnel-tool-4052123.png' alt="Toggle Image">
         <script src="../JS/togglebutton.js"></script>

@@ -126,9 +126,16 @@ $mysqli->close();
 </head>
 
 <body>
-    <h1>Comments</h1>
+<div class='rectangleHeader'>
+        <div class='logorectangle'>
+            <a>AVIA</a>
+        </div> 
+        <div class='ButtonRect'>
+            <a>You can leave a comment about your trip and communicate with other users</a>
+        </div>  
+    <!-- <h1>Comments</h1> -->
 
-    <h2>Add comment</h2>
+    <!-- <h2>Add comment</h2> -->
     <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
        <label for="name">Name: <?php echo $username; ?></label>
        <label for="email">Email: <?php echo $email; ?></label>
@@ -140,17 +147,17 @@ $mysqli->close();
     </form>
 
     <h2>Comments</h2>
-<li><a href="index.php">On the main page</a></li>
+<a href="index.php" class="PrevPage" >← On the main page</a>
 <?php foreach ($comments as $comment): ?>
     <div class="comment-container">
         <div class="comment-header">
-            <strong><?php echo $comment['name']; ?>:</strong>
+            <strong><?= $comment['name']; ?>:</strong>
         </div>
         <div class="comment-text">
-            <?php echo $comment['comment']; ?>
+            <?= $comment['comment']; ?>
         </div>
         <div class="comment-timestamp">
-            <small><?php echo $comment['created_at']; ?></small>
+            <small><?= $comment['created_at']; ?></small>
         </div>
         <?php if ($comment['user_id'] == $user_id || $admin_id != 0): ?>
             <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
@@ -158,11 +165,11 @@ $mysqli->close();
                 <input type="submit" value="Delete" name="delete_comment">
 
             </form>
-            <button onclick="ShowEdit(<?php echo $comment['id']; ?>)">Edit comment</button>
-            <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post" id="editForm<?php echo $comment['id']; ?>" style="display: none;">
-                <input type="hidden" name="edit_comment_id" value="<?php echo $comment['id']; ?>">
+            <button onclick="ShowEdit(<?= $comment['id']; ?>)">Edit comment</button>
+            <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post" id="editForm<?= $comment['id']; ?>" style="display: none;">
+                <input type="hidden" name="edit_comment_id" value="<?= $comment['id']; ?>">
                 <input type="submit" value="Edit" name="edit_comment">
-                <textarea name="edit_comment" id="edit_comment" cols="30" rows="10"><?php echo $comment['comment']; ?></textarea><br>
+                <textarea name="edit_comment" id="edit_comment" cols="30" rows="10"><?= $comment['comment']; ?></textarea><br>
             </form>
             <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
                     <?php

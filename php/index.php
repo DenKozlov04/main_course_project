@@ -125,8 +125,8 @@
 
   
     $mysqli->close();
-    echo '<p><a class="special-link4" href=""><img src="../images/messageFalse.png"  width="34" height="34"></a></p>';
-    echo '<p><a class="special-link4" href=""><img src="../images/messageTrue.png"  width="34" height="34"></a></p>';
+    // echo '<p><a class="special-link4" href=""><img src="../images/messageFalse.png"  width="34" height="34"></a></p>';
+    // echo '<p><a class="special-link4" href=""><img src="../images/messageTrue.png"  width="34" height="34"></a></p>';
 ?>
 
     

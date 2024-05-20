@@ -1,5 +1,58 @@
 body {
-    background-color: rgb(255, 255, 255);
+  font-family: 'Nunito Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+}
+.ButtonRect {
+  position: absolute;
+  padding: 0; /* Убираем отступы внутри .ButtonRect */
+  margin-left: 550px;
+  margin-top:-55px;
+}
+
+.ButtonRect a {
+  font-size:20px;
+  display: inline-block;
+  margin-right: 35px; /* Добавляем отступ между элементами a */
+  text-decoration: none;
+  color: #0D057C;
+}
+.rectangleHeader{
+  width: 100%;
+  height: 80px;
+  background-color: #FFFFFF;
+}
+.logorectangle{
+  background: #DE6A6A;
+  width: 160px;
+  height: 80px;
+  margin-left: 330px;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
+.logorectangle a {
+  font-size: 40px;
+  color: #FFFFFF;
+
+}
+.BackButton{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    background-color: #DE6A6A;
+    width: 120px;
+    height: 50px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    position: absolute;
+    border-radius: 5px;
+    margin-top: -70px;
+    margin-left:10px;
+    z-index: 1;
+    font-size: 16px; 
+    text-align: center; 
 }
 .img1 img {
     right:25px;
@@ -135,7 +188,7 @@ body {
   .text5{
     font-size: 25px;
     font-family: 'Nunito Sans', sans-serif;
-    margin-top: -33px;
+    margin-top: -43px;
     margin-left: 330px;
   }
   .text6{
@@ -148,7 +201,7 @@ body {
     font-family: 'Nunito Sans', sans-serif;
     margin-left: 295px;
     font-size: 12px;
-    margin-top: -35px;
+    margin-top: -45px;
     font-weight: 600; 
 }
 .search_place {
@@ -333,6 +386,7 @@ body {
     font-size: 22px;
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.1); 
+    color:#ffffff;
     border: none; 
 }
 

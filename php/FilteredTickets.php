@@ -11,11 +11,18 @@
     <title>Filtered tickets</title>
 </head>
 <body>
+    <div class='rectangleHeader'>
+        <div class='logorectangle'>
+            <a>AVIA</a>
+        </div> 
+        <div class='ButtonRect'>
+            <a>Find the perfect flights for your trip.</a>
+        </div>  
     <a class='BackButton' href='index.php'>Back</a>
-    <button class="toggle-button">
+    <!-- <button class="toggle-button">
         <img src='../images/free-icon-funnel-tool-4052123.png' alt="Toggle Image">
         <script src="../JS/togglebutton.js"></script>
-    </button>
+    </button> -->
     <div class="sidebar">
         <div class='sidebarText1'>Price,€,$</div>
         <p class='CurrentValue'><span id="sliderValue">0</span></p>

@@ -10,20 +10,20 @@ if (isset($_SESSION['admin_id'])) {
         die("Connection failed: " . $mysqli->connect_error);
     }
 
-    $result = $mysqli->query("SELECT booking_id, user_id, flight_id, booking_date, seat_number FROM `bookings`");
+    // $result = $mysqli->query("SELECT booking_id, user_id, flight_id, booking_date, seat_number FROM `bookings`");
 
-    $data = array(); 
-// пока значения есть-выводить их
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            $data[] = $row; 
-        }
-    } else {
-        echo "No bookings from users";
-    }
-} else {
-    echo "Admin ID is not set in session.";
-}
+//     $data = array(); 
+// // пока значения есть-выводить их
+//     if ($result->num_rows > 0) {
+//         while ($row = $result->fetch_assoc()) {
+//             $data[] = $row; 
+//         }
+//     } else {
+//         echo "No bookings from users";
+//     }
+// } else {
+//     echo "Admin ID is not set in session.";
+ }
 ?>
 
 <!-- <table action="SubmitInfo_php">

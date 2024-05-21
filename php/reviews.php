@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $update_sql = "UPDATE comments SET comment_category = '$flightname' WHERE id = $comment_id";
             
             if ($conn->query($update_sql) === TRUE) {
-                echo "Record updated successfully";
+                // echo "Record updated successfully";
             } else {
                 echo "Error updating record: " . $conn->error;
             }
@@ -134,7 +134,7 @@ $mysqli->close();
             <a>You can leave a comment about your trip and communicate with other users</a>
         </div>  
         <a href="index.php" class="PrevPage" >← On the main page</a>
-    <div class='HeadImg'></div>
+    <img class='HeadImg' ></img>
     <div class='Text1'>
             <a>Share your flight and vacation experiences with other users.</a>
         </div>
@@ -165,25 +165,27 @@ $mysqli->close();
     <div class="comment-container">  
     <img class='UserImg2' src='../images/user_foto.png'></img>
         <div class="comment-header">
-            <a><?= $comment['name']; ?></a>
+            <a class='name2'><?= $comment['name']; ?></a>
         </div>
         <div class="comment-text">
             <?= $comment['comment']; ?>
         </div>
         <div class="comment-timestamp">
-            <small><?= $comment['created_at']; ?></small>
+            <a class='time'><?= $comment['created_at']; ?></a>
         </div>
         <?php if ($comment['user_id'] == $user_id || $admin_id != 0): ?>
             <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
                 <input type="hidden" name="delete_comment_id" value="<?= $comment['id']; ?>">
-                <input type="submit" value="Delete" name="delete_comment">
+                <input class='DeleteBtn'type="submit" value="Delete" name="delete_comment">
 
             </form>
-            <button onclick="ShowEdit(<?= $comment['id']; ?>)">Edit comment</button>
+            <button class='EditBtn' onclick="ShowEdit(<?= $comment['id']; ?>)">Edit</button>
             <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post" id="editForm<?= $comment['id']; ?>" style="display: none;">
                 <input type="hidden" name="edit_comment_id" value="<?= $comment['id']; ?>">
-                <input type="submit" value="Edit" name="edit_comment">
-                <textarea name="edit_comment" id="edit_comment" cols="30" rows="10"><?= $comment['comment']; ?></textarea><br>
+                <input class='ApplyEditBtn'type="submit" value="Edit" name="edit_comment">
+                <div class='WhiteRect'>
+                    <textarea class='EditCommentWindow'name="edit_comment" id="edit_comment" cols="30" rows="10"><?= $comment['comment']; ?></textarea><br>
+                </div>
             </form>
             <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
                     <?php
@@ -193,8 +195,8 @@ $mysqli->close();
 
                         // Вывод данных
                         if ($result->num_rows > 0) {
-                            echo '<select id="flightname" name="flightname">';
-                            echo '<option value="None" selected>None</option>'; // Значение None по умолчанию
+                            echo '<select class="NamePlace"id="flightname" name="flightname">';
+                            echo '<option value="None" selected>None</option>'; 
                             while ($row = $result->fetch_assoc()) {
                                 echo '<option value="' . $row["Airline"] . '">' . $row["Airline"] . '</option>';
                             }
@@ -205,16 +207,26 @@ $mysqli->close();
                     }
                     echo '<input type="hidden" name="comment_id" value="' . $comment['id'] . '">';
                     ?>
-                    <button type="submit">Add</button>
+                    <button class='AddStatus'type="submit">Add</button>
             </form>
         <?php endif; ?>
     </div>
                 
 <?php endforeach; ?>
-            </div>
-
+</div>
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2023 AVIA. All rights reserved..</p>
+        <p>Follow us on social media:</p>
+        <ul class="social-links">
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Instagram</a></li>
+        </ul>
+    </div>
+</footer>
 
 
 </body>
-</html>
 
+</html>

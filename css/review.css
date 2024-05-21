@@ -49,12 +49,15 @@ body {
     text-decoration: none;
     color: #0D057C;
   }
-  .HeadImg{
-    background-color: #ce9f9f;
-    width:100%;
-    height:770px;
-    
-  }
+  .HeadImg {
+    /* background-color: #ce9f9f; */
+    width: 100%;
+    height: 770px;
+    background-image: url('../images/pexels-vincent-gerbouin-445991-1174732.jpg'); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center bottom; 
+}
   .Text1{
     position: absolute;
     font-size:47px;
@@ -70,13 +73,14 @@ body {
     height:30px;
     position: absolute;
     z-index: -1;
+    margin-top: -8px;
   }
   .AddCommentRect {
     background-color: #FFFFFF;
     width: 900px;
     height: 325px;
     border-radius: 5px;
-     border: 2px solid #0D057C; 
+     /* border: 2px solid #0D057C;  */
     margin-left: 500px;
     margin-top: 200px;
     position: absolute;
@@ -143,6 +147,18 @@ body {
   margin-left:98px;
   margin-top:5px;
 }
+.name2{
+  color: #0D057C;
+  position:absolute;
+  font-size: 17px;
+  margin-left:98px;
+  margin-top:-75px;
+}
+.time{
+  margin-left:745px;
+  margin-top:-72px;
+  position:absolute;
+}
 .email{
   /* color: #0D057C; */
   position:absolute;
@@ -160,7 +176,44 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   margin-bottom: 15px;
 }
-
+.comment-text{
+  /* background-color: #ce9f9f; */
+  width:760px;
+  height:100px;
+  position: absolute;
+  margin-left:97px;
+  margin-top:-30px;
+}
+.DeleteBtn{
+  position: absolute;
+  margin-left: 810px;  
+  margin-top:70px;
+  color: #ffffff;
+  width:60px;
+  font-size:24px;
+  height: 30px;
+  background-color: #DE6A6A;
+  font: inherit; 
+  cursor: pointer; 
+  outline: none; 
+  border: none; 
+  border-radius:5px;
+}
+.EditBtn{
+  position: absolute;
+  margin-left: 730px;  
+  margin-top:70px; 
+  color: #ffffff;
+  width:60px;
+  font-size:24px;
+  height: 30px;
+  background-color: #DE6A6A;
+  font: inherit; 
+  cursor: pointer; 
+  outline: none; 
+  border: none; 
+  border-radius:5px;
+}
 .Text3{
   position: absolute;
   font-size:30px;
@@ -168,21 +221,90 @@ body {
   margin-left:550px;
   margin-top:580px;
 }
-.scrollable-box {
-  /* background-color: #f0f0f0;
-  width: 370px;
-  height: 200px;
-  overflow: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 330px; */
-  width: 915px;
-  height: 600px;
-  /* padding: 15px; */
-  border: 2px solid #0D057C;
+.NamePlace{
+  z-index: 1;
+  position: absolute;
+  border: 1px solid rgb(224, 224, 224); 
+  background-color: rgb(245, 245, 245); 
+  padding: 5px;
+  margin-top: -5px;
+  margin-left:97px;
+  margin-top:70px;
+}
+footer {
+  position: absolute;
+  background-color: #333;
+  color: #fff; 
+  margin-top:1500px ;
+  width:99.9%;
+  text-align: center; 
+  font-family:'Nunito Sans', sans-serif;
+}
+
+.footer-content {
+  /* max-width: 800px;  */
+  margin: 0 auto; 
+}
+.social-links a {
+  color: #fff; 
+  text-decoration: none; 
+}
+.AddStatus{
+  position: absolute;
+  margin-left: 220px;  
+  margin-top:70px; 
+  color: #ffffff;
+  width:60px;
+  font-size:24px;
+  height: 30px;
+  background-color: #DE6A6A;
+  font: inherit; 
+  cursor: pointer; 
+  outline: none; 
+  border: none; 
+  border-radius:5px;
+}
+.ApplyEditBtn{
+  position: absolute;
+  margin-left: 628px;  
+  margin-top:297px;  
+  color: #ffffff;
+  width:60px;
+  font-size:24px;
+  height: 30px;
+  background-color: #DE6A6A;
+  font: inherit; 
+  cursor: pointer; 
+  outline: none; 
+  border: none; 
+  border-radius:5px;
+  z-index: 999;
+}
+.EditCommentWindow{
+  z-index: 999;
+  margin-left:12px;
+  margin-top:20px;
+  border: 1px solid #ABABAB;
   border-radius: 5px;
-  background-color: #FFFFFF;
+  font-size: 17px;
+  font-family: 'Nunito Sans', sans-serif;
+  position: absolute;
+  width:370px;
+}
+.WhiteRect{
+  background-color: #f3f3f3;
+  margin-left:300px;
+  width:400px;
+  height:260px;
+  margin-top:70px;
+  position:absolute;
+  z-index: 997;
+  border-radius: 5px;
+  border: 1px solid rgb(224, 224, 224);
+}
+.scrollable-box {
+  width: 915px;
+  height: 700px;
   overflow-y: scroll; 
   margin: 20px auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -191,83 +313,4 @@ body {
   z-index: -1;
   margin-top:620px;
 }
-/* h1 {
-    background-color: #4caf50;
-    color: white;
-    padding: 20px;
-    margin: 0;
-}
-
-h2 {
-    color: #4caf50;
-    margin-top: 20px;
-} */
-
-
-/* form {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    margin-top: 20px;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    color: #4caf50;
-} */
-
-/* input[type="text"],
-input[type="email"],
-textarea {
-    width: 100%;
-    padding: 4px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-} */
-
-/* textarea {
-    height: 150px;
-}
-
-
-input[type="submit"] {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 3px;
-}
-
-input[type="submit"]:hover {
-    background-color: #45a049;
-} */
-/* review.css */
-
-
-/* .comment-container {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #f5f5f5;
-}
-
-
-.comment-header {
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-
-.comment-text {
-    margin-bottom: 10px;
-} */
-
 

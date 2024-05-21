@@ -1,57 +1,108 @@
 .registration{
-    position: relative;
-    z-index: 1;
-    background: #FFFFFF;
-    max-width: 360px;
-    margin: 0 auto 100px;
-    padding: 45px;
-    top: 120px; 
-    text-align: center;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 400px;
+  margin: 130px auto 100px;
+  padding: 45px;
+  top: 120px; 
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  border-radius: 5px;
 }
 .registration input {
-  font-family: 'Nunito Sans', sans-serif;
-  outline: 0;
-  background: #f2f2f2;
-  width: 100%;
-  border: 0;
-  margin: 0 0 15px;
-  padding: 15px;
-  box-sizing: border-box;
-  font-size: 14px;
+font-family: 'Nunito Sans', sans-serif;
+width: 100%;
+margin: 0 0 15px;
+box-sizing: border-box;
+font-size: 14px;
+border: 1px solid rgb(224, 224, 224); 
+background-color: rgb(245, 245, 245); 
+padding: 8px;
 }
-.registration button{
-  font-family: 'Nunito Sans', sans-serif;
-  text-transform: uppercase;
-  outline: 0;
-  background: #4CAF50;
-  width: 100%;
-  border: 0;
-  padding: 15px;
-  color: #FFFFFF;
-  font-size: 14px;
-  -webkit-transition: all 0.3 ease;
-  transition: all 0.3 ease;
-  cursor: pointer;
-}
-.registration button:hover,.registration button:active,.registration button:focus {
-    background: #43A047;
+.BackButton{
+  text-decoration: none;
+   margin-top: 420px;
+   margin-left:700px;
+   position: absolute;
+   transform: translateY(30px); 
+   font-family: 'Nunito Sans', sans-serif;
+   font-size: 18px;
+   color: #DE6A6A;
+   z-index: 2;
   }
-  div.curort{
-  position: fixed;
-  top: -15%;
-  left: -1%;
-  width: 200%;
-  height: 200%;
+
+.registration button{
+font-family: 'Nunito Sans', sans-serif;
+text-transform: uppercase;
+outline: 0;
+background: #DE6A6A;
+width: 100%;
+border: 0;
+padding: 15px;
+color: #FFFFFF;
+font-size: 14px;
+-webkit-transition: all 0.3 ease;
+transition: all 0.3 ease;
+cursor: pointer;
 }
-img.curort{
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -10; 
+}
+
+.background-video video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  filter: blur(2px);
+}
+
+.background-video::before {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  min-width: 50%;
-  min-height: 50%;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Затемнение */
+  z-index: 1;
 }
 
+div.curort{
+position: fixed;
+top: -15%;
+left: -1%;
+width: 200%;
+height: 200%;
+}
+
+img.curort{
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+margin: auto;
+min-width: 50%;
+min-height: 50%;
+}
+
+.registration .message {
+  font-size: 15px;
+  font-family: 'Nunito Sans', sans-serif;
+  margin: 15px 0 0;
+  color: #b3b3b3;
+}
+
+.registration .message a {
+  font-size: 15px;
+  font-family: 'Nunito Sans', sans-serif;
+  color: #0D057C;
+  text-decoration: none;
+}

@@ -287,15 +287,10 @@ body {
     margin-top: -5px;
     margin-left:0px;
 }
-/* .changebtn3{
-  
-  position: absolute;
-  margin-left: 0px;
-  margin-top:0px;
-} */
+
 .InfoPost1 {
   position: relative;
-  padding-right: 20px; /* Устанавливаем отступ справа для кнопки */
+  padding-right: 20px; 
 }
 
 .changebtn3 {

@@ -133,25 +133,39 @@ $mysqli->close();
         <div class='ButtonRect'>
             <a>You can leave a comment about your trip and communicate with other users</a>
         </div>  
-    <!-- <h1>Comments</h1> -->
+        <a href="index.php" class="PrevPage" >← On the main page</a>
+    <div class='HeadImg'></div>
+    <div class='Text1'>
+            <a>Share your flight and vacation experiences with other users.</a>
+        </div>
+    <div class='GreyRect1'></div>
+    <div class='bigRect1'>
+        <div class='Text2'>
+                <a>Leave your comment </a>
+            </div>
+        <div class='AddCommentRect'>
+            <img class='UserImg' src='../images/user_foto.png'></img>
+            <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
+            <label class='name'for="name"> <?= $username; ?></label>
+            <label class='email' for="email"> <?= $email; ?></label>
 
-    <!-- <h2>Add comment</h2> -->
-    <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
-       <label for="name">Name: <?php echo $username; ?></label>
-       <label for="email">Email: <?php echo $email; ?></label>
-
-        <label for="comment">Your comment:</label><br>
-        <textarea name="comment" id="comment" cols="30" rows="10"></textarea><br>
-        <script src="../JS/troggleButtonInRevews.js"></script>
-        <input type="submit" value="Submit" name="add_comment">
-    </form>
-
-    <h2>Comments</h2>
-<a href="index.php" class="PrevPage" >← On the main page</a>
-<?php foreach ($comments as $comment): ?>
-    <div class="comment-container">
+                <!-- <label for="comment">Your comment:</label><br> -->
+                <textarea class='AddCommentArea' name="comment" id="comment" cols="30" rows="10" placeholder='Add a comment...'></textarea><br>
+                <script src="../JS/troggleButtonInRevews.js"></script>
+                <input class='inputBtn'type="submit" value="Post" name="add_comment">
+            </form>
+        </div>
+    </div>
+    <!-- <h2>Comments</h2> -->
+    <div class='Text3'>
+                <a>User comments </a>
+            </div>
+            <div class="scrollable-box">
+            <?php foreach ($comments as $comment): ?>
+    <div class="comment-container">  
+    <img class='UserImg2' src='../images/user_foto.png'></img>
         <div class="comment-header">
-            <strong><?= $comment['name']; ?>:</strong>
+            <a><?= $comment['name']; ?></a>
         </div>
         <div class="comment-text">
             <?= $comment['comment']; ?>
@@ -161,7 +175,7 @@ $mysqli->close();
         </div>
         <?php if ($comment['user_id'] == $user_id || $admin_id != 0): ?>
             <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
-                <input type="hidden" name="delete_comment_id" value="<?php echo $comment['id']; ?>">
+                <input type="hidden" name="delete_comment_id" value="<?= $comment['id']; ?>">
                 <input type="submit" value="Delete" name="delete_comment">
 
             </form>
@@ -195,7 +209,10 @@ $mysqli->close();
             </form>
         <?php endif; ?>
     </div>
+                
 <?php endforeach; ?>
+            </div>
+
 
 
 </body>

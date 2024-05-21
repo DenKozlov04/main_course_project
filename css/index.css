@@ -500,6 +500,17 @@ body {
   background-color: #DE6A6A;
   border-radius: 30px;
   margin-left:1300px;
+  margin-top:-50px;
+  font-size:20px;
+  color: #ffffff;
+}
+.UserImgBox3{
+  position: absolute;
+  width:220px;
+  height:55px;
+  background-color: #DE6A6A;
+  border-radius: 30px;
+  margin-left:1300px;
   margin-top:-68px;
   font-size:20px;
   color: #ffffff;

@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&family=Poppins:ital,wght@1,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<script src="../JS/deleteCard.js"></script>
+<!-- <script src="../JS/deleteCard.js"></script> -->
     <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script src="../JS/translateScript.js"></script>
 </head>
@@ -111,11 +111,11 @@
         echo '<div class="UserImgBox2">
                   <div class="TextElemment">Jūsu profils</div>
               </div>
-        <div class="special-link2" style="width: 45px; height: 45px; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center; margin-top: -5px;">';
+        <div class="special-link2" style="width: 45px; height: 45px; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center; margin-top: 12px;">';
         echo '<a href="user_info.php" ><img src="data:image/jpeg;base64,' . base64_encode($profile_image) . '" width="70" height="65" /></a>';
         echo '</div>';
     } else {
-        echo '<div class="UserImgBox2">
+        echo '<div class="UserImgBox3">
                 <div class="TextElemment">Jūsu profils</div>
             </div>
         <p><a class="special-link" href="user_info.php"><img src="../images/user_foto.png"  width="70" height="70"></a></p>';
@@ -213,7 +213,8 @@
 
 
 
-  <?php include 'card_data.php'; 
+  <?php 
+  // include 'card_data.php'; 
   ?>
 
 

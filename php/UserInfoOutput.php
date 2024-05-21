@@ -413,60 +413,60 @@ public function ChangeUserInfo(){
 
 ///------------------------Функция получения данных из таблицы Booking ПОТОМ УДАЛИТЬ ----------------------------------
 
-    public function getUserBookings() {////переделать 
-        $sql = "SELECT bookings.booking_id, bookings.user_id, bookings.flight_id, bookings.booking_date, bookings.seat_number 
-                FROM bookings
-                INNER JOIN users ON bookings.user_id = users.user_id
-                WHERE bookings.user_id = {$_SESSION['user_id']}";
+    // public function getUserBookings() {////переделать 
+    //     $sql = "SELECT bookings.booking_id, bookings.user_id, bookings.flight_id, bookings.booking_date, bookings.seat_number 
+    //             FROM bookings
+    //             INNER JOIN users ON bookings.user_id = users.user_id
+    //             WHERE bookings.user_id = {$_SESSION['user_id']}";
     
-        $result = $this->mysqli->query($sql);
+    //     $result = $this->mysqli->query($sql);
     
-        if ($_SESSION['admin_id'] != 0) {
-            // echo "Hello admin
-            // <li><a href='adminPage.php'>Go to the admin page</a></li>";
+    //     if ($_SESSION['admin_id'] != 0) {
+    //         // echo "Hello admin
+    //         // <li><a href='adminPage.php'>Go to the admin page</a></li>";
 
-        } else {
-            if ($result->num_rows > 0) {
-                // echo '<div id="bookings-list">';
-                // данные из таблицы
+    //     } else {
+    //         if ($result->num_rows > 0) {
+    //             // echo '<div id="bookings-list">';
+    //             // данные из таблицы
     
-                // echo '<table id="bookings-table">';
-                // echo '<tr>';
-                // echo '<th>Booking ID</th>';
-                // echo '<th>User ID</th>';
-                // echo '<th>Flight ID</th>';
-                // echo '<th>Booking Date</th>';
-                // echo '<th>Seat Number</th>';
-                // echo '</tr>';
+    //             // echo '<table id="bookings-table">';
+    //             // echo '<tr>';
+    //             // echo '<th>Booking ID</th>';
+    //             // echo '<th>User ID</th>';
+    //             // echo '<th>Flight ID</th>';
+    //             // echo '<th>Booking Date</th>';
+    //             // echo '<th>Seat Number</th>';
+    //             // echo '</tr>';
     
-                while ($row = $result->fetch_assoc()) {
-                    // echo '<tr>';
-                    // echo '<td>' . $row["booking_id"] . '</td>';
-                    // echo '<td>' . $row["user_id"] . '</td>';
-                    // echo '<td>' . $row["flight_id"] . '</td>';
-                    // echo '<td>' . $row["booking_date"] . '</td>';
-                    // echo '<td>' . $row["seat_number"] . '</td>';
-                    // echo '</tr>';  
+    //             while ($row = $result->fetch_assoc()) {
+    //                 // echo '<tr>';
+    //                 // echo '<td>' . $row["booking_id"] . '</td>';
+    //                 // echo '<td>' . $row["user_id"] . '</td>';
+    //                 // echo '<td>' . $row["flight_id"] . '</td>';
+    //                 // echo '<td>' . $row["booking_date"] . '</td>';
+    //                 // echo '<td>' . $row["seat_number"] . '</td>';
+    //                 // echo '</tr>';  
     
-                    // echo "<form method='POST' action='user_info.php'>
-                    //         <input type='hidden' name='delete' value='" . $row["user_id"] . "'>
-                    //         <button  type='submit'>Deny</button>
-                    //       </form>";
-                } 
-                // echo '</table>';
-            } else {
-                // echo "No bookings found, add booking: <li><a href='../php/Buy_Tickets.php'>ADD</a></li>";
-            }
-        }
-    }
+    //                 // echo "<form method='POST' action='user_info.php'>
+    //                 //         <input type='hidden' name='delete' value='" . $row["user_id"] . "'>
+    //                 //         <button  type='submit'>Deny</button>
+    //                 //       </form>";
+    //             } 
+    //             // echo '</table>';
+    //         } else {
+    //             // echo "No bookings found, add booking: <li><a href='../php/Buy_Tickets.php'>ADD</a></li>";
+    //         }
+    //     }
+    // }
     
  ///------------------------Функция удаления данных из таблицы Booking ПОТОМ УДАЛИТЬ ----------------------------------
-    public function deleteBooking() {
-        if (isset($_POST['delete'])) {
-            $id = $_POST['delete'];
-            $this->mysqli->query("DELETE FROM `bookings` WHERE `user_id`= {$_SESSION['user_id']}") or die($this->mysqli->error);
-        }
-    }
+    // public function deleteBooking() {
+    //     if (isset($_POST['delete'])) {
+    //         $id = $_POST['delete'];
+    //         $this->mysqli->query("DELETE FROM `bookings` WHERE `user_id`= {$_SESSION['user_id']}") or die($this->mysqli->error);
+    //     }
+    // }
 
  ///------------------------Закрытие подключения к бд ----------------------------------
     public function closeDatabaseConnection() {
@@ -499,7 +499,7 @@ public function ChangeUserInfo(){
 $userBookings = new UserBookings();
 $userBookings->displayUserInfo();
 // $userBookings->deleteProfile(); 
-$userBookings->deleteBooking();
+// $userBookings->deleteBooking();
 $userBookings->displayUserProfileImage();
 
 echo "<a class='BackBtn' href='../php/index.php'>Atpakaļ</a>";
@@ -513,7 +513,7 @@ echo "<a class='BackBtn' href='../php/index.php'>Atpakaļ</a>";
 echo '<form action="logout.php" method="POST">
         <button class="BackBtn2"type="submit">Iziet no profila</button>
      </form>';
-      $userBookings->getUserBookings();
+    //   $userBookings->getUserBookings();
       
 ob_start(); //буферизация вывода
 ?>

@@ -229,7 +229,7 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 
 <!-- <div class= "txt3">Travel comfortably with us.</div> -->
-<div class="swiper sample-slider">
+<div class="swiper sample-slider" style="margin-top: 850px;">
         <div class="swiper-wrapper">
             <div class="swiper-slide" ><a href="../html/baggage_check_in.html"><img src="../images/1card.png"></a>
             <div class="text-overlay">How to register luggage</div>

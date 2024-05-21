@@ -74,12 +74,23 @@ if ($stmt->fetch()) {
     <script src="../php/alertscripts.php"></script>
 </head>
 <body>
-    <div class="background-video">
+<!-- <div class='rectangleHeader'>
+    <div class='logorectangle'>
+        <a>AVIA</a>
+    </div>
+    
+    <div class='ButtonRect'>
+        <a href="../php/Buy_Tickets.php">Buy Tickets</a>
+        <a href="../html/AboutUs.html">About us</a>
+        <a href="../php/flightInfo.php">Some page</a>
+        <a href="../php/reviews.php">Ticket rewievs</a> 
+    </div>  -->
+    <!-- <div class="background-video">
         <video autoplay loop muted>
             <source src="../video/istockphoto-1369067687-640_adpp_is.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-    </div>
+    </div> -->
     <div class="custom-rectangle">
         <div class="custom-rectangle2"></div>
         <iframe class="GoogleMap" src="<?= $google_maps_link; ?>"

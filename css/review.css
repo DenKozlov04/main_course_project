@@ -303,11 +303,11 @@ footer {
   border: 1px solid rgb(224, 224, 224);
 }
 .scrollable-box {
-  width: 915px;
+  width: 920px;
   height: 700px;
   overflow-y: scroll; 
   margin: 20px auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   margin-left:550px;
   position: absolute;
   z-index: -1;

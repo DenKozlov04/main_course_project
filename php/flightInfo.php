@@ -74,17 +74,17 @@ if ($stmt->fetch()) {
     <script src="../php/alertscripts.php"></script>
 </head>
 <body>
-<!-- <div class='rectangleHeader'>
+<div class='rectangleHeader'>
     <div class='logorectangle'>
         <a>AVIA</a>
     </div>
     
     <div class='ButtonRect'>
-        <a href="../php/Buy_Tickets.php">Buy Tickets</a>
-        <a href="../html/AboutUs.html">About us</a>
+         <a href="">Familiarize yourself with your arrival location .</a>
+        <!-- <a href="../html/AboutUs.html">About us</a>
         <a href="../php/flightInfo.php">Some page</a>
-        <a href="../php/reviews.php">Ticket rewievs</a> 
-    </div>  -->
+        <a href="../php/reviews.php">Ticket rewievs</a>  -->
+    </div> 
     <!-- <div class="background-video">
         <video autoplay loop muted>
             <source src="../video/istockphoto-1369067687-640_adpp_is.mp4" type="video/mp4">
@@ -110,10 +110,10 @@ if ($stmt->fetch()) {
         }
     ?>
     <div class="Image">
-        <img src="data:image/jpeg;base64,<?php echo base64_encode($flight_image); ?>" alt="Dubai Image">
+        <img src="data:image/jpeg;base64,<?=  base64_encode($flight_image); ?>" alt="Dubai Image">
     </div>
-    <div class="text1"><?php echo $city; ?></div>
-    <div class="text2"><?php echo $description; ?></div>
+    <div class="text1"><?= $city; ?></div>
+    <div class="text2"><?= $description; ?></div>
     <!-- <form id="orderForm" method='POST' action='OrderUserData.php'>
     <button class="button1" type='submit'>Order</button>
 </form> -->
@@ -319,7 +319,7 @@ if ($stmt->fetch()) {
     </div> -->
     
 </div>
-
+<div class="text3">Travel reviews</div>
 <?php
 $stmt3 = $mysqli->prepare("SELECT `name`,`comment` FROM `comments` WHERE `comment_category` = (SELECT `Airline` FROM `airports/airlines` WHERE `id` = ?)");
 // привязывает параметр
@@ -328,24 +328,25 @@ $stmt3->execute();
 $result = $stmt3->get_result();
 
 
-echo '<div class="custom-rectangle2L">';
-echo '    <div class="CommentsPlace">';
-echo '        <div class="text3">Travel reviews</div>';
+echo '<div class="scrollable-box">';
+// echo '    <div class="CommentsPlace">';
+       
 
 while ($row = $result->fetch_assoc()) {
     // Выводит только блок BestComment внутри цикла
-    echo '        <div class="BestComment">';
-    echo '            <img src="../images/user_foto.png" alt="Plane places" width="80" height="80">';
-    echo '            <div class="CommText">';
-    echo '                <h1>' . $row['name'] . '</h1>';
-    echo '                <div class="textSize">';
+    echo '        <div class="comment-container">';
+    echo '            <img class="UserImg2" src="../images/user_foto.png" alt="Plane places" >';
+    echo '            <div class="name2">';
+    echo '                <a>' . $row['name'] . '</a>';
+    echo '                </div>';
+    echo '                <div class="comment-text">';
     echo '                    <a>' . $row['comment'] . '</a>';
-    echo '                    <div class="rectangle4"></div>';
+    // echo '                    <div class="rectangle4"></div>';
     echo '                </div>';
     echo '            </div>';
     echo '        </div>';
 }
-echo '    </div>';
+// echo '    </div>';
 echo '</div>';
 
 $stmt3->close();
@@ -355,6 +356,16 @@ $result->close();
 
 
 </div>
-
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2023 AVIA. All rights reserved..</p>
+        <p>Follow us on social media:</p>
+        <ul class="social-links">
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Instagram</a></li>
+        </ul>
+    </div>
+</footer>
 </body>
 </html>

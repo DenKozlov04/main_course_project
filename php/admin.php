@@ -49,7 +49,7 @@ class FlightDataValidator {
             exit();
         } else {
             $this->addToDatabase();
-            header('Location: Buy_Tickets.php');
+            header('Location: FilteredTickets.php');
         }
     }
 

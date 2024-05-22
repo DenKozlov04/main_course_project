@@ -11,7 +11,13 @@ body, html {
     background-color: #f3f3f3;
     height: 100%;
   } */
-  /* .rectangleHeader{
+  body {
+    font-family: 'Nunito Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f3f3;
+  }
+  .rectangleHeader{
     width: 100%;
     height: 80px;
     background-color: #FFFFFF;
@@ -32,7 +38,7 @@ body, html {
   }
   .ButtonRect {
     position: absolute;
-    padding: 0;
+    padding: 0; /* Убираем отступы внутри .ButtonRect */
     margin-left: 550px;
     margin-top:-55px;
   }
@@ -40,10 +46,10 @@ body, html {
   .ButtonRect a {
     font-size:20px;
     display: inline-block;
-    margin-right: 35px; 
+    margin-right: 35px; /* Добавляем отступ между элементами a */
     text-decoration: none;
     color: #0D057C;
-  } */
+  }
 /* загрузить нормальный видос */
 /* .background-video {
     position: fixed;
@@ -66,11 +72,12 @@ body, html {
 .custom-rectangle {
     width: 1520px;
     height: 1050px;
-    border-radius: 50px;
-    background: #F5F5F5;
+    border-radius: 5px;
+    background: #ffffff;
     margin: auto;
     z-index: 1;
     position: relative; 
+    
 }
 
 .custom-rectangle2 {
@@ -87,8 +94,8 @@ body, html {
     left: 473px; 
     z-index: 2;
     position: absolute;
-    border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
     overflow: hidden; 
 }
 
@@ -111,7 +118,7 @@ body, html {
     border-radius: 10px;
 }
 .text1{
-
+    color: #0D057C;
     font-family:'Nunito Sans', sans-serif;
     font-weight: 200;
     font-size: 30px;
@@ -129,12 +136,13 @@ body, html {
     font-size: 20px;
 }
 .PrevPage {
-    margin-top: 50px;
-    margin-left: 40px;
+    margin-top: -105px;
+    margin-left: -130px;
     transform: translateY(30px); 
     font-family: 'Nunito Sans', sans-serif;
     font-size: 20px;
     color: #DE6A6A;
+    position: absolute;
 }
 
 .PrevPage a {
@@ -148,7 +156,7 @@ body, html {
     width: 300px;
     height: 60px;
     background: #DE6A6A;
-    border-radius: 50px;
+    border-radius: 10px;
     border: #DE6A6A;
     color: rgb(255, 255, 255);
     font-size: 20px;
@@ -158,17 +166,17 @@ body, html {
 .custom-rectangle2L {
     width: 1520px;
     min-height: 1050px;
-    border-radius: 50px;
-    background: #F5F5F5;
+    border-radius: 5px;
+    background: #ffffff;
     margin: auto;
     z-index: 1;
     position: relative;
     transform: translateY(10px);
-    margin-bottom: 10px; 
+    margin-top:1300px; 
 }
 
 
-.CommentsPlace {
+/* .CommentsPlace {
     background: #4caf50;
     width: 1520px;
     height: 120px;
@@ -177,18 +185,16 @@ body, html {
     position: absolute;
     top: 0px;
 
-}
+} */
+
 
 .text3 {
-    margin-top: 30px;
-    margin-left: 30px;
-    font-family: 'Nunito Sans', sans-serif;
-    width: 700px;
-    height: 350px;
-    overflow: hidden;
-    font-size: 50px;
-    color: #F5F5F5;
-
+    position: absolute;
+    font-size:30px;
+    color: #000000;
+    margin-left:495px;
+    margin-top:1160px;
+    z-index: 5;
 }
 
 .text4 {
@@ -439,6 +445,49 @@ body, html {
     margin-top:0px;
     top:-260px;
 }
+.scrollable-box {
+    width: 920px;
+    height: 700px;
+    overflow-y: scroll; 
+    margin: 20px auto;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    margin-left:500px;
+    position: absolute;
+    z-index: -1;
+    margin-top:1195px;
+  }
+  .comment-container {
+    background-color: #ffffff;
+    width: 900px;
+    height: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    margin-bottom: 15px;
+    
+  }
+  .comment-text{
+    /* background-color: #ce9f9f; */
+    width:760px;
+    height:100px;
+    position: absolute;
+    margin-left:97px;
+    margin-top:-30px;
+  }
+  .UserImg2{
+    width:85px;
+    height:85px;
+    margin-left:10px;
+    margin-top:-5px;
+    /* position:absolute;
+    margin-top:-10px;
+    margin-left:15px; */
+  }
+  .name2{
+    color: #0D057C;
+    position:absolute;
+    font-size: 17px;
+    margin-left:98px;
+    margin-top:-75px;
+  }
 .CommText h1{
     font-size: 30px;
     border: none;
@@ -463,3 +512,21 @@ body, html {
     width: 1430px;
     height:3px;
 }
+footer {
+    position: absolute;
+    background-color: #333;
+    color: #fff; 
+    margin-top:1980px ;
+    width:99.9%;
+    text-align: center; 
+    font-family:'Nunito Sans', sans-serif;
+  }
+  
+  .footer-content {
+    /* max-width: 800px;  */
+    margin: 0 auto; 
+  }
+  .social-links a {
+    color: #fff; 
+    text-decoration: none; 
+  }

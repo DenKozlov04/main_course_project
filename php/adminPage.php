@@ -69,7 +69,20 @@ if (isset($_SESSION['admin_id'])) {
     <title>Admin page</title>
 </head>
 <body>
-
+<div class='rectangleHeader'>
+        <div class='logorectangle'>
+            <a>AVIA</a>
+        </div> 
+        <div class='ButtonRect'>
+            <a>This is your main admin page. This is where you can add Flights. Edit and delete on another page!</a>
+        </div>  
+        <div class='input-main-page'>
+            <a href="index.php" class="PrevPage">← On the main page</a>
+        </div>   
+        <div class='text4'>
+            <a>Add flight form</a>
+        </div>      
+<div class='BigRect'>
 <form action="../php/admin.php" method="POST" enctype="multipart/form-data">
     <div class='changes'>
         <div class='Airline'>
@@ -80,7 +93,7 @@ if (isset($_SESSION['admin_id'])) {
 
         <div class='airport_name'>
             <div class='input-airport_name'>
-                <input type="text" id="airport_name" name="airport_name" placeholder="Write airport name for example: Moscov (Vnukovo)">
+                <input type="text" id="airport_name" name="airport_name" placeholder="Write airport name for example: Vnukovo">
             </div>
         </div>
 
@@ -133,7 +146,7 @@ if (isset($_SESSION['admin_id'])) {
         </div>
         <div class='googleMapsLink'>
             <div class='input-googleMapsLink'>
-                <input type="text" id="googleMapsLink" name="googleMapsLink" placeholder="Insert a link to the location on Google Maps (you can obtain it by opening the Google Maps website, clicking on the link/code, and selecting the code (!!copy only the link itself!!) without additional code.">
+                <textarea type="text" id="googleMapsLink" name="googleMapsLink" placeholder="Insert a link to the location on Google Maps (you can obtain it by opening the Google Maps website, clicking on the link/code, and selecting the code (!!copy only the link itself!!) without additional code."></textarea>
             </div>
         </div>
         <div class='description' >
@@ -141,21 +154,23 @@ if (isset($_SESSION['admin_id'])) {
                 <textarea id="description" name="description" placeholder="Write your description here...!!!DON'T USE THESE ( ' ) SIGN" ></textarea>
             </div>
         </div>
-        <input type="file" id="image1" name="image1">
+        <div class='text2'>
+            <a>Add a picture of the arrival location for the airplane flight.</a>
+        </div>  
+        <input class='AirlineImg' type="file" id="image1" name="image1">
 
         <div class='upload_changes'>
             <div class='input-create-profile'>
-                <button type="submit" id="submit" name="submit">UPLOAD CHANGES</button>
+                <button type="submit" id="submit" name="submit">Add Flight</button>
             </div>
         </div>
         <div class='main_page'>
-    <div class='input-main-page'>
-        <a href="index.php" class="main-page-link">GO TO THE MAIN PAGE</a>
-    </div>
+
 </div>
         </div>
     </div>
 </form>
+</div>
 
 <!-- форма добавления скидки -->
 <!-- <form class="city-form" action="../php/addCard.php" method="POST" enctype="multipart/form-data">

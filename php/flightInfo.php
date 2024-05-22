@@ -105,7 +105,7 @@ if ($stmt->fetch()) {
             // Если открыта со страницы /php/FilteredTickets.php, то ссылка меняется
             echo '<div class="PrevPage"><a href="../php/FilteredTickets.php">← Back to page</a></div>';
         } else {
-            // ссылка не меняется
+            // ссылка не меняется .
             echo '<div class="PrevPage"><a href="../php/Buy_Tickets.php">← Back to page</a></div>';
         }
     ?>

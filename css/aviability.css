@@ -416,3 +416,67 @@ form {
     margin-bottom: 10px;
 }
 
+.AddInfoBox{
+    position: absolute;
+    width:350px;
+    height:400px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    margin-left:1250px;
+    margin-top:-450px;
+    border: 1px solid #ccc;
+}
+.changes input[type="text"],
+.changes input[type="number"] {
+    z-index: 1;
+    width: 260px;
+    border: 1px solid rgb(224, 224, 224); 
+    background-color: rgb(245, 245, 245); 
+    padding: 8px;
+    margin-left:35px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+  
+}
+.changes{
+    margin-top:75px;
+    
+}
+.upload_changes button{
+    position: absolute;   
+    color: #ffffff;
+    width:278px;
+    height: 35px;
+    margin-left: 35px;
+    background-color: #DE6A6A;
+    font: inherit; 
+    cursor: pointer; 
+    outline: none; 
+    border: none; 
+    border-radius:5px;
+}
+.InfoText5{
+   position: absolute; 
+   font-size: 17px;
+   font-weight: 600;
+   margin-top: -60px;
+   width:320px;
+   margin-left:25px;
+   
+}
+.PrevPage {
+
+    transform: translateY(30px); 
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 20px;
+    color: #DE6A6A;
+    text-decoration: none;
+    position:absolute;
+}
+.input-main-page{
+    margin-top: -195px;
+    z-index: 999;
+    position:absolute;
+    width: 100px;
+    margin-left: 40px;
+}

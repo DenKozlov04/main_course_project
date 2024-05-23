@@ -1,3 +1,17 @@
+<?php
+include "aviabilitycode.php";
+$ChooseFlight = new ChooseFlight();
+
+// $flightInfo = $ChooseFlight->AddFlightInfo();
+$admin_id = $_SESSION['admin_id'];
+// $ChooseFlight->AddFlightInfo();
+if ($admin_id != 0){
+    $visibility = 'visible';
+} else {
+    $visibility = 'hidden';
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +21,7 @@
 <script src='../JS/PopUP.js'></script>
 <script src='../JS/ChooseTicket.js'></script>
 <script src='../JS/giveData.js'></script>
+<script src="../JS/sweetalert.min.js"></script>
 <title>documment</title>
 </head>
 <body>
@@ -15,8 +30,20 @@
     <div class='logorectangle'>
         <a>AVIA</a>
     </div>
-    <!-- <a class='flightName'>Rīga (RIX)–Parīze (Charles de Gaulle) (CDG)</a>  -->
 </div>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const alertMessage = urlParams.get('alert');
+
+    if (alertMessage) {
+        swal({
+            title: 'Error!',
+            text: decodeURIComponent(alertMessage),
+            icon: 'error',
+            button: 'OK'
+        });
+    }
+</script>
 <div class='infoText'>
     <a class='Info1'>Izvēlies lidojumu datumus</a>
     <a class='Info2'>Izvēlies datumus, lai apskatītu lidojumus un cenas</a>
@@ -26,202 +53,195 @@
     <form method="POST">
         <div class="calendar">
             <?php
-            session_start();
-            $Airline = $_SESSION['Airline'];
-            $months = [
-                "January 2024", "February 2024", "March 2024", "April 2024",
-                "May 2024", "June 2024", "July 2024", "August 2024",
-                "September 2024", "October 2024", "November 2024", "December 2024"
-            ];
-
-            foreach ($months as $month) {
-                echo "<div class='month'>";
-                echo "<h3>$month</h3>";
-                echo "<div class='days'>";
-                $daysInMonth = cal_days_in_month(CAL_GREGORIAN, array_search($month, $months) + 1, 2024);
-                for ($i = 1; $i <= $daysInMonth; $i++) {
-                    echo "<button type='submit' class='day' name='showDate' value='2024-" . sprintf("%02d", array_search($month, $months) + 1) . "-" . sprintf("%02d", $i) . "'>$i</button>";
-                }
-                echo "</div></div>";
-            }
+                $chooseFlight->generateCalendar();
             ?>
         </div>
     </form>
    
 </div>
-
 <div class='greyRectangle'></div>
 <div class='greyRectangle2'></div>
-
-<!-- <div class='Info3'>Lidojums uz: Parīze (CDG)</div> -->
 <div class='greyRectangle3'>
 </div>
+<div class='input-main-page'>
+    <a href="FilteredTickets.php" class="PrevPage">← Back</a>
+</div>   
 <div class='ticketPlace'>
-
-<!-- <div id="popup">
-    
-    <button onclick="closePopup()">Close</button>
-    
-    <div id="popupContent">
-
-    </div>
-    <div id="overlay" onclick="closePopup()"></div>
-</div> -->
 <div id="popup">
-    <!-- <button onclick="closePopup() class='CloseButton'">X</button> -->
     <div id="popupContent"></div>
 </div>
 <div id="overlay" onclick="closePopup()"></div>
 
 <?php
-$Airline = $_SESSION['Airline'];
+// $Airline = $_SESSION['Airline'];
 
-// echo $Airline;
-
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['showDate'])) {
-    $selectedDate = $_POST['showDate'];
-    // $_SESSION['selected_ticket_price'] = $T_price;
-    // $_SESSION['selected_ticket_id'] = $id;
-    echo "<div class='ChosenDate'>" . date('d.m.Y', strtotime($selectedDate)) . "</div>";
-    include 'dbconfig.php';
+// if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['showDate'])) {
+//     $selectedDate = $_POST['showDate'];
+//     // $_SESSION['selected_ticket_price'] = $T_price;
+//     // $_SESSION['selected_ticket_id'] = $id;
+//     echo "<div class='ChosenDate'>" . date('d.m.Y', strtotime($selectedDate)) . "</div>";
+//     include 'dbconfig.php';
 
 
 
-    $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
+//     // $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
 
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+//     // if ($conn->connect_error) {
+//     //     die("Connection failed: " . $conn->connect_error);
+//     // }
 
-    $sql = "SELECT `Airline`, `airport_name`, `ITADA`, `City`, `country`, `T_price`, `arrival_date`, `departure_date`, `arrival_time`, `departure_time`,`id` 
-    FROM `airports/airlines` 
-    WHERE `departure_date` = ? AND `Airline` = ?";
-    $stmt = $conn->prepare($sql);
+//     $sql = "SELECT `Airline`, `airport_name`, `ITADA`, `City`, `country`, `T_price`, `arrival_date`, `departure_date`, `arrival_time`, `departure_time`,`id` 
+//     FROM `airports/airlines` 
+//     WHERE `departure_date` = ? AND `Airline` = ?";
+//     $stmt = $conn->prepare($sql);
 
 
-    if ($stmt) {
+//     if ($stmt) {
  
-        $stmt->bind_param("ss", $selectedDate, $Airline);
-        $stmt->execute();
+//         $stmt->bind_param("ss", $selectedDate, $Airline);
+//         $stmt->execute();
 
  
-        $result = $stmt->get_result();
+//         $result = $stmt->get_result();
 
 
 
 
-        if ($result) {
+//         if ($result) {
          
-            if ($result->num_rows > 0) {
+//             if ($result->num_rows > 0) {
                 
-                while ($row = $result->fetch_assoc()) {
+//                 while ($row = $result->fetch_assoc()) {
 
 
-                    // $Airline = $row['Airline'];
-                    $id = $row['id'];
-                    $airport_name = $row['airport_name'];
-                    $ITADA = $row['ITADA'];
-                    $City = $row['City'];
-                    $country = $row['country'];
-                    $T_price = $row['T_price'];
-                    $arrival_date = $row['arrival_date'];
-                    $departure_date = $row['departure_date'];
-                    $arrival_time = date('H:i', strtotime($row['arrival_time']));
-                    $departure_time = date('H:i', strtotime($row['departure_time']));
+//                     // $Airline = $row['Airline'];
+//                     $id = $row['id'];
+//                     $airport_name = $row['airport_name'];
+//                     $ITADA = $row['ITADA'];
+//                     $City = $row['City'];
+//                     $country = $row['country'];
+//                     $T_price = $row['T_price'];
+//                     $arrival_date = $row['arrival_date'];
+//                     $departure_date = $row['departure_date'];
+//                     $arrival_time = date('H:i', strtotime($row['arrival_time']));
+//                     $departure_time = date('H:i', strtotime($row['departure_time']));
                     
-   //передаю данные в поп ап      //(country, City, airport_name, ITADA, departure_date, arrival_date, departureTime, arrivalTime, price )
-                echo "<div class='ticketForm' style='cursor: pointer;' data-price='$T_price' data-id='$id'>
-                <div class='time'>
-                    <div class='departTime'>$departure_time</div>
-                    <div class='timeGap'></div>
-                    <div class='arrivTime'>$arrival_time</div>
-                </div>
-                <div class='ITADA'>
-                    <div class='departITADA'>RIX</div>
-                    <div class='ITADAGap'></div>
-                    <div class='arrivITADA'>$ITADA</div>
-                </div>
-                <div class='NOPrice'>no</div>
-                <div class='Price'>$T_price</div>
-                <div class='direction'>Tiešais reiss</div>
-                <a class='allParts' style='cursor: pointer;' onclick='openPopup(\"$country\", \"$City\", \"$airport_name\", \"$ITADA\" , \"$departure_date\" , \"$arrival_date\" , \"$departure_time\" , \"$arrival_time\" , \"$T_price\")'>Lidojuma detaļas</a>
-                <div class='wayTime'>";
+//    //передаю данные в поп ап      //(country, City, airport_name, ITADA, departure_date, arrival_date, departureTime, arrivalTime, price )
+//                 echo "<div class='ticketForm' style='cursor: pointer;' data-price='$T_price' data-id='$id'>
+//                 <div class='time'>
+//                     <div class='departTime'>$departure_time</div>
+//                     <div class='timeGap'></div>
+//                     <div class='arrivTime'>$arrival_time</div>
+//                 </div>
+//                 <div class='ITADA'>
+//                     <div class='departITADA'>RIX</div>
+//                     <div class='ITADAGap'></div>
+//                     <div class='arrivITADA'>$ITADA</div>
+//                 </div>
+//                 <div class='NOPrice'>no</div>
+//                 <div class='Price'>$T_price</div>
+//                 <div class='direction'>Tiešais reiss</div>
+//                 <a class='allParts' style='cursor: pointer;' onclick='openPopup(\"$country\", \"$City\", \"$airport_name\", \"$ITADA\" , \"$departure_date\" , \"$arrival_date\" , \"$departure_time\" , \"$arrival_time\" , \"$T_price\")'>Lidojuma detaļas</a>
+//                 <div class='wayTime'>";
                 
-                $arrival_time_obj = new DateTime($arrival_time);
-                $departure_time_obj = new DateTime($departure_time);
-                $difference = $arrival_time_obj->diff($departure_time_obj);
-                echo $difference->format('%Hh %Imin');
+//                 $arrival_time_obj = new DateTime($arrival_time);
+//                 $departure_time_obj = new DateTime($departure_time);
+//                 $difference = $arrival_time_obj->diff($departure_time_obj);
+//                 echo $difference->format('%Hh %Imin');
 
-                echo "</div>
-                <div class='line2'></div>
-                <div class='StyleRect'>
-                    <!-- <div class='grey1'></div> -->
-                    <div class='line1'></div>
-                    <!-- <div class='grey2'></div> -->
-                </div>
-                </div>";
-                }
-                echo "<a class='flightName'>Rīga (RIX) – $City ($airport_name) ($ITADA)</a>";
-                echo "<div class='Info3'>Lidojums uz: {$City} ({$ITADA})</div>";
-                echo "<form class='buttonForm' action='details1.php' method='POST'>
-                        <div class='ButtonPlace'>
-                                <button class='ContinueButton'>Turpinat</button>
-                                <div id='price' class='PricePlace'></div>
-                                <div id='id' class='id'></div>
-                            </div>
-                     </form>";
-                // echo "<div class='Info3'>Lidojums uz: $City ($ITADA)</div>";
-            } else {
-                echo "There are no flights on that date:(";
-                // echo $Airline;
-            }
-        } else {
+//                 echo "</div>
+//                 <div class='line2'></div>
+//                 <div class='StyleRect'>
+//                     <!-- <div class='grey1'></div> -->
+//                     <div class='line1'></div>
+//                     <!-- <div class='grey2'></div> -->
+//                 </div>
+//                 </div>";
+//                 }
+//                 echo "<a class='flightName'>Rīga (RIX) – $City ($airport_name) ($ITADA)</a>";
+//                 echo "<div class='Info3'>Lidojums uz: {$City} ({$ITADA})</div>";
+//                 echo "<form class='buttonForm' action='details1.php' method='POST'>
+//                         <div class='ButtonPlace'>
+//                                 <button class='ContinueButton'>Turpinat</button>
+//                                 <div id='price' class='PricePlace'></div>
+//                                 <div id='id' class='id'></div>
+//                             </div>
+//                      </form>";
+//                 // echo "<div class='Info3'>Lidojums uz: $City ($ITADA)</div>";
+//             } else {
+//                 echo "There are no flights on that date:(";
+//                 // echo $Airline;
+//             }
+//         } else {
             
-            echo "ERROR in request " . $stmt->error;
-        }
+//             echo "ERROR in request " . $stmt->error;
+//         }
 
-        $stmt->close();
-    } else {
+//         $stmt->close();
+//     } else {
 
-        echo "ERROR in preparing " . $conn->error;
-    }
+//         echo "ERROR in preparing " . $conn->error;
+//     }
+   
+
+//     $conn->close();
+// }
+
+    $chooseFlight->OutputFlight();
 
 
-    $conn->close();
-}
 ?>
 
-
-
-<!-- <div class = 'ticketForm'>
-<div class='time'>
-        <div class='departTime'>12:30</div>
-        <div class='timeGap'></div>
-        <div class='arrivTime'>14:30</div>
-    </div>
-    <div class='ITADA'>
-        <div class = 'departITADA'>RIX</div>
-        <div class='ITADAGap'></div>
-        <div class = 'arrivITADA'>CMN</div>
-    </div>
-    <div class = 'NOPrice'>no</div>
-    <div class = 'Price'>219.99$</div>
-    <div class = 'direction'>Tiešais reiss</div>
-     <div class = 'allParts'>Lidojuma detaļas</div> -->
-    <!-- <div class = 'wayTime'>16h 05min</div>
-    <div class = 'line2'></div>
-    <div class = 'StyleRect'> -->
-            <!-- <div class = 'grey1'></div> -->
-            <!-- <div class = 'line1'></div> -->
-            <!-- <div class = 'grey2'></div> -->
-    <!-- </div>  -->
-
 </div>
 
 </div>
 
+<div class='AddInfoBox' style="visibility: <?= $visibility ?>">
 
+    <form class='infoForm' action="aviability.php" method="POST" enctype="multipart/form-data">
+    <input type="hidden" id="airline_id" name="airline_id" value="<?= $airline_id ?>">
+        <div class='changes'>
+            <div class='InfoText5'>
+                <a> Add new flights on different dates on the calendar.</a>
+            </div>
+            <div class='departure_date'>
+                <div class='input-departure_date'>
+                    <input type="text" id="departure_date" name="departure_date" placeholder="Departure date for example: 2024-01-01">
+                </div>
+            </div>
+
+            <div class='arrival_date'>
+                <div class='input-arrival_date'>
+                    <input type="text" id="arrival_date" name="arrival_date" placeholder="Arrival date for example: 2024-02-01">
+                </div>
+            </div>
+
+            <div class='departure_time'>
+                <div class='input-departure_time'>
+                    <input type="text" id="departure_time" name="departure_time" placeholder="Departure time for example: 12:30">
+                </div>
+            </div>
+
+            <div class='arrival_time'>
+                <div class='input-arrival_time'>
+                    <input type="text" id="arrival_time" name="arrival_time" placeholder="Arrival time for example: 09:00">
+                </div>
+            </div>
+
+            <div class='price'>
+                <div class='input-price'>
+                    <input type="text" id="price" name="price" placeholder="Price for example: 100">
+                </div>
+            </div>
+            <div class='upload_changes'>
+                <div class='input-create-profile'>
+                    <button type="submit" id="submit" name="sumbitflight">Add</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
 
 
 </body>

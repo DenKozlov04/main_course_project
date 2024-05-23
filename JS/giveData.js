@@ -1,4 +1,5 @@
 
+
     document.addEventListener("DOMContentLoaded", function() {
         var continueButton = document.querySelector('.ContinueButton');
         var pricePlace = document.getElementById('price');

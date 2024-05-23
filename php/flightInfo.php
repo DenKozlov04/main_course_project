@@ -106,7 +106,7 @@ if ($stmt->fetch()) {
             echo '<div class="PrevPage"><a href="../php/FilteredTickets.php">← Back to page</a></div>';
         } else {
             // ссылка не меняется .
-            echo '<div class="PrevPage"><a href="../php/Buy_Tickets.php">← Back to page</a></div>';
+            // echo '<div class="PrevPage"><a href="../php/Buy_Tickets.php">← Back to page</a></div>';
         }
     ?>
     <div class="Image">
@@ -118,6 +118,7 @@ if ($stmt->fetch()) {
     <button class="button1" type='submit'>Order</button>
 </form> -->
 <form id="orderForm" method='POST' action='aviability.php'>
+    <input type="hidden" id="airline_id" name="airline_id" value=<?= $airline_id ?>>
     <button class="button1" type='submit'>Order</button>
 </form>
 

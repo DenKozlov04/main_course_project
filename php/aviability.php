@@ -22,6 +22,7 @@ if ($admin_id != 0){
 <script src='../JS/ChooseTicket.js'></script>
 <script src='../JS/giveData.js'></script>
 <script src="../JS/sweetalert.min.js"></script>
+<script src="../JS/SavedID.js"></script>
 <title>documment</title>
 </head>
 <body>
@@ -73,6 +74,8 @@ if ($admin_id != 0){
 <div id="overlay" onclick="closePopup()"></div>
 
 <?php
+
+
 // $Airline = $_SESSION['Airline'];
 
 // if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['showDate'])) {
@@ -200,7 +203,7 @@ if ($admin_id != 0){
 <div class='AddInfoBox' style="visibility: <?= $visibility ?>">
 
     <form class='infoForm' action="aviability.php" method="POST" enctype="multipart/form-data">
-    <input type="hidden" id="airline_id" name="airline_id" value="<?= $airline_id ?>">
+    <input type="hidden" id="airline_id" name="airline_id" value="<?= isset($_SESSION['airline_id']) ? $_SESSION['airline_id'] : '' ?>">
         <div class='changes'>
             <div class='InfoText5'>
                 <a> Add new flights on different dates on the calendar.</a>

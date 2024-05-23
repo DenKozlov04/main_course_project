@@ -118,9 +118,10 @@ if ($stmt->fetch()) {
     <button class="button1" type='submit'>Order</button>
 </form> -->
 <form id="orderForm" method='POST' action='aviability.php'>
-    <input type="hidden" id="airline_id" name="airline_id" value=<?= $airline_id ?>>
+    <input type="hidden" id="airline_id" name="airline_id" value="<?= $airline_id ?>">
     <button class="button1" type='submit'>Order</button>
 </form>
+<script src="../JS/SavedID.js"></script>
 
 
 

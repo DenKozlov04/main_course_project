@@ -103,12 +103,12 @@ class ChooseFlight {
             $airline_id = $this->airline_id;
             echo "<div class='ChosenDate'>" . date('d.m.Y', strtotime($selectedDate)) . "</div>";
     
-            // Второй запрос к базе данных для получения информации о аэропортах/авиалиниях
+            
             $sql2 = "SELECT ITADA, City, country, Airline, airport_name, id
                      FROM `airports/airlines`
                      WHERE id = ?";
             
-            // Подготовка и выполнение второго запроса
+           
             $stmt2 = $this->mysqli->prepare($sql2);
             if ($stmt2 === false) {
                 die("Prepare failed: " . $this->mysqli->error);
@@ -130,15 +130,15 @@ class ChooseFlight {
             } else {
                 echo "Execute failed: " . $stmt2->error;
             }
-            // Закрытие второго запроса
+           
             $stmt2->close();
             
-            // Первый запрос к базе данных для получения информации о доступных рейсах
+        
             $sql = "SELECT departure_date, arrival_date, arrival_time, departure_time, airline_id, price
                     FROM `acessabledata`
                     WHERE departure_date = ? AND airline_id = ?";
             
-            // Подготовка и выполнение первого запроса
+       
             $stmt = $this->mysqli->prepare($sql);
             if ($stmt === false) {
                 die("Prepare failed: " . $this->mysqli->error);
@@ -155,8 +155,11 @@ class ChooseFlight {
                             $departure_date = $row['departure_date'];
                             $arrival_time = date('H:i', strtotime($row['arrival_time']));
                             $departure_time = date('H:i', strtotime($row['departure_time']));
-    
-                            // Вывод информации о рейсе
+                            $departure = new DateTime($departure_date);
+                            $arrival = new DateTime($arrival_date);
+                            $interval = $arrival->diff($departure);
+                            $flight_duration = $interval->format('%hh %imin');
+                          
                             echo "<div class='ticketForm' style='cursor: pointer;' data-price='$T_price' data-id='$airline_id'>
                                     <div class='time'>
                                         <div class='departTime'>$departure_time</div>
@@ -172,7 +175,7 @@ class ChooseFlight {
                                     <div class='Price'>$T_price </div>
                                     <div class='direction'>Tiešais reiss</div>
                                     <a class='allParts' style='cursor: pointer;' onclick='openPopup(\"$country\", \"$City\", \"$airport_name\", \"$ITADA\", \"$departure_date\", \"$arrival_date\", \"$departure_time\", \"$arrival_time\", \"$T_price\")'>Lidojuma detaļas</a>
-                                    <div class='wayTime'></div>
+                                    <div class='wayTime'>$flight_duration</div>
                                     <div class='line2'></div>
                                     <div class='StyleRect'>
                                         <div class='line1'></div>
@@ -197,7 +200,7 @@ class ChooseFlight {
             } else {
                 echo "Execute failed: " . $stmt->error;
             }
-            // Закрытие первого запроса
+           
             $stmt->close();
         }
     }

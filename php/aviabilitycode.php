@@ -155,9 +155,9 @@ class ChooseFlight {
                             $departure_date = $row['departure_date'];
                             $arrival_time = date('H:i', strtotime($row['arrival_time']));
                             $departure_time = date('H:i', strtotime($row['departure_time']));
-                            $departure = new DateTime($departure_date);
-                            $arrival = new DateTime($arrival_date);
-                            $interval = $arrival->diff($departure);
+                            $departure = new DateTime($departure_time);
+                            $arrival = new DateTime($arrival_time);
+                            $interval = $departure->diff($arrival);
                             $flight_duration = $interval->format('%hh %imin');
                           
                             echo "<div class='ticketForm' style='cursor: pointer;' data-price='$T_price' data-id='$airline_id'>

@@ -47,8 +47,8 @@ include "InfoOutput4.php";
     <div class='price'><?= $LastPrice .'€'  ?></div>
  
     <div class='InfoBox'>
-        <a class='Info'>Izvēlies sev piemērotāko biļetes veidu</a>
-        <a class='Info2'>Cena norādīta vienam pasažierim</a>
+        <a class='Info'>Choose the ticket type that's right for you</a>
+        <a class='Info2'>Price is per passenger</a>
     </div>
     <a class='Info3'><?="✈ Rīga – $City ($airport_name)"?></a>
     <!-- <a class='Info4'><?="$formattedDepartDate. &bull;  $departure_time - $arrival_time"?></a> -->

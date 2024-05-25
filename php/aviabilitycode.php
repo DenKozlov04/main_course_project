@@ -173,8 +173,8 @@ class ChooseFlight {
                                     </div>
                                     <div class='NOPrice'>no</div>
                                     <div class='Price'>$T_price </div>
-                                    <div class='direction'>Tiešais reiss</div>
-                                    <a class='allParts' style='cursor: pointer;' onclick='openPopup(\"$country\", \"$City\", \"$airport_name\", \"$ITADA\", \"$departure_date\", \"$arrival_date\", \"$departure_time\", \"$arrival_time\", \"$T_price\")'>Lidojuma detaļas</a>
+                                    <div class='direction'>Direct flight</div>
+                                    <a class='allParts' style='cursor: pointer;' onclick='openPopup(\"$country\", \"$City\", \"$airport_name\", \"$ITADA\", \"$departure_date\", \"$arrival_date\", \"$departure_time\", \"$arrival_time\", \"$T_price\")'>Flight details</a>
                                     <div class='wayTime'>$flight_duration</div>
                                     <div class='line2'></div>
                                     <div class='StyleRect'>
@@ -183,10 +183,10 @@ class ChooseFlight {
                                   </div>";
                         }
                         echo "<a class='flightName'>Rīga (RIX) – $City ($airport_name) ($ITADA)</a>";
-                        echo "<div class='Info3'>Lidojums uz: $City ($ITADA)</div>";
+                        echo "<div class='Info3'>Flight to: $City ($ITADA)</div>";
                         echo "<form class='buttonForm' action='details1.php' method='POST'>
                                 <div class='ButtonPlace'>
-                                    <button class='ContinueButton'>Turpinat</button>
+                                    <button class='ContinueButton'>Continue</button>
                                     <div id='price' class='PricePlace'></div>
                                     <div id='id' class='id'></div>
                                 </div>

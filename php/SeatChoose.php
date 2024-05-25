@@ -15,7 +15,7 @@ echo '</script>';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../css/SeatChoose.css" rel="stylesheet">
     <script src="../JS/Bcolor.js"></script>
-    <title>Document</title>
+    <title>Choose the right place</title>
 </head>
 <body>
 <div class='rectangleHeader'>
@@ -27,8 +27,8 @@ echo '</script>';
     <div class='price'><?= $PricePlusQuant ,'€' ?></div>
  
     <div class='InfoBox'>
-        <a class='Info'>Izvēlies sev piemērotāko biļetes veidu</a>
-        <a class='Info2'>Cena norādīta vienam pasažierim</a>
+        <a class='Info'>Choose the ticket type that's right for you</a>
+        <a class='Info2'>Price is per passenger</a>
     </div>
     <a class='Info3'><?="✈ Rīga – $City ($airport_name)"?></a>
     <a class='Info4'><?="$formattedDepartDate. &bull;  $departure_time - $arrival_time"?></a>
@@ -36,13 +36,13 @@ echo '</script>';
 <div class='PlaneCabinRectangle'>
     <div class='infoBox'>
         <div class='InfoTr'></div>
-        <div class='InfoTextTr'>Gaisa kuģa ieejas/izkāpšanas apzīmējums.</div>
+        <div class='InfoTextTr'>Aircraft entry/exit designator.</div>
         <div class='InfoWCSign'>WC</div>
-        <div class='InfoTextWC'>Gaisa kuģa tualetes apzīmējums.</div>
+        <div class='InfoTextWC'>Aircraft lavatory designation.</div>
         <div class='InfoRow'>1</div>
-        <div class='InfoTextRow'>Rindas numurs.</div>
+        <div class='InfoTextRow'>Queue number.</div>
         <div class='InfoColumn'>A</div>
-        <div class='InfoTextColumn'>Sēdekļu rindu apzīmējums.</div>
+        <div class='InfoTextColumn'>Seat row designation.</div>
     </div>
     <div class='WCSign'>WC</div>
     <div class='WCSign2'>WC</div>
@@ -547,7 +547,7 @@ echo '</script>';
         <input type="hidden" name="plusPrice2" id="PriceField2" value="<?= $PricePlusQuant ?>">
         <input type="hidden" name="seat" id="seat" value="<?= $extraValue ?>">
             <div class='ButtonBox'>
-                    <button class='ContinueButton' type='submit' name='cardType' value=''>Turpinat</button>
+                    <button class='ContinueButton' type='submit' name='cardType' value=''>Continue</button>
                     
             </div>
         </form>

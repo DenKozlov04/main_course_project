@@ -21,8 +21,8 @@ include 'InfoOutput.php';
     <img class='CartImg'src='../images/free-icon-grocery-store-7205450.png'>
     <div class='price'><?= $price ,'€' ?></div>
     <div class='InfoBox'>
-        <a class='Info'>Izvēlies sev piemērotāko biļetes veidu</a>
-        <a class='Info2'>Cena norādīta vienam pasažierim</a>
+        <a class='Info'>Choose the ticket type that's right for you</a>
+        <a class='Info2'>Price is per passenger</a>
     </div>
     <a class='Info3'><?="✈ Rīga – $City ($airport_name)"?></a>
     <a class='Info4'><?="$formattedDepartDate. &bull;  $departure_time - $arrival_time"?></a>
@@ -41,29 +41,29 @@ include 'InfoOutput.php';
         <div class='Text4'><?= $class ?></div>
         <div class='Text5'>Business</div>
         <div class='Text6'><?='+', $Percents ,'€' ?></div>
-        <div class='Text7'><?= $PlusPrice ,'€',' kopā' ?></div>
+        <div class='Text7'><?= $PlusPrice ,'€',' total' ?></div>
         <ul class="Text8">
-            <li>Sēdvieta Biznesa klasē un garda maltīte lidmašīnā</li>
-            <li>Ātrā drošības kontrole un lidostas biznesa zāles apmeklējums</li>
-            <li>Lidojuma maiņa un naudas atgriešana jebkurā laikā</li>
-            <li>Sēdvieta Biznesa klasē un garda maltīte lidmašīn</li>
-            <li>Ātrā drošības kontrole un lidostas biznesa zāles apmeklējum</li>
-            <li>Ātrā drošības kontrole un lidostas biznesa zāles apmeklējum</li>
+            <li>Business Class seat and a delicious meal on board</li>
+            <li>Fast-track security and visit to the airport business lounge</li>
+            <li>Flight changes and refunds at any time</li>
+            <li>Business Class seat and a delicious meal on board</li>
+            <li>Fast-track security and airport business lounge</li>
+            <li>Fast-track security and airport business lounge</li>
         </ul>
 
     </div>
-    <div class='Text9'>Summa apmaksai:</div>
+    <div class='Text9'>Amount to pay:</div>
     <div class='Text10'><?= $price ,'€'?></div>
     <form class='buttonForm' action="BaggagePrice.php" method='POST'>
         
     <input type="hidden" name="id" value="<?= $id ?>">
     <input type="hidden" name="plusPrice" id="PriceField" value="<?= $price ?>">
         <div class='ButtonBox'>
-                <button class='ContinueButton' type='submit' name='cardType' value=''>Turpinat</button>
+                <button class='ContinueButton' type='submit' name='cardType' value=''>Continue</button>
                 
         </div>
     </form>
-    <button class='BackButton' type='submit' name='' value=''>Atpakaļ</button>
+    <button class='BackButton' type='submit' name='' value=''>Back</button>
 </div>
 
 </body>

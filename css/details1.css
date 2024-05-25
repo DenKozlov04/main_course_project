@@ -218,7 +218,7 @@ body {
 }
 .InfoBox{
     /* background-color: #32cd3f49; */
-    width:290px;
+    width:320px;
     height:40px;
     margin-left:330px;
     margin-top: 30px;
@@ -226,6 +226,7 @@ body {
 .Info{
  font-weight:bold;
  color: #0d0768;
+ 
 }
 .Info2{
     font-size:13px;

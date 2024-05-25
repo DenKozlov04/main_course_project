@@ -23,7 +23,7 @@ if ($admin_id != 0){
 <script src='../JS/giveData.js'></script>
 <script src="../JS/sweetalert.min.js"></script>
 <script src="../JS/SavedID.js"></script>
-<title>documment</title>
+<title>Select available flights</title>
 </head>
 <body>
     
@@ -46,8 +46,8 @@ if ($admin_id != 0){
     }
 </script>
 <div class='infoText'>
-    <a class='Info1'>Izvēlies lidojumu datumus</a>
-    <a class='Info2'>Izvēlies datumus, lai apskatītu lidojumus un cenas</a>
+    <a class='Info1'>Choose your flight dates</a>
+    <a class='Info2'>Choose dates to see flights and prices</a>
 </div>
 
 <div class="scrollable-box">

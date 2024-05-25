@@ -81,7 +81,7 @@ public function displayUserInfo() {
             // $visibility = 'visible';
             // $userData['visibility'] = 'visible';
         } else {
-            $userPhone['Phone_number'] = 'Jūsu tālruņa numurs tiks parādīts pēc biļetes izsniegšanas.';
+            $userPhone['Phone_number'] = 'Your phone number will be displayed when your ticket is issued.';
             // $visibility = 'hidden';
             // $userData['visibility'] = 'hidden';
         }
@@ -502,7 +502,7 @@ $userBookings->displayUserInfo();
 // $userBookings->deleteBooking();
 $userBookings->displayUserProfileImage();
 
-echo "<a class='BackBtn' href='../php/index.php'>Atpakaļ</a>";
+echo "<a class='BackBtn' href='../php/index.php'>Back</a>";
 // echo '<div class="upload2">
 //         <form action="upload.php" method="POST" enctype="multipart/form-data">
 //                 <input type="file" name="image" accept="image/*">
@@ -511,7 +511,7 @@ echo "<a class='BackBtn' href='../php/index.php'>Atpakaļ</a>";
 //       </div>';
       
 echo '<form action="logout.php" method="POST">
-        <button class="BackBtn2"type="submit">Iziet no profila</button>
+        <button class="BackBtn2"type="submit">Log out</button>
      </form>';
     //   $userBookings->getUserBookings();
       

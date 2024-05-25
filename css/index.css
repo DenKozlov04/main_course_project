@@ -716,8 +716,8 @@ body {
 .InfoText1{
   font-size: 30px;
   position: absolute;
-  margin-top:-10px;
-  margin-left:20px;
+  margin-top:-15px;
+  margin-left:0px;
 }
 
 .InfoText2{
@@ -730,7 +730,7 @@ body {
   font-size: 17px;
   position: absolute;
   color:#939393;
-  margin-left:105px;
+  margin-left:98px;
   margin-top:20px;
 }
 .InfoText4{

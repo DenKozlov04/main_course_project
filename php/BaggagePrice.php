@@ -9,7 +9,7 @@ include 'InfoOutput2.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../css/BaggagePrice.css" rel="stylesheet">
-    <title>additional services</title>
+    <title>Additional services</title>
     <script src='../JS/givePrice.js'></script>
     <script src='../JS/OpenInfoPopUp.js'></script>
     <script src='../JS/AddRegBag.js'></script>
@@ -25,18 +25,18 @@ include 'InfoOutput2.php';
     <div class='price'><?= $CurrPrice ,'€' ?></div>
  
     <div class='InfoBox'>
-        <a class='Info'>Izvēlies sev piemērotāko biļetes veidu</a>
-        <a class='Info2'>Cena norādīta vienam pasažierim</a>
+        <a class='Info'>Choose the ticket type that's right for you</a>
+        <a class='Info2'>Price is per passenger</a>
     </div>
     <a class='Info3'><?="✈ Rīga – $City ($airport_name)"?></a>
     <a class='Info4'><?="$formattedDepartDate. &bull;  $departure_time - $arrival_time"?></a>
     <div class='ServiceBox'>
         <div class='ServiceCard'>
             <!-- то что берешь в самолет в салрн-->
-            <div class='txt1'>Rokas bagāža</div>
+            <div class='txt1'>Hand luggage</div>
             <div class='txt2'>1 x 8 kg</div>
             <div class='textrect'>
-                <div class='txt3'>Iekļauts cenā</div>
+                <div class='txt3'>Included </div>
             </div>
             <div class='greyRect'></div>
             <div class='ImgBox'>
@@ -44,9 +44,9 @@ include 'InfoOutput2.php';
             </div>
             <div class='PriceBox'>
                 <div class='PricePlc'>
-                    <div class='price1'>no</div>
+                    <div class='price1'>from</div>
                     <div class='price2'>12.99€</div>
-                    <div class='price3'>vienā virzienā</div>
+                    <div class='price3'>one direction</div>
                 </div>
                 <button class='Button2' id="choose" name="Selection" value='<?= $CurrPrice ?>' onclick='PlusPrice1(this); toggleButtonColor(this)'>+8</button>
                 <button class='Button3' id="choose2" name="Selection2" value='<?= $CurrPrice ?>' onclick='PlusPrice2(this); toggleButtonColor(this)'>+16</button>
@@ -58,10 +58,10 @@ include 'InfoOutput2.php';
         </div>
         <div class='ServiceCard'>
              <!-- то что помещается в багажный отсек-->
-            <div class='txt1'>Reģistrētā bagāža</div>
+            <div class='txt1'>Checked baggage</div>
             <div class='txt2'>1 x 24 kg</div>
             <div class='textrect'>
-                <div class='txt3'>Iekļauts cenā</div>
+                <div class='txt3'>Included</div>
             </div>
             <div class='greyRect'></div>
             <div class='ImgBox'>
@@ -69,9 +69,9 @@ include 'InfoOutput2.php';
             </div>
             <div class='PriceBox'>
                 <div class='PricePlc'>
-                    <div class='price1'>no</div>
+                    <div class='price1'>from</div>
                     <div class='price2'>29.99€</div>
-                    <div class='price3'>vienā virzienā</div>
+                    <div class='price3'>one direction</div>
                 </div>
                 <div class='BtnPlace'>
                 <button class='ChooseButton2' id="choose22" name="circleSelection" value='<?= $CurrPrice ?>' onclick='ButtonClick1(this)'>-</button>
@@ -92,34 +92,34 @@ include 'InfoOutput2.php';
     <input type="hidden" name="id" value="<?= $id ?>">
     <input type="hidden" name="plusPrice2" id="PriceField2" value="<?= $CurrPrice ?>">
         <div class='ButtonBox'>
-                <button class='ContinueButton' type='submit' name='cardType' value=''>Turpinat</button>
+                <button class='ContinueButton' type='submit' name='cardType' value=''>Continue</button>
                 
         </div>
     </form>
     <div class='InfoButtonField'>
-        <button class='InfoButton1' onclick="openModal('modal1')">Kas ir Rokas bagāža</button>
-        <button class='InfoButton2' onclick="openModal('modal2')">Kas ir Reģistrētā bagāža</button>
+        <button class='InfoButton1' onclick="openModal('modal1')">What is Hand Luggage</button>
+        <button class='InfoButton2' onclick="openModal('modal2')">What is Checked Baggage</button>
     </div>
 
     <!-- окна поп апа -->
     <div id="modal1" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal1')">&times;</span>
-            <p>Rokas bagāža lidostā ir bagāža, ko pasažieris var ņemt līdzi lidmašīnas salonā un turēt lidojuma laikā pie rokas. Tā parasti ir neliela izmēra un svara, un to var viegli ievietot bagāžas nodalījumos virs sēdekļiem vai zem pasažiera sēdekļa.
-                Rokas bagāžā ietilpst svarīgi personiski priekšmeti un vērtslietas, ko pasažieris nevēlas atstāt reģistrētajā bagāžā. Tie var būt dokumenti, nauda, atslēgas, elektroniskās ierīces, medikamenti un citas pirmās nepieciešamības lietas, kas var būt nepieciešamas lidojuma laikā vai tūlīt pēc ielidošanas.
-                Atkarībā no biļetes nosacījumiem un aviosabiedrības noteikumiem pasažieriem parasti ir tiesības uz noteiktu rokas bagāžas daudzumu. Tomēr ir vērts atcerēties, ka aviosabiedrība ir noteikusi ierobežojumus rokas bagāžas izmēram un svaram, lai nodrošinātu, ka tā viegli iekļaujas bagāžas nodalījumos un nerada problēmas lidojuma laikā.</p>
+            <p>Hand baggage at the airport is baggage that a passenger can take into the cabin of the aircraft and keep on his/her person during the flight. It is usually small in size and weight and can be easily placed in the over-seat or under-seat compartments.
+                Hand luggage includes important personal items and valuables that the passenger does not want to leave in checked baggage. These may include documents, money, keys, electronic devices, medicines and other essentials that may be needed during the flight or immediately after arrival.
+                Depending on the conditions of the ticket and the airline's rules, passengers are usually entitled to a certain amount of hand luggage. However, it is worth remembering that the airline has set limits on the size and weight of hand luggage to ensure that it fits easily in the hold and does not cause problems during the flight.</p>
         </div>
     </div>
 
     <div id="modal2" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal2')">&times;</span>
-            <p>Reģistrētā bagāža lidostā ir bagāža, ko pasažieris pirms izlidošanas atstāj pie reģistrācijas un kas tiek nosūtīta uz lidmašīnas bagāžas nodalījumu. Parasti tie ir lieli un smagi priekšmeti, kurus nevar ievietot rokas bagāžā vai kuri ir nepieciešami galamērķī.
-                Tās var būt drēbes, apavi, personīgie priekšmeti un citi nepieciešamie priekšmeti, kurus pasažieris nevēlas pārvadāt lidmašīnas salonā. Reģistrēto bagāžu apstrādā un iekrauj lidmašīnā aviosabiedrība.
-                Pasažieriem parasti ir tiesības uz noteiktu bezmaksas reģistrētās bagāžas daudzumu atkarībā no biļetes noteikumiem un pakalpojuma klases. Tomēr, ja reģistrētās bagāžas svars pārsniedz bezmaksas bagāžas limitu, pasažierim var nākties maksāt papildu maksu par lieko svaru.
-                Sporta inventārs ir iekļauts lidostā reģistrētajā bagāžā, kas ir bagāža, kuru pasažieris atstāj pie reģistrācijas pirms izlidošanas un kura tiek nosūtīta uz lidmašīnas bagāžas nodalījumu. Tā ir daļa no kravas svara, par kuru tiek iekasēta maksa. Reģistrētajā bagāžā parasti ietilpst
-                 lieli un smagi priekšmeti, kurus nevar ievietot rokas bagāžā vai kuri ir nepieciešami galamērķī. Tie var būt apģērbs, apavi, personīgie priekšmeti un citi nepieciešamie priekšmeti, kurus pasažieris nevēlas pārvadāt lidmašīnas salonā. Reģistrēto bagāžu apstrādā un iekrauj lidmašīnā aviosabiedrība. 
-                 Pasažieriem parasti ir noteikts reģistrētās bagāžas bezmaksas daudzums atkarībā no biļetes noteikumiem un pakalpojuma klases. Tomēr, ja reģistrētās bagāžas svars pārsniedz bezmaksas bagāžas limitu, pasažierim var nākties maksāt papildu maksu par lieko svaru.</p>
+            <p>Checked baggage at the airport is baggage that a passenger leaves at check-in before departure and is sent to the aircraft's baggage hold. These are usually large and heavy items that cannot be put in hand luggage or are needed at the final destination.
+                These can be clothes, shoes, personal items and other necessities that the passenger does not want to carry in the cabin. Checked baggage is handled and loaded onto the aircraft by the airline.
+                Passengers are usually entitled to a certain amount of free checked-in baggage, depending on the ticket conditions and class of service. However, if the weight of the checked baggage exceeds the free baggage allowance, the passenger may have to pay an extra fee for the excess weight.
+                Sports equipment is included in checked-in baggage, which is the baggage that a passenger leaves at check-in before departure and is sent to the aircraft's baggage hold. It is part of the weight of the cargo for which a fee is charged. Checked baggage usually includes
+                 large and heavy items that cannot be carried in hand luggage or are needed at the final destination. This can include clothes, shoes, personal items and other necessities that the passenger does not want to carry in the cabin. Checked baggage is handled and loaded onto the aircraft by the airline. 
+                 Passengers are usually allowed a certain amount of free checked baggage, depending on the ticket conditions and class of service. However, if the weight of the checked baggage exceeds the free baggage allowance, the passenger may have to pay an extra fee for the excess weight.</p>
         
             </div>
     </div>

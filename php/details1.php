@@ -19,8 +19,8 @@ include 'priceCalculation.php';
     <a class='flightName'><?= "Rīga (RIX)–$City ($airport_name) ($ITADA)"; ?></a>
     <img class='CartImg'src='../images/free-icon-grocery-store-7205450.png'>
     <div class='InfoBox'>
-        <a class='Info'>Izvēlies sev piemērotāko biļetes veidu</a>
-        <a class='Info2'>Cena norādīta vienam pasažierim</a>
+        <a class='Info'>Choose the ticket type that's right for you</a>
+        <a class='Info2'>Price is per passenger</a>
     </div>
     <a class='Info3'><?="✈ Rīga – $City ($airport_name)"?></a>
     <a class='Info4'><?="$formattedDepartDate. &bull;  $departure_time - $arrival_time"?></a>
@@ -37,19 +37,19 @@ include 'priceCalculation.php';
         <div class='Grayrect'></div>
         <div class='CalcPrice'><?php  echo $result1?>€</div>
         <div class='textBlock'>
-            <div class='Buffs'>1 rokas soma + 1 personīgā manta (8kg kopā)</div>
-            <div class='Buffs'>1 rokas soma </div>
+            <div class='Buffs'>1 hand bag + 1 personal item (8kg total)</div>
+            <div class='Buffs'>1 hand bag  </div>
         </div>
         <div class='textBlock2'>
-            <div class='Buffs'>1 rokas soma + 1 personīgā manta (8kg kopā)</div>
-            <div class='Buffs'>1 rokas soma </div>
+            <div class='Buffs'>1 hand bag + 1 personal item (8kg total)</div>
+            <div class='Buffs'>1 hand bag  </div>
         </div>
         <form class='buttonForm' action="PriceСonfirmation.php" method='POST'>
         <input type="hidden" name="id" value="<?= $id ?>">
         <input type="hidden" name="class" value="BRONZE">
         <input type="hidden" name="price" value="<?= $result1 ?>">
             <div class='ButtonPlace'>
-                <button class='ContinueButton'  type='submit'  name='cardType' value='BRONZE'>Turpinat</button>
+                <button class='ContinueButton'  type='submit'  name='cardType' value='BRONZE'>Continue</button>
             </div>
         </form>
     </div>
@@ -64,19 +64,19 @@ include 'priceCalculation.php';
         <div class='Grayrect'></div>
         <div class='CalcPrice'><?php  echo $result2?>€</div>
         <div class='textBlock'>
-            <div class='Buffs'>1 rokas soma + 1 personīgā manta (8kg kopā)</div>
-            <div class='Buffs'>1 rokas soma </div>
+            <div class='Buffs'>1 hand bag + 1 personal item (8kg total)</div>
+            <div class='Buffs'>1 hand bag </div>
         </div>
         <div class='textBlock2'>
-            <div class='Buffs'>1 rokas soma + 1 personīgā manta (8kg kopā)</div>
-            <div class='Buffs'>1 rokas soma </div>
+            <div class='Buffs'>1 hand bag + 1 personal item (8kg total)</div>
+            <div class='Buffs'>1 hand bag </div>
         </div>
         <form class='buttonForm' action="PriceСonfirmation.php" method='POST'>
         <input type="hidden" name="id" value="<?= $id ?>">
         <input type="hidden" name="class" value="SILVER">
         <input type="hidden" name="price" value="<?= $result2 ?>">
             <div class='ButtonPlace'>
-                <button class='ContinueButton' type='submit' name='cardType' value='SILVER'>Turpinat</button>
+                <button class='ContinueButton' type='submit' name='cardType' value='SILVER'>Continue</button>
             </div>
         </form>
     </div>
@@ -91,19 +91,19 @@ include 'priceCalculation.php';
         <div class='Grayrect'></div>
         <div class='CalcPrice'><?php  echo $result3?>€</div>
         <div class='textBlock'>
-            <div class='Buffs'>1 rokas soma + 1 personīgā manta (8kg kopā)</div>
-            <div class='Buffs'>1 rokas soma </div>
+            <div class='Buffs'>1 hand bag + 1 personal item (8kg total)</div>
+            <div class='Buffs'>1 hand bag </div>
         </div>
         <div class='textBlock2'>
-            <div class='Buffs'>1 rokas soma + 1 personīgā manta (8kg kopā)</div>
-            <div class='Buffs'>1 rokas soma </div>
+            <div class='Buffs'>1 hand bag + 1 personal item (8kg total)</div>
+            <div class='Buffs'>1 hand bag </div>
         </div>
         <form class='buttonForm' action="PriceСonfirmation.php" method='POST'>
         <input type="hidden" name="id" value="<?= $id ?>">
         <input type="hidden" name="class" value="GOLD">
         <input type="hidden" name="price" value="<?= $result3 ?>">
             <div class='ButtonPlace'>
-                <button class='ContinueButton' type='submit' name='cardType' value='GOLD'>Turpinat</button>
+                <button class='ContinueButton' type='submit' name='cardType' value='GOLD'>Continue</button>
             </div>
         </form>
     </div>

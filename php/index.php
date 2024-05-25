@@ -21,7 +21,7 @@
         <a href="../php/Buy_Tickets.php">Buy Tickets</a>
         <a href="../html/AboutUs.html">About us</a>
         <a href="../php/flightInfo.php">Some page</a>
-        <a href="../php/reviews.php">Ticket rewievs</a>
+        <a href="../php/reviews.php">Rewievs</a>
         <?php
           session_start();
           // if ($_SESSION['user_id'] === 0 || ($_SESSION['admin_id'] === 1 and $_SESSION['user_id'] === 1)) {
@@ -42,11 +42,11 @@
   <div class='rectangleHeader2'></div>
   <div class='greyRect1'></div>
   <div class='ButtonRect2'>
-        <a href="">Ēdieni lidmašīnā</a>
-        <a href="">Mājdzīvnieki ceļā</a>
-        <a href="">Sēdvietas lidmašīnā</a>
-        <a href="">Bagāža</a>
-        <a href="">Vajag Palidzība?</a>
+        <a href="">Meals on the plane</a>
+        <a href="">Pets on the move</a>
+        <a href="">Seats on board</a>
+        <a href="">Baggage</a>
+        <a href="">Need Help?</a>
   </div>
 </div>
 <!-- <nav> -->
@@ -96,12 +96,12 @@
 
     if ($_SESSION['admin_id'] == 1) {
         echo '<div class="UserImgBox">
-                  <div class="TextElemment">Autorizēties/reģistrēties</div>
+                  <div class="TextElemment">Log in/Register</div>
               </div>
             <p><a class="special-link" href="user_info.php"><img src="../images/user_foto.png"  width="70" height="70"></a></p>';
     } elseif ($_SESSION['user_id'] == 0) {
         echo '<div class="UserImgBox">
-                <div class="TextElemment">Autorizēties/reģistrēties</div>
+                <div class="TextElemment">Log in/Register</div>
               </div>
             <p><a class="special-link" href="../html/autorization.html"><img src="../images/user_foto.png"  width="70" height="70"></a></p>';
     } elseif ($result && $result->num_rows > 0) {
@@ -109,14 +109,14 @@
 
         $profile_image = $row['profile_image'];
         echo '<div class="UserImgBox2">
-                  <div class="TextElemment">Jūsu profils</div>
+                  <div class="TextElemment">Your profile</div>
               </div>
         <div class="special-link2" style="width: 45px; height: 45px; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center; margin-top: 12px;">';
         echo '<a href="user_info.php" ><img src="data:image/jpeg;base64,' . base64_encode($profile_image) . '" width="70" height="65" /></a>';
         echo '</div>';
     } else {
         echo '<div class="UserImgBox3">
-                <div class="TextElemment">Jūsu profils</div>
+                <div class="TextElemment">Your profile</div>
             </div>
         <p><a class="special-link" href="user_info.php"><img src="../images/user_foto.png"  width="70" height="70"></a></p>';
     }
@@ -164,15 +164,15 @@
             <div class="box5-input" style="">
                 <div class="input-data">
                     <button class="Search_button" type="submit" name="passenger_number" placeholder="plc1">
-                      <p class='InfoText2'>Uz</p>
-                      <p class='InfoText1'>Meklēt biļetes</p>
+                      <p class='InfoText2'>To</p>
+                      <p class='InfoText1'>Search for tickets</p>
                     </button>
                 </div>
             </div>
         </form>
     </div>
   <div class='DepartBox'>
-      <p class='InfoText3'>No</p>
+      <p class='InfoText3'>From </p>
       <p class='InfoText4'>RIX</p>
       <p class='InfoText5'>Rīga</p>
   </div>

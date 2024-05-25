@@ -48,7 +48,7 @@ body {
 }
 .InfoBox{
     /* background-color: #32cd3f49; */
-    width:290px;
+    width:320px;
     height:40px;
     margin-left:330px;
     margin-top: 30px;
@@ -144,7 +144,7 @@ body {
     position: absolute;
 }
 .txt3{
-    margin-left: 4.6%;
+    margin-left: 18.6%;
     margin-top: 1%;
 }
 
@@ -220,7 +220,7 @@ body {
 .price1{
     margin-bottom: 10px;
     font-size: 15px;
-    margin-left:90px;
+    margin-left:80px;
    
 }
 .price2{
@@ -229,7 +229,7 @@ body {
 }
 .price3{
     font-size: 15px;
-    margin-left:50px;
+    margin-left:55px;
 }
 .PricePlc{
     margin-top:20px;

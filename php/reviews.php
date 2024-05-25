@@ -9,7 +9,11 @@ if ($user_id === 0 && $admin_id === 0) {
     header('Location: ../html/registration.html');
     exit;
 }
-
+if ($admin_id === 0) {
+    $visibility ='hidden';
+} else {
+    $visibility ='visible';
+}
 include 'dbconfig.php';
 
 // Обработка отправки формы комментария
@@ -207,7 +211,8 @@ $mysqli->close();
                     }
                     echo '<input type="hidden" name="comment_id" value="' . $comment['id'] . '">';
                     ?>
-                    <button class='AddStatus'type="submit">Add</button>
+                    <button class='AddStatus' type="submit" style="visibility: <?= $visibility; ?>;">Add</button>
+
             </form>
         <?php endif; ?>
     </div>

@@ -127,7 +127,7 @@
                 <div class='Ticket_card'>
                     <div class='InfoName1'>
                         <button onclick=\"openModal(this, 'modal1')\" class='changebtn1' data-id='" . $row_airports['id'] . "' style='visibility: " . $visibility . "'>✎</button>
-                        <button onclick=\"openModal(this, 'modal2')\" class='changebtn1' data-id='" . $row_airports['id'] . "' style='visibility: " . $visibility . "'>Dzēst</button>
+                        <button onclick=\"openModal(this, 'modal2')\" class='changebtn1' data-id='" . $row_airports['id'] . "' style='visibility: " . $visibility . "'>Delete</button>
                     </div>
                     <img src='data:image/jpeg;base64," . base64_encode($flight_image) . "'> 
                     <div class='text1'>" . $row_airports["country"] . $row_airports['id'] ."</div> 
@@ -181,21 +181,21 @@
         <div class='modal-content'>
             <span class='close' onclick="closeModal('modal1')" style='cursor: pointer;'>&times;</span>
             <div class='id-placeholder'></div>
-            <div class='text'>Vai tiešām vēlaties rediģēt lidojumu?</div>
+            <div class='text'>Are you sure you want to edit your flight?</div>
             <form class='RedForm' action="edit_record.php" method='POST'>
                 <input type='hidden' name='flight_id' id="flightIdInputEdit" >
-                <button name='RedBtn' type='submit' class="cancel-btn">Rediģēt</button>
+                <button name='RedBtn' type='submit' class="cancel-btn">Edit</button>
             </form>
         </div>
     </div>
     <div id='modal2' class='modal'>
         <div class='modal-content'>
             <span class='close' onclick="closeModal('modal2')" style='cursor: pointer;'>&times;</span>
-            <div class='text'>Vai tiešām vēlaties izdzēst lidojumu?</div>
+            <div class='text'>Are you sure you want to delete a flight?</div>
             <div class='id-placeholder'></div>
             <form class='DelForm' action="FilteredTickets.php" method='POST'>
                 <input type='hidden' name='deleteFlight' id="flightIdInputDelete">
-                <button name='DeleteBtn' type='submit' class="cancel-btn">Dzēst</button>
+                <button name='DeleteBtn' type='submit' class="cancel-btn">Delete</button>
             </form>
         </div>
     </div>

@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else {
                 echo "Error while executing the query: " . $stmt->error;
             }
-
+////lietotajalapasskats
             $stmt->close();
         }
     }

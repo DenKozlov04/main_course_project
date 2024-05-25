@@ -35,7 +35,7 @@ include 'priceCalculation.php';
         
         <div class='txt1' data-text='Bronze'>Bronze</div>
         <div class='Grayrect'></div>
-        <div class='CalcPrice'><?php  echo $result1?>€</div>
+        <div class='CalcPrice'><?= $result1?>€</div>
         <div class='textBlock'>
             <div class='Buffs'>1 hand bag + 1 personal item (8kg total)</div>
             <div class='Buffs'>1 hand bag  </div>
@@ -62,7 +62,7 @@ include 'priceCalculation.php';
         
         <div class='txt1' data-text='Silver'>Silver</div>
         <div class='Grayrect'></div>
-        <div class='CalcPrice'><?php  echo $result2?>€</div>
+        <div class='CalcPrice'><?= $result2?>€</div>
         <div class='textBlock'>
             <div class='Buffs'>1 hand bag + 1 personal item (8kg total)</div>
             <div class='Buffs'>1 hand bag </div>

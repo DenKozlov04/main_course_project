@@ -230,7 +230,7 @@
                 </form>
 
             </div>
-            <button name='Btn'onclick="openModal('modal7')" type='submit' class="downloadBtn3" style="visibility: <?= $flightInfo['visibility']?>">Choose a location</button>
+            <button name='Btn'onclick="openModal('modal7')" type='submit' class="downloadBtn3" style="visibility: <?= $flightInfo['visibility']?>">Choose a seat</button>
             <div class='BigBox2'>
             <div class='BoxTitle3'>Children:</div>
             <div class=ScrollBox>
@@ -257,7 +257,7 @@
                 
                 <div class='RezInfo2'>
                     <div class='Reiss'><?= $childInfo['Name'] ?></div>
-                    <div class='Vieta'><?= $childInfo['Surname'] ?></div>
+                    <div class='Vieta' style='margin-left: 170px;'><?= $childInfo['Surname'] ?></div>
                     <div class='Cena'><?= $childInfo['Gender'] ?></div>
                     <div class='Atiešanas_datums'><?= $childInfo['Nationality'] ?></div>
                     <div class='Ierašanas_datums'><?= $childInfo['PassportNumber'] ?></div>

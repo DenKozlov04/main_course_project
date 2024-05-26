@@ -575,19 +575,24 @@ body {
 }
 .Reiss{
   margin-left:-10px;
+  position: absolute;
 }
 .Vieta{
-    margin-left:195px;
+    margin-left:200px;
+    position: absolute;
 }
 .Cena{
     margin-left:350px;
+    position: absolute;
 }
 .Atiešanas_datums{
     margin-left:500px;
+    position: absolute;
 
 }
 .Ierašanas_datums{
     margin-left:670px;
+    position: absolute;
 }
 
 .AtLaiks{

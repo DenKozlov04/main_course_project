@@ -63,7 +63,9 @@ include 'InfoOutput.php';
                 
         </div>
     </form>
-    <button class='BackButton' type='submit' name='' value=''>Back</button>
+    <!-- <button class='BackButton' type='submit' name='' value=''>Back</button> -->
+    <a href="FilteredTickets.php" class="BackButton">Back</a>
+
 </div>
 
 </body>

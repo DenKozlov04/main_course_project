@@ -134,6 +134,54 @@ class FlightDataValidator {
         $stmt->close();
         $mysql->close();
     }
+    public function ShowUsers() {
+
+        $stmt = $mysql->prepare("SELECT * FROM users");
+
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+
+            if ($result->num_rows > 0) {
+
+                echo "<table border='1'>
+                        <tr>
+                            <th>ID</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Created At</th>
+                            <th>Actions</th>
+                        </tr>";
+    
+
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>
+                            <td>" . $row['id'] . "</td>
+                            <td>" . $row['username'] . "</td>
+                            <td>" . $row['email'] . "</td>
+                            <td>" . $row['password'] . "</td>
+                            <td>" . $row['created_at'] . "</td>
+                            <td>
+                                <form method='POST' action='delete_user.php' onsubmit='return confirm(\"Are you sure you want to delete this user?\");'>
+                                    <input type='hidden' name='user_id' value='" . $row['id'] . "'>
+                                    <button type='submit'>Delete</button>
+                                </form>
+                            </td>
+                          </tr>";
+                }
+                echo "</table>";
+            } else {
+                echo "No users found.";
+            }
+    
+            $result->free();
+        } else {
+            echo "Error: " . $stmt->error;
+        }
+        $stmt->close();
+        $mysql->close();
+    }
+    
 
 }
 

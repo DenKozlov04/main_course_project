@@ -47,25 +47,7 @@ public function displayUserInfo() {
     return $userInfo;
 }
 
-    // public function displayUserInfo() {
-    //     $userInfo = array();
-    
-    //     $user_id = $_SESSION['user_id'];
-    //     $sql = "SELECT * FROM users WHERE user_id = $user_id";
-    
-    //     $result = $this->mysqli->query($sql);
-    
-    //     if ($result && $result->num_rows > 0) {
-    //         $row = $result->fetch_assoc();
-            
-    //         $userInfo['username'] = $row['username'];
-    //         $userInfo['email'] = $row['email'];
-    //         // $userInfo['phone'] = $row['phone'];
-    //         $userInfo['password'] = $row['password'];
-    //     } 
-    
-    //     return $userInfo;
-    // }
+
     public function displayUserPhone() {
         $userPhone = array();
     

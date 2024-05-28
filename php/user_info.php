@@ -18,10 +18,11 @@
     $userBookings->ChangeUserInfo();
     $userBookings->DenieFlight();
     $userBookings->displayChildInfo();
+
     // displayUserInfo
     $userInfo = $userBookings->displayUserInfo();
     $userPhone = $userBookings->displayUserPhone();
-
+    $childInfo = $userBookings->displayChildInfo();
 
 ?>
 
@@ -104,73 +105,59 @@
         
         <div class='BoxTitle2'>My reservations</div>
         <div class='InfoBox2'>
-            <!-- <div class='Info1'>Māna kontaktinformācija</div> -->
-            <div class='RezBox'>
-                <div class='GreyLine'></div>
-                <div class='GreyLine2'></div>
-                <div class='GreyLine3'></div>
-                <div class='GreyLine4'></div>
-                <div class='GreyLine5'></div>
-                <div class='GreyPlc'></div>
-                <div class='RezInfo'>
-                    <div class='RezInfoText1' >Reiss </div>
-                    <div class='RezInfoText2'style='margin-left: 135px;'>Place</div>
-                    <div class='RezInfoText3'style='margin-left: 135px;'>Price</div>
-                    <div class='RezInfoText4'style='margin-left: 90px;'>Departure date</div>
-                    <div class='RezInfoText5'style='margin-left: 80px;'>Arrival date</div>
-                    <!-- <button class='CopyBtn'>Kopēt visu  <img class='printerImg'src="../images/printer.png" alt=""></button> -->
-                    <button class='denieBtn'onclick="openModal('modal8')"style="visibility: <?= $flightInfo['visibility']?>">Cancel</button>
-                </div>
-                <div class='RezInfo2'>
-                <div class='Reiss'><?= $flightInfo['airline'] ?></div>
-                    <div class='Vieta'><?= $flightInfo['seat']?></div>
-                    <div class='Cena'><?= $flightInfo['price'].'€'?></div>
-                    <div class='Atiešanas_datums'><?= $flightInfo['departure_date']?></div>
-                    <div class='Ierašanas_datums'><?= $flightInfo['arrival_date']?></div>
-                </div>
-                <button id="downloadBtn" class='downloadBtn'style="visibility: <?= $flightInfo['visibility']?>">Save as PDF </button>
-                <script src='../JS/DownloadPdf.js'></script>
+        <table class="UserTables_table2">
+            <tr>
+                <th>Reiss</th>
+                <th>Place</th>
+                <th>Price</th>
+                <th>Departure date</th>
+                <th>Arrival date</th>
+                <th>Departure time</th>
+                <th>Arrival time</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <td><?= $flightInfo['airline'] ?></td>
+                <td><?= $flightInfo['seat']?></td>
+                <td><?= $flightInfo['price'].'€'?></td>
+                <td><?= $flightInfo['departure_date']?></td>
+                <td><?= $flightInfo['arrival_date']?></td>
+                <td><?= $flightInfo['departure_time']?></td>
+                <td><?= $flightInfo['arrival_time']?></td>
+                <td>
+                    <button class="denieBtn" onclick="openModal('modal8')" style="visibility: <?= $flightInfo['visibility']?>">Cancel</button>
+                    <button id="downloadBtn" class="downloadBtn" style="visibility: <?= $flightInfo['visibility']?>">Save as PDF</button>
+                </td>
+            </tr>
+        </table>
+        <div class='BoxTitle3'>History(here you can see your flight history)</div>
+            <table class="UserTable">
+                <tr>
+                    <th>Reiss</th>
+                    <th>Place</th>
+                    <th>Price</th>
+                    <th>Departure date</th>
+                    <th>Arrival date</th>
+                    <th>AtLaiks</th>
+                    <th>IerLaiks</th>
+                    <th>Save as PDF</th>
+                </tr>
+                <tr>
+                    <td>Riga-Paris</td>
+                    <td>F31</td>
+                    <td>120$</td>
+                    <td>2022/10/10</td>
+                    <td>2022/10/11</td>
+                    <td>10:30</td>
+                    <td>12:30</td>
+                    <td><button class="downloadBtn2" style="visibility: <?= $userInfo['visibility']?>">Save as PDF</button></td>
 
-
-
-                <div class='TimeInfo1'>
-                    <div class='AtLaiks'><?= $flightInfo['departure_time']?></div>
-                    <div class='IerLaiks'><?= $flightInfo['arrival_time']?></div>
-                </div>
+                </tr>
+                </table>
             </div>
-            <div class='BoxTitle3'>History(here you can see your flight history)</div>
-            <div class=ScrollBox>
-            <div class='RezBox2'>
-                <div class='GreyLine'></div>
-                <div class='GreyLine2'></div>
-                <div class='GreyLine3'></div>
-                <div class='GreyLine4'></div>
-                <div class='GreyLine5'></div>
-                <div class='GreyPlc'></div>
-                <div class='RezInfo'>
-                <div class='RezInfoText1' >Reiss </div>
-                    <div class='RezInfoText2'style='margin-left: 135px;'>Place</div>
-                    <div class='RezInfoText3'style='margin-left: 135px;'>Price</div>
-                    <div class='RezInfoText4'style='margin-left: 90px;'>Departure date</div>
-                    <div class='RezInfoText5'style='margin-left: 80px;'>Arrival date</div>
-                    <!-- <button class='CopyBtn'>Kopēt visu <img class='printerImg2'src="../images/printer.png" alt=""></button> -->
-                   
-                </div>
-                <div class='RezInfo2'>
-                    <div class='Reiss'>Riga-Paris</div>
-                    <div class='Vieta'>F31</div>
-                    <div class='Cena'>120$</div>
-                    <div class='Atiešanas_datums'>2022/10/10</div>
-                    <div class='Ierašanas_datums'>2022/10/11</div>
-                </div>
-                <button class='downloadBtn2'style="visibility: <?= $userInfo['visibility']?>">Save as PDF</button>
-                <div class='TimeInfo1'>
-                    <div class='AtLaiks'>10:30</div>
-                    <div class='IerLaiks'>12:30</div>
-                </div>
-            </div>
-        </div>
-        </div>
+
+           
+
         <div class='BoxTitle21'>Various functions</div>
         <div class='InfoBox3'>
         <div class='RezBox3'>
@@ -232,44 +219,43 @@
             </div>
             <button name='Btn'onclick="openModal('modal7')" type='submit' class="downloadBtn3" style="visibility: <?= $flightInfo['visibility']?>">Choose a seat</button>
             <div class='BigBox2'>
-            <div class='BoxTitle3'>Children:</div>
+            <!-- <div class='BoxTitle3'>Children:</div> -->
             <div class=ScrollBox>
-            <div class='RezBox6'>
-                <div class='GreyLine'></div>
-                <div class='GreyLine2'></div>
-                <div class='GreyLine3'></div>
-                <div class='GreyLine4'></div>
-                <div class='GreyLine5'></div>
-                <div class='GreyPlc'></div>
-                <div class='RezInfo'>
-                    <div class='RezInfoText1'>Name</div>
-                    <div class='RezInfoText2'>Surname</div>
-                    <div class='RezInfoText3'>Place</div>
-                    <div class='RezInfoText4'>Nationality</div>
-                    <div class='RezInfoText5'>Passport number</div>
-                    <!-- <button class='CopyBtn'>Kopēt visu <img class='printerImg2'src="../images/printer.png" alt=""></button> -->
-                   
-                </div>
-                <!-- <form class='ChooseSeatForm' action="user_info.php" method='POST'>
-                    <input type='hidden' name='ChooseSeat'>
-                    <button name='ChooseSeatBtn' type='submit' class="downloadBtn3">Izvelēt vietu</button>
-                </form> -->
-                
-                <div class='RezInfo2'>
-                    <div class='Reiss'><?= $childInfo['Name'] ?></div>
-                    <div class='Vieta' style='margin-left: 170px;'><?= $childInfo['Surname'] ?></div>
-                    <div class='Cena'><?= $childInfo['Gender'] ?></div>
-                    <div class='Atiešanas_datums'><?= $childInfo['Nationality'] ?></div>
-                    <div class='Ierašanas_datums'><?= $childInfo['PassportNumber'] ?></div>
-                </div>
-                <form class='DeleteForm' action="user_info.php" method='POST'>
-                    <input type='hidden' name='DeleteChildren'>
-                    <button name='DeleteChildrenBtn' type='submit' class="downloadBtn2"style="visibility: <?= $userInfo['visibility']?>">Delete</button>
-                </form>
-            </div>
+            <table class="table1">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Gender</th>
+                    <th>Nationality</th>
+                    <th>Seat</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($childInfo as $child): ?>
+                    <tr>
+                        <td><?= $child['Name'] ?></td>
+                        <td><?= $child['Surname'] ?></td>
+                        <td><?= $child['Gender'] ?></td>
+                        <td><?= $child['Nationality'] ?></td>
+                        <td><?= $child['seat'] ?></td>
+                        <td>
+                            <form class='DeleteForm' action="user_info.php" method='POST'>
+                                <input type='hidden' name='DeleteChildren'>
+                                <input type='hidden' name='child_id' value='<?= $child['children_id'] ?>'> 
+                                <button name='DeleteChildrenBtn' type='submit' class="downloadBtn2" style="visibility: <?= $userInfo['visibility']?>">Delete</button>
+                            </form> 
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+
+
             </div>
         </div>
-
+  
         </div>
     </div>
     <!-- окна поп апа -->

@@ -20,13 +20,14 @@ class AddInfo {
 
     
     public function DeleteChildren() {
-        if (isset($_POST['DeleteChildren'])) {
+        if (isset($_POST['DeleteChildren']) && isset($_POST['child_id'])) {
             $user_id = $_SESSION['user_id']; 
-            $sql = "DELETE FROM children WHERE user_id = {$_SESSION['user_id']}";
+            $child_id = $_POST['child_id']; 
+            $sql = "DELETE FROM children WHERE user_id = $user_id AND children_id = $child_id"; 
             $result = $this->mysqli->query($sql);
         }
-
     }
+    
 }
 
 ?>

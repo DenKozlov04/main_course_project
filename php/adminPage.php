@@ -123,7 +123,10 @@ if (isset($_SESSION['admin_id'])) {
     </div>
 </div>
 
-<div class='UserTable'>
+<div class='UserTables'>
+<div class='Text5'>
+        <a>Info tables</a>
+    </div>
     <?php include 'showinfo.php'; ?>
 </div>
 

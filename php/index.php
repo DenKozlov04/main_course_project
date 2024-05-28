@@ -18,9 +18,12 @@
     </div>
     <!-- <ul> -->
     <div class='ButtonRect'>
-        <a href="../php/Buy_Tickets.php">Buy Tickets</a>
-        <a href="../html/AboutUs.html">About us</a>
-        <a href="../php/flightInfo.php">Some page</a>
+        <!-- <a href="../php/Buy_Tickets.php">Buy Tickets</a> -->
+        <a href="">Some Page</a>
+        <!-- <a href="../html/AboutUs.html">About us</a>
+        <a href="../php/flightInfo.php">Some page</a> -->
+        <a href="">About us</a>
+        <a href="">Some page</a> 
         <a href="../php/reviews.php">Rewievs</a>
         <?php
           session_start();

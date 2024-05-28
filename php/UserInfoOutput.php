@@ -70,20 +70,7 @@ public function displayUserInfo() {
     
         return $userPhone;
     }
-///------------------------Данные о билете---------------------------------- 
-    // public function AddChildrenSeat() {
-    //     if (isset($_POST['ChooseSeat'])) {
-    //         $user_id = $_SESSION['user_id']; 
-    //         // $price = $_POST['Price'];
-    //         // $Seat = $_POST['PlaceName'];
-    //         $this->price = $_POST['Price'];
-    //         $this->seat = $_POST['PlaceName'];      
-        
-    //         // error_log("Price: $price, Seat: $Seat");
-            
-        
-    //     } 
-    // }
+
 ///------------------------добавления информации ребенке ----------------------------------
 public function AddChildInfo() {
     if (isset($_POST['AddChildrenBtn'])) {
@@ -154,43 +141,36 @@ public function AddChildInfo() {
 }
 
 
-///------------------------вывод информации ребенке ----------------------------------
+
     public function displayChildInfo() {
-        
         $childInfo = array();
-
-        
-        $sql = "SELECT Name, Surname, Gender, Nationality, Passport_number, passportIssuedDate, passportExpirationDate FROM children WHERE user_id = {$_SESSION['user_id']}";
+    
+        $sql = "SELECT children_id, Name, Surname, Gender, Nationality, seat, Passport_number, passportIssuedDate, passportExpirationDate FROM children WHERE user_id = {$_SESSION['user_id']}";
         $result = $this->mysqli->query($sql);
-
-        
+    
         if ($result->num_rows > 0) {
-            
-            $row = $result->fetch_assoc();
-
-            
-            $childInfo['Name'] = $row['Name'];
-            $childInfo['Surname'] = $row['Surname'];
-            $childInfo['Gender'] = $row['Gender'];
-            $childInfo['Nationality'] = $row['Nationality'];
-            $childInfo['PassportNumber'] = $row['Passport_number'];
-            $childInfo['PassportIssuedDate'] = $row['passportIssuedDate'];
-            $childInfo['PassportExpirationDate'] = $row['passportExpirationDate'];
+            while ($row = $result->fetch_assoc()) {
+                $child = array(
+                    'children_id' => $row['children_id'],
+                    'Name' => $row['Name'],
+                    'Surname' => $row['Surname'],
+                    'Gender' => $row['Gender'],
+                    'Nationality' => $row['Nationality'],
+                    'seat' => $row['seat'],
+                    'PassportNumber' => $row['Passport_number'],
+                    'PassportIssuedDate' => $row['passportIssuedDate'],
+                    'PassportExpirationDate' => $row['passportExpirationDate']
+                );
+                $childInfo[] = $child;
+            }
         } else {
-           
-            $childInfo['Name'] = '';
-            $childInfo['Surname'] = '';
-            $childInfo['Gender'] = '';
-            $childInfo['Nationality'] = '';
-            $childInfo['PassportNumber'] = '';
-            $childInfo['PassportIssuedDate'] = '';
-            $childInfo['PassportExpirationDate'] = '';
+            // Если нет детей, вернуть пустой массив
+            $childInfo = array();
         }
-
     
         return $childInfo;
     }
-
+    
 
 ///------------------------Код удаления профиля ----------------------------------       
     public function deleteProfile() {
@@ -264,13 +244,13 @@ public function AddChildInfo() {
 
             }
         } else {
-            $flightInfo['seat'] = '';
-            $flightInfo['price'] = '';
+            $flightInfo['seat'] = 'None';
+            $flightInfo['price'] = 'None';
             $flightInfo['airline'] = 'biļešu nav.';
-            $flightInfo['arrival_date'] = '';
-            $flightInfo['departure_date'] = '';
-            $flightInfo['arrival_time'] = '';
-            $flightInfo['departure_time'] = '';
+            $flightInfo['arrival_date'] = 'None';
+            $flightInfo['departure_date'] = 'None';
+            $flightInfo['arrival_time'] = 'None';
+            $flightInfo['departure_time'] = 'None';
             $flightInfo['visibility'] = 'hidden';
         }
     
@@ -393,63 +373,6 @@ public function ChangeUserInfo(){
 }
 
 
-///------------------------Функция получения данных из таблицы Booking ПОТОМ УДАЛИТЬ ----------------------------------
-
-    // public function getUserBookings() {////переделать 
-    //     $sql = "SELECT bookings.booking_id, bookings.user_id, bookings.flight_id, bookings.booking_date, bookings.seat_number 
-    //             FROM bookings
-    //             INNER JOIN users ON bookings.user_id = users.user_id
-    //             WHERE bookings.user_id = {$_SESSION['user_id']}";
-    
-    //     $result = $this->mysqli->query($sql);
-    
-    //     if ($_SESSION['admin_id'] != 0) {
-    //         // echo "Hello admin
-    //         // <li><a href='adminPage.php'>Go to the admin page</a></li>";
-
-    //     } else {
-    //         if ($result->num_rows > 0) {
-    //             // echo '<div id="bookings-list">';
-    //             // данные из таблицы
-    
-    //             // echo '<table id="bookings-table">';
-    //             // echo '<tr>';
-    //             // echo '<th>Booking ID</th>';
-    //             // echo '<th>User ID</th>';
-    //             // echo '<th>Flight ID</th>';
-    //             // echo '<th>Booking Date</th>';
-    //             // echo '<th>Seat Number</th>';
-    //             // echo '</tr>';
-    
-    //             while ($row = $result->fetch_assoc()) {
-    //                 // echo '<tr>';
-    //                 // echo '<td>' . $row["booking_id"] . '</td>';
-    //                 // echo '<td>' . $row["user_id"] . '</td>';
-    //                 // echo '<td>' . $row["flight_id"] . '</td>';
-    //                 // echo '<td>' . $row["booking_date"] . '</td>';
-    //                 // echo '<td>' . $row["seat_number"] . '</td>';
-    //                 // echo '</tr>';  
-    
-    //                 // echo "<form method='POST' action='user_info.php'>
-    //                 //         <input type='hidden' name='delete' value='" . $row["user_id"] . "'>
-    //                 //         <button  type='submit'>Deny</button>
-    //                 //       </form>";
-    //             } 
-    //             // echo '</table>';
-    //         } else {
-    //             // echo "No bookings found, add booking: <li><a href='../php/Buy_Tickets.php'>ADD</a></li>";
-    //         }
-    //     }
-    // }
-    
- ///------------------------Функция удаления данных из таблицы Booking ПОТОМ УДАЛИТЬ ----------------------------------
-    // public function deleteBooking() {
-    //     if (isset($_POST['delete'])) {
-    //         $id = $_POST['delete'];
-    //         $this->mysqli->query("DELETE FROM `bookings` WHERE `user_id`= {$_SESSION['user_id']}") or die($this->mysqli->error);
-    //     }
-    // }
-
  ///------------------------Закрытие подключения к бд ----------------------------------
     public function closeDatabaseConnection() {
         $this->mysqli->close();
@@ -480,22 +403,16 @@ public function ChangeUserInfo(){
 
 $userBookings = new UserBookings();
 $userBookings->displayUserInfo();
-// $userBookings->deleteProfile(); 
-// $userBookings->deleteBooking();
+
 $userBookings->displayUserProfileImage();
 
-echo "<a class='BackBtn' href='../php/index.php'>Back</a>";
-// echo '<div class="upload2">
-//         <form action="upload.php" method="POST" enctype="multipart/form-data">
-//                 <input type="file" name="image" accept="image/*">
-//                 <input type="submit" value="Upload image" name="submit">
-//             </form>
-//       </div>';
+echo "<a class='BackBtn' href='../php/index.php'>← Back</a>";
+
       
 echo '<form action="logout.php" method="POST">
         <button class="BackBtn2"type="submit">Log out</button>
      </form>';
-    //   $userBookings->getUserBookings();
+
       
 ob_start(); //буферизация вывода
 ?>

@@ -8,10 +8,11 @@ include 'priceCalculation.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="../css/details1.css" rel="stylesheet">
-    
+    <script src="../JS/sweetalert.min.js"></script>
+   
 </head>
 <body>
-    
+  
 <div class='rectangleHeader'>
     <div class='logorectangle'>
         <a>AVIA</a>

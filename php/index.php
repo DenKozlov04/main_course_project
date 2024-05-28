@@ -8,14 +8,31 @@
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&family=Poppins:ital,wght@1,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<!-- <script src="../JS/deleteCard.js"></script> -->
     <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script src="../JS/translateScript.js"></script>
+    <script src="../JS/sweetalert.min.js"></script>
 </head>
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const alertMessage = urlParams.get('alert');
+
+            if (alertMessage) {
+                // alert(alertMessage);
+                swal({
+                title: 'Error!',
+                text: decodeURIComponent(alertMessage),
+                icon: 'error',
+                button: 'OK'
+            });
+            }
+        });
+    </script>
 <div class='rectangleHeader'>
     <div class='logorectangle'>
         <a>AVIA</a>
     </div>
+
     <!-- <ul> -->
     <div class='ButtonRect'>
         <!-- <a href="../php/Buy_Tickets.php">Buy Tickets</a> -->

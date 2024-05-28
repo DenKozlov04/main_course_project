@@ -5,8 +5,31 @@ include 'dbconfig.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['price']) && isset($_POST['id'])) {
     $price = $_POST['price'];
     $id = $_POST['id'];
+    $user_id = $_SESSION['user_id'];
+    // echo $user_id;
     // echo $id;
     // echo $price;
+
+        $user_id = $_SESSION['user_id'];
+        $alert = '';
+        $sql2 = "SELECT * FROM `tickets` WHERE `user_id` = ?";
+        
+        if ($stmt = $mysqli->prepare($sql2)) {
+            $stmt->bind_param("i", $user_id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            
+            if ($result->num_rows > 0) {
+                $alert = 'You already have a valid ticket.';
+                echo "<meta http-equiv='refresh' content='0;url=index.php?alert=" . urlencode($alert) . "'>";
+                
+            } else {
+               
+            }
+            
+            $stmt->close();
+        }
+  
 
     // echo $id;
     // $result1 = 25 /
@@ -60,4 +83,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['price']) && isset($_PO
             $departure_time = date('H:i', strtotime($row['departure_time']));
     }
 }
+
 ?>

@@ -28,6 +28,10 @@ class ChooseFlight {
             die("Connection failed: " . $this->mysqli->connect_error);
         }
     }
+  
+
+ 
+ 
 
     public function AddFlightInfo() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['sumbitflight'])) {
@@ -207,11 +211,14 @@ class ChooseFlight {
     }
   
     
+    
 
 }
 
 $chooseFlight = new ChooseFlight();
 $chooseFlight->AddFlightInfo();
+
+
 ?>
 
 

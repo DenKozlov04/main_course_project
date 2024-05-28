@@ -19,6 +19,8 @@ body {
     border-top-right-radius: 10px;
     text-align: center;
 }
+
+
 .days {
     
     padding: 10px;
@@ -173,10 +175,7 @@ body {
     border: 1px solid #ccc;
 }
 
-.ticketForm:hover {
-    /* border-color: #7c9155; */
-    /* border: 2px solid #a6cc61; */
-}
+
 
 
 .ticketPlace {
@@ -340,7 +339,9 @@ body {
     left:756px;
     top:640px;
     border-radius: 7px;
+  
 }
+/* display: none; */
 .ContinueButton {
     left:270px;
     top:25px;
@@ -355,6 +356,7 @@ body {
     font-size: 16px; 
     cursor: pointer; 
     border-radius: 5px;
+    
 }
 .PricePlace{
     position: absolute;

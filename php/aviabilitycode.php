@@ -99,6 +99,7 @@ class ChooseFlight {
 
     public function OutputFlight() {
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['showDate'])) {
+
             $selectedDate = $_POST['showDate'];
             $airline_id = $this->airline_id;
             echo "<div class='ChosenDate'>" . date('d.m.Y', strtotime($selectedDate)) . "</div>";
@@ -204,6 +205,7 @@ class ChooseFlight {
             $stmt->close();
         }
     }
+  
     
 
 }

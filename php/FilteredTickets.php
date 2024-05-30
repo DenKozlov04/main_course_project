@@ -122,7 +122,7 @@
                 $stmt->bind_result($flight_image);
                 $stmt->fetch();
                 $stmt->close();
-
+                // $row_airports['id'] .
                 echo "
                 <div class='Ticket_card'>
                     <div class='InfoName1'>
@@ -130,7 +130,7 @@
                         <button onclick=\"openModal(this, 'modal2')\" class='changebtn1' data-id='" . $row_airports['id'] . "' style='visibility: " . $visibility . "'>Delete</button>
                     </div>
                     <img src='data:image/jpeg;base64," . base64_encode($flight_image) . "'> 
-                    <div class='text1'>" . $row_airports["country"] . $row_airports['id'] ."</div> 
+                    <div class='text1'>" . $row_airports["country"] . "</div> 
                     <div class='text2'>Direct flight</div>
                     <div class='text3'>" . $row_airports["City"] . " (" . $row_airports["airport_name"] . ")</div>
                     <div class='rectangle1'>

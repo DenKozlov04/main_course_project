@@ -38,55 +38,49 @@ if (isset($_SESSION['admin_id'])) {
             <div class='changes'>
                 <div class='Airline'>
                     <div class='input-Airline'>
-                        <input type="text" id="Airline" name="Airline" placeholder="Airline name for example: Riga - Paris">
+                        <input type="text" id="Airline" name="Airline" placeholder="Airline name for example: Riga - London">
                     </div>
                 </div>
 
                 <div class='airport_name'>
                     <div class='input-airport_name'>
-                        <input type="text" id="airport_name" name="airport_name" placeholder="Write airport name for example: Vnukovo">
+                        <input type="text" id="airport_name" name="airport_name" placeholder="Write airport name for example: Heathrow Airport">
                     </div>
                 </div>
 
                 <div class='ITADA'>
                     <div class='input-ITADA'>
-                        <input type="text" id="ITADA" name="ITADA" placeholder="Write ITADA code for example: VKO">
+                        <input type="text" id="ITADA" name="ITADA" placeholder="Write ITADA code for example: LHR">
                     </div>
                 </div>
 
                 <div class='City'>
                     <div class='input-City'>
-                        <input type="text" id="City" name="City" placeholder="Write airport City for example: Moscov">
+                        <input type="text" id="City" name="City" placeholder="Write airport City for example: London">
                     </div>
                 </div>
 
                 <div class='country'>
                     <div class='input-country'>
-                        <input type="text" id="country" name="country" placeholder="Write airport country for example: Russia">
+                        <input type="text" id="country" name="country" placeholder="Write airport country for example: United Kingdom">
                     </div>
                 </div>
 
                 <div class='T_price'>
                     <div class='input-T_price'>
-                        <input type="text" id="T_price" name="T_price" placeholder="Write ticket price for example: 500 euro">
-                    </div>
-                </div>
-
-                <div class='arrival_date'>
-                    <div class='input-arrival_date'>
-                        <input type="text" id="arrival_date" name="arrival_date" placeholder="Write arrival date for example: 2023-05-01">
+                        <input type="text" id="T_price" name="T_price" placeholder="Write ticket price for example: 200€">
                     </div>
                 </div>
 
                 <div class='departure_date'>
                     <div class='input-departure_date'>
-                        <input type="text" id="departure_date" name="departure_date" placeholder="Write departure date for example: 2023-04-01">
+                        <input type="text" id="departure_date" name="departure_date" placeholder="Write departure date for example: 2024-04-01">
                     </div>
                 </div>
 
-                <div class='arrival_time'>
+                <div class='arrival_date'>
                     <div class='input-arrival_date'>
-                        <input type="text" id="arrival_time" name="arrival_time" placeholder="Write arrival time for example: 12:30:00">
+                        <input type="text" id="arrival_date" name="arrival_date" placeholder="Write arrival date for example: 2024-05-01">
                     </div>
                 </div>
 
@@ -95,6 +89,14 @@ if (isset($_SESSION['admin_id'])) {
                         <input type="text" id="departure_time" name="departure_time" placeholder="Write departure time for example: 12:30:00">
                     </div>
                 </div>
+
+                <div class='arrival_time'>
+                    <div class='input-arrival_date'>
+                        <input type="text" id="arrival_time" name="arrival_time" placeholder="Write arrival time for example: 13:30:00">
+                    </div>
+                </div>
+
+
 
                 <div class='googleMapsLink'>
                     <div class='input-googleMapsLink'>

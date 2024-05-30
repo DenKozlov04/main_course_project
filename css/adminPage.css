@@ -53,6 +53,14 @@ body {
   margin-bottom: 20px;
   border: 1px solid #ccc;
 }
+.table-container2 {
+  width:60%;
+  max-height: 300px; 
+  overflow-y: auto;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  margin-left:-100px
+}
 .table3 th {
   background-color: #f5f5f5; 
 }

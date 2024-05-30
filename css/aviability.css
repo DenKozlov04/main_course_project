@@ -19,8 +19,16 @@ body {
     border-top-right-radius: 10px;
     text-align: center;
 }
-
-
+.id{
+    display: none;
+}
+.eurosign{
+    position: absolute;
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 70px;
+    margin-top:35px;
+}
 .days {
     
     padding: 10px;

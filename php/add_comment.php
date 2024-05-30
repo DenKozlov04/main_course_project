@@ -1,27 +1,27 @@
 <?php
 // данные из сесии
-session_start();
-$user_id = $_SESSION['user_id'];
-$admin_id = $_SESSION['admin_id'];
-$username = $_SESSION['username'];
-$comment = $_POST['comment'];
+// session_start();
+// $user_id = $_SESSION['user_id'];
+// $admin_id = $_SESSION['admin_id'];
+// $username = $_SESSION['username'];
+// $comment = $_POST['comment'];
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    include 'dbconfig.php';
-// подключение кбд
-    if ($mysqli->connect_error) {
-        die("Connection failed: " . $mysqli->connect_error);
-    }
+// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//     include 'dbconfig.php';
+// // подключение кбд
+//     if ($mysqli->connect_error) {
+//         die("Connection failed: " . $mysqli->connect_error);
+//     }
 
-    header("Location: ../php/user_comments.php");
-    exit();
-}
+//     header("Location: ../php/user_comments.php");
+//     exit();
+// }
 
-$comments = []; 
+// $comments = []; 
 
 ?>
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <link href="../css/review.css" rel="stylesheet">
@@ -58,4 +58,4 @@ $comments = [];
         <?php endforeach; ?>
     </ul>
 </body>
-</html>
+</html> -->

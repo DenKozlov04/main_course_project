@@ -1,9 +1,22 @@
 <?php
+include 'dbconfig.php';
 class FlightDataValidator {
+    
     private $data;
+    private $mysqli;
 
     public function __construct($data) {
         $this->data = $data;
+        $this->initializeDatabase();
+        
+    }
+
+    private function initializeDatabase() {
+        $this->mysqli = new mysqli(DatabaseConfig::$servername, DatabaseConfig::$dbusername, DatabaseConfig::$dbpassword, DatabaseConfig::$dbname);
+
+        if ($this->mysqli->connect_error) {
+            die("Connection failed: " . $this->mysqli->connect_error);
+        }
     }
 
     public function validate() {
@@ -21,31 +34,27 @@ class FlightDataValidator {
         $departure_time = $this->data['departure_time'];
 
         if (mb_strlen($Airline) < 3 || mb_strlen($Airline) > 255) {
-            echo "<script>alert(\"Incorrect airline length\");</script>";
-            exit();
+            $alert = "Incorrect airline length";
         } elseif (mb_strlen($airport_name) < 3 || mb_strlen($airport_name) > 255) {
-            echo "<script>alert(\"Incorrect airport name length\");</script>";
-            exit();
+            $alert = "Incorrect airport name length";
         } elseif (mb_strlen($ITADA) !== 3) {
-            echo "<script>alert(\"Incorrect ITADA length\");</script>";
-            exit();
+            $alert = "Incorrect ITADA length";
         } elseif (mb_strlen($T_price) < 2 || mb_strlen($T_price) > 8) {
-            echo "<script>alert(\"Incorrect airport name length\");</script>";
-            exit();
+            $alert = "Incorrect airport name length";
         } elseif (mb_strlen($departure_date) !== 10) {
-            echo "<script>alert(\"Incorrect airport name length\");</script>";
-            exit();
+            $alert = "Incorrect airport name length";
         } elseif (mb_strlen($arrival_date) !== 10) {
-            echo "<script>alert(\"Incorrect airport name length\");</script>";
-            exit();
+            $alert = "Incorrect airport name length";
         } elseif (mb_strlen($City) < 2 || mb_strlen($City) > 255) {
-            echo "<script>alert(\"Incorrect city length (from 2 to 255 symbols)\");</script>";
-            exit();
+            $alert = "Incorrect city length (from 2 to 255 symbols)";
         } elseif (mb_strlen($arrival_time) < 5 || mb_strlen($arrival_time) > 8) {
-            echo "<script>alert(\"Incorrect city length (from 5 to 8 symbols)\");</script>";
-            exit();
+            $alert = "Incorrect city length (from 5 to 8 symbols)";
         } elseif (mb_strlen($departure_time) < 5 || mb_strlen($departure_time) > 8) {
-            echo "<script>alert(\"Incorrect city length (from 5 to 8 symbols)\");</script>";
+            $alert = "Incorrect city length (from 5 to 8 symbols)";
+        }
+
+        if (isset($alert)) {
+            header('Location: FilteredTickets.php?alert=' . urlencode($alert));
             exit();
         } else {
             $this->addToDatabase();
@@ -60,89 +69,58 @@ class FlightDataValidator {
     }
 
     private function addToDatabase() {
-        include 'dbconfig.php';
-    
-
-        $stmt1 = $mysql->prepare("INSERT INTO `airports/airlines` (`Airline`, `airport_name`, `ITADA`, 
+        $stmt1 = $this->mysqli->prepare("INSERT INTO `airports/airlines` (`Airline`, `airport_name`, `ITADA`, 
             `City`, `country`, `T_price`, `departure_date`, `arrival_date`,
             `arrival_time`, `departure_time`, `googleMapsLink`, `created_at`) 
             VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now())");
     
+        if ($stmt1 === false) {
+            die("Prepare failed: " . $this->mysqli->error);
+        }
+
         $stmt1->bind_param("sssssssssss", $this->data['Airline'], $this->data['airport_name'], $this->data['ITADA'],
             $this->data['City'], $this->data['country'], $this->data['T_price'], $this->data['departure_date'],
             $this->data['arrival_date'], $this->data['arrival_time'], $this->data['departure_time'], $this->data['googleMapsLink']);
     
         $stmt1->execute();
     
-        // Получаю id добавленной записи в airports/airlines
         $flight_id = $stmt1->insert_id;
     
         $stmt1->close();
     
-        // добавления описания и изоражения
-        if (!empty($this->data['description']) || isset($_FILES['image1']) && $_FILES['image1']['error'] == 0) {
-            $stmt2 = $mysql->prepare("INSERT INTO `airflight_description` (`flight_id`, `description`, `flight_image`) VALUES (?, ?, ?)");
-            $stmt2->bind_param("iss", $flight_id, $this->data['description'], $image1);
-    
-            
+        if (!empty($this->data['description']) || (isset($_FILES['image1']) && $_FILES['image1']['error'] == 0)) {
+            $stmt2 = $this->mysqli->prepare("INSERT INTO `airflight_description` (`flight_id`, `description`, `flight_image`) VALUES (?, ?, ?)");
+            if ($stmt2 === false) {
+                die("Prepare failed: " . $this->mysqli->error);
+            }
+
+            $image1 = null;
             if (isset($_FILES['image1']) && $_FILES['image1']['error'] == 0) {
                 $image1 = file_get_contents($_FILES['image1']['tmp_name']);
-    
-               
                 $maxFileSize = 2 * 1024 * 1024; 
-                if (strlen($image1) <= $maxFileSize) {
-                    $stmt2->execute();
-                    echo "The data has been successfully added to the tables.";
-                } else {
+                if (strlen($image1) > $maxFileSize) {
                     echo "Error: The file size exceeds the allowable limit (2 MB).";
+                    header('Location: adminPage.php');
+                    exit();
                 }
-            } else {
-                // Если изображение не было загружено
-                $stmt2->execute();
-                echo "Data successfully added to tables (no image)";
             }
+
+            $stmt2->bind_param("iss", $flight_id, $this->data['description'], $image1);
+            $stmt2->execute();
     
             $stmt2->close();
         }
     
-        $mysql->close();
-    }
-    
-
-    private function addDescription($flight_id, $description) {
-        include 'dbconfig.php';
-        $stmt = $mysql->prepare("INSERT INTO `airflight_description` (`flight_id`, `description`) VALUES (?, ?)");
-        $stmt->bind_param("is", $flight_id, $description);
-        $stmt->execute();
-        $stmt->close();
-        $mysql->close();
+        $this->mysqli->close();
     }
 
-    private function addImageToDatabase($flight_id, $image1) {
-        include 'dbconfig.php';
-
-        // подготавливаю безопасный запрос для бд
-        $stmt = $mysql->prepare("INSERT INTO airflight_description (`flight_id`, `flight_image`) VALUES (?, ?)");
-        $stmt->bind_param("is", $flight_id, $image1);
-
-        if ($stmt->execute()) {
-            echo "The image has been successfully added to the table.";
-        } else {
-            echo "Error: " . $stmt->error;
-        }
-
-        $stmt->close();
-        $mysql->close();
-    }
     public function ShowUsers() {
-
-        $stmt = $mysql->prepare("SELECT * FROM users");
+        $stmt = $this->mysqli->prepare("SELECT * FROM users");
 
         if ($stmt->execute()) {
             $result = $stmt->get_result();
 
             if ($result->num_rows > 0) {
-
                 echo "<table border='1'>
                         <tr>
                             <th>ID</th>
@@ -152,7 +130,6 @@ class FlightDataValidator {
                             <th>Created At</th>
                             <th>Actions</th>
                         </tr>";
-    
 
                 while ($row = $result->fetch_assoc()) {
                     echo "<tr>
@@ -173,18 +150,15 @@ class FlightDataValidator {
             } else {
                 echo "No users found.";
             }
-    
+
             $result->free();
         } else {
             echo "Error: " . $stmt->error;
         }
         $stmt->close();
-        $mysql->close();
+        $this->mysqli->close();
     }
-    
-
 }
-
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $flightData = [
@@ -206,4 +180,3 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $validator->validate();
 }
 ?>
-

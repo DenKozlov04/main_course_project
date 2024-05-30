@@ -6,6 +6,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['price']) && isset($_PO
     $price = $_POST['price'];
     $id = $_POST['id'];
     $user_id = $_SESSION['user_id'];
+    $admin_id = $_SESSION['admin_id'];
+    //  echo $admin_id ;
     // echo $user_id;
     // echo $id;
     // echo $price;
@@ -24,7 +26,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['price']) && isset($_PO
                 echo "<meta http-equiv='refresh' content='0;url=index.php?alert=" . urlencode($alert) . "'>";
                 
             } else {
-               
+                if ($admin_id === 1) {
+                    $alert = 'You re an admin, you cant order tickets';
+                    echo "<meta http-equiv='refresh' content='0;url=index.php?alert=" . urlencode($alert) . "'>";
+                    
+                }
             }
             
             $stmt->close();
@@ -59,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['price']) && isset($_PO
     FROM `airports/airlines` 
     WHERE  `id` = ?";
 
-    $stmt = $conn->prepare($sql);
+    $stmt = $mysqli->prepare($sql);
 
 
     if ($stmt) {

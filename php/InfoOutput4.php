@@ -5,7 +5,7 @@ include 'dbconfig.php';
 $user_id = $_SESSION['user_id'];
 $admin_id = $_SESSION['admin_id'];
 
-$stmt4 = $conn->prepare("SELECT `email` FROM users WHERE user_id = ?");//`phone`
+$stmt4 = $mysqli->prepare("SELECT `email` FROM users WHERE user_id = ?");//`phone`
 $stmt4->bind_param("i", $user_id);
 $stmt4->execute();
 $stmt4->bind_result($email); //, $phone
@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType2']) && isset(
     $prefix = 'Y4Y'; 
     $ticketCode = $prefix . uniqid(); 
 
-        $stmt = $conn->prepare("INSERT INTO `tickets` (`user_id`, `airlines_id`, `Seat`, `price`, `сondition`, `code`) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt = $mysqli->prepare("INSERT INTO `tickets` (`user_id`, `airlines_id`, `Seat`, `price`, `сondition`, `code`) VALUES (?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("iissss", $user_id, $id, $SeatPlace, $LastPrice, $condition, $ticketCode);
         $stmt->execute();
         if ($stmt->affected_rows > 0) {
@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($
     $prefix = 'Y4Y'; 
     $ticketCode = $prefix . uniqid(); 
 
-    $stmt = $conn->prepare("SELECT COUNT(*) as count FROM user_details WHERE user_id = ?");
+    $stmt = $mysqli->prepare("SELECT COUNT(*) as count FROM user_details WHERE user_id = ?");
     $stmt->bind_param("i", $user_id);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($
 
     if ($count > 0) {
 
-        $stmt = $conn->prepare("INSERT INTO `tickets` (`user_id`, `airlines_id`, `Seat`, `price`, `сondition`, `code`) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt = $mysqli->prepare("INSERT INTO `tickets` (`user_id`, `airlines_id`, `Seat`, `price`, `сondition`, `code`) VALUES (?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("iissss", $user_id, $id, $SeatPlace, $LastPrice, $condition, $ticketCode);
         $stmt->execute();
         if ($stmt->affected_rows > 0) {
@@ -89,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($
     WHERE  `id` = ?";
 
 
-    $stmt = $conn->prepare($sql);
+    $stmt = $mysqli->prepare($sql);
 
 
     if ($stmt) {
@@ -191,13 +191,13 @@ class PassportDataInput
 
     private function addPassportDataToDatabase($name, $surname, $nationality, $gender, $Email, $Phone_Number, $Passport_number, $passportIssuedDate, $passportExpirationDate, $country, $user_id)
     {
-        global $conn;
-        $stmt = $conn->prepare("INSERT INTO `user_details` (`Name`, `Surname`, `Nationality`, `Gender`, `Phone_number`, `Passport_number`, `Passport_issued_date`, `Passport_expiration_date`, `Issued_country_passport`, `user_id`, `created_at`) 
+        global $mysqli;
+        $stmt = $mysqli->prepare("INSERT INTO `user_details` (`Name`, `Surname`, `Nationality`, `Gender`, `Phone_number`, `Passport_number`, `Passport_issued_date`, `Passport_expiration_date`, `Issued_country_passport`, `user_id`, `created_at`) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now())");//  ?, `Email`,
         $stmt->bind_param("ssssssssss", $name, $surname, $nationality, $gender, $Phone_Number, $Passport_number, $passportIssuedDate, $passportExpirationDate, $country, $user_id);//s $Email,
         $stmt->execute();
 
-        $updateStmt = $conn->prepare("UPDATE `users` SET `email` = ? WHERE `user_id` = ?");
+        $updateStmt = $mysqli->prepare("UPDATE `users` SET `email` = ? WHERE `user_id` = ?");
         $updateStmt->bind_param("ss", $Email, $user_id);
         $updateStmt->execute();
     }

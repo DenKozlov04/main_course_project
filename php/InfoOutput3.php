@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($
     FROM `airports/airlines` 
     WHERE  `id` = ?";
 
-    $stmt = $conn->prepare($sql);
+    $stmt = $mysqli->prepare($sql);
 
 
     if ($stmt) {
@@ -80,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         UNION ALL
                         SELECT seat FROM children WHERE seat = ? AND airline_id = ?
                     ) AS combinedSeats";
-            $stmt = $conn->prepare($sql);
+            $stmt = $mysqli->prepare($sql);
             $stmt->bind_param("sisi", $seatNumber, $id, $seatNumber, $id);
             $stmt->execute();
             $result = $stmt->get_result();

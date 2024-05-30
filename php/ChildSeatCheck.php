@@ -12,7 +12,7 @@ include 'dbconfig.php';
             WHERE `user_id` = $user_id"; 
     $sql = "SELECT `airlines_id` FROM `tickets`  WHERE `user_id` = $user_id"; 
     // $sql = "SELECT `airline_id` FROM `children`  WHERE `user_id` = $user_id"; 
-    $stmt = $conn->prepare($sql);
+    $stmt = $mysqli->prepare($sql);
     $stmt->execute();
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();
@@ -29,7 +29,7 @@ include 'dbconfig.php';
     $sql = "SELECT `Airline`, `airport_name`, `ITADA`, `City`, `country`, `T_price`, `arrival_date`, `departure_date`, `arrival_time`, `departure_time`,`id` 
         FROM `airports/airlines` 
         WHERE  `id` = ?";
-    $stmt = $conn->prepare($sql);
+    $stmt = $mysqli->prepare($sql);
     $stmt->bind_param("i", $id);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -65,7 +65,7 @@ include 'dbconfig.php';
                                 UNION ALL
                                 SELECT seat FROM children WHERE seat = ? AND airline_id = ?
                             ) AS combinedSeats";
-                    $stmt = $conn->prepare($sql);
+                    $stmt = $mysqli->prepare($sql);
                     $stmt->bind_param("sisi", $seatNumber, $id, $seatNumber, $id);
                     $stmt->execute();
                     $result = $stmt->get_result();

@@ -2,27 +2,26 @@
 include 'dbconfig.php';
 
 class Database {
-    private $conn;
+    private $mysqli;
 
     public function __construct() {
-        $this->conn = new mysqli(DatabaseConfig::$servername, DatabaseConfig::$dbusername, DatabaseConfig::$dbpassword, DatabaseConfig::$dbname);
+        $this->mysqli = new mysqli(DatabaseConfig::$servername, DatabaseConfig::$dbusername, DatabaseConfig::$dbpassword, DatabaseConfig::$dbname);
 
-        if ($this->conn->connect_error) {
-            die("Connection failed: " . $this->conn->connect_error);
+        if ($this->mysqli->connect_error) {
+            die("Connection failed: " . $this->mysqli->connect_error);
         }
     }
 
     public function getUser($username) {
-        $stmt = $this->conn->prepare("SELECT user_id, username, email, password FROM users WHERE username=?");
+        $stmt = $this->mysqli->prepare("SELECT user_id, username, email, password FROM users WHERE username=?");
         $stmt->bind_param("s", $username);
         $stmt->execute();
         $result = $stmt->get_result();
 
         return $result->fetch_assoc();
     }
-
     public function close() {
-        $this->conn->close();
+        $this->mysqli->close();
     }
 }
 

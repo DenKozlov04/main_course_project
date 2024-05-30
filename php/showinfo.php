@@ -25,7 +25,7 @@ class InfoTable {
                 <div class='Text6'>
                     <a>Users table</a>
                 </div>
-                <div class='table-container'>
+                <div class='table-container2'>
                 <table class='table1'>
                         <tr>
                             <th>user id</th>

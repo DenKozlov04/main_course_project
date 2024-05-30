@@ -1,6 +1,6 @@
 <?php
 include "InfoOutput3.php";
-include "seats_check.php";
+// include "seats_check.php";
 
 echo '<script>';
 echo 'var flightId = ' . json_encode($id) . ';';

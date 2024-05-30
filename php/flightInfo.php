@@ -103,32 +103,29 @@ if ($stmt->fetch()) {
 <div class="text3">Travel reviews</div>
 <?php
 $stmt3 = $mysqli->prepare("SELECT `name`,`comment` FROM `comments` WHERE `comment_category` = (SELECT `Airline` FROM `airports/airlines` WHERE `id` = ?)");
-// привязывает параметр
+// биндим параметр
 $stmt3->bind_param("i", $airline_id);
 $stmt3->execute();
 $result = $stmt3->get_result();
 
 
 echo '<div class="scrollable-box">';
-// echo '    <div class="CommentsPlace">';
-       
 
 while ($row = $result->fetch_assoc()) {
     // Выводит только блок BestComment внутри цикла
     echo '        <div class="comment-container">';
-    echo '            <img class="UserImg2" src="../images/user_foto.png" alt="Plane places" >';
+    echo '            <img class="UserImg2" src="../images/user_foto.png" alt="Plane places">';
     echo '            <div class="name2">';
     echo '                <a>' . $row['name'] . '</a>';
-    echo '                </div>';
-    echo '                <div class="comment-text">';
-    echo '                    <a>' . $row['comment'] . '</a>';
-    // echo '                    <div class="rectangle4"></div>';
-    echo '                </div>';
+    echo '            </div>';
+    echo '            <div class="comment-text">';
+    echo '                <a>' . $row['comment'] . '</a>';
     echo '            </div>';
     echo '        </div>';
 }
-// echo '    </div>';
+
 echo '</div>';
+
 
 $stmt3->close();
 $result->close();

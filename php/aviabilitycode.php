@@ -177,7 +177,7 @@ class ChooseFlight {
                                         <div class='arrivITADA'>$ITADA</div>
                                     </div>
                                     <div class='NOPrice'>no</div>
-                                    <div class='Price'>$T_price </div>
+                                    <div class='Price'>$T_price €</div>
                                     <div class='direction'>Direct flight</div>
                                     <a class='allParts' style='cursor: pointer;' onclick='openPopup(\"$country\", \"$City\", \"$airport_name\", \"$ITADA\", \"$departure_date\", \"$arrival_date\", \"$departure_time\", \"$arrival_time\", \"$T_price\")'>Flight details</a>
                                     <div class='wayTime'>$flight_duration</div>
@@ -193,6 +193,7 @@ class ChooseFlight {
                                 <div class='ButtonPlace'>
                                     <button class='ContinueButton'>Continue</button>
                                     <div id='price' class='PricePlace'></div>
+                                    <a class='eurosign'>€</a>
                                     <div id='id' class='id'></div>
                                 </div>
                               </form>";

@@ -34,11 +34,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else {
                 echo "Error while executing the query: " . $stmt->error;
             }
-////lietotajalapasskats
             $stmt->close();
         }
     }
-
 
     if (isset($_POST['delete_comment'])) {
         $comment_id = $_POST['delete_comment_id'];
@@ -55,7 +53,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else {
                 echo "Error while executing the query: " . $stmt->error;
             }
-
             $stmt->close();
         } else {
             echo "Ошибка при подготовке запроса: " . $mysqli->error;
@@ -78,7 +75,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 } else {
                     echo "Error while executing the query: " . $stmt->error;
                 }
-
                 $stmt->close();
             } else {
                 echo "An error in the preparation of the request: " . $mysqli->error;
@@ -95,10 +91,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Запрос на обновление 
             $update_sql = "UPDATE comments SET comment_category = '$flightname' WHERE id = $comment_id";
             
-            if ($conn->query($update_sql) === TRUE) {
+            if ($mysqli->query($update_sql) === TRUE) {
                 // echo "Record updated successfully";
             } else {
-                echo "Error updating record: " . $conn->error;
+                echo "Error updating record: " . $mysqli->error;
             }
         }
     }
@@ -114,8 +110,6 @@ if ($result = $mysqli->query($sql)) {
     }
     $result->free();
 }
-
-$mysqli->close();
 
 ?>
 
@@ -140,62 +134,60 @@ $mysqli->close();
         <a href="index.php" class="PrevPage" >← On the main page</a>
     <img class='HeadImg' ></img>
     <div class='Text1'>
-            <a>Share your flight and vacation experiences with other users.</a>
-        </div>
-    <div class='GreyRect1'></div>
-    <div class='bigRect1'>
-        <div class='Text2'>
-                <a>Leave your comment </a>
-            </div>
-        <div class='AddCommentRect'>
-            <img class='UserImg' src='../images/user_foto.png'></img>
-            <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
+    <a>Share your flight and vacation experiences with other users.</a>
+</div>
+<div class='GreyRect1'></div>
+<div class='bigRect1'>
+    <div class='Text2'>
+        <a>Leave your comment </a>
+    </div>
+    <div class='AddCommentRect'>
+        <img class='UserImg' src='../images/user_foto.png'></img>
+        <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
             <label class='name'for="name"> <?= $username; ?></label>
             <label class='email' for="email"> <?= $email; ?></label>
 
-                <!-- <label for="comment">Your comment:</label><br> -->
-                <textarea class='AddCommentArea' name="comment" id="comment" cols="30" rows="10" placeholder='Add a comment...'></textarea><br>
-                <script src="../JS/troggleButtonInRevews.js"></script>
-                <input class='inputBtn'type="submit" value="Post" name="add_comment">
-            </form>
-        </div>
+            <!-- <label for="comment">Your comment:</label><br> -->
+            <textarea class='AddCommentArea' name="comment" id="comment" cols="30" rows="10" placeholder='Add a comment...'></textarea><br>
+            <script src="../JS/troggleButtonInRevews.js"></script>
+            <input class='inputBtn'type="submit" value="Post" name="add_comment">
+        </form>
     </div>
-    <!-- <h2>Comments</h2> -->
-    <div class='Text3'>
-                <a>User comments </a>
+</div>
+<div class='Text3'>
+    <a>User comments </a>
+</div>
+<div class="scrollable-box">
+    <?php foreach ($comments as $comment): ?>
+        <div class="comment-container">  
+            <img class='UserImg2' src='../images/user_foto.png'></img>
+            <div class="comment-header">
+                <a class='name2'><?= $comment['name']; ?></a>
             </div>
-            <div class="scrollable-box">
-            <?php foreach ($comments as $comment): ?>
-    <div class="comment-container">  
-    <img class='UserImg2' src='../images/user_foto.png'></img>
-        <div class="comment-header">
-            <a class='name2'><?= $comment['name']; ?></a>
-        </div>
-        <div class="comment-text">
-            <?= $comment['comment']; ?>
-        </div>
-        <div class="comment-timestamp">
-            <a class='time'><?= $comment['created_at']; ?></a>
-        </div>
-        <?php if ($comment['user_id'] == $user_id || $admin_id != 0): ?>
-            <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
-                <input type="hidden" name="delete_comment_id" value="<?= $comment['id']; ?>">
-                <input class='DeleteBtn'type="submit" value="Delete" name="delete_comment">
-
-            </form>
-            <button class='EditBtn' onclick="ShowEdit(<?= $comment['id']; ?>)">Edit</button>
-            <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post" id="editForm<?= $comment['id']; ?>" style="display: none;">
-                <input type="hidden" name="edit_comment_id" value="<?= $comment['id']; ?>">
-                <input class='ApplyEditBtn'type="submit" value="Edit" name="edit_comment">
-                <div class='WhiteRect'>
-                    <textarea class='EditCommentWindow'name="edit_comment" id="edit_comment" cols="30" rows="10"><?= $comment['comment']; ?></textarea><br>
-                </div>
-            </form>
-            <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
+            <div class="comment-text">
+                <?= $comment['comment']; ?>
+            </div>
+            <div class="comment-timestamp">
+                <a class='time'><?= $comment['created_at']; ?></a>
+            </div>
+            <?php if ($comment['user_id'] == $user_id || $admin_id != 0): ?>
+                <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
+                    <input type="hidden" name="delete_comment_id" value="<?= $comment['id']; ?>">
+                    <input class='DeleteBtn'type="submit" value="Delete" name="delete_comment">
+                </form>
+                <button class='EditBtn' onclick="ShowEdit(<?= $comment['id']; ?>)">Edit</button>
+                <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post" id="editForm<?= $comment['id']; ?>" style="display: none;">
+                    <input type="hidden" name="edit_comment_id" value="<?= $comment['id']; ?>">
+                    <input class='ApplyEditBtn'type="submit" value="Edit" name="edit_comment">
+                    <div class='WhiteRect'>
+                        <textarea class='EditCommentWindow'name="edit_comment" id="edit_comment" cols="30" rows="10"><?= $comment['comment']; ?></textarea><br>
+                    </div>
+                </form>
+                <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
                     <?php
                     if ($admin_id != 0 && $user_id == 0) {
                         $sql = "SELECT Airline FROM `airports/airlines` ";
-                        $result = $conn->query($sql);
+                        $result = $mysqli->query($sql);
 
                         // Вывод данных
                         if ($result->num_rows > 0) {
@@ -212,12 +204,10 @@ $mysqli->close();
                     echo '<input type="hidden" name="comment_id" value="' . $comment['id'] . '">';
                     ?>
                     <button class='AddStatus' type="submit" style="visibility: <?= $visibility; ?>;">Add</button>
-
-            </form>
-        <?php endif; ?>
-    </div>
-                
-<?php endforeach; ?>
+                </form>
+            <?php endif; ?>
+        </div>
+    <?php endforeach; ?>
 </div>
 <footer>
     <div class="footer-content">
@@ -230,8 +220,6 @@ $mysqli->close();
         </ul>
     </div>
 </footer>
-
-
 </body>
-
 </html>
+

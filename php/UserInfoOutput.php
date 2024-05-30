@@ -52,6 +52,7 @@ public function displayUserInfo() {
         $userPhone = array();
     
         $user_id = $_SESSION['user_id'];
+
         $sql = "SELECT Phone_number FROM user_details WHERE user_id = $user_id";
     
         $result = $this->mysqli->query($sql);
@@ -66,7 +67,8 @@ public function displayUserInfo() {
             $userPhone['Phone_number'] = 'Your phone number will be displayed when your ticket is issued.';
             // $visibility = 'hidden';
             // $userData['visibility'] = 'hidden';
-        }
+        } 
+
     
         return $userPhone;
     }

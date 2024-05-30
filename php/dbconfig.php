@@ -1,14 +1,12 @@
 <?php
-// Глобальные переменные для подключения к базе данных
+
 $servername = "localhost";
 $dbusername = "root";
 $dbpassword = "";
 $dbname = "airflightsdatabase";
 
-// Создаю соединение
-$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 $mysqli = new mysqli($servername, $dbusername, $dbpassword, $dbname);
-$mysql = new mysqli($servername, $dbusername, $dbpassword, $dbname);
+
 
 if (!class_exists('DatabaseConfig')) {
     class DatabaseConfig {
@@ -19,15 +17,5 @@ if (!class_exists('DatabaseConfig')) {
     }
 }
 
-$host = $servername;
-$user = $dbusername;
-$password = $dbpassword;
-$database = $dbname;
-
-$conn = mysqli_connect($servername, $dbusername, $dbpassword, $dbname);
-// Проверяю соединение
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 ?>
 

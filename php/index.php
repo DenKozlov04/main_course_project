@@ -251,22 +251,22 @@
 <!-- <div class= "txt3">Travel comfortably with us.</div> -->
 <div class="swiper sample-slider" style="margin-top: 850px;">
         <div class="swiper-wrapper">
-            <div class="swiper-slide" ><a href="../html/baggage_check_in.html"><img src="../images/1card.png"></a>
+            <div class="swiper-slide" ><a href=""><img src="../images/1card.png"></a>
             <div class="text-overlay">How to register luggage</div>
             </div>
-            <div class="swiper-slide"><a href="../html/place_selection.html"><img src="../images\2card.png"></a>
+            <div class="swiper-slide"><a href=""><img src="../images\2card.png"></a>
             <div class="text-overlay">Seat selection</div>
           </div>
-            <div class="swiper-slide"><a href="../html/luggage_weight.html"><img src="../images\3card.png"></a>
+            <div class="swiper-slide"><a href=""><img src="../images\3card.png"></a>
             <div class="text-overlay">Luggage weight</div>
           </div>
-            <div class="swiper-slide"><a href="../html/animals_ journey.html"><img src="../images\4card.png"></a>
+            <div class="swiper-slide"><a href=""><img src="../images\4card.png"></a>
             <div class="text-overlay">Pets during travel</div>
           </div>
-            <div class="swiper-slide"><a href="../html/discount offers.html"><img src="../images\5card.png"></a>
+            <div class="swiper-slide"><a href=""><img src="../images\5card.png"></a>
             <div class="text-overlay">Discount offers</div>
           </div>
-            <div class="swiper-slide"><a href="../html/Ticket_cancel.html"><img src="../images\6card.png"></a>
+            <div class="swiper-slide"><a href=""><img src="../images\6card.png"></a>
             <div class="text-overlay">Ticket cancellation</div>
           </div>
         </div>

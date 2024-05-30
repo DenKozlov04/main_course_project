@@ -6,17 +6,18 @@ use PHPMailer\PHPMailer\Exception;
 
 include 'dbconfig.php';
 
-
-
-
 class Registration {
-    private $mysql;
+    private $mysqli;
 
     public function __construct() {
-        $this->mysql = new mysqli(DatabaseConfig::$servername, DatabaseConfig::$dbusername, DatabaseConfig::$dbpassword, DatabaseConfig::$dbname);
+        $this->initializeDatabase();
+    }
 
-        if ($this->mysql->connect_error) {
-            die("Connection failed: " . $this->mysql->connect_error);
+    private function initializeDatabase() {
+        $this->mysqli = new mysqli(DatabaseConfig::$servername, DatabaseConfig::$dbusername, DatabaseConfig::$dbpassword, DatabaseConfig::$dbname);
+
+        if ($this->mysqli->connect_error) {
+            die("Connection failed: " . $this->mysqli->connect_error);
         }
     }
 
@@ -27,7 +28,7 @@ class Registration {
         $isMailSent = false;
 
         try {
-            //Server settings
+           
             $mail->isSMTP();
             $mail->Host       = $config['smtp_host'];
             $mail->SMTPAuth   = true;
@@ -36,11 +37,11 @@ class Registration {
             $mail->SMTPSecure = $config['smtp_ssl'];
             $mail->Port       = $config['smtp_port'];
 
-            //Recipients
+        
             $mail->setFrom($config['from_email']);
             $mail->addAddress($email);
 
-            //Content
+          
             $mail->isHTML(false);
             $mail->Subject = "You're registered in";
             $mail->Body    = "Hello, $login!\n\nYour registration was successful. Now you can use all features of our site, view available flights, leave comments, reserve tickets, and much more.\nWe are happy to welcome you!\n\nSincerely, your BalticAvia!\n\nPlease don't answer this letter.\n\n";
@@ -55,72 +56,70 @@ class Registration {
         return $isMailSent;
     }
 
-    public function validateAndRegister($login, $email, $con_password,$password) { //$phone,
+    public function validateAndRegister($login, $email, $con_password, $password) { //$phone,
         $login = htmlspecialchars(filter_var(trim($login), FILTER_SANITIZE_STRING));
         $email = htmlspecialchars(filter_var(trim($email), FILTER_SANITIZE_STRING));
         // $phone = htmlspecialchars(filter_var(trim($phone), FILTER_SANITIZE_STRING));
         $con_password = htmlspecialchars(filter_var(trim($con_password), FILTER_SANITIZE_STRING));
         $password = htmlspecialchars(filter_var(trim($password), FILTER_SANITIZE_STRING));
 
-
-
-        $alert = ''; // Инициализируем переменную $alert
+        $alert = ''; 
 
         if (mb_strlen($login) < 5 || mb_strlen($login) > 90) {
             $alert = 'Incorrect username length';
         } elseif (mb_strlen($email) < 2 || mb_strlen($email) > 90) {
             $alert = 'Incorrect email length';
-        // } elseif (mb_strlen($phone) !== 12) {
-        //     $alert = 'Incorrect phone length';
+            // } elseif (mb_strlen($phone) !== 12) {
+            //     $alert = 'Incorrect phone length';
         } elseif (mb_strlen($con_password) < 8 || mb_strlen($con_password) > 32) {
             $alert = 'Incorrect confirm password length (from 8 to 32 symbols)';
         } elseif (mb_strlen($password) < 8 || mb_strlen($password) > 32) {
             $alert = 'Incorrect password length (from 8 to 32 symbols)';
         }
-        
-        // Если все проверки прошли успешно
+
+       
         if ($this->isUserExists('username', $login)) {
             $alert = "This username already exists";
         }
-        
+
         if ($this->isUserExists('email', $email)) {
             $alert = "This email already exists";
         }
-        
+
         // if ($this->isUserExists('phone', $phone)) {
         //     $alert = "This phone already exists";
         // }
-        
+
         if ($con_password != $password) {
             $alert = "These passwords do not match";
         }
-        
-        // Выводим алерт, если есть ошибка
+
+     
         if ($alert) {
             header("Location: ../html/registration.html?alert=" . urlencode($alert));
             exit();
         }
-        
-        // Хэшируем пароль с использованием MD5
+
+      
         $con_password = md5($con_password . "356ads34749ad9s");
-        
-        // Отправляем письмо с регистрационной информацией
+
+       
         $isMailSent = $this->sendTheRegisterLetter($login, $email);
 
-        // Если письмо успешно отправлено, добавляем пользователя в базу данных
+        
         // if ($isMailSent) {
-            $this->addUserToDatabase($login, $email, $con_password); //$phone,
+        $this->addUserToDatabase($login, $email, $con_password); //$phone,
         // }
 
-        // Закрываем соединение с базой данных
-        $this->mysql->close();
+      
+        $this->mysqli->close();
 
-        // Перенаправляем пользователя на страницу авторизации
+       
         header('Location: ../php/index.php');
     }
 
     private function isUserExists($field, $value) {
-        $stmt = $this->mysql->prepare("SELECT user_id FROM users WHERE $field = ?");
+        $stmt = $this->mysqli->prepare("SELECT user_id FROM users WHERE $field = ?");
         $stmt->bind_param("s", $value);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -128,7 +127,7 @@ class Registration {
     }
 
     private function addUserToDatabase($login, $email, $con_password) {//$phone,
-        $stmt = $this->mysql->prepare("INSERT INTO `users` (`username`, `email`, `password`, `created_at`) 
+        $stmt = $this->mysqli->prepare("INSERT INTO `users` (`username`, `email`, `password`, `created_at`) 
             VALUES (?, ?, ?, now())"); //  ?,   `phone`,
         $stmt->bind_param("sss", $login, $email, $con_password); // s $phone,
         $stmt->execute();
@@ -144,10 +143,7 @@ if (isset($_POST['register'])) {
     }
 }
 
-
-
-// echo "PHP is working!";
+// echo "bcbcbvb";
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 ?>
-

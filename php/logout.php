@@ -5,7 +5,7 @@ session_start();
  $_SESSION['user_id'] = 0;
  $_SESSION['admin_id'] = 0;
 
-// код выхода из сессии пользователя
+// user session logout code
 header("Location: index.php");
 exit;
 ?>

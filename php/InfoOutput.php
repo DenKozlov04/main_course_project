@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($
     FROM `airports/airlines` 
     WHERE  `id` = ?";
 
-    $stmt = $conn->prepare($sql);
+    $stmt = $mysqli->prepare($sql);
 
 
     if ($stmt) {

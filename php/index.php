@@ -20,9 +20,9 @@
             if (alertMessage) {
                 // alert(alertMessage);
                 swal({
-                title: 'Error!',
+                title: "Attention!",
                 text: decodeURIComponent(alertMessage),
-                icon: 'error',
+                icon: "warning",
                 button: 'OK'
             });
             }

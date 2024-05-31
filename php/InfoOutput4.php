@@ -23,9 +23,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType2']) && isset(
         $stmt->bind_param("iissss", $user_id, $id, $SeatPlace, $LastPrice, $condition, $ticketCode);
         $stmt->execute();
         if ($stmt->affected_rows > 0) {
-            echo "Билет успешно забронирован.";
+            // echo "Билет успешно забронирован.";
+            $alert = 'You have successfully booked your ticket! You can view your ticket in your user profile. You can cancel your ticket in your user profile.';
+            header("Location: ../php/index.php?alert=" . urlencode($alert));
         } else {
-            echo "Ошибка при бронировании билета.";
+            // echo "Ошибка при бронировании билета.";
         }
         $stmt->close();
 
@@ -52,7 +54,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($
         $stmt->execute();
         if ($stmt->affected_rows > 0) {
             // echo "Билет успешно забронирован.";
-            header('Location: ../php/index.php');
+            $alert = 'You have successfully booked your ticket! You can view your ticket in your user profile. You can cancel your ticket in your user profile.';
+            header("Location: ../php/index.php?alert=" . urlencode($alert));
+
         } else {
            
         }
@@ -208,3 +212,8 @@ class PassportDataInput
 
 
 ?>
+
+
+
+
+           

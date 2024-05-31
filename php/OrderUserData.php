@@ -1,26 +1,6 @@
 <?php
 include "InfoOutput4.php";
 
-// if (!isset($_SESSION['saved_city'])) {
-  
-//     $_SESSION['saved_city'] = $City;
-//     $_SESSION['saved_airport_name'] = $airport_name;
-//     $_SESSION['saved_ITADA'] = $ITADA;
-//     $_SESSION['saved_last_price'] = $LastPrice;
-//     $_SESSION['saved_formatted_depart_date'] = $formattedDepartDate;
-//     $_SESSION['saved_departure_time'] = $departure_time;
-//     $_SESSION['saved_arrival_time'] = $arrival_time;
-// } else {
-   
-//     $City = $_SESSION['saved_city'];
-//     $airport_name = $_SESSION['saved_airport_name'];
-//     $ITADA = $_SESSION['saved_ITADA'];
-//     $LastPrice = $_SESSION['saved_last_price'];
-//     $formattedDepartDate = $_SESSION['saved_formatted_depart_date'];
-//     $departure_time = $_SESSION['saved_departure_time'];
-//     $arrival_time = $_SESSION['saved_arrival_time'];
-// }
-
 
 
 ?>

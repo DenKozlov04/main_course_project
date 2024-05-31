@@ -306,7 +306,7 @@ Thank you for trusting our services!</p>
     <div id="modal3" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('modal3')" style="cursor: pointer;">&times;</span>
-        <p>Vai vēlaties rediģēt savu lietotājvaru?</p>
+        <p>Do you want to edit your username?</p>
         <form class='ChangeUserForm' action="user_info.php" method='POST'>
             <input name='ChangeUser' value="<?= $userInfo['username'] ?>">
             <button name='ChangeUserBtn' type='submit' class="cancel-btn">Edit</button>
@@ -347,7 +347,7 @@ Thank you for trusting our services!</p>
     <div id="modal8" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal8')"style="cursor: pointer;">&times;</span>
-            <p>Do you want to delete your flight?</p>
+            <p>Are you sure you want to cancel your ticket? Canceling your ticket will result in the loss of your reservation and refunds may be partial according to the airline's terms and conditions. Please confirm your decision.</p>
             <form class='DenieFlightForm' action="user_info.php" method='POST'>
                 <input type='hidden' name='DenieFlight' value="">
                 <button name='DenieFlightBtn' type='submit' class="cancel-btn">Delete</button>

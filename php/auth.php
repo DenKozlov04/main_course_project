@@ -36,7 +36,8 @@ class Auth {
             $_SESSION['username'] = $username;
             $_SESSION['user_id'] = $user['user_id'];
             $_SESSION['email'] = $user['email'];
-            header("Location: index.php");
+            $alert = 'You have successfully logged in';
+            header("Location: ../php/index.php?alert=" . urlencode($alert));
             exit();
         } else {
             $alert = "Incorrect username or password";

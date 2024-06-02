@@ -286,93 +286,137 @@ public function AddChildInfo() {
 
 ///------------------------Функция смены информации ----------------------------------
 
-public function ChangeUserInfo(){
+public function ChangeUserInfo() {
     if (isset($_POST['ChangeUserBtn'])) {
-        $newUsername = $_POST['ChangeUser']; 
+        $newUsername = htmlspecialchars(filter_var(trim($_POST['ChangeUser']), FILTER_SANITIZE_STRING));
         $user_id = $_SESSION['user_id']; 
-      
+
         if (!is_numeric($user_id)) {
-          
             return; 
         }
-      
+
+        if (mb_strlen($newUsername) < 4 || mb_strlen($newUsername) > 90) {
+            $alert1 = 'Incorrect username length';
+            echo "<meta http-equiv='refresh' content='0;url=user_info.php?alert=" . urlencode($alert1) . "'>";
+            return;
+        }
+
+        // Check if username already exists
+        $sqlTest = "SELECT * FROM `users` WHERE `username` = '$newUsername'";
+        $result = $this->mysqli->query($sqlTest);
+        if ($result->num_rows > 0) {
+            $alert1 = 'Username already exists';
+            echo "<meta http-equiv='refresh' content='0;url=user_info.php?alert=" . urlencode($alert1) . "'>";
+            return;
+        }
+
         $sql = "UPDATE `users` SET `username` = '$newUsername' WHERE `user_id` = $user_id";
         $result = $this->mysqli->query($sql);
-       
-        if ($result) {
 
+        if ($result) {
             echo "<meta http-equiv='refresh' content='0;url=user_info.php'>";
             exit();
-        } else {
-
         }
     }
 
-  
     if (isset($_POST['ChangePhoneBtn'])) {
-        $newPhone = $_POST['ChangePhone']; 
+        $newPhone = htmlspecialchars(filter_var(trim($_POST['ChangePhone']), FILTER_SANITIZE_STRING));
         $user_id = $_SESSION['user_id']; 
-   
+
         if (!is_numeric($user_id)) {
-          
             return; 
+        }
+
+        if (mb_strlen($newPhone) !== 12) {
+            $alert2 = 'Incorrect phone length';
+            echo "<meta http-equiv='refresh' content='0;url=user_info.php?alert=" . urlencode($alert2) . "'>";
+            return;
+        }
+
+        // Check if phone number already exists
+        $sqlTest = "SELECT * FROM `user_details` WHERE `Phone_number` = '$newPhone'";
+        $result = $this->mysqli->query($sqlTest);
+        if ($result->num_rows > 0) {
+            $alert2 = 'Phone number already exists';
+            echo "<meta http-equiv='refresh' content='0;url=user_info.php?alert=" . urlencode($alert2) . "'>";
+            return;
         }
 
         $sql = "UPDATE `user_details` SET `Phone_number` = '$newPhone' WHERE `user_id` = $user_id";
         $result = $this->mysqli->query($sql);
-    
-        if ($result) {
 
+        if ($result) {
             echo "<meta http-equiv='refresh' content='0;url=user_info.php'>";
             exit();
-        } else {
-
         }
     }
 
-
     if (isset($_POST['ChangeEmailBtn'])) {
-        $newEmail = $_POST['ChangeEmail']; 
+        $newEmail = htmlspecialchars(filter_var(trim($_POST['ChangeEmail']), FILTER_SANITIZE_STRING));
         $user_id = $_SESSION['user_id']; 
-      
+
         if (!is_numeric($user_id)) {
-        
             return; 
+        }
+
+        if (mb_strlen($newEmail) < 5 || mb_strlen($newEmail) > 90) {
+            $alert3 = 'Incorrect email length';
+            echo "<meta http-equiv='refresh' content='0;url=user_info.php?alert=" . urlencode($alert3) . "'>";
+            return;
+        }
+
+        // Check if email already exists
+        $sqlTest = "SELECT * FROM `users` WHERE `email` = '$newEmail'";
+        $result = $this->mysqli->query($sqlTest);
+        if ($result->num_rows > 0) {
+            $alert3 = 'Email already exists';
+            echo "<meta http-equiv='refresh' content='0;url=user_info.php?alert=" . urlencode($alert3) . "'>";
+            return;
         }
 
         $sql = "UPDATE `users` SET `email` = '$newEmail' WHERE `user_id` = $user_id";
         $result = $this->mysqli->query($sql);
-      
-        if ($result) {
 
+        if ($result) {
             echo "<meta http-equiv='refresh' content='0;url=user_info.php'>";
             exit();
-        } else {
-
         }
     }
+
     if (isset($_POST['ChangePasswordBtn'])) {
         $newPassword = $_POST['ChangePassword']; 
         $hashedPassword = md5($newPassword . "356ads34749ad9s");
         $user_id = $_SESSION['user_id']; 
-      
+
         if (!is_numeric($user_id)) {
-        
             return; 
+        }
+
+        if (mb_strlen($newPassword) < 8 || mb_strlen($newPassword) > 90) {
+            $alert4 = 'Incorrect password length';
+            echo "<meta http-equiv='refresh' content='0;url=user_info.php?alert=" . urlencode($alert4) . "'>";
+            return;
+        }
+
+        // Check if password already exists
+        $sqlTest = "SELECT * FROM `user_details` WHERE `password` = '$hashedPassword'";
+        $result = $this->mysqli->query($sqlTest);
+        if ($result->num_rows > 0) {
+            $alert4 = 'Password already exists';
+            echo "<meta http-equiv='refresh' content='0;url=user_info.php?alert=" . urlencode($alert4) . "'>";
+            return;
         }
 
         $sql = "UPDATE `users` SET `password` = '$hashedPassword' WHERE `user_id` = $user_id";
         $result = $this->mysqli->query($sql);
-      
-        if ($result) {
 
+        if ($result) {
             echo "<meta http-equiv='refresh' content='0;url=user_info.php'>";
             exit();
-        } else {
-
         }
     }
 }
+
 
 
  ///------------------------Закрытие подключения к бд ----------------------------------

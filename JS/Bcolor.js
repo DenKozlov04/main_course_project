@@ -118,6 +118,7 @@ function PlusSeatPrice4(button) {
 function toggleButtonColor(button) {
     var activeClass = 'active';
     var buttons = document.querySelectorAll('.PlaceButton');
+    var form = document.querySelector('.buttonForm');
 
     var isActive = button.classList.contains(activeClass);
 
@@ -133,13 +134,15 @@ function toggleButtonColor(button) {
     if (!button.disabled) {
         if (isActive) {
             button.style.backgroundColor = "#D9D9D9";
+            form.classList.remove('visible');
         } else {
-       
             button.classList.add(activeClass);
             button.style.backgroundColor = "#DE6A6A";
+            form.classList.add('visible');
         }
     }
 }
+
 
 
 

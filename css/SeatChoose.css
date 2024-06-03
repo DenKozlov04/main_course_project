@@ -24,6 +24,14 @@ body {
     color: #FFFFFF;
 
 }
+.buttonForm {
+    display: none; /* Скрываем форму по умолчанию */
+}
+
+.buttonForm.visible {
+    display: block; /* Показываем форму, когда она имеет класс 'visible' */
+}
+
 .flightName {
     color: #0d057c;
     font-weight: 600;

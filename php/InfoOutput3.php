@@ -10,8 +10,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($
     // echo $id;
     // echo  $PricePlusQuant;
     // echo $price; vivoditj v evro
-
-   
+    if (empty($_POST['seat'])) {
+        // $alert = 'Please choose a seat before continuing.';
+        $visibility = 'hidden';
+        // header("Location: ../php/SeatChoose.php?alert=" . urlencode($alert));
+    } 
     $sql = "SELECT `Airline`, `airport_name`, `ITADA`, `City`, `country`, `T_price`, `arrival_date`, `departure_date`, `arrival_time`, `departure_time`,`id` 
     FROM `airports/airlines` 
     WHERE  `id` = ?";
@@ -53,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($data !== null && isset($data['seatNumbers']) && isset($data['id'])) {
         $seatNumbers = $data['seatNumbers'];
         $id = $data['id'];
-
+        $visibility = 'visible';
      
         $availabilityResults = [];
 

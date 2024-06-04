@@ -12,11 +12,11 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 } */
 .month h3 {
-    background-color: #f0f0f0;
+    background-color: #e4e4e4;
     padding: 10px;
     margin: 0;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    /* border-top-left-radius: 10px;
+    border-top-right-radius: 10px; */
     text-align: center;
 }
 .id{
@@ -41,14 +41,14 @@ body {
     text-align: center;
     cursor: pointer;
     transition: background-color 0.3s;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     border: none;
     background-color: transparent;
     outline: none;
 }
 .day:hover {
     background-color: lightgreen;
-    border-radius: 5px;
+    /* border-radius: 5px; */
 }
 
 .rectangleHeader{
@@ -117,7 +117,7 @@ body {
 .month {
     background-color: #ffffff;
     margin-bottom: 20px;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -177,7 +177,7 @@ body {
     height: 100px;
     /* margin-left: 756px; */
     /* margin-top: 20px; */
-    border-radius: 5px;
+    /* border-radius: 5px; */
     margin-left: 6px;
     margin-bottom: 5px;
     border: 1px solid #ccc;
@@ -256,7 +256,15 @@ body {
 .timeGap {
     width: 140px;
 } 
-
+.current {
+    background-color: #badbff; /* Цвет фона синий */
+    color: white; /* Цвет текста белый */
+    /* border: 1px solid #007bff;  */
+    /* border-radius: 5px; */
+}
+.weekend {
+    background-color: rgb(255, 224, 224); /* Цвет выделения выходных дней */
+}
 .time {
     font-size: 20px;
     display: flex;

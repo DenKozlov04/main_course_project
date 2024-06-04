@@ -80,26 +80,38 @@ class ChooseFlight {
     }
 
     public function generateCalendar() {
-        $months = [
-            "January 2024", "February 2024", "March 2024", "April 2024",
-            "May 2024", "June 2024", "July 2024", "August 2024",
-            "September 2024", "October 2024", "November 2024", "December 2024"
-        ];
-
-        foreach ($months as $month) {
-            echo "<div class='month'>";
-            echo "<h3>$month</h3>";
-            echo "<div class='days'>";
-            $daysInMonth = cal_days_in_month(CAL_GREGORIAN, array_search($month, $months) + 1, 2024);
-            for ($i = 1; $i <= $daysInMonth; $i++) {
-                echo "<form method='POST' class='day-form'>";
-                echo "<input type='hidden' name='showDate' value='2024-" . sprintf("%02d", array_search($month, $months) + 1) . "-" . sprintf("%02d", $i) . "'>";
+        $currentMonth = date('F Y');
+        $currentYear = date('Y');
+        $currentDay = date('j');
+        $daysInMonth = cal_days_in_month(CAL_GREGORIAN, date('n'), date('Y'));
+        
+        echo "<div class='month'>";
+        echo "<h3>$currentMonth</h3>";
+        echo "<div class='days'>";
+        
+        for ($i = 1; $i <= $daysInMonth; $i++) {
+            //  день недели для текущей даты
+            $dayOfWeek = date('N', strtotime("$currentYear-" . date('m') . "-$i"));
+            //  является ли текущий день субботой (6) или воскресеньем (7)
+            $isWeekend = ($dayOfWeek == 6 || $dayOfWeek == 7);
+            
+            echo "<form method='POST' class='day-form'>";
+            echo "<input type='hidden' name='showDate' value='$currentYear-" . date('m') . "-" . sprintf("%02d", $i) . "'>";
+            if ($i == $currentDay) {
+                echo "<button type='submit' class='day current'>$i</button>";
+            } elseif ($isWeekend) {
+                echo "<button type='submit' class='day weekend'>$i</button>";
+            } else {
                 echo "<button type='submit' class='day'>$i</button>";
-                echo "</form>";
             }
-            echo "</div></div>";
+            echo "</form>";
         }
+        
+        echo "</div></div>";
     }
+    
+    
+    
 
     public function OutputFlight() {
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['showDate'])) {

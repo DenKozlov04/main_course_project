@@ -43,6 +43,8 @@ body {
   border: 1px solid #afafaf;
   background-color: rgb(245, 245, 245); 
   padding: 8px;
+  width:250px;
+margin-top:-5px;
 }
 
 .BackButton{
@@ -67,6 +69,7 @@ body {
     height: 980px;
 
 }
+
 .modal {
   display: none;
   position: fixed;

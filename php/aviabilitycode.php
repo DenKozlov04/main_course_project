@@ -80,7 +80,7 @@ class ChooseFlight {
     }
 
     public function generateCalendar() {
-        // Латышские праздники
+      
         $latvianHolidays = [
             '01-01' => 'New Year\'s Day',
             '04-18' => 'Good Friday',
@@ -96,16 +96,15 @@ class ChooseFlight {
             '12-31' => 'New Year\'s Eve'
         ];
     
-        // Определяем текущий месяц и год
-        $currentMonth = date('n'); // Текущий месяц (1-12)
+       
+        $currentMonth = date('n'); 
         $currentYear = date('Y');
-        $currentDay = date('j'); // Текущий день
-    
-        // Создаем массив месяцев, начиная с текущего
+        $currentDay = date('j'); 
+       
         $months = [];
         for ($i = 0; $i < 12; $i++) {
-            $month = ($currentMonth + $i - 1) % 12 + 1; // Определяем номер месяца (1-12)
-            $year = $currentYear + intdiv($currentMonth + $i - 1, 12); // Корректируем год
+            $month = ($currentMonth + $i - 1) % 12 + 1; 
+            $year = $currentYear + intdiv($currentMonth + $i - 1, 12); 
             $months[] = [
                 'month' => $month,
                 'year' => $year,
@@ -113,7 +112,7 @@ class ChooseFlight {
             ];
         }
     
-        // Выводим каждый месяц и его дни
+       
         foreach ($months as $m) {
             $monthName = date('F Y', mktime(0, 0, 0, $m['month'], 1, $m['year']));
             echo "<div class='month'>";
@@ -121,12 +120,12 @@ class ChooseFlight {
             echo "<div class='days'>";
     
             for ($i = 1; $i <= $m['daysInMonth']; $i++) {
-                // Определяем день недели для текущей даты
+             
                 $dayOfWeek = date('N', strtotime("{$m['year']}-{$m['month']}-$i"));
-                // Проверяем, является ли текущий день выходным (суббота или воскресенье)
+               
                 $isWeekend = ($dayOfWeek == 6 || $dayOfWeek == 7);
                 $isCurrentDay = ($m['month'] == date('n') && $m['year'] == date('Y') && $i == $currentDay);
-                // Проверяем, является ли текущий день праздником
+               
                 $dateKey = sprintf("%02d-%02d", $m['month'], $i);
                 $isHoliday = isset($latvianHolidays[$dateKey]);
                 $holidayName = $isHoliday ? $latvianHolidays[$dateKey] : '';

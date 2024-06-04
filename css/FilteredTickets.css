@@ -37,6 +37,14 @@ body {
   color: #FFFFFF;
 
 }
+.input-data  select {
+  z-index: 1;
+  position: absolute;
+  border: 1px solid #afafaf;
+  background-color: rgb(245, 245, 245); 
+  padding: 8px;
+}
+
 .BackButton{
      text-decoration: none;
     margin-top: -85px;

@@ -159,14 +159,45 @@
         <form method="GET" action="../php/FilteredTickets.php">
             <div class="box1-input" style="">
                 <div class="input-data">
-                    <input type="text" id="input" name="SearchRoute" placeholder="Riga-Paris">
                     <label for="input-field">Enter the route:</label>
+                    <select id="flightname" name="SearchRoute">
+                            <option value="">Select Airline</option>
+                            <?php
+                            // Подключение к базе данных и выполнение запроса для получения авиалиний
+                            include 'dbconfig.php';
+                            $sql_airline = "SELECT DISTINCT Airline FROM `airports/airlines`";
+                            $result_airlines = $mysqli->query($sql_airline);
+                            if ($result_airlines->num_rows > 0) {
+                                while ($row = $result_airlines->fetch_assoc()) {
+                                    echo '<option value="' . $row["Airline"] . '">' . $row["Airline"] . '</option>';
+                                }
+                            } else {
+                                echo '<option value="">No Airlines Available</option>';
+                            }
+                            ?>
+                        </select>
+
                 </div>
             </div>
             <div class="box2-input">
                 <div class="input-data">
-                    <input type="text" name="SearchCountry" placeholder="France">
                     <label for="input-field">Choose country:</label>
+                    <select name="SearchCountry">
+                            <option value="">Select Country</option>
+                            <?php
+                            // Выполнение запроса для получения стран
+                            $sql_country = "SELECT DISTINCT country FROM `airports/airlines`";
+                            $result_countries = $mysqli->query($sql_country);
+                            if ($result_countries->num_rows > 0) {
+                                while ($row = $result_countries->fetch_assoc()) {
+                                    echo '<option value="' . $row["country"] . '">' . $row["country"] . '</option>';
+                                }
+                            } else {
+                                echo '<option value="">No Countries Available</option>';
+                            }
+                            ?>
+                        </select>
+
                 </div>
             </div>
             <div class="box3-input">

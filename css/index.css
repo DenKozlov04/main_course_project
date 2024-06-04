@@ -695,7 +695,13 @@ body {
   background-color: rgb(245, 245, 245); 
   padding: 8px;
 }
-
+.input-data  select {
+  z-index: 1;
+  position: absolute;
+  border: 1px solid #afafaf;
+  background-color: rgb(245, 245, 245); 
+  padding: 8px;
+}
 .swiper.sample-slider {
   margin-top: 1200px;
 }

@@ -80,35 +80,75 @@ class ChooseFlight {
     }
 
     public function generateCalendar() {
-        $currentMonth = date('F Y');
+        // Латышские праздники
+        $latvianHolidays = [
+            '01-01' => 'New Year\'s Day',
+            '04-18' => 'Good Friday',
+            '04-20' => 'Second Easter Day',
+            '05-01' => 'Labour Day',
+            '05-04' => 'Restoration of Independence of Latvia',
+            '06-23' => 'Midsummer Eve',
+            '06-24' => 'Midsummer Day',
+            '11-18' => 'Proclamation Day of the Republic of Latvia',
+            '12-24' => 'Christmas Eve',
+            '12-25' => 'Christmas Day',
+            '12-26' => 'Second Christmas Day',
+            '12-31' => 'New Year\'s Eve'
+        ];
+    
+        // Определяем текущий месяц и год
+        $currentMonth = date('n'); // Текущий месяц (1-12)
         $currentYear = date('Y');
-        $currentDay = date('j');
-        $daysInMonth = cal_days_in_month(CAL_GREGORIAN, date('n'), date('Y'));
-        
-        echo "<div class='month'>";
-        echo "<h3>$currentMonth</h3>";
-        echo "<div class='days'>";
-        
-        for ($i = 1; $i <= $daysInMonth; $i++) {
-            //  день недели для текущей даты
-            $dayOfWeek = date('N', strtotime("$currentYear-" . date('m') . "-$i"));
-            //  является ли текущий день субботой (6) или воскресеньем (7)
-            $isWeekend = ($dayOfWeek == 6 || $dayOfWeek == 7);
-            
-            echo "<form method='POST' class='day-form'>";
-            echo "<input type='hidden' name='showDate' value='$currentYear-" . date('m') . "-" . sprintf("%02d", $i) . "'>";
-            if ($i == $currentDay) {
-                echo "<button type='submit' class='day current'>$i</button>";
-            } elseif ($isWeekend) {
-                echo "<button type='submit' class='day weekend'>$i</button>";
-            } else {
-                echo "<button type='submit' class='day'>$i</button>";
-            }
-            echo "</form>";
+        $currentDay = date('j'); // Текущий день
+    
+        // Создаем массив месяцев, начиная с текущего
+        $months = [];
+        for ($i = 0; $i < 12; $i++) {
+            $month = ($currentMonth + $i - 1) % 12 + 1; // Определяем номер месяца (1-12)
+            $year = $currentYear + intdiv($currentMonth + $i - 1, 12); // Корректируем год
+            $months[] = [
+                'month' => $month,
+                'year' => $year,
+                'daysInMonth' => cal_days_in_month(CAL_GREGORIAN, $month, $year)
+            ];
         }
-        
-        echo "</div></div>";
+    
+        // Выводим каждый месяц и его дни
+        foreach ($months as $m) {
+            $monthName = date('F Y', mktime(0, 0, 0, $m['month'], 1, $m['year']));
+            echo "<div class='month'>";
+            echo "<h3>$monthName</h3>";
+            echo "<div class='days'>";
+    
+            for ($i = 1; $i <= $m['daysInMonth']; $i++) {
+                // Определяем день недели для текущей даты
+                $dayOfWeek = date('N', strtotime("{$m['year']}-{$m['month']}-$i"));
+                // Проверяем, является ли текущий день выходным (суббота или воскресенье)
+                $isWeekend = ($dayOfWeek == 6 || $dayOfWeek == 7);
+                $isCurrentDay = ($m['month'] == date('n') && $m['year'] == date('Y') && $i == $currentDay);
+                // Проверяем, является ли текущий день праздником
+                $dateKey = sprintf("%02d-%02d", $m['month'], $i);
+                $isHoliday = isset($latvianHolidays[$dateKey]);
+                $holidayName = $isHoliday ? $latvianHolidays[$dateKey] : '';
+    
+                echo "<form method='POST' class='day-form'>";
+                echo "<input type='hidden' name='showDate' value='{$m['year']}-" . sprintf("%02d", $m['month']) . "-" . sprintf("%02d", $i) . "'>";
+                if ($isCurrentDay) {
+                    echo "<button type='submit' class='day current' title='$holidayName'>$i</button>";
+                } elseif ($isWeekend) {
+                    echo "<button type='submit' class='day weekend' title='$holidayName'>$i</button>";
+                } elseif ($isHoliday) {
+                    echo "<button type='submit' class='day holiday' title='$holidayName'>$i</button>";
+                } else {
+                    echo "<button type='submit' class='day'>$i</button>";
+                }
+                echo "</form>";
+            }
+    
+            echo "</div></div>";
+        }
     }
+    
     
     
     

@@ -257,13 +257,17 @@ body {
     width: 140px;
 } 
 .current {
-    background-color: #badbff; /* Цвет фона синий */
-    color: white; /* Цвет текста белый */
+    background-color: #badbff; 
+    color: white; 
     /* border: 1px solid #007bff;  */
     /* border-radius: 5px; */
 }
 .weekend {
-    background-color: rgb(255, 224, 224); /* Цвет выделения выходных дней */
+    background-color: rgb(255, 224, 224); 
+}
+.day.holiday {
+    background-color: rgb(255, 224, 224);
+
 }
 .time {
     font-size: 20px;
@@ -277,7 +281,7 @@ body {
 .allParts {
     position: absolute;
     font-size: 12px;
-    color: rgba(13, 5, 124, 0.5); /* Цвет с прозрачностью */
+    color: rgba(13, 5, 124, 0.5); 
     margin-left: 15px;
     margin-top: 80px;
 }
@@ -382,7 +386,7 @@ body {
     font-weight: bold;
 }
 form {
-    display: contents; /* невидимая форма */
+    display: contents; 
 }
 .buttonForm{
     display: contents; /* невидимая форма */

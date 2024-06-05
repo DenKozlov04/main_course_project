@@ -27,6 +27,34 @@ include 'priceCalculation.php';
     <a class='Info4'><?="$formattedDepartDate. &bull;  $departure_time - $arrival_time"?></a>
 </div>
 <div class='offerBox'>
+<div class = 'OfferRect'>
+        <div class="parallelogram1" style="background-color: rgb(227, 227, 227);"></div>
+        <div class="parallelogram2"></div>
+
+        <div class="parallelogram3" style="background-color: rgb(227, 227, 227);"></div>
+        <div class="parallelogram4"></div>
+        
+        <div class='txt1' data-text='Basic'>Basic</div>
+        <div class='Grayrect'></div>
+        <div class='CalcPrice'><?= $result0?>€</div>
+
+        <div class='textBlock2'>
+            <ul class='Buffs'>
+                <li>1 hand luggage (up to 7 kg)</li>
+                <li>Free access to water on board</li>
+                <li>Standard boarding</li>
+                <li>Access to basic entertainment on board (music, movies)</li>
+            </ul>
+        </div>
+        <form class='buttonForm' action="PriceСonfirmation.php" method='POST'>
+        <input type="hidden" name="id" value="<?= $id ?>">
+        <input type="hidden" name="class" value="BASIC">
+        <input type="hidden" name="price" value="<?= $result0 ?>">
+            <div class='ButtonPlace'>
+                <button class='ContinueButton'  type='submit'  name='cardType' value='BASIC'>Continue</button>
+            </div>
+        </form>
+    </div>
     <div class = 'OfferRect'>
         <div class="parallelogram1" style="background-color: #cd7f32;"></div>
         <div class="parallelogram2"></div>
@@ -37,13 +65,14 @@ include 'priceCalculation.php';
         <div class='txt1' data-text='Bronze'>Bronze</div>
         <div class='Grayrect'></div>
         <div class='CalcPrice'><?= $result1?>€</div>
-        <div class='textBlock'>
-            <div class='Buffs'>1 hand bag + 1 personal item (8kg total)</div>
-            <div class='Buffs'>1 hand bag  </div>
-        </div>
-        <div class='textBlock2'>
-            <div class='Buffs'>1 hand bag + 1 personal item (8kg total)</div>
-            <div class='Buffs'>1 hand bag  </div>
+
+        <div class='textBlock4'>
+            <ul class='Buffs'>
+                <li>1 hand baggage + 1 personal item (total weight up to 8 kg)</li>
+                <li>Free Wi-Fi access (30 minutes)</li>
+                <li>Free drinks on board (water, juices, tea, coffee)</li>
+                <li>Personal entertainment kit (headphones, plaid, sleep mask)</li>
+            </ul>
         </div>
         <form class='buttonForm' action="PriceСonfirmation.php" method='POST'>
         <input type="hidden" name="id" value="<?= $id ?>">
@@ -64,13 +93,16 @@ include 'priceCalculation.php';
         <div class='txt1' data-text='Silver'>Silver</div>
         <div class='Grayrect'></div>
         <div class='CalcPrice'><?= $result2?>€</div>
-        <div class='textBlock'>
-            <div class='Buffs'>1 hand bag + 1 personal item (8kg total)</div>
-            <div class='Buffs'>1 hand bag </div>
-        </div>
-        <div class='textBlock2'>
-            <div class='Buffs'>1 hand bag + 1 personal item (8kg total)</div>
-            <div class='Buffs'>1 hand bag </div>
+
+        <div class='textBlock3'>
+            <ul class='Buffs'>
+                <li>1 hand baggage + 1 personal item (total weight up to 10 kg)</li>
+                <li>1 checked baggage (up to 15 kg)</li>
+                <li>Free Wi-Fi access (1 hour)</li>
+                <li>Free drinks and snacks on board (including sandwiches and snacks)</li>
+                <li>Priority boarding</li>
+                <li>Access to digital library (movies, music, magazines)</li>
+            </ul>
         </div>
         <form class='buttonForm' action="PriceСonfirmation.php" method='POST'>
         <input type="hidden" name="id" value="<?= $id ?>">
@@ -91,13 +123,17 @@ include 'priceCalculation.php';
         <div class='txt1' data-text='Gold'>Gold</div>
         <div class='Grayrect'></div>
         <div class='CalcPrice'><?php  echo $result3?>€</div>
-        <div class='textBlock'>
-            <div class='Buffs'>1 hand bag + 1 personal item (8kg total)</div>
-            <div class='Buffs'>1 hand bag </div>
-        </div>
-        <div class='textBlock2'>
-            <div class='Buffs'>1 hand bag + 1 personal item (8kg total)</div>
-            <div class='Buffs'>1 hand bag </div>
+        <div class='textBlock3'>
+            <ul class='Buffs'>
+                <li>1 hand baggage + 1 personal item (total weight up to 12 kg)</li>
+                <li>2 checked baggage (up to 20 kg each)</li>
+                <li>Unlimited free access to Wi-Fi</li>
+                <li>Hot meals on board (multi-course choice)</li>
+                <li>Priority boarding and disembarkation</li>
+                <li>Access to premium lounge</li>
+                <li>Complimentary drinks and snacks on board, including alcoholic beverages</li>
+                <li>Free access to additional services (e.g. express security check, personal concierge service)</li>
+            </ul>
         </div>
         <form class='buttonForm' action="PriceСonfirmation.php" method='POST'>
         <input type="hidden" name="id" value="<?= $id ?>">

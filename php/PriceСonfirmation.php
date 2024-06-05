@@ -43,12 +43,12 @@ include 'InfoOutput.php';
         <div class='Text6'><?='+', $Percents ,'€' ?></div>
         <div class='Text7'><?= $PlusPrice ,'€',' total' ?></div>
         <ul class="Text8">
-            <li>Business Class seat and a delicious meal on board</li>
-            <li>Fast-track security and visit to the airport business lounge</li>
-            <li>Flight changes and refunds at any time</li>
-            <li>Business Class seat and a delicious meal on board</li>
-            <li>Fast-track security and airport business lounge</li>
-            <li>Fast-track security and airport business lounge</li>
+            <li>Expedited security check and airport business lounge.</li>
+            <li>Guaranteed personalized in-flight service from a team of flight attendants.</li>
+            <li>Access to a VIP airport lounge area with comfortable seats, complimentary drinks and snacks, and high-speed Wi-Fi.</li>
+            <li>Exclusive menu with a wide variety of dishes, including dietary and vegetarian options, prepared with high quality ingredients.</li>
+            <li>Gifts or souvenirs for business class passengers such as cosmetic kits, travel kits or magazines.</li>
+            <li>Business Class passengers have priority baggage handling at check-in and baggage claim on arrival.</li>
         </ul>
 
     </div>
@@ -59,13 +59,13 @@ include 'InfoOutput.php';
     <input type="hidden" name="id" value="<?= $id ?>">
     <input type="hidden" name="plusPrice" id="PriceField" value="<?= $price ?>">
         <div class='ButtonBox'>
-                <button class='ContinueButton' type='submit' name='cardType' value=''>Continue</button>
-                
+                <button class='ContinueButton' type='submit' name='cardType' value=''>Continue</button> 
         </div>
     </form>
     <!-- <button class='BackButton' type='submit' name='' value=''>Back</button> -->
-    <a href="FilteredTickets.php" class="BackButton">Back</a>
-
+    <div class='input-main-page'>
+        <a href="FilteredTickets.php" class="PrevPage">← Back</a>
+    </div>
 </div>
 
 </body>

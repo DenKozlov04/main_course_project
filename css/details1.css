@@ -33,7 +33,7 @@ body {
 }
 .offerBox {
     background-color: #f0f0f0;
-    width: 1100px;
+    width: 1400px;
     height: 550px;
     border-radius: 10px;
     /* border: 2px solid rgb(204, 204, 204); */
@@ -64,7 +64,7 @@ body {
     margin-top: 30px;
     margin-left: 15px;
     margin-right: 15px;
-    border-radius: 10px;
+    border-radius: 5px;
     position: relative; 
     overflow: hidden; 
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
@@ -81,7 +81,12 @@ body {
     position: absolute;
     z-index: 3;
 }
-
+.textBlock2 ul.Buffs li {
+    margin-bottom: 3px;
+}
+.textBlock3 ul.Buffs li {
+    margin-bottom: 3px;
+}
 .parallelogram4 {
     margin-top: 0px;
     margin-left: -1px;
@@ -210,11 +215,47 @@ body {
     /* background-color: #32cd3f49; */
     width: 300px;
     height: 130px;
-    margin-top: -200px;
+    margin-top: -220px;
     margin-left: 10px;
     position: absolute;
     z-index: 5;
  
+}
+.textBlock4 {
+    /* background-color: #32cd3f49; */
+    width: 300px;
+    height: 130px;
+    margin-top: -220px;
+    margin-left: 10px;
+    position: absolute;
+    z-index: 5;
+ 
+}
+.textBlock3 {
+    width: 300px;
+    height: 130px;
+    margin-top: -220px;
+    margin-left: 10px;
+    position: absolute;
+    z-index: 5;
+    overflow-y: scroll; 
+    padding: 10px; 
+    box-sizing: border-box; 
+    /* background-color: #f0f0f0; */
+
+}
+
+.textBlock3::-webkit-scrollbar {
+    width: 6px; /* Ширина полосы прокрутки */
+}
+
+.textBlock3::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2); /* Цвет бегунка полосы прокрутки */
+    border-radius: 3px; /* Закругление бегунка */
+}
+
+.textBlock3::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1); /* Цвет фона полосы прокрутки */
 }
 .InfoBox{
     /* background-color: #32cd3f49; */

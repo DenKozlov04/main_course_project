@@ -41,6 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['price']) && isset($_PO
     // $result1 = 25 /
     $price = preg_replace('/[^0-9.]/', '', $price); //убираю символ для вычислений
     $price = floatval($price);
+    $result0 = number_format($price, 2);
     ///бронзовая карточка
     $result = (25 * $price) / 100;
     $result1 = number_format($result + $price, 2);//вывод с десятичным значением

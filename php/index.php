@@ -115,31 +115,31 @@
     $result = $mysqli->query($sql);
 
     if ($_SESSION['admin_id'] == 1) {
-        echo '<div class="UserImgBox">
-                  <div class="TextElemment">Log in/Register</div>
-              </div>
-            <p><a class="special-link" href="user_info.php"><img src="../images/user_foto.png"  width="70" height="70"></a></p>';
-    } elseif ($_SESSION['user_id'] == 0) {
-        echo '<div class="UserImgBox">
+      echo '<div class="UserImgBox" onclick="location.href=\'user_info.php\';">
+                <div class="TextElemment">Hello Admin</div>
+                <img src="../images/user_foto.png" width="70" height="70">
+            </div>';
+  } elseif ($_SESSION['user_id'] == 0) {
+      echo '<div class="UserImgBox" onclick="location.href=\'../html/autorization.html\';">
                 <div class="TextElemment">Log in/Register</div>
-              </div>
-            <p><a class="special-link" href="../html/autorization.html"><img src="../images/user_foto.png"  width="70" height="70"></a></p>';
-    } elseif ($result && $result->num_rows > 0) {
-        $row = $result->fetch_array();
-
-        $profile_image = $row['profile_image'];
-        echo '<div class="UserImgBox2">
-                  <div class="TextElemment">Your profile</div>
-              </div>
-        <div class="special-link2" style="width: 45px; height: 45px; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center; margin-top: 12px;">';
-        echo '<a href="user_info.php" ><img src="data:image/jpeg;base64,' . base64_encode($profile_image) . '" width="70" height="65" /></a>';
-        echo '</div>';
-    } else {
-        echo '<div class="UserImgBox3">
+                <img src="../images/user_foto.png" width="70" height="70">
+            </div>';
+  } elseif ($result && $result->num_rows > 0) {
+      $row = $result->fetch_array();
+      $profile_image = $row['profile_image'];
+      echo '<div class="UserImgBox2" onclick="location.href=\'user_info.php\';">
                 <div class="TextElemment">Your profile</div>
-            </div>
-        <p><a class="special-link" href="user_info.php"><img src="../images/user_foto.png"  width="70" height="70"></a></p>';
-    }
+                <div class = "imgdiv"style="width: 45px; height: 45px; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center; ">
+                    <img src="data:image/jpeg;base64,' . base64_encode($profile_image) . '" width="70" height="65">
+                </div>
+            </div>';
+  } else {
+      echo '<div class="UserImgBox3" onclick="location.href=\'user_info.php\';">
+                <div class="TextElemment">Your profile</div>
+                <img src="../images/user_foto.png" width="70" height="70">
+            </div>';
+  }
+  
     // echo $_SESSION['user_id'];
     // echo $_SESSION['admin_id'];
 

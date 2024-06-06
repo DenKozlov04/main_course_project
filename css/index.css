@@ -482,15 +482,17 @@ body {
   text-decoration: none;
   color: #0D057C;
 }
-
+.UserImgBox, .UserImgBox2, .UserImgBox3 {
+  cursor: pointer; /* Делает указатель мыши "рукой" при наведении на блок */
+}
 .UserImgBox{
   position: absolute;
   width:270px;
   height:55px;
   background-color: #DE6A6A;
-  border-radius: 30px;
+  border-radius: 5px;
   margin-left:1300px;
-  margin-top:-68px;
+  margin-top:-50px;
   font-size:20px;
   color: #ffffff;
 }
@@ -499,7 +501,7 @@ body {
   width:220px;
   height:55px;
   background-color: #DE6A6A;
-  border-radius: 30px;
+  border-radius: 5px;
   margin-left:1300px;
   margin-top:-50px;
   font-size:20px;
@@ -510,11 +512,19 @@ body {
   width:220px;
   height:55px;
   background-color: #DE6A6A;
-  border-radius: 30px;
+  border-radius: 5px;
   margin-left:1300px;
-  margin-top:-68px;
+  margin-top:-50px;
   font-size:20px;
   color: #ffffff;
+}
+.UserImgBox img {
+  margin-top:-8px;
+}
+
+.imgdiv{
+  margin-top:5px;
+  margin-left:10px;
 }
 
 .TextElemment{

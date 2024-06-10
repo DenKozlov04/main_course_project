@@ -80,7 +80,6 @@ class ChooseFlight {
     }
 
     public function generateCalendar() {
-      
         $latvianHolidays = [
             '01-01' => 'New Year\'s Day',
             '04-18' => 'Good Friday',
@@ -96,15 +95,15 @@ class ChooseFlight {
             '12-31' => 'New Year\'s Eve'
         ];
     
-       
-        $currentMonth = date('n'); 
+        $currentMonth = date('n');
         $currentYear = date('Y');
-        $currentDay = date('j'); 
-       
+        $currentDay = date('j');
+        $today = strtotime(date('Y-m-d')); // Текущая дата
+    
         $months = [];
         for ($i = 0; $i < 12; $i++) {
-            $month = ($currentMonth + $i - 1) % 12 + 1; 
-            $year = $currentYear + intdiv($currentMonth + $i - 1, 12); 
+            $month = ($currentMonth + $i - 1) % 12 + 1;
+            $year = $currentYear + intdiv($currentMonth + $i - 1, 12);
             $months[] = [
                 'month' => $month,
                 'year' => $year,
@@ -112,7 +111,6 @@ class ChooseFlight {
             ];
         }
     
-       
         foreach ($months as $m) {
             $monthName = date('F Y', mktime(0, 0, 0, $m['month'], 1, $m['year']));
             echo "<div class='month'>";
@@ -120,33 +118,37 @@ class ChooseFlight {
             echo "<div class='days'>";
     
             for ($i = 1; $i <= $m['daysInMonth']; $i++) {
-             
                 $dayOfWeek = date('N', strtotime("{$m['year']}-{$m['month']}-$i"));
-               
                 $isWeekend = ($dayOfWeek == 6 || $dayOfWeek == 7);
                 $isCurrentDay = ($m['month'] == date('n') && $m['year'] == date('Y') && $i == $currentDay);
-               
                 $dateKey = sprintf("%02d-%02d", $m['month'], $i);
                 $isHoliday = isset($latvianHolidays[$dateKey]);
                 $holidayName = $isHoliday ? $latvianHolidays[$dateKey] : '';
     
-                echo "<form method='POST' class='day-form'>";
-                echo "<input type='hidden' name='showDate' value='{$m['year']}-" . sprintf("%02d", $m['month']) . "-" . sprintf("%02d", $i) . "'>";
-                if ($isCurrentDay) {
-                    echo "<button type='submit' class='day current' title='$holidayName'>$i</button>";
-                } elseif ($isWeekend) {
-                    echo "<button type='submit' class='day weekend' title='$holidayName'>$i</button>";
-                } elseif ($isHoliday) {
-                    echo "<button type='submit' class='day holiday' title='$holidayName'>$i</button>";
+                $date = strtotime("{$m['year']}-{$m['month']}-$i");
+    
+                if ($date < $today) {
+                    echo "<div class='day past' title='$holidayName'>$i</div>";
                 } else {
-                    echo "<button type='submit' class='day'>$i</button>";
+                    echo "<form method='POST' class='day-form'>";
+                    echo "<input type='hidden' name='showDate' value='{$m['year']}-" . sprintf("%02d", $m['month']) . "-" . sprintf("%02d", $i) . "'>";
+                    if ($isCurrentDay) {
+                        echo "<button type='submit' class='day current' title='$holidayName'>$i</button>";
+                    } elseif ($isWeekend) {
+                        echo "<button type='submit' class='day weekend' title='$holidayName'>$i</button>";
+                    } elseif ($isHoliday) {
+                        echo "<button type='submit' class='day holiday' title='$holidayName'>$i</button>";
+                    } else {
+                        echo "<button type='submit' class='day'>$i</button>";
+                    }
+                    echo "</form>";
                 }
-                echo "</form>";
             }
     
             echo "</div></div>";
         }
     }
+    
     
     
     

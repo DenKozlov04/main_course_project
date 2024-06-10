@@ -85,20 +85,20 @@ if ($admin_id != 0){
 <div class='AddInfoBox' style="visibility: <?= $visibility ?>">
 
     <form class='infoForm' action="aviability.php" method="POST" enctype="multipart/form-data">
-    <input type="hidden" id="airline_id" name="airline_id" value="<?= isset($_SESSION['airline_id']) ? $_SESSION['airline_id'] : '' ?>">
+        <input type="hidden" id="airline_id" name="airline_id" value="<?= isset($_SESSION['airline_id']) ? $_SESSION['airline_id'] : '' ?>">
         <div class='changes'>
             <div class='InfoText5'>
                 <a> Add new flights on different dates on the calendar.</a>
             </div>
             <div class='departure_date'>
                 <div class='input-departure_date'>
-                    <input type="text" id="departure_date" name="departure_date" placeholder="Departure date for example: 2024-01-01">
+                    <input type="date" id="departure_date" name="departure_date">
                 </div>
             </div>
 
             <div class='arrival_date'>
                 <div class='input-arrival_date'>
-                    <input type="text" id="arrival_date" name="arrival_date" placeholder="Arrival date for example: 2024-02-01">
+                    <input type="date" id="arrival_date" name="arrival_date">
                 </div>
             </div>
 
@@ -127,6 +127,7 @@ if ($admin_id != 0){
         </div>
     </form>
 </div>
+
 
 
 </body>

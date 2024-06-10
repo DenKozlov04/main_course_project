@@ -182,7 +182,11 @@ body {
     margin-bottom: 5px;
     border: 1px solid #ccc;
 }
-
+.past {
+    background-color: #f3f3f3; 
+    color: #e4e4e4; 
+    cursor: not-allowed; 
+}
 
 
 
@@ -460,6 +464,18 @@ form {
     margin-bottom: 10px;
   
 }
+.changes input[type="date"] {
+    z-index: 1;
+    width: 260px;
+    border: 1px solid rgb(224, 224, 224); 
+    background-color: rgb(245, 245, 245); 
+    padding: 8px;
+    margin-left:35px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+  
+}
+
 .changes{
     margin-top:75px;
     

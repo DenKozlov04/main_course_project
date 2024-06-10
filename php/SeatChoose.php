@@ -555,7 +555,17 @@ echo '</script>';
 
 </div>
 </body>
-    <form class='buttonForm' action="OrderUserData.php" method='POST'  >
+    <!-- <form class='buttonForm' action="OrderUserData.php" method='POST'  >
+        <input type="hidden" name="id" value="<?= $id ?>">
+        <input type="hidden" name="plusPrice2" id="PriceField2" value="<?= $PricePlusQuant ?> ">
+        <input type="hidden" name="seat" id="seat" value="<?= $extraValue ?>">
+            <div class='ButtonBox'>
+                    <button class='ContinueButton' type='submit' name='cardType' value=''>Continue</button>
+                    
+            </div>
+        </form> -->
+
+        <form class='buttonForm' action="childPage.php" method='POST'  >
         <input type="hidden" name="id" value="<?= $id ?>">
         <input type="hidden" name="plusPrice2" id="PriceField2" value="<?= $PricePlusQuant ?> ">
         <input type="hidden" name="seat" id="seat" value="<?= $extraValue ?>">

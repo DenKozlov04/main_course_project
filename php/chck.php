@@ -117,8 +117,7 @@ class Registration {
         session_start();
         $_SESSION['user_id'] = $this->mysqli->insert_id; 
         $_SESSION['username'] = $login;
-        // $alert = 'You have successfully registered. Please log in to access your profile.';
-        // header("Location: ../php/index.php?alert=" . urlencode($alert));
+
         header("Location: ../php/index.php");
     }
 

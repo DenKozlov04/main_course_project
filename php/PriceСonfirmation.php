@@ -36,7 +36,6 @@ include 'InfoOutput.php';
     </div>
 
     <div class='PriceCard2'>
-        <!-- <input class='ChooseButton2' type="radio" id="chooseRadio" name="circleSelection" value='' onclick='ButtonClick(this)'></input> -->
         <input class='ChooseButton2' type="radio" id="chooseRadio" name="circleSelection" value='<?= $PlusPrice; ?>' onclick='ButtonClick(this)'>
         <div class='Text4'><?= $class ?></div>
         <div class='Text5'>Business</div>
@@ -57,12 +56,12 @@ include 'InfoOutput.php';
     <form class='buttonForm' action="BaggagePrice.php" method='POST'>
         
     <input type="hidden" name="id" value="<?= $id ?>">
+    <input type="hidden" name="class" value="<?= $class ?>">
     <input type="hidden" name="plusPrice" id="PriceField" value="<?= $price ?>">
         <div class='ButtonBox'>
                 <button class='ContinueButton' type='submit' name='cardType' value=''>Continue</button> 
         </div>
     </form>
-    <!-- <button class='BackButton' type='submit' name='' value=''>Back</button> -->
     <div class='input-main-page'>
         <a href="FilteredTickets.php" class="PrevPage">← Back</a>
     </div>
@@ -70,4 +69,3 @@ include 'InfoOutput.php';
 
 </body>
 </html>
-<!-- border: 1px solid #ccc; -->

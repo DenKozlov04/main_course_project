@@ -4,13 +4,10 @@ include 'dbconfig.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['airline_id'])) {
     $_SESSION['airline_id'] = $_POST['airline_id'];
-    // echo $_SESSION['airline_id'];
-    // setcookie('airline_id', $_SESSION['airline_id'], time() + 86400, "/");
+
 }
 
-// else {
-//     $_SESSION['airline_id'] = null;
-// }
+
 
 class ChooseFlight {
     private $mysqli;
@@ -42,7 +39,7 @@ class ChooseFlight {
             $arrival_time = $_POST['arrival_time'];
             $price = $_POST['price'];
 
-            $alert = ''; // alert переменная
+            $alert = ''; 
 
             if (mb_strlen($departure_date) < 1 || mb_strlen($departure_date) > 11) {
                 $alert = 'Incorrect departure date';
@@ -98,7 +95,7 @@ class ChooseFlight {
         $currentMonth = date('n');
         $currentYear = date('Y');
         $currentDay = date('j');
-        $today = strtotime(date('Y-m-d')); // Текущая дата
+        $today = strtotime(date('Y-m-d')); 
     
         $months = [];
         for ($i = 0; $i < 12; $i++) {

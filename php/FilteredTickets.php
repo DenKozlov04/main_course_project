@@ -36,7 +36,7 @@
                         <select id="flightname" name="SearchRoute">
                             <option value="">Select Airline</option>
                             <?php
-                            // Подключение к базе данных и выполнение запроса для получения авиалиний
+                            
                             include 'dbconfig.php';
                             $sql_airline = "SELECT DISTINCT Airline FROM `airports/airlines`";
                             $result_airlines = $mysqli->query($sql_airline);
@@ -57,7 +57,7 @@
                         <select name="SearchCountry">
                             <option value="">Select Country</option>
                             <?php
-                            // Выполнение запроса для получения стран
+                           
                             $sql_country = "SELECT DISTINCT country FROM `airports/airlines`";
                             $result_countries = $mysqli->query($sql_country);
                             if ($result_countries->num_rows > 0) {
@@ -95,7 +95,7 @@
 
     <div class='Ticket_box'>
         <?php
-        // Выполнение фильтрации и отображение результатов
+        
         session_start();
         include 'dbconfig.php';
 
@@ -118,16 +118,6 @@
         $SearchDeparture_date = isset($_GET['SearchDeparture_date']) ? $_GET['SearchDeparture_date'] : '';
 
         $sql_airports = "SELECT id, City, country, airport_name FROM `airports/airlines` WHERE 1=1";
-        // $sql_min_price = "SELECT airline_id, MIN(price) as min_price FROM `acessabledata` GROUP BY airline_id";
-
-        // $result_min_price = $mysqli->query($sql_min_price);
-
-        // if ($result_min_price) {
-        //     while ($row_min_price = $result_min_price->fetch_assoc()) {
-        //         echo "<div class='text5'>" . $row_min_price["min_price"] . "</div>";
-        //     }
-        // } 
-
 
         if ($SearchRoute != '') {
             $searchRouteLower = strtolower($SearchRoute);

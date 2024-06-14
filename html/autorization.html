@@ -10,7 +10,6 @@
     <title>Log in</title>
 </head>
 <body>
-  <!-- вывод ошибки с помошью js(использую библиотеку sweetalert) -->
   <script>
     const urlParams = new URLSearchParams(window.location.search);
     const alertMessage = urlParams.get('alert');
@@ -31,13 +30,11 @@
         <div class = 'username'>
           <div class = 'input-username'>
             <input type="text" id="input" name="username" placeholder="Write your username"> 
-            <!-- <label for="input-field">Write your username</label> -->
           </div>
         </div>
           <div class = 'password'>
             <div class = 'input-password'>
               <input type="password" id="input" name="password" placeholder="Write your password"> 
-              <!-- <label for="input-field">Create your password</label> -->
             </div>
             <div class = 'log-in'>
                 <div class = 'input-log-in'>

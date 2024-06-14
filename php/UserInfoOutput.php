@@ -17,7 +17,7 @@ class UserBookings {
         }
     }
 
-///------------------------Код вывода информации о пользователе---------------------------------- 
+///------------------------Code for displaying user information---------------------------------- 
 public function displayUserInfo() {
     $userInfo = array();
 
@@ -31,14 +31,12 @@ public function displayUserInfo() {
         
         $userInfo['username'] = $row['username'];
         $userInfo['email'] = $row['email'];
-        // $userInfo['phone'] = $row['phone'];
         $userInfo['password'] = $row['password'];
         $userInfo['visibility'] = 'visible';
         $userInfo['visibility2'] = 'hidden';
     } else {
         $userInfo['username'] = 'Admin';
         $userInfo['email'] = 'Admin';
-        // $userInfo['phone'] = 'Admin';
         $userInfo['password'] = 'Admin';
         $userInfo['visibility'] = 'hidden';
         $userInfo['visibility2'] = 'visible';
@@ -61,19 +59,17 @@ public function displayUserInfo() {
             $row = $result->fetch_assoc();
             
             $userPhone['Phone_number'] = $row['Phone_number'];
-            // $visibility = 'visible';
-            // $userData['visibility'] = 'visible';
+
         } else {
             $userPhone['Phone_number'] = 'Your phone number will be displayed when your ticket is issued.';
-            // $visibility = 'hidden';
-            // $userData['visibility'] = 'hidden';
+
         } 
 
     
         return $userPhone;
     }
 
-///------------------------добавления информации ребенке ----------------------------------
+///------------------------adding information about the child ----------------------------------
 public function AddChildInfo() {
     if (isset($_POST['AddChildrenBtn'])) {
         $user_id = $_SESSION['user_id']; 
@@ -86,9 +82,9 @@ public function AddChildInfo() {
         $passport_expiration_date = $_POST['AddChildrenpassExpirationDate'];
         $price = $_POST['AddChildrenPrice'];
         $seat = $_POST['AddChildrenPlaceName'];
-        $airlines_id = null; // Инициализация переменной
+        $airlines_id = null; 
 
-        $alert = ''; // alert перем.
+        $alert = ''; 
 
         if (mb_strlen($child_name) < 1 || mb_strlen($child_name) > 255) {
             $alert = 'Incorrect child name';
@@ -110,7 +106,7 @@ public function AddChildInfo() {
             $airlines_id = $row_airlines_id['airlines_id'];
         }
 
-        // проверка пасспортного номера
+       
         if (empty($alert)) {
             $sql_check_passport = "SELECT Passport_number FROM children WHERE Passport_number = ?";
             $stmt_check_passport = $this->mysqli->prepare($sql_check_passport);
@@ -120,7 +116,7 @@ public function AddChildInfo() {
             if ($result_check_passport->num_rows > 0) {
                 $alert = "This passport number already exists";
             } else {
-                // подг.запр к бд
+               
                 $stmt = $this->mysqli->prepare("INSERT INTO children (user_id, airline_id, Name, Surname, Gender, Nationality, Passport_number, passportIssuedDate, passportExpirationDate, seat, seatprice) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
                 $stmt->bind_param("iisssssssss", $user_id, $airlines_id, $child_name, $child_surname, $child_gender, $child_nationality, $passport_number, $passport_issued_date, $passport_expiration_date, $seat, $price);
                                     
@@ -166,7 +162,7 @@ public function AddChildInfo() {
                 $childInfo[] = $child;
             }
         } else {
-            // Если нет детей, вернуть пустой массив
+            
             $childInfo = array();
         }
     
@@ -174,12 +170,11 @@ public function AddChildInfo() {
     }
     
 
-///------------------------Код удаления профиля ----------------------------------       
+///------------------------Profile deletion code ----------------------------------       
     public function deleteProfile() {
         if (isset($_POST['deleteUser'])) {
             $user_id = $_SESSION['user_id']; 
             if (!is_numeric($user_id)) {
-                // echo "error";
                 return; 
             }
     
@@ -198,17 +193,16 @@ public function AddChildInfo() {
         }
     }
 
-///------------------------Код удаления всех данных о пользователе ----------------------------------    
+///------------------------Code for deleting all user data ----------------------------------    
     private function deleteFromTable($tableName, $userId) {
         $delsql = "DELETE FROM `$tableName` WHERE `user_id` = $userId";
         $result = $this->mysqli->query($delsql);
         if (!$result) {
             
-            // echo  $this->mysqli->error;
         }
     }
 
-///------------------------Вывод информации о билете пользователя и полете ----------------------------------
+///------------------------Display of user ticket and flight information ----------------------------------
     public function displayFlightInfo() {
         
         $flightInfo = array();
@@ -240,7 +234,6 @@ public function AddChildInfo() {
                 $flightInfo['departure_date'] = $row_airlines['departure_date'];
                 $flightInfo['arrival_time'] = date('H:i', strtotime($row_airlines['arrival_time']));
                 $flightInfo['departure_time'] = date('H:i', strtotime($row_airlines['departure_time']));
-                // $this->AddChildInfo($airlines_id);
                 $flightInfo['visibility'] = 'visible';
             } else {
 
@@ -259,7 +252,7 @@ public function AddChildInfo() {
        
         return $flightInfo;
     }
-///------------------------Функция омены полета ----------------------------------
+///------------------------Flight omen function ----------------------------------
     public function DenieFlight(){
         if (isset($_POST['DenieFlight'])) {
             $user_id = $_SESSION['user_id']; 
@@ -284,7 +277,7 @@ public function AddChildInfo() {
 
 
 
-///------------------------Функция смены информации ----------------------------------
+///------------------------Information change function ----------------------------------
 
 public function ChangeUserInfo() {
     if (isset($_POST['ChangeUserBtn'])) {
@@ -301,7 +294,6 @@ public function ChangeUserInfo() {
             return;
         }
 
-        // Check if username already exists
         $sqlTest = "SELECT * FROM `users` WHERE `username` = '$newUsername'";
         $result = $this->mysqli->query($sqlTest);
         if ($result->num_rows > 0) {
@@ -333,7 +325,6 @@ public function ChangeUserInfo() {
             return;
         }
 
-        // Check if phone number already exists
         $sqlTest = "SELECT * FROM `user_details` WHERE `Phone_number` = '$newPhone'";
         $result = $this->mysqli->query($sqlTest);
         if ($result->num_rows > 0) {
@@ -365,7 +356,6 @@ public function ChangeUserInfo() {
             return;
         }
 
-        // Check if email already exists
         $sqlTest = "SELECT * FROM `users` WHERE `email` = '$newEmail'";
         $result = $this->mysqli->query($sqlTest);
         if ($result->num_rows > 0) {
@@ -398,7 +388,6 @@ public function ChangeUserInfo() {
             return;
         }
 
-        // Check if password already exists
         $sqlTest = "SELECT * FROM `user_details` WHERE `password` = '$hashedPassword'";
         $result = $this->mysqli->query($sqlTest);
         if ($result->num_rows > 0) {
@@ -419,21 +408,20 @@ public function ChangeUserInfo() {
 
 
 
- ///------------------------Закрытие подключения к бд ----------------------------------
+ ///------------------------Closing a connection to the database ----------------------------------
     public function closeDatabaseConnection() {
         $this->mysqli->close();
     }
 
-///------------------------Вывод картинки пользователя/админа ----------------------------------
+///------------------------Display user/admin picture ----------------------------------
     public function displayUserProfileImage() {
         $user_id = $_SESSION['user_id'];
         $sql = "SELECT * FROM profile_images WHERE user_id = $user_id";
-        // $sql = "SELECT * FROM users WHERE user_id = $user_id";
         $result = $this->mysqli->query($sql);
 
         if ($result && $result->num_rows > 0) {
             $row = $result->fetch_array();
-            $profile_image = $row['profile_image'];//вывод аватара пользователя
+            $profile_image = $row['profile_image'];
             echo '<div class="AvatharImgBox1" style="width: 280px; height: 280px; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center;  ">';
             echo '<img src="data:image/jpeg;base64,' . base64_encode($profile_image) . '" width="280" height="280" />';
             echo '</div>';
@@ -460,5 +448,5 @@ echo '<form action="logout.php" method="POST">
      </form>';
 
       
-ob_start(); //буферизация вывода
+ob_start(); 
 ?>

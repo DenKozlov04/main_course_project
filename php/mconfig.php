@@ -5,7 +5,7 @@ require __DIR__ . '/../vendor/autoload.php';
 use Dotenv\Dotenv;
 
 $dotenv = Dotenv::createImmutable(realpath(__DIR__.'/../php/'), 'mconfig.env');
-// код передачи данных почты из env файла, используя phpmailer
+
 
 $dotenv->load();
 

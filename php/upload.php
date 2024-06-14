@@ -20,7 +20,6 @@ class ImageUploader {
 
     public function uploadImage() {
         if (isset($_POST['submit'])) {
-            // Проверяем, существует ли у пользователя изображение в бд
             $userId = $_SESSION['user_id'];
             $checkQuery = "SELECT user_id FROM profile_images WHERE user_id = ?";
             $checkStmt = $this->mysqli->prepare($checkQuery);
@@ -30,7 +29,6 @@ class ImageUploader {
                 $checkStmt->execute();
                 $checkStmt->store_result();
 
-                // Если у пользователя уже есть изображение, удаляем его
                 if ($checkStmt->num_rows > 0) {
                     $deleteQuery = "DELETE FROM profile_images WHERE user_id = ?";
                     $deleteStmt = $this->mysqli->prepare($deleteQuery);
@@ -53,9 +51,9 @@ class ImageUploader {
 
             $fileTmpName = $_FILES['image']['tmp_name'];
             $fileType = $_FILES['image']['type'];
-            $imageData = file_get_contents($fileTmpName); // Получаем содержимое изображения
+            $imageData = file_get_contents($fileTmpName); 
 
-            // Также перемещаем изображение в бд
+           
             $sql = "INSERT INTO profile_images (user_id, profile_image, image_type) VALUES (?, ?, ?)";
             $stmt = $this->mysqli->prepare($sql);
 
@@ -71,7 +69,7 @@ class ImageUploader {
                         echo "Error when uploading an image: " . $stmt->error;
                     }
                 } catch (mysqli_sql_exception $e) {
-                    // Обработка ошибки при превышении лимита max_allowed_packet
+                   
                     echo "Error: The uploaded image exceeds the maximum allowed size.";
                     header("Location: user_info.php");
                 }

@@ -273,64 +273,6 @@ body {
     border: none; 
     border-radius:5px;
   }
-/* .changes button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.changes button:hover {
-    background-color: #0056b3;
-}
-
-.city-form {
-    max-width: 400px;
-    margin: 0 auto;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.city-form label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-.city-form input[type="text"],
-.city-form input[type="number"],
-.city-form input[type="file"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.city-form input[type="submit"] {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.city-form input[type="submit"]:hover {
-    background-color: #0056b3;
-} */
-
-/* .description textarea {
-    width: 600px;
-    height: 300px;
-} */
 
 .BigRect{
     position:absolute;

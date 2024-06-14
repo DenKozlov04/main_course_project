@@ -1,6 +1,5 @@
 <?php
 include "InfoOutput3.php";
-// include "seats_check.php";
 
 echo '<script>';
 echo 'var flightId = ' . json_encode($id) . ';';
@@ -555,23 +554,17 @@ echo '</script>';
 
 </div>
 </body>
-    <!-- <form class='buttonForm' action="OrderUserData.php" method='POST'  >
+    <form class='buttonForm' action="OrderUserData.php" method='POST'  >
+        <input type="hidden" name="class" value="<?= $class ?>">
         <input type="hidden" name="id" value="<?= $id ?>">
         <input type="hidden" name="plusPrice2" id="PriceField2" value="<?= $PricePlusQuant ?> ">
         <input type="hidden" name="seat" id="seat" value="<?= $extraValue ?>">
-            <div class='ButtonBox'>
-                    <button class='ContinueButton' type='submit' name='cardType' value=''>Continue</button>
-                    
-            </div>
-        </form> -->
-
-        <form class='buttonForm' action="childPage.php" method='POST'  >
-        <input type="hidden" name="id" value="<?= $id ?>">
-        <input type="hidden" name="plusPrice2" id="PriceField2" value="<?= $PricePlusQuant ?> ">
-        <input type="hidden" name="seat" id="seat" value="<?= $extraValue ?>">
+        <input type="hidden" name="LuggageСabin" value="<?= $LuggageСabin ?>">
+        <input type="hidden" name="LuggageСompartment" value="<?= $LuggageСompartment ?>">
             <div class='ButtonBox'>
                     <button class='ContinueButton' type='submit' name='cardType' value=''>Continue</button>
                     
             </div>
         </form>
+
 </html>

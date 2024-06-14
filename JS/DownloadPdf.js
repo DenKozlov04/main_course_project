@@ -1,7 +1,7 @@
     document.getElementById('downloadBtn').addEventListener('click', function() {
         var xhr = new XMLHttpRequest();
         xhr.open('GET', 'download_pdf.php', true);
-        xhr.responseType = 'blob'; // указываем, что мы ожидаем ответ в виде blob (бинарные данные)
+        xhr.responseType = 'blob'; 
         xhr.onload = function() {
             if (this.status === 200) {
                 var blob = this.response;

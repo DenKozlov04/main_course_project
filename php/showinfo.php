@@ -38,7 +38,7 @@ class InfoTable {
 
                 while ($row = $result->fetch_assoc()) {
                     if ($row['user_id'] == 57) {
-                        continue; // Пропустить строку с id 57
+                        continue; //  skipm id 57
                     }
                     echo "<tr>
                             <td>" . $row['user_id'] . "</td>

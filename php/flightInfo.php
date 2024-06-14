@@ -16,7 +16,7 @@ $stmt->execute();
 $stmt->bind_result($Airline,$city, $t_price, $google_maps_link);
 
 if ($stmt->fetch()) {
-    $_SESSION['Airline'] = $Airline; // значение переменной $Airline
+    $_SESSION['Airline'] = $Airline; 
 
     $stmt->close();
 
@@ -69,16 +69,15 @@ if ($stmt->fetch()) {
         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </iframe>
     <?php
-        // проверка открыта ли страница со страницы /php/FilteredTickets.php
+        
         $prevPage = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
         $filteredTicketsPage = '/php/FilteredTickets.php';
 
         if (strpos($prevPage, $filteredTicketsPage) !== false) {
-            // Если открыта со страницы /php/FilteredTickets.php, то ссылка меняется
+            
             echo '<div class="PrevPage"><a href="../php/FilteredTickets.php">← Back to page</a></div>';
         } else {
-            // ссылка не меняется .
-            // echo '<div class="PrevPage"><a href="../php/Buy_Tickets.php">← Back to page</a></div>';
+   
         }
     ?>
     <div class="Image">
@@ -86,9 +85,7 @@ if ($stmt->fetch()) {
     </div>
     <div class="text1"><?= $city; ?></div>
     <div class="text2"><?= $description; ?></div>
-    <!-- <form id="orderForm" method='POST' action='OrderUserData.php'>
-    <button class="button1" type='submit'>Order</button>
-</form> -->
+
 <form id="orderForm" method='POST' action='aviability.php'>
     <input type="hidden" id="airline_id" name="airline_id" value="<?= $airline_id ?>">
     <button class="button1" type='submit'>Order</button>
@@ -103,7 +100,7 @@ if ($stmt->fetch()) {
 <div class="text3">Travel reviews</div>
 <?php
 $stmt3 = $mysqli->prepare("SELECT `name`,`comment` FROM `comments` WHERE `comment_category` = (SELECT `Airline` FROM `airports/airlines` WHERE `id` = ?)");
-// биндим параметр
+
 $stmt3->bind_param("i", $airline_id);
 $stmt3->execute();
 $result = $stmt3->get_result();
@@ -112,7 +109,7 @@ $result = $stmt3->get_result();
 echo '<div class="scrollable-box">';
 
 while ($row = $result->fetch_assoc()) {
-    // Выводит только блок BestComment внутри цикла
+    
     echo '        <div class="comment-container">';
     echo '            <img class="UserImg2" src="../images/user_foto.png" alt="Plane places">';
     echo '            <div class="name2">';

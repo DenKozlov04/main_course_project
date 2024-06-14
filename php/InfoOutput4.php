@@ -5,89 +5,38 @@ include 'dbconfig.php';
 $user_id = $_SESSION['user_id'];
 $admin_id = $_SESSION['admin_id'];
 
-$stmt4 = $mysqli->prepare("SELECT `email` FROM users WHERE user_id = ?");//`phone`
+$stmt4 = $mysqli->prepare("SELECT `email` FROM users WHERE user_id = ?");
 $stmt4->bind_param("i", $user_id);
 $stmt4->execute();
-$stmt4->bind_result($email); //, $phone
+$stmt4->bind_result($email);
 $stmt4->fetch();
 $stmt4->close();
+
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType2']) && isset($_POST['id2'] ) && isset($_POST['plusPrice3']) && isset($_POST['SeatPlace'])) {
     $id = $_POST['id2'];
-    $LastPrice= $_POST['plusPrice3'];
+    $_SESSION['id2'] = $_POST['id2'];
+    $_SESSION['LastPrice'] = $_POST['plusPrice3']; 
     $SeatPlace=$_POST['SeatPlace'];
+    $_SESSION['SeatPlace'] = $_POST['SeatPlace']; 
     $condition = 'active';
     $prefix = 'Y4Y'; 
     $ticketCode = $prefix . uniqid(); 
 
-        $stmt = $mysqli->prepare("INSERT INTO `tickets` (`user_id`, `airlines_id`, `Seat`, `price`, `сondition`, `code`) VALUES (?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("iissss", $user_id, $id, $SeatPlace, $LastPrice, $condition, $ticketCode);
-        $stmt->execute();
-        if ($stmt->affected_rows > 0) {
-            // echo "Билет успешно забронирован.";
-            $alert = 'You have successfully booked your ticket! You can view your ticket in your user profile. You can cancel your ticket in your user profile.';
-            header("Location: ../php/index.php?alert=" . urlencode($alert));
-        } else {
-            // echo "Ошибка при бронировании билета.";
-        }
-        $stmt->close();
 
-}
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($_POST['id'] ) && isset($_POST['plusPrice2']) && isset($_POST['seat'])) {
-    $id = $_POST['id'];
-    $LastPrice= $_POST['plusPrice2'];
-    $SeatPlace=$_POST['seat'];
-    $condition = 'active';
-    $prefix = 'Y4Y'; 
-    $ticketCode = $prefix . uniqid(); 
-
-    $stmt = $mysqli->prepare("SELECT COUNT(*) as count FROM user_details WHERE user_id = ?");
-    $stmt->bind_param("i", $user_id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $row = $result->fetch_assoc();
-    $count = $row['count'];
-
-    if ($count > 0) {
-
-        $stmt = $mysqli->prepare("INSERT INTO `tickets` (`user_id`, `airlines_id`, `Seat`, `price`, `сondition`, `code`) VALUES (?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("iissss", $user_id, $id, $SeatPlace, $LastPrice, $condition, $ticketCode);
-        $stmt->execute();
-        if ($stmt->affected_rows > 0) {
-            // echo "Билет успешно забронирован.";
-            $alert = 'You have successfully booked your ticket! You can view your ticket in your user profile. You can cancel your ticket in your user profile.';
-            header("Location: ../php/index.php?alert=" . urlencode($alert));
-
-        } else {
-           
-        }
-
-    } else {
- 
-        // echo "Записи отсутствуют для данного ID.";
-    }
 
 }
 
-
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($_POST['id'] ) && isset($_POST['plusPrice2']) && isset($_POST['seat'])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($_POST['id'] ) && isset($_POST['plusPrice2']) && isset($_POST['seat']) && isset($_POST['LuggageСabin']) && isset($_POST['LuggageСompartment'])) {
 
     $id = $_POST['id'];
-    // echo $id;
-    $LastPrice= $_POST['plusPrice2'];
-    // echo $LastPrice;
+
+    $_SESSION['LuggageСabin'] = $_POST['LuggageСabin'];
+    $_SESSION['LuggageСompartment'] = $_POST['LuggageСompartment'];
+    $_SESSION['LastPrice'] = $_POST['plusPrice2']; 
     $SeatPlace=$_POST['seat'];
-
-
-            // $stmt = $conn->prepare("INSERT INTO `tickets` (`user_id`, `airlines_id`, `Seat`, `price`) VALUES (?, ?, ?, ?)");
-            // $stmt->bind_param("iiss", $user_id, $id, $SeatPlace, $LastPrice);
-            // $stmt->execute();
-            // if ($stmt->affected_rows > 0) {
-            //     echo "Билет успешно забронирован.";
-            // } else {
-            //     echo "Ошибка при бронировании билета.";
-            // }
-            // $stmt->close();
-    
+    $_SESSION['seat'] = $_POST['seat'];
     $sql = "SELECT `Airline`, `airport_name`, `ITADA`, `City`, `country`, `T_price`, `arrival_date`, `departure_date`, `arrival_time`, `departure_time`,`id` 
     FROM `airports/airlines` 
     WHERE  `id` = ?";
@@ -104,22 +53,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($
     }
     
     while ($row = $result->fetch_assoc()) {
-            $id = $row['id'];
-            $airport_name = $row['airport_name'];
-            $ITADA = $row['ITADA'];
-            $City = $row['City'];
-            $country = $row['country'];
-            $T_price = $row['T_price'];
-            $arrival_date = $row['arrival_date'];
-            $departure_date = $row['departure_date'];
-            $dateObject = new DateTime($departure_date);
-            $formattedDepartDate = $dateObject->format('j M');
-            $arrival_time = date('H:i', strtotime($row['arrival_time']));
-            $departure_time = date('H:i', strtotime($row['departure_time']));
+        $_SESSION['id'] = $row['id'];
+        $_SESSION['airport_name'] = $row['airport_name'];
+        $_SESSION['ITADA'] = $row['ITADA'];
+        $_SESSION['City'] = $row['City'];
+        $_SESSION['country'] = $row['country'];
+        $_SESSION['T_price'] = $row['T_price'];
     }
 
+    $sql2 = "SELECT `departure_date`,arrival_date, `departure_time`, `arrival_time` 
+    FROM `acessabledata` 
+    WHERE  `airline_id` = ?";
 
-} elseif ($_SERVER["REQUEST_METHOD"] == "POST") { // Если это уже второй POST-запрос, который не связан с id, LastPrice, SeatPlace
+    $stmt = $mysqli->prepare($sql2);
+
+
+    if ($stmt) {
+
+        $stmt->bind_param("s", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    }
+    while ($row = $result->fetch_assoc()) {
+            $_SESSION['arrival_date'] = $row['arrival_date'];
+            $_SESSION['departure_date'] = $row['departure_date'];
+            $dateObject = new DateTime($_SESSION['departure_date']);
+            $_SESSION['formattedDepartDate'] = $dateObject->format('j M');
+            $_SESSION['arrival_time'] = date('H:i', strtotime($row['arrival_time']));
+            $_SESSION['departure_time'] = date('H:i', strtotime($row['departure_time'])); 
+
+    }
+
+} elseif ($_SERVER["REQUEST_METHOD"] == "POST") { 
     try {
         $PassportDataInput = new PassportDataInput();
         $PassportDataInput->CheckAndSubmit(
@@ -132,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($
             $_POST['Passport_number'],
             $_POST['passportIssuedDate'],
             $_POST['passportExpirationDate'],
-            $_POST['country']
+            $_POST['Issued_country_passport']
 
         );
     } catch (Exception $e) {
@@ -144,7 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($
 
 class PassportDataInput
 {
-    public function CheckAndSubmit($name, $surname, $nationality, $gender, $Email, $Phone_Number, $Passport_number, $passportIssuedDate, $passportExpirationDate, $country)
+    public function CheckAndSubmit($name, $surname, $nationality, $gender, $Email, $Phone_Number, $Passport_number, $passportIssuedDate, $passportExpirationDate, $country2)
     {
         $name = htmlspecialchars(filter_var(trim($name), FILTER_SANITIZE_STRING));
         $surname = htmlspecialchars(filter_var(trim($surname), FILTER_SANITIZE_STRING));
@@ -155,10 +120,9 @@ class PassportDataInput
         $Passport_number = htmlspecialchars(filter_var(trim($Passport_number), FILTER_SANITIZE_STRING));
         $passportIssuedDate = htmlspecialchars(filter_var(trim($passportIssuedDate), FILTER_SANITIZE_STRING));
         $passportExpirationDate = htmlspecialchars(filter_var(trim($passportExpirationDate), FILTER_SANITIZE_STRING));
-        $country = htmlspecialchars(filter_var(trim($country), FILTER_SANITIZE_STRING));
+        $country2 = htmlspecialchars(filter_var(trim($country2), FILTER_SANITIZE_STRING));
 
-
-        $alert = ''; // Инициализируем переменную $alert
+        $alert = '';
 
         if (mb_strlen($name) < 1 || mb_strlen($name) > 255) {
             $alert = 'Name is too short or long';
@@ -176,39 +140,53 @@ class PassportDataInput
             $alert = 'Incorrect date number length';
         } elseif (mb_strlen($passportExpirationDate) !== 10) {
             $alert = 'Incorrect date number length';
-        } elseif (mb_strlen($country) < 1 || mb_strlen($country) > 200) {
-            $alert = 'Incorrect date number length';
-        } 
+        } elseif (mb_strlen($country2) < 1 || mb_strlen($country2) > 200) {
+            $alert = 'Incorrect country length';
+        }
 
         if ($alert) {
             header("Location: ../php/OrderUserData.php?alert=" . urlencode($alert));
-            exit();
+            exit(); 
         }
-        header('Location: ../php/index.php');
 
        
-        $this->addPassportDataToDatabase($name, $surname, $nationality, $gender, $Email, $Phone_Number, $Passport_number, $passportIssuedDate, $passportExpirationDate, $country, $_SESSION['user_id']);
+        $_SESSION['Name'] = $name;
+        $_SESSION['Surname'] = $surname;
+        $_SESSION['Nationality'] = $nationality;
+        $_SESSION['Gender'] = $gender;
+        $_SESSION['Email'] = $Email;
+        $_SESSION['Phone_Number'] = $Phone_Number;
+        $_SESSION['Passport_number'] = $Passport_number;
+        $_SESSION['passportIssuedDate'] = $passportIssuedDate;
+        $_SESSION['passportExpirationDate'] = $passportExpirationDate;
+        $_SESSION['Issued_country_passport'] = $country2;
 
-
+      
+        $this->addPassportDataToDatabase($name, $surname, $nationality, $gender, $Email, $Phone_Number, $Passport_number, $passportIssuedDate, $passportExpirationDate, $country2, $_SESSION['user_id']);
     }
 
-
-    private function addPassportDataToDatabase($name, $surname, $nationality, $gender, $Email, $Phone_Number, $Passport_number, $passportIssuedDate, $passportExpirationDate, $country, $user_id)
+    private function addPassportDataToDatabase($name, $surname, $nationality, $gender, $Email, $Phone_Number, $Passport_number, $passportIssuedDate, $passportExpirationDate, $country2, $user_id)
     {
         global $mysqli;
-        $stmt = $mysqli->prepare("INSERT INTO `user_details` (`Name`, `Surname`, `Nationality`, `Gender`, `Phone_number`, `Passport_number`, `Passport_issued_date`, `Passport_expiration_date`, `Issued_country_passport`, `user_id`, `created_at`) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now())");//  ?, `Email`,
-        $stmt->bind_param("ssssssssss", $name, $surname, $nationality, $gender, $Phone_Number, $Passport_number, $passportIssuedDate, $passportExpirationDate, $country, $user_id);//s $Email,
-        $stmt->execute();
 
-        $updateStmt = $mysqli->prepare("UPDATE `users` SET `email` = ? WHERE `user_id` = ?");
-        $updateStmt->bind_param("ss", $Email, $user_id);
-        $updateStmt->execute();
+        $id = $_POST['id2'];
+        $_SESSION['id2'] = $_POST['id2'];
+        $LastPrice = $_POST['plusPrice3'];
+        $_SESSION['LastPrice'] = $_POST['plusPrice3'];
+        $SeatPlace = $_POST['SeatPlace'];
+        $_SESSION['SeatPlace'] = $_POST['SeatPlace'];
+        $prefix = 'Y4Y';
+        $condition = 'active';
+        $ticketCode = $prefix . uniqid();
+
+        $_SESSION['condition'] = $condition;
+        $_SESSION['ticketCode'] = $ticketCode;
+
+        header('Location: ../php/ticketСonfirmation.php');
+        exit(); 
     }
-    
-
-        
 }
+
 
 
 ?>

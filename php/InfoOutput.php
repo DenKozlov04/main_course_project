@@ -7,9 +7,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($
     $class = $_POST['class'];
     $id = $_POST['id'];
     $price = $_POST['price'];
-    // echo $id;price
-    // echo $class;
-    // echo $price; vivoditj v evro
     $Percents = number_format(($price * 34)/100 , 2);
     $PlusPrice = number_format($price + $Percents, 2);
  
@@ -33,6 +30,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($
             $City = $row['City'];
             $country = $row['country'];
             $T_price = $row['T_price'];
+
+    }
+
+    $sql2 = "SELECT `departure_date`,arrival_date, `departure_time`, `arrival_time` 
+    FROM `acessabledata` 
+    WHERE  `airline_id` = ?";
+
+    $stmt = $mysqli->prepare($sql2);
+
+
+    if ($stmt) {
+
+        $stmt->bind_param("s", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    }
+    while ($row = $result->fetch_assoc()) {
             $arrival_date = $row['arrival_date'];
             $departure_date = $row['departure_date'];
             $dateObject = new DateTime($departure_date);

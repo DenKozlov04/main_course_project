@@ -7,11 +7,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['price']) && isset($_PO
     $id = $_POST['id'];
     $user_id = $_SESSION['user_id'];
     $admin_id = $_SESSION['admin_id'];
-    //  echo $admin_id ;
-    // echo $user_id;
-    // echo $id;
-    // echo $price;
-
         $user_id = $_SESSION['user_id'];
         $alert = '';
         $sql2 = "SELECT * FROM `tickets` WHERE `user_id` = ?";
@@ -36,31 +31,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['price']) && isset($_PO
             $stmt->close();
         }
   
-
-    // echo $id;
-    // $result1 = 25 /
-    $price = preg_replace('/[^0-9.]/', '', $price); //убираю символ для вычислений
+    $price = preg_replace('/[^0-9.]/', '', $price); 
     $price = floatval($price);
     $result0 = number_format($price, 2);
-    ///бронзовая карточка
+   
     $result = (25 * $price) / 100;
-    $result1 = number_format($result + $price, 2);//вывод с десятичным значением
-    // echo $result1;
+    $result1 = number_format($result + $price, 2);
 
-    ///серебрянная карточка
     $result = (45 * $price) / 100;
     $result2 = number_format($result + $price, 2);
 
-    // echo $result2;
-
-    ///золотая карточка
     $result = (65 * $price) / 100;
     $result3 = number_format($result + $price, 2);
     
-    // echo $result3;
-
-    ////Вывод данных
-    ///<a href="https://www.flaticon.com/ru/free-icons/" title="бакалея иконки">Бакалея иконки от Radhe Icon - Flaticon</a>
+    ///<a href="https://www.flaticon.com/ru/free-icons/" title=""> Radhe Icon - Flaticon</a>
 
     $sql = "SELECT `Airline`, `airport_name`, `ITADA`, `City`, `country`, `T_price`, `arrival_date`, `departure_date`, `arrival_time`, `departure_time`,`id` 
     FROM `airports/airlines` 
@@ -82,6 +66,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['price']) && isset($_PO
             $City = $row['City'];
             $country = $row['country'];
             $T_price = $row['T_price'];
+
+    }
+
+    $sql2 = "SELECT `departure_date`,arrival_date, `departure_time`, `arrival_time` 
+    FROM `acessabledata` 
+    WHERE  `airline_id` = ?";
+
+    $stmt = $mysqli->prepare($sql2);
+
+
+    if ($stmt) {
+
+        $stmt->bind_param("s", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    }
+    while ($row = $result->fetch_assoc()) {
             $arrival_date = $row['arrival_date'];
             $departure_date = $row['departure_date'];
             $dateObject = new DateTime($departure_date);

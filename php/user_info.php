@@ -1,8 +1,6 @@
 <?php 
-    // include 'download_pdf.php';
     include 'UserInfoOutput.php';
     include 'ChooseChildrenSeat.php';
-    include 'BigPopUpOutput.php';
 
     $Childdelete = new AddInfo();
     $userBookings = new UserBookings();
@@ -177,49 +175,10 @@
                 <div class='GreyPlc'>
                 <div class='Infotxt1'>Children and youth registration (2-16 years)</div>
                 </div>
-                <form class='AddChildrenForm' action="user_info.php" method='POST'>
-                    <input type='hidden' name='AddChild'>
-                    <label for="AddChildrenName">Child's name</label>
-                    <input name='AddChildrenName' value="" placeholder='Bērna vārds'><br>
-
-                    <label for="AddChildrenSurname">Surname of child</label>
-                    <input name='AddChildrenSurname' value="" placeholder='Bērna uzvārds'><br>
-
-                    <label for="AddChildrenGender">Gender</label>
-                    <select id="gender" name="AddChildrenGender">
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="N/M">N/M</option>
-                    </select><br>
-
-                    <label for="AddChildrenNationality">Nationality</label>
-                    <input type="text" id="nationality" name="AddChildrenNationality" placeholder="Latvian"><br>
-                    <div class='AddChildrenDiv'>
-                        <label for="AddChildrenPassNumber">Passport number</label>
-                        <input type="text" id="Passport_number" name="AddChildrenPassNumber" placeholder="XXXXXXX (The length of the passport number may vary depending on the country of issue)" style="width: 640px;"><br>
-
-                        <label for="AddChildrenpassIssuedDate">Date of issue of the passport</label>
-                        <input type="text" id="passportIssuedDate" name="AddChildrenpassIssuedDate" placeholder="YYYY-MM-DD"><br>
-
-                        <label for="AddChildrenpassExpirationDate">Date of withdrawal</label>
-                        <input type="text" id="passportExpirationDate" name="AddChildrenpassExpirationDate" placeholder="YYYY-MM-DD"><br>
-
-                        
-                        <!-- <input type="text" id="AddChildrenPrice" name="AddChildrenPrice" readonly>                      
-                        <input type="text" id="AddChildrenPlaceName" name="AddChildrenPlaceName" readonly> -->
-                        <input type="hidden" id="AddChildrenPrice" name="AddChildrenPrice" readonly>
-                        <input type="hidden" id="AddChildrenPlaceName" name="AddChildrenPlaceName" readonly>
-
-
-
-                        <button name='AddChildrenBtn' type='submit' class="add-btn" style="visibility: <?= $flightInfo['visibility']?>">Add Child</button>
-                    </div>
-                </form>
+              
 
             </div>
-            <button name='Btn'onclick="openModal('modal7')" type='submit' class="downloadBtn3" style="visibility: <?= $flightInfo['visibility']?>">Choose a seat</button>
             <div class='BigBox2'>
-            <!-- <div class='BoxTitle3'>Children:</div> -->
             <div class=ScrollBox>
             <table class="table1">
             <thead>
@@ -258,7 +217,6 @@
   
         </div>
     </div>
-    <!-- окна поп апа -->
 
     <div id="modal1" class="modal">
         <div class="modal-content">

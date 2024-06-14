@@ -36,7 +36,6 @@ class Auth {
             $_SESSION['username'] = $username;
             $_SESSION['user_id'] = $user['user_id'];
             $_SESSION['email'] = $user['email'];
-            // $alert = 'You have successfully logged in';
             header("Location: ../php/index.php");
             exit();
         } else {

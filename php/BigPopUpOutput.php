@@ -3,7 +3,7 @@ include "ChildSeatCheck.php";
 
 echo '<script>';
 echo 'var flightId = ' . json_encode($id) . ';';
-// echo $id;
+
 echo '</script>';
 ?>
 
@@ -16,7 +16,7 @@ echo '</script>';
             <input type='hidden' name='ChooseSeat'>
             <input type='hidden' name='Price' id='priceField'>
             <input type='hidden' name='PlaceName' id='placeNameField'>
-            <button name='ChooseSeatBtn' type='button' class="close" onclick="closeModal('modal7')">Izvelēt vietu</button>
+            <button name='ChooseSeatBtn' type='button' class="close" onclick="closeModal('modal7')">Choose a seat</button>
                 <div class='ButtonRect1'>
                     <!-- type='submit' -->
 

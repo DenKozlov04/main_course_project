@@ -1,10 +1,4 @@
-// function openModal(button, modalId) {
-//     var id = button.getAttribute('data-id');
-//     var modal = document.getElementById(modalId);
-//     var modalContent = modal.querySelector('.id-placeholder');
-//     modalContent.textContent = id; 
-//     modal.style.display = 'block';
-// }
+
 function openModal(button, modalId) {
     var id = button.getAttribute('data-id');
     var modal = document.getElementById(modalId);

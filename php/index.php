@@ -18,7 +18,7 @@
             const alertMessage = urlParams.get('alert');
 
             if (alertMessage) {
-                // alert(alertMessage);
+               
                 swal({
                 title: "Attention!",
                 text: decodeURIComponent(alertMessage),
@@ -33,31 +33,20 @@
         <a>AVIA</a>
     </div>
 
-    <!-- <ul> -->
+
     <div class='ButtonRect'>
-        <!-- <a href="../php/Buy_Tickets.php">Buy Tickets</a> -->
+  
         <a href="">Airline Partners</a>
-        <!-- <a href="../html/AboutUs.html">About us</a>
-        <a href="../php/flightInfo.php">Some page</a> -->
+
         <a href="">About us</a>
         <a href="">Travel Tips</a> 
         <a href="../php/reviews.php">Reviews</a>
         <?php
           session_start();
-          // if ($_SESSION['user_id'] === 0 || ($_SESSION['admin_id'] === 1 and $_SESSION['user_id'] === 1)) {
-          //   echo '<a href="../html/autorization.html" class="custom-btn LogIn">LOG IN</a>';
-          //   echo '<a href="../html/registration.html" class="custom-btn LogIn">Sign up</a>';
-          // }
+
         ?>
     </div>   
-    <!-- <select id='language-selector' class='dropdown-menu'>
-      <option class='dropdown-menu-content' value="ru">RU</option>
-      <option class='dropdown-menu-content' value="lv">LV</option>
-      <option class='dropdown-menu-content' value="en">ENG</option>
-    </select> -->
-    <!-- <div class='dropdown-menu' id="google_translate_element"></div> -->
 
-    <!-- </ul> -->
   <div class='greyRect1'></div>
   <div class='rectangleHeader2'></div>
   <div class='greyRect1'></div>
@@ -69,38 +58,12 @@
         <a href="">Need Help?</a>
   </div>
 </div>
-<!-- <nav> -->
-<!-- 
-  <div class='boxdiv'>
-    <ul>
 
-      <li><a href="../php/Buy_Tickets.php">buy tickets</a></li>
-      <li><a href="../html/AboutUs.html">About us</a></li>
-      <li><a href="../php/flightInfo.php">Some page</a></li>
-      <li><a href="../php/reviews.php">service reviews</a></li>
-      <?php
-        // session_start();
-        // if ($_SESSION['user_id'] === 0 || ($_SESSION['admin_id'] === 1 and $_SESSION['user_id'] === 1)) {
-        //   echo '<li><a href="../html/autorization.html" class="custom-btn LogIn">LOG IN</a></li>';
-        //   echo '<li><a href="../html/registration.html" class="custom-btn LogIn">Sign up</a> </li>';
-        // }
-      ?>
-     <select id='language-selector' class='dropdown-menu'>
-      <option class='dropdown-menu-content' value="ru">RU</option>
-      <option class='dropdown-menu-content' value="lv">LV</option>
-      <option class='dropdown-menu-content' value="en">ENG</option>
-    </select> -->
-    <!-- <div class='dropdown-menu' id="google_translate_element"></div> -->
-
-    <!-- </ul>
-  </div> -->
-  
-  <div class='pict5'>
   <?php
 
-    // была ли страница открыта первый раз или была перенаправлена с другой страницы
+   
     if (!isset($_SESSION['page_opened']) || !$_SESSION['page_opened'] || !isset($_SERVER['HTTP_REFERER']) || empty($_SERVER['HTTP_REFERER'])) {
-        $_SESSION['page_opened'] = true; // отмечаю страницу открытой
+        $_SESSION['page_opened'] = true; 
         $_SESSION['user_id'] = 0; 
         $_SESSION['admin_id'] = 0; 
     }
@@ -140,19 +103,12 @@
             </div>';
   }
   
-    // echo $_SESSION['user_id'];
-    // echo $_SESSION['admin_id'];
-
-  
     $mysqli->close();
-    // echo '<p><a class="special-link4" href=""><img src="../images/messageFalse.png"  width="34" height="34"></a></p>';
-    // echo '<p><a class="special-link4" href=""><img src="../images/messageTrue.png"  width="34" height="34"></a></p>';
+
 ?>
 
     
   </div>
-
-<!-- </nav> -->
 
 <div class='SearchBox'>
     <div class="search">
@@ -163,7 +119,7 @@
                     <select id="flightname" name="SearchRoute">
                             <option value="">Select Airline</option>
                             <?php
-                            // Подключение к базе данных и выполнение запроса для получения авиалиний
+                            
                             include 'dbconfig.php';
                             $sql_airline = "SELECT DISTINCT Airline FROM `airports/airlines`";
                             $result_airlines = $mysqli->query($sql_airline);
@@ -185,7 +141,7 @@
                     <select name="SearchCountry">
                             <option value="">Select Country</option>
                             <?php
-                            // Выполнение запроса для получения стран
+                           
                             $sql_country = "SELECT DISTINCT country FROM `airports/airlines`";
                             $result_countries = $mysqli->query($sql_country);
                             if ($result_countries->num_rows > 0) {
@@ -254,32 +210,16 @@
     </div>
     <script src="../JS/BigSwiper.js"></script>
 <div class='GreyRect'></div>
-<!-- <body bgcolor="#e9a2a2"> -->
-<!-- <body bgcolor="FFFFFF"> -->
-
-<!-- <div class="pict3"><img src="../images/pexels-arina-krasnikova-5708951.jpg"></div> -->
-<!-- <p class="txt1">EXPLORE THE WORLD WITH US</p> -->
-
-
-
-
-
-  <?php 
-  // include 'card_data.php'; 
-  ?>
-
-
-
 
 <div class=rect1></div>
-<!-- <div class="pict4"><img src="../images/bgSales.png"></div> -->
+
  <style>
 </style>
-<!-- <p class="txt2">Don't miss out on hot discounts!!</p> -->
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 
-<!-- <div class= "txt3">Travel comfortably with us.</div> -->
+
 <div class="swiper sample-slider" style="margin-top: 850px;">
         <div class="swiper-wrapper">
             <div class="swiper-slide" ><a href=""><img src="../images/1card.png"></a>

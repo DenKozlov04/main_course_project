@@ -17,28 +17,6 @@ function PlusChildSeatPrice(button) {
     // document.querySelector('.AddChildrenForm').submit();
 }
 
-// function toggleButtonColor(button){
-//     var activeClass = 'active';
-//     var buttons = document.querySelectorAll('.PlaceButton');
-
-    
-//     var isActive = button.classList.contains(activeClass);
-
-    
-//     buttons.forEach(function(btn) {
-//         btn.classList.remove(activeClass);
-//         btn.style.backgroundColor = "#D9D9D9";
-//     });
-
-    
-//     if (isActive) {
-//         button.style.backgroundColor = "#D9D9D9";
-//     } else {
-       
-//         button.classList.add(activeClass);
-//         button.style.backgroundColor = "#DE6A6A";
-//     } 
-// }
 
 
 
@@ -75,14 +53,14 @@ function getAllSeatNumbers() {
    
     var buttons = document.querySelectorAll('.PlaceButton');
 
-    // массив для данных
+    
     var seatNumbers = [];
 
     
     buttons.forEach(function(button) {
         var seatNumber = button.getAttribute('data-extra-value');
 
-        // Добавляем значение сидения в массив
+        
         seatNumbers.push(seatNumber);
     });
 
@@ -94,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var seatNumbers = getAllSeatNumbers();
     console.log("Seat numbers:", seatNumbers);
 
-    // отправка массива в php переменную
+    
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "ChildSeatCheck.php", true);
     xhr.setRequestHeader("Content-Type", "application/json");
@@ -104,20 +82,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 var response = JSON.parse(xhr.responseText);
                 console.log("Response from server:", response);
 
-                // Проверяем, есть ли ошибка
+                
                 if (response.error) {
                     console.error("Server error:", response.error);
                     
                 } else {
-                    // Обрабатываем ответ от сервера
+                    
                     response.forEach(function(seat) {
                         var button = document.querySelector('[data-extra-value="' + seat.seatNumber + '"]');
                         if (button) {
                             if (seat.available) {
-                                button.disabled = false; // включение нажатия
+                                button.disabled = false; 
                             } else {
                                 button.style.backgroundColor = "#6495ED"; 
-                                button.disabled = true; // отключение нажатия
+                                button.disabled = true; 
                             }
                         }
                     });

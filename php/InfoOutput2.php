@@ -2,14 +2,11 @@
 session_start();
 include 'dbconfig.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($_POST['id'] ) && isset($_POST['plusPrice'])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($_POST['id'] ) && isset($_POST['plusPrice']) && isset($_POST['class'])) {
     $cardType = $_POST['cardType'];
+    $class = $_POST['class'];
     $id = $_POST['id'];
     $CurrPrice = $_POST['plusPrice'];
-    // echo $id;price
-    // echo $class;
-    // echo $price; vivoditj v evro
-   
     $sql = "SELECT `Airline`, `airport_name`, `ITADA`, `City`, `country`, `T_price`, `arrival_date`, `departure_date`, `arrival_time`, `departure_time`,`id` 
     FROM `airports/airlines` 
     WHERE  `id` = ?";
@@ -30,6 +27,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($
             $City = $row['City'];
             $country = $row['country'];
             $T_price = $row['T_price'];
+
+    }
+
+    $sql2 = "SELECT `departure_date`,arrival_date, `departure_time`, `arrival_time` 
+    FROM `acessabledata` 
+    WHERE  `airline_id` = ?";
+
+    $stmt = $mysqli->prepare($sql2);
+
+
+    if ($stmt) {
+
+        $stmt->bind_param("s", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    }
+    while ($row = $result->fetch_assoc()) {
             $arrival_date = $row['arrival_date'];
             $departure_date = $row['departure_date'];
             $dateObject = new DateTime($departure_date);

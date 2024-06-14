@@ -2,10 +2,10 @@
 include "aviabilitycode.php";
 $ChooseFlight = new ChooseFlight();
 
-// $flightInfo = $ChooseFlight->AddFlightInfo();
+
 $admin_id = $_SESSION['admin_id'];
 $user_id = $_SESSION['user_id'];
-// $ChooseFlight->AddFlightInfo();
+
 if ($admin_id != 0){
     $visibility = 'visible';
 } else {

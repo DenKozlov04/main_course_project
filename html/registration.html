@@ -11,7 +11,6 @@
     <title>Sing up</title>
 </head>
 <body>
-    <!-- тот же самый код вывода ошибки -->
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const alertMessage = urlParams.get('alert');
@@ -38,12 +37,6 @@
                 <input type="text" id="input" name="email" placeholder="Write your email">
             </div>
         </div>
-        <!-- убрать  -->
-        <!-- <div class='phone'>
-            <div class='input-phone'>
-                <input type="text" id="input" name="phone" placeholder="Write your phone number">
-            </div>
-        </div> -->
         <div class='password'>
             <div class='input-password'>
                 <input type="password" id="input" name="password" placeholder="Create your password">
@@ -71,19 +64,5 @@
     </video>
   </div>
 </body>
-<!-- <style>
-.registration .message {
-  font-size: 15px;
-  font-family: 'Nunito Sans', sans-serif;
-  margin: 15px 0 0;
-  color: #b3b3b3;
-}
-.registration .message a {
-  font-size: 15x;
-  font-family: 'Nunito Sans', sans-serif;
-  color: #4CAF50;
-  text-decoration: none;
-}
 
-</style> -->
 </html>

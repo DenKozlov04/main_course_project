@@ -3,17 +3,19 @@ session_start();
 include 'dbconfig.php';
 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($_POST['id'] ) && isset($_POST['plusPrice2'])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($_POST['id'] ) && isset($_POST['plusPrice2']) && isset($_POST['cardType']) && isset($_POST['class']) && isset($_POST['LuggageСabin']) && isset($_POST['LuggageСompartment'])) {
 
     $id = $_POST['id'];
-    $PricePlusQuant= $_POST['plusPrice2'];
-    // echo $id;
-    // echo  $PricePlusQuant;
-    // echo $price; vivoditj v evro
+    $PricePlusQuant = $_POST['plusPrice2'];
+    $cardType = $_POST['cardType'];
+    $class = $_POST['class'];
+    $LuggageСabin = isset($_POST['LuggageСabin']) && !empty($_POST['LuggageСabin']) ? $_POST['LuggageСabin'] : 1;
+    $LuggageСompartment = isset($_POST['LuggageСompartment']) && !empty($_POST['LuggageСompartment']) ? $_POST['LuggageСompartment'] : 1;
+
     if (empty($_POST['seat'])) {
-        // $alert = 'Please choose a seat before continuing.';
+
         $visibility = 'hidden';
-        // header("Location: ../php/SeatChoose.php?alert=" . urlencode($alert));
+ 
     } 
     $sql = "SELECT `Airline`, `airport_name`, `ITADA`, `City`, `country`, `T_price`, `arrival_date`, `departure_date`, `arrival_time`, `departure_time`,`id` 
     FROM `airports/airlines` 
@@ -35,6 +37,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($
             $City = $row['City'];
             $country = $row['country'];
             $T_price = $row['T_price'];
+
+    }
+
+    $sql2 = "SELECT `departure_date`,arrival_date, `departure_time`, `arrival_time` 
+    FROM `acessabledata` 
+    WHERE  `airline_id` = ?";
+
+    $stmt = $mysqli->prepare($sql2);
+
+
+    if ($stmt) {
+
+        $stmt->bind_param("s", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    }
+    while ($row = $result->fetch_assoc()) {
             $arrival_date = $row['arrival_date'];
             $departure_date = $row['departure_date'];
             $dateObject = new DateTime($departure_date);
@@ -60,23 +79,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      
         $availabilityResults = [];
 
-     
-        // foreach ($seatNumbers as $seatNumber) {
-        //     $sql = "SELECT COUNT(*) AS count FROM tickets WHERE Seat = ? AND airlines_id = ?";
-        //     $stmt = $conn->prepare($sql);
-        //     $stmt->bind_param("si", $seatNumber, $id);
-        //     $stmt->execute();
-        //     $result = $stmt->get_result();
-    
-           
-        //     $row = $result->fetch_assoc();
-    
-         
-        //     $available = ($row['count'] == 0) ? true : false;
-            
-       
-        //     $availabilityResults[] = array('seatNumber' => $seatNumber, 'available' => $available);
-        // }
         foreach ($seatNumbers as $seatNumber) {
             $sql = "SELECT COUNT(*) AS count FROM (
                         SELECT seat FROM tickets WHERE seat = ? AND airlines_id = ?
@@ -98,11 +100,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo json_encode($availabilityResults);
     } else {
       
-        // echo json_encode(array('error' => 'Данные не были получены или отсутствует идентификатор'));
     }
 } else {
     
-    // echo json_encode(array('error' => 'Метод запроса не поддерживается'));
 }
 
 ?>

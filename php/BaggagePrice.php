@@ -89,13 +89,16 @@ include 'InfoOutput2.php';
             </div>
     </div> -->
     <form class='buttonForm' action="SeatChoose.php" method='POST'>
+    <input type="hidden" name="class" value="<?= $class ?>">
     <input type="hidden" name="id" value="<?= $id ?>">
+    <input type="hidden" name="LuggageСabin" value=""><!-- сюда передаем значения веса -->
+    <input type="hidden" name="LuggageСompartment" value=""><!-- сюда передаем значения количества -->
     <input type="hidden" name="plusPrice2" id="PriceField2" value="<?= $CurrPrice ?>">
-        <div class='ButtonBox'>
-                <button class='ContinueButton' type='submit' name='cardType' value=''>Continue</button>
-                
-        </div>
+    <div class='ButtonBox'>
+        <button class='ContinueButton' type='submit' name='cardType' value=''>Continue</button>
+    </div>
     </form>
+
     <div class='InfoButtonField'>
         <button class='InfoButton1' onclick="openModal('modal1')">What is Hand Luggage</button>
         <button class='InfoButton2' onclick="openModal('modal2')">What is Checked Baggage</button>

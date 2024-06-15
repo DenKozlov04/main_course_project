@@ -1,0 +1,181 @@
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f3f3;
+}
+
+.a4-ticket {
+    width: 21cm;
+    height: 29.7cm;
+    padding: 2cm;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2cm;
+}
+
+.bp {
+    font-size: 30px;
+    margin: 0;
+    margin-top: -20px;
+}
+
+.avia {
+    font-size: 50px;
+    margin: 0;
+    margin-top: -20px;
+}
+
+.ticket-info {
+    font-size: 20px;
+    margin-top: -50px;
+    margin-bottom: 2cm;
+}
+.class-info {
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 2cm;
+}
+.class-info h2{
+    font-size: 20px;
+    font-weight: 100;
+}
+.ticket-info h2 {
+    font-size: 20px;
+    font-weight: 100;
+}
+
+.Blackline {
+    width: 100%;
+    margin-top: -65px;
+    background-color: #000000;
+    height: 3px;
+}
+.Blackline2 {
+    width: 100%;
+    margin-top: -5px;
+    background-color: #000000;
+    height: 3px;
+}
+.Blackline3 {
+    width: 100%;
+    margin-top: -60px;
+    background-color: #000000;
+    height: 3px;
+}
+.flight-data {
+    margin-top: 25px;
+}
+
+.flight-data h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.route-info h2{
+    margin-top: 25px;
+    font-size: 20px;
+    font-weight: 100;
+}
+.flight-data table, .route-info {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.flight-data td {
+    padding: 5px 10px;
+    vertical-align: top;
+}
+
+.flight-data td:first-child {
+    width: 150px;
+    font-weight: bold;
+}
+
+.data-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.data-label {
+    font-weight: bold;
+    width: 150px;
+    flex-shrink: 0;
+}
+
+.data-value {
+    margin-left: 10px;
+}
+
+/* Styles for printing */
+@media print {
+    @page {
+        size: A4;
+        margin: 0;
+    }
+    
+
+    .a4-ticket {
+        box-shadow: none;
+        border: none;
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 1cm;
+        page-break-inside: avoid;
+    }
+}
+
+.flight-data {
+    margin-top: 20px; 
+}
+
+.table1, .table2 {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table1 th, .table1 td,
+.table2 th, .table2 td {
+    padding: 5px; 
+    text-align: left; 
+}
+.table2{
+    margin-top:20px;
+}
+
+.flight-data2 {
+    margin-top: 20px; 
+}
+
+.table3 {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table3 td {
+    padding: 8px; 
+    vertical-align: top;
+}
+
+.table3 strong {
+    font-weight: bold; 
+}
+.class {
+    font-size: 25px;
+    margin: 0;
+    margin-top: 10px;
+}
+.Buffs li {
+    list-style-type: none;
+    margin-top: 2px;
+}

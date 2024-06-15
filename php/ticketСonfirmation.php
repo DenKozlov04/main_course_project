@@ -34,22 +34,7 @@ if (isset($_SESSION['Name']) && isset($_SESSION['Surname']) && isset($_SESSION['
     $ticketCode = $_SESSION['ticketCode'];
     $LuggageСabin = $_SESSION['LuggageСabin'];
     $LuggageСompartment = $_SESSION['LuggageСompartment'];
-
-    // echo $LuggageСabin;
-    // echo $LuggageСompartment;
-    // echo $name;
-    // echo $surname;
-    // echo $nationality;
-    // echo $gender;
-    // echo $Email;
-    // echo $Phone_Number;
-    // echo $Passport_number;
-    // echo $passportIssuedDate;
-    // echo $passportExpirationDate;
-    // echo $country;
-    // echo $condition;
-    // echo $ticketCode;
-    
+  
 }
 
 
@@ -154,6 +139,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['confirmTicket'])) {
         <p>Children:</p>
     </div>
     <form method="POST" action="">
+        <input type="hidden" name="class" value="<?= $_SESSION['class'] ?>">
+        <input type="hidden" name="LuggageСabin" value="<?= $_SESSION['LuggageСabin'] ?>">
+        <input type="hidden" name="LuggageСompartment" value="<?= $_SESSION['LuggageСompartment'] ?>">
         <button class="accept-btn" name="confirmTicket" id="confirmTicketButton">Confirm your ticket</button>
     </form>
 </div>

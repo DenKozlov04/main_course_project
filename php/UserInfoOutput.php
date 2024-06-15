@@ -143,7 +143,7 @@ public function AddChildInfo() {
     public function displayChildInfo() {
         $childInfo = array();
     
-        $sql = "SELECT children_id, Name, Surname, Gender, Nationality, seat, Passport_number, passportIssuedDate, passportExpirationDate FROM children WHERE user_id = {$_SESSION['user_id']}";
+        $sql = "SELECT children_id, Name, Surname, Gender, Nationality, seat, Passport_number, passportIssuedDate, passportExpirationDate,seatprice FROM children WHERE user_id = {$_SESSION['user_id']}";
         $result = $this->mysqli->query($sql);
     
         if ($result->num_rows > 0) {
@@ -157,7 +157,8 @@ public function AddChildInfo() {
                     'seat' => $row['seat'],
                     'PassportNumber' => $row['Passport_number'],
                     'PassportIssuedDate' => $row['passportIssuedDate'],
-                    'PassportExpirationDate' => $row['passportExpirationDate']
+                    'PassportExpirationDate' => $row['passportExpirationDate'],
+                    'seatprice' => $row['seatprice']
                 );
                 $childInfo[] = $child;
             }

@@ -40,7 +40,7 @@ include 'priceCalculation.php';
 
         <div class='textBlock2'>
             <ul class='Buffs'>
-                <li>1 hand luggage (up to 7 kg)</li>
+                <li>1 hand luggage (up to 8 kg)</li>
                 <li>Free access to water on board</li>
                 <li>Standard boarding</li>
                 <li>Access to basic entertainment on board (music, movies)</li>
@@ -68,7 +68,7 @@ include 'priceCalculation.php';
 
         <div class='textBlock4'>
             <ul class='Buffs'>
-                <li>1 hand baggage + 1 personal item (total weight up to 8 kg)</li>
+                <li>1 hand baggage + 1 personal item (total weight up to 16 kg)</li>
                 <li>Free Wi-Fi access (30 minutes)</li>
                 <li>Free drinks on board (water, juices, tea, coffee)</li>
                 <li>Personal entertainment kit (headphones, plaid, sleep mask)</li>
@@ -96,8 +96,8 @@ include 'priceCalculation.php';
 
         <div class='textBlock3'>
             <ul class='Buffs'>
-                <li>1 hand baggage + 1 personal item (total weight up to 10 kg)</li>
-                <li>1 checked baggage (up to 15 kg)</li>
+                <li>1 hand baggage + 1 personal item (total weight up to 24 kg)</li>
+                <li>1 checked baggage (up to 24 kg)</li>
                 <li>Free Wi-Fi access (1 hour)</li>
                 <li>Free drinks and snacks on board (including sandwiches and snacks)</li>
                 <li>Priority boarding</li>
@@ -125,8 +125,8 @@ include 'priceCalculation.php';
         <div class='CalcPrice'><?php  echo $result3?>€</div>
         <div class='textBlock3'>
             <ul class='Buffs'>
-                <li>1 hand baggage + 1 personal item (total weight up to 12 kg)</li>
-                <li>2 checked baggage (up to 20 kg each)</li>
+                <li>1 hand baggage + 1 personal item (total weight up to 32 kg)</li>
+                <li>2 checked baggage (up to 36 kg each)</li>
                 <li>Unlimited free access to Wi-Fi</li>
                 <li>Hot meals on board (multi-course choice)</li>
                 <li>Priority boarding and disembarkation</li>

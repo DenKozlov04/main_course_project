@@ -22,7 +22,7 @@ body {
   .logorectangle a {
     font-size: 40px;
     color: #FFFFFF;
-  
+ 
   }
  .UserTables{
   margin-top: 1350px;
@@ -93,8 +93,7 @@ body {
 
 
   .PrevPage {
-    /* margin-top: -990px;
-    margin-left: 40px; */
+
     transform: translateY(30px); 
     font-family: 'Nunito Sans', sans-serif;
     font-size: 20px;

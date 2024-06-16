@@ -1,5 +1,5 @@
 
-///-----------------------------код для колонки А------------------------------------------------
+///----------------------------- А------------------------------------------------
 
 
 function PlusSeatPrice(button) {
@@ -28,7 +28,7 @@ function PlusSeatPrice(button) {
 
     return PricePlusQuant;
 }
-///-----------------------------код для колонки В------------------------------------------------
+///----------------------------- В------------------------------------------------
 
 function PlusSeatPrice2(button) {
     var PricePlusQuant = parseFloat(button.value);
@@ -56,7 +56,7 @@ function PlusSeatPrice2(button) {
 
     return PricePlusQuant;
 }
-///-----------------------------код для колонки A2------------------------------------------------
+///----------------------------- A2------------------------------------------------
 
 function PlusSeatPrice3(button) {
     var PricePlusQuant = parseFloat(button.value);
@@ -85,7 +85,7 @@ function PlusSeatPrice3(button) {
     return PricePlusQuant;
 }
 
-///-----------------------------код для колонки В2------------------------------------------------
+///----------------------------- В2------------------------------------------------
 
 function PlusSeatPrice4(button) {
     var PricePlusQuant = parseFloat(button.value);
@@ -114,7 +114,7 @@ function PlusSeatPrice4(button) {
     return PricePlusQuant;
 }
 
-///-------------------изменение цвета кнопок сидений----------------------------------------------
+///-------------------seat color----------------------------------------------
 function toggleButtonColor(button) {
     var activeClass = 'active';
     var buttons = document.querySelectorAll('.PlaceButton');

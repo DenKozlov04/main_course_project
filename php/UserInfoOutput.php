@@ -253,7 +253,7 @@ public function AddChildInfo() {
        
         return $flightInfo;
     }
-///------------------------Flight omen function ----------------------------------
+///------------------------Flight denie function ----------------------------------
     public function DenieFlight(){
         if (isset($_POST['DenieFlight'])) {
             $user_id = $_SESSION['user_id']; 
@@ -278,7 +278,7 @@ public function AddChildInfo() {
 
 
 
-///------------------------Information change function ----------------------------------
+///------------------------Information changhe function ----------------------------------
 
 public function ChangeUserInfo() {
     if (isset($_POST['ChangeUserBtn'])) {

@@ -27,8 +27,8 @@ body {
     color: #0d057c;
     font-weight: 600;
     position: absolute;
-    left: 560px; /* Горизонтальное расположение */
-    top: 35px; /* Вертикальное расположение */
+    left: 560px; 
+    top: 35px; 
     z-index: 15;
 }
 .CartImg{
@@ -77,44 +77,7 @@ body {
     margin-left: 890px;
     position: absolute;
 }
-/* .ServiceBox {
-    margin-top: 7%;
-   
-    width: 60%;
-    height: 750%;
-    margin-left: 19%;
-    overflow-y: scroll; 
 
-    display: flex; 
-    align-items: center; 
-    flex-direction: column;
-    justify-content: center; 
-} */
-
-
-/* .ServiceBox::-webkit-scrollbar {
-    width: 20px; 
-}
-
-.ServiceBox::-webkit-scrollbar-thumb {
-    background-color: rgb(90, 86, 114); 
-    border-radius: 10px; 
-}
-
-.ServiceBox::-webkit-scrollbar-track {
-   
-    background-color: #E7E7E7; 
-    width:10px;
-   
-} */
-/* .ServiceCard {
-    margin-top: -13.5%;
-    background-color: #ffffff; 
-    width: 98%;
-    height: 70%;
-    border-radius: 5px; 
-    border: 2px solid #e7e7e7; 
-} */
 
 .ImgBox {
     width: 103.8%; 
@@ -183,7 +146,7 @@ body {
 .ServiceCard {
     background-color: #ffffff;
     width: 98%;
-    height: 80% !important; /* Изменяем высоту */
+    height: 80% !important; 
     border-radius: 5px;
     border: 2px solid #e7e7e7;
     margin-top: 50px;
@@ -204,19 +167,7 @@ body {
     color: #fafafa;
 }
 
- /* .ImgBox {
-    width: 100%;
-    height: 60%;
-    overflow: hidden;
-    background-color: #6e3434;
-    margin-top: 10px; 
-    position: relative; 
-}  */
- /* .ImgBox img {
-    width: 100%;
-    height: auto;
-    object-fit: cover; 
-}  */
+ 
 .price1{
     margin-bottom: 10px;
     font-size: 15px;
@@ -331,7 +282,6 @@ body {
     margin-right:1660px;
     margin-bottom: 900px;
 }
-/* Стили для модальных окон */
 .modal {
     display: none;
     position: fixed;
@@ -365,22 +315,7 @@ body {
     text-decoration: none;
     cursor: pointer;
 }
-/* .Open{
-    display: none;
 
-}    
-
-.OpenWindow {
-    position:absolute;
-    width: 770px;
-    margin-left:-227px;
-    height: 150px;
-    background-color: #ffffff;
-    color: black;
-    border-radius: 0 0 5px 5px; 
-    border: 2px solid #e7e7e7;
-    border-top: none; 
-} */
 .txt9{
     font-size: 30px;
     margin-left: 170px;

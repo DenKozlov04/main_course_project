@@ -105,7 +105,7 @@ $Info = $displayInfo->displayInfo();
                 </tr>
                 <tr>
                     <td><strong>Luggage Cabin:</strong></td>
-                    <td><?= $_SESSION['LuggageСabin'],' x 8kg' ?></td> <!-- Replace with actual luggage cabin data -->
+                    <td><?= $_SESSION['LuggageСabin'],' x 8kg' ?></td> 
                     <td><strong>ITADA:</strong></td>
                     <td><?=$Info['AirlineInfo']['ITADA']; ?></td>
                 </tr>

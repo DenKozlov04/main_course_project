@@ -2,9 +2,6 @@ body {
   background-color: rgb(238, 238, 238);
 }
 
-
-
- 
   .boxtickets {
     display: flex;
     justify-content: center;
@@ -64,7 +61,7 @@ body {
     z-index: 2; 
   }
   .text1, .text2 {
-    display: inline-block; /* Сделать оба текста блочными элементами */
+    display: inline-block; 
   }
   .text1 {
     width: 205px;

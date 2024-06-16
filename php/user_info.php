@@ -186,13 +186,7 @@
                         <td><?= $child['Nationality'] ?></td>
                         <td><?= $child['seat'] ?></td>
                         <td><?= $child['seatprice'] ?></td>
-                        <!-- <td>
-                            <form class='DeleteForm' action="user_info.php" method='POST'>
-                                <input type='hidden' name='DeleteChildren'>
-                                <input type='hidden' name='child_id' value='<?= $child['children_id'] ?>'> 
-                                <button name='DeleteChildrenBtn' type='submit' class="downloadBtn2" style="visibility: <?= $userInfo['visibility']?>">Delete</button>
-                            </form> 
-                        </td> -->
+
                     </tr>
                 <?php endforeach; ?>
             </tbody>

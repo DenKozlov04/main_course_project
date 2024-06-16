@@ -109,13 +109,6 @@ body .txt1 {
   background-color: rgba(255, 255, 255, 0.5) 
 }
 
-
-  
-  /* .box1-input input[type="text"]:focus {
-
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-  }  */
-
   .gallery-grid {
     
     display: flex;
@@ -224,45 +217,7 @@ body .txt1 {
     margin: 0;
   }
 
-/* nav {
-  z-index:999 ;
-  position: fixed;
-  padding: 0;
-  margin: 0;
-  text-decoration:none;
-  list-style: none;
-  box-sizing: border-box;
-  background: #3d3d3d;
-  height: 75px;
-  width:100%;
-  font-family:'Nunito Sans', sans-serif;
-    
-} */
-/* select.dropdown-menu {
-  font-family: 'Nunito Sans', sans-serif;
-  background: #3d3d3d;
-  color: white;
-  font-size: 15px;
-  padding: 7px 7px;
-  border-radius: 3px;
-  z-index: 999;
-  text-transform: uppercase;
-  border: none; 
-  appearance: none; 
-  height: 72px;
-  width: 70px;
-  margin-top:4px;
-} */
 
-/* select.dropdown-menu:focus {
-  outline: none; 
-}
-
- Стили для dropdown списка 
-option.dropdown-menu-content {
-  font-family:'Nunito Sans', sans-serif;
-  background: #dfdfdf;
-} */
 
 
 label.pict1{
@@ -275,91 +230,13 @@ font-weight: bold;
 }
 
 
-/* nav ul{
-  list-style: none;
-  padding: 0;
-  display: flex; 
-  margin-left: 20px; 
-} */
-/* nav ul li{
-  display: inline-block;
-  line-height: 80px;
-  margin:0 5px;
 
-} */
-/* nav ul li a{
-  text-decoration: none;
-  color:white;
-  font-size: 15px;
-  padding: 7px 7px;
-  border-radius: 3px;
-  z-index: 999;
-  text-transform: uppercase;
-} */
-/* a.active,a:hover{
-  background: #1b9bff;
-  transition:.5s ;
-} */
 a.special-link {
   background: none;
   transform: translate(20px, 5px); 
    
 }
 
-/* .checkbtn{
-  font-size: 30px;
-  color:rgb(255, 255, 255);
-  float: right;
-  line-height: 80px;
-  margin-right:40px;
-  cursor: pointer;
-} 
-
-#check{
-  display: none;
-} */
-/* @media (max-width:952px){
-  label.pict1{
-    font-size: 30px;
-    padding-left: 50px;
-  }
-  nav ul li a{
-    font-size: 16px;
-  }
-}
-@media (max-width:858px){
-  .checkbtn{
-    display: block;
-
-  }
-  ul{
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    background: #2c3e50;
-    top: 80px;
-    left: -100%;
-    text-align: center;
-    transition: all .5s;
-  }
-  nav ul li{
-    display: block;
-    margin: 50px 0;
-    line-height: 30px;
-
-  }
-  nav ul li a{
-    font-size: 20px;
-  }
-  a:hover,a.active{
-    background: none;
-    color: #0082e6;
-  }
-  #check:checked ~ ul{
-    left:0;
-
-  }
-} */
 
 footer {
   background-color: #333;
@@ -417,12 +294,6 @@ footer {
 }
 
 
-/* .box1-input input[type="date"] {
-  font-size: 15px;
-  border: none;
-  font-family:'Nunito Sans', sans-serif;
-  color: #c0c0c0;
-} */
 
 .special-link4{
   left:1265px;
@@ -470,7 +341,7 @@ body {
 }
 .ButtonRect {
   position: absolute;
-  padding: 0; /* Убираем отступы внутри .ButtonRect */
+  padding: 0; 
   margin-left: 550px;
   margin-top:-55px;
 }
@@ -478,12 +349,12 @@ body {
 .ButtonRect a {
   font-size:20px;
   display: inline-block;
-  margin-right: 35px; /* Добавляем отступ между элементами a */
+  margin-right: 35px; 
   text-decoration: none;
   color: #0D057C;
 }
 .UserImgBox, .UserImgBox2, .UserImgBox3 {
-  cursor: pointer; /* Делает указатель мыши "рукой" при наведении на блок */
+  cursor: pointer; 
 }
 .UserImgBox{
   position: absolute;
@@ -547,7 +418,7 @@ body {
 
 .ButtonRect2 {
   position: absolute;
-  padding: 0; /* Убираем отступы внутри .ButtonRect */
+  padding: 0; 
   margin-left: 570px;
   margin-top:-45px;
 }
@@ -555,7 +426,7 @@ body {
 .ButtonRect2 a {
   font-size:20px;
   display: inline-block;
-  margin-right: 35px; /* Добавляем отступ между элементами a */
+  margin-right: 35px; 
   text-decoration: none;
   color: #0D057C;
 }
@@ -586,8 +457,8 @@ body {
   width: 100%;
   height: 90%;
   padding: 0;
-  object-fit: cover; /* Сохранить пропорции изображения и обрезать лишнее */
-  object-position: center bottom; /* Поднять изображение, чтобы была видна нижняя часть */
+  object-fit: cover; 
+  object-position: center bottom; 
 }
 
 .DepartBox{
@@ -601,105 +472,7 @@ body {
 }
 
 
-/* .Search_button {
-  display: block;
-  width: 310px;
-  height: 85px;
-  margin-top: -30px;
-  margin-left: -30px;
-  background-color: rgb(161, 161, 161);
-  font-family: 'Nunito Sans', sans-serif;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 0 50px 50px 0;
-  text-align: center; 
-  font-size: 30px;
-  background: #fcfcfc;
-  transition: background-color 0.3s ease;
-  line-height: 80px; 
-  text-decoration: none;
-  color: black;
-}
 
-.Search_button:hover {
-  background-color: #DE6A6A;
-}
-.search form {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.search{
-  z-index: 999;
-}
-
-.search-link {
-  left: 30px;
-  width: 100px;
-  height: 100px;
-  background-size: cover;
-  text-indent: -9999px;
-} */
-
-/* .search {
-
-  max-width: 1920px;
-  width: 1000%;
-    justify-content: space-between;
-    justify-content: space-evenly;
-    display: flex; 
-    position: relative;
-    align-items: center;
-    flex-direction: row;
-    height: 900px;
-    justify-content: center;
-     right: 1%; 
-}   */
-  
-/* .box1-input {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-  width: 250px;
-  height: 25px;
-  font-family: 'Nunito Sans', sans-serif;
-  padding: 30px;
-  background-color: #FFFFFF;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.box1-input label {
-  color: #c0c0c0;
-  left:0;
-  pointer-events: none;
-}
-
-.box1-input .input-data{
-  height: 50%;
-  width: 100%;
-}
-
-.box1-input .input-data input{
-  height: 100%;
-  width: 100%;
-
-}
-.box1-input .input-data label{
-  bottom: 20px;
-
-}
-.box1-input input[type="text"] {
-  border: none;
-  background-color: #ffffff;
-  color: rgba(87, 17, 17, 0.671);
-  font-size: 16px;
-  border-radius: 0px; 
-  border:none; 
-  border-bottom: 2px solid silver;
-  
-}  */
 .input-data  input {
   z-index: 1;
   position: absolute;
@@ -722,14 +495,14 @@ body {
   width: 235px;
   height: 170px;
   background-color: #DE6A6A;
-  border: none; /* Убираем обводку */
+  border: none; 
   border-radius: 10px;
   position: absolute;
   margin-top: 175px;
   color:#FFFFFF;
   margin-left: 275px;
-  outline: none; /* Убираем контур фокуса */
-  cursor: pointer; /* Делаем курсор указателем при наведении */
+  outline: none; 
+  cursor: pointer; 
 }
 .InfoText1{
   font-size: 30px;

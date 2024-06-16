@@ -20,7 +20,7 @@ function PlusChildSeatPrice(button) {
 
 
 
-///-------------------изменение цвета кнопок сидений----------------------------------------------
+///-------------------seat clolr----------------------------------------------
 function toggleButtonColor(button) {
     var activeClass = 'active';
     var buttons = document.querySelectorAll('.PlaceButton');
@@ -29,13 +29,11 @@ function toggleButtonColor(button) {
 
     buttons.forEach(function(btn) {
         btn.classList.remove(activeClass);
-        // доступна ли кнопка
         if (!btn.disabled) {
             btn.style.backgroundColor = "#D9D9D9";
         }
     });
 
-    // доступна ли текущая кнопка
     if (!button.disabled) {
         if (isActive) {
             button.style.backgroundColor = "#D9D9D9";

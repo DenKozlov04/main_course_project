@@ -74,8 +74,8 @@ body {
     color: #0d057c;
     font-weight: 600;
     position: fixed;
-    left: 560px; /* Горизонтальное расположение */
-    top: 35px; /* Вертикальное расположение */
+    left: 560px;
+    top: 35px;
     z-index: 15;
 }
 .Info3 {
@@ -88,8 +88,8 @@ body {
     font-size: 18px; 
     width:300px;
     height:30px;
-    left: -20px; /* Горизонтальное расположение */
-    top: 130px; /* Вертикальное расположение */
+    left: -20px; 
+    top: 130px; 
 }
 
 
@@ -175,8 +175,6 @@ body {
     background-color: #FAFAFA;
     width: 400px;
     height: 100px;
-    /* margin-left: 756px; */
-    /* margin-top: 20px; */
     border-radius: 5px;
     margin-left: 6px;
     margin-bottom: 5px;
@@ -222,24 +220,6 @@ body {
     margin-top:-80px;
 }
 
-/* .grey2 {
-    background-color: #BDBDBD;
-    width: 60px;
-    height: 5px;
-    border-radius: 10px;
-
-}
-
-.grey1 {
-    background-color: #BDBDBD;
-    width: 60px;
-    height: 5px;
-    border-radius: 10px;
- 
-
-} */
-
-
 .line1 {
     background-color: #BDBDBD;
     width: 120px;
@@ -251,20 +231,13 @@ body {
     top: 0; 
 }
 
- /* .time {
-    display: flex;
-    margin-left: 45px;
-    margin-top: 10px;
-} */
-
 .timeGap {
     width: 140px;
 } 
 .current {
     background-color: #badbff; 
     color: white; 
-    /* border: 1px solid #007bff;  */
-    /* border-radius: 5px; */
+
 }
 .weekend {
     background-color: rgb(255, 224, 224); 
@@ -294,7 +267,6 @@ body {
 .ticketForm {
     position: relative; 
     font-family: 'Nunito Sans', sans-serif;
-    /* padding-top: 30px;  */
 }
 .ITADA{
     color: #BDBDBD;
@@ -365,7 +337,6 @@ body {
     border-radius: 7px;
   
 }
-/* display: none; */
 .ContinueButton {
     left:270px;
     top:25px;
@@ -393,7 +364,7 @@ form {
     display: contents; 
 }
 .buttonForm{
-    display: contents; /* невидимая форма */
+    display: contents; 
 }
 .ChosenDate{
     color: #0d057c;
@@ -429,9 +400,7 @@ form {
     border-radius: 5px;
     z-index: 1001; 
 }
-/* #popup.CloseButton{
-    background-color: rgba(0, 0, 0, 0.5); 
-} */
+
 
 #popupContent {
     text-align: left;

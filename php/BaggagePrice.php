@@ -94,7 +94,6 @@ include 'InfoOutput2.php';
         <button class='InfoButton2' onclick="openModal('modal2')">What is Checked Baggage</button>
     </div>
 
-    <!-- окна поп апа -->
     <div id="modal1" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal1')">&times;</span>

@@ -20,7 +20,7 @@ var cssText = `
         top: 0px !important;
     }
     iframe.skiptranslate {
-        z-index: 0; /* Значение z-index, чтобы поднять элемент над контентом */
+        z-index: 0; 
     }
 `;
 

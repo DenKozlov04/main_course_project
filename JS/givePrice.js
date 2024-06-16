@@ -1,4 +1,4 @@
-///------------------------Добавление цены в файле PriceСonfirmation.php ----------------------------------
+///------------------------ PriceСonfirmation.php price add----------------------------------
 function ButtonClick2(element) {
     let price = parseFloat(element.value);
     document.getElementById("PriceField").value = price; 
@@ -27,7 +27,7 @@ function ButtonClick(element) {
 
 
 
-///------------------------Код кнопок на BaggagePrice.php ----------------------------------
+///------------------------ BaggagePrice.php bttns----------------------------------
 
 
 

@@ -25,19 +25,19 @@ body {
 
 }
 .buttonForm {
-    display: none; /* Скрываем форму по умолчанию */
+    display: none; 
 }
 
 .buttonForm.visible {
-    display: block; /* Показываем форму, когда она имеет класс 'visible' */
+    display: block; 
 }
 
 .flightName {
     color: #0d057c;
     font-weight: 600;
     position: absolute;
-    left: 560px; /* Горизонтальное расположение */
-    top: 35px; /* Вертикальное расположение */
+    left: 560px; 
+    top: 35px; 
     z-index: 15;
 }
 .CartImg{
@@ -117,10 +117,10 @@ body {
     margin-right: 16px; 
     margin-top: 5px; 
     margin-bottom: 1px; 
-    transition: background-color 0.3s ease; /*плавный переход для цвета */
+    transition: background-color 0.3s ease; 
 }
 .buttonBox1 button.active {
-    background-color: rgb(252, 252, 123); /* Новый цвет при активации */
+    background-color: rgb(252, 252, 123); 
 }
 
 
@@ -367,7 +367,7 @@ body {
 }
 .PricePlace {
     margin-top: 70px;
-    position: relative; /* Заменили absolute на relative */
+    position: relative; 
     left: 0px;
     width: 70px;
     height: 26px;
@@ -715,9 +715,6 @@ padding-top: 77px;
     margin-right: 5px; 
 }
 
-/* .PlaceButton.active {
-    background-color: #DE6A6A; Цвет кнопки при активации 
-} */
 .ContinueButton{
     width: 125px; height: 50px; 
     background-color: #DE6A6A;
@@ -731,6 +728,6 @@ padding-top: 77px;
     margin-top:2650px;
 }
 .unavailable {
-    background-color: #add8e6; /* Цвет фона для недоступных кнопок */
-    cursor: not-allowed; /* Запрещаем курсору меняться при наведении */
+    background-color: #add8e6; 
+    cursor: not-allowed; 
 }

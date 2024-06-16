@@ -266,7 +266,9 @@ public function AddChildInfo() {
             $sql_children = "DELETE FROM children WHERE user_id = $user_id";
             $result_children = $this->mysqli->query($sql_children);
 
-     
+            $sql_children = "DELETE FROM user_details WHERE user_id = $user_id";
+            $result_children = $this->mysqli->query($sql_children);
+
             if ($result_tickets !== false || $result_children !== false) {
                 echo "<meta http-equiv='refresh' content='0;url=user_info.php'>";
                 exit();

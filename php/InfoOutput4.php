@@ -28,10 +28,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType2']) && isset(
 
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($_POST['id'] ) && isset($_POST['plusPrice2']) && isset($_POST['seat']) && isset($_POST['LuggageСabin']) && isset($_POST['LuggageСompartment'])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardType']) && isset($_POST['id'] ) && isset($_POST['plusPrice2']) && isset($_POST['seat']) && isset($_POST['LuggageСabin']) && isset($_POST['LuggageСompartment'])&& isset($_POST['class'])) {
 
     $id = $_POST['id'];
-
+    $_SESSION['class'] = $_POST['class'];
     $_SESSION['LuggageСabin'] = $_POST['LuggageСabin'];
     $_SESSION['LuggageСompartment'] = $_POST['LuggageСompartment'];
     $_SESSION['LastPrice'] = $_POST['plusPrice2']; 

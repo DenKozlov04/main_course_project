@@ -138,7 +138,17 @@ $Info = $displayInfo->displayInfo();
         </div>
         <?=$TicketBuff; ?>
 </div>
-
+<div class="LastText">
+            <p class='StrokeText'>Please remember to bring the following with you:</p>
+            <p>
+            <a class='StrokeText'>1)</a> Identification (passport).
+            <a class='StrokeText'>2)</a> Printed ticket.
+            <a class='StrokeText'>3)</a> Child's documents (birth certificate if the child is under 14 years old).
+            <a class='StrokeText'>4)</a> Authorization for the child to travel if they are traveling with another accompanying person.
+            <a class='StrokeText'>5)</a> Visa, if required for the destination country.
+            <a class='StrokeText'>6)</a> We wish you a pleasant flight!
+            </p>
+</div>
 
     </div>
 </body>

@@ -26,9 +26,10 @@ $row = $result->fetch_assoc();
 
 
 if (isset($row['airlines_id'])) {
-    $id = $row['airlines_id'];
+    $id = $_SESSION['id'];
+    
 } else {
-    $id = 0;
+    $id = $_SESSION['id'];
 }
 
 $sql = "SELECT `Airline`, `airport_name`, `ITADA`, `City`, `country`, `T_price`, `arrival_date`, `departure_date`, `arrival_time`, `departure_time`, `id` 

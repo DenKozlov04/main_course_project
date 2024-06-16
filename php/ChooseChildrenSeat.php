@@ -111,26 +111,26 @@ class AddInfo {
             $seat = $_POST['AddChildrenPlaceName'];
             $airlines_id = $_SESSION['id'] ;
 
-            $alert2 = ''; 
+            $alert = ''; 
 
             if (mb_strlen($child_name) < 1 || mb_strlen($child_name) > 255) {
-                $alert2 = 'Incorrect child name';
+                $alert = 'Incorrect child name';
             } elseif (mb_strlen($child_surname) < 1 || mb_strlen( $child_surname) > 255) {
-                $alert2 = 'Incorrect child surname';
+                $alert = 'Incorrect child surname';
             } elseif (mb_strlen($child_nationality) < 1 || mb_strlen($child_nationality) > 255) {
-                $alert2 = 'Incorrect child nationality';
+                $alert = 'Incorrect child nationality';
             } elseif (mb_strlen($passport_number) < 5 || mb_strlen($passport_number) > 17) {
-                $alert2 = 'Incorrect passport_number length (from 5 to 17 symbols)';
+                $alert = 'Incorrect passport_number length (from 5 to 17 symbols)';
             }
 
-            if (empty($alert2)) {
+            if (empty($alert)) {
                 $sql_check_passport = "SELECT Passport_number FROM children WHERE Passport_number = ?";
                 $stmt_check_passport = $this->mysqli->prepare($sql_check_passport);
                 $stmt_check_passport->bind_param("s", $passport_number);
                 $stmt_check_passport->execute();
                 $result_check_passport = $stmt_check_passport->get_result();
                 if ($result_check_passport->num_rows > 0) {
-                    $alert2 = "This passport number already exists";
+                    $alert = "This passport number already exists";
                 } else {
                     // подг.запр к бд
                     $stmt = $this->mysqli->prepare("INSERT INTO children (user_id, airline_id, Name, Surname, Gender, Nationality, Passport_number, passportIssuedDate, passportExpirationDate, seat, seatprice) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -146,7 +146,7 @@ class AddInfo {
                 }
         }
 
-        if ($alert2) {
+        if ($alert) {
             echo "<meta http-equiv='refresh' content='0;url=ticketСonfirmation.php?alert=" . urlencode($alert) . "'>";
             exit();
         }

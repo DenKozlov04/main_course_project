@@ -13,7 +13,6 @@ include 'InfoOutput2.php';
     <script src='../JS/givePrice.js'></script>
     <script src='../JS/OpenInfoPopUp.js'></script>
     <script src='../JS/AddRegBag.js'></script>
-    <!-- <script src='../JS/PricePlusPrice.js'></script> -->
 </head>
 <body>
 <div class='rectangleHeader'>
@@ -32,7 +31,6 @@ include 'InfoOutput2.php';
     <a class='Info4'><?="$formattedDepartDate. &bull;  $departure_time - $arrival_time"?></a>
     <div class='ServiceBox'>
         <div class='ServiceCard'>
-            <!-- то что берешь в самолет в салрн-->
             <div class='txt1'>Hand luggage</div>
             <div class='txt2'>1 x 8 kg</div>
             <div class='textrect'>
@@ -51,13 +49,10 @@ include 'InfoOutput2.php';
                 <button class='Button2' id="choose" name="Selection" value='<?= $CurrPrice ?>' onclick='PlusPrice1(this); toggleButtonColor(this)'>+8</button>
                 <button class='Button3' id="choose2" name="Selection2" value='<?= $CurrPrice ?>' onclick='PlusPrice2(this); toggleButtonColor(this)'>+16</button>
                 <button class='Button4' id="choose3" name="Selection3" value='<?= $CurrPrice ?>' onclick='PlusPrice3(this); toggleButtonColor(this)'>+24</button>
-                <!-- <button class='Button5' id="choose4" name="Selection4" value='<?= $CurrPrice ?>' onclick='PlusPrice4(this); toggleButtonColor(this)'>+32</button> -->
-<!-- ОБЩАЯ СУММА С УЧЕТОМ ВСЕХ ЦЕН ВСЕ ЕЩЕ НЕ РАБОТАЕТ ПРАВИЛЬНО ( НЕ ДОБАВЛЯЕТ В) -->
-
             </div>
         </div>
         <div class='ServiceCard'>
-             <!-- то что помещается в багажный отсек-->
+           
             <div class='txt1'>Checked baggage</div>
             <div class='txt2'>1 x 24 kg</div>
             <div class='textrect'>
@@ -82,17 +77,12 @@ include 'InfoOutput2.php';
                 </div>
         </div>
     </div>
-    <!-- <div id="Open" class="Open">       ; OpenPlace("Open")
-        <div class="OpenWindow">
-        <div class='txt9'>1 x 24 kg</div>
-        <button class='KgBtn' id="KgBtnId" value='' onclick='KgBtnClick(this)'>+9 kg</button>
-            </div>
-    </div> -->
+
     <form class='buttonForm' action="SeatChoose.php" method='POST'>
     <input type="hidden" name="class" value="<?= $class ?>">
     <input type="hidden" name="id" value="<?= $id ?>">
-    <input type="hidden" name="LuggageСabin" value=""><!-- сюда передаем значения веса -->
-    <input type="hidden" name="LuggageСompartment" value=""><!-- сюда передаем значения количества -->
+    <input type="hidden" name="LuggageСabin" value="">
+    <input type="hidden" name="LuggageСompartment" value="">
     <input type="hidden" name="plusPrice2" id="PriceField2" value="<?= $CurrPrice ?>">
     <div class='ButtonBox'>
         <button class='ContinueButton' type='submit' name='cardType' value=''>Continue</button>

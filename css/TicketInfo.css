@@ -176,6 +176,13 @@ body {
     margin-top: 10px;
 }
 .Buffs li {
+    font-size: 15px;
     list-style-type: none;
     margin-top: 2px;
+}
+.LastText{
+    font-size: 15px; 
+}
+.StrokeText{
+    font-weight: bold;
 }

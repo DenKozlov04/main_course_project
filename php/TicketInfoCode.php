@@ -90,6 +90,14 @@ class TicketInfo {
 
         if ($result && $result->num_rows > 0) {
             $ChildrenInfo = $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            $ChildrenInfo[] = array(
+                'Name' => 'None',
+                'Surname' => 'None',
+                'Passport_number' => 'None',
+                'seat' => 'None',
+                'seatprice' => 'None'
+            );
         }
 
         $sql = "SELECT * FROM tickets WHERE user_id = ?";

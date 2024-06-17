@@ -226,7 +226,7 @@ class ChooseFlight {
                                         <div class='ITADAGap'></div>
                                         <div class='arrivITADA'>$ITADA</div>
                                     </div>
-                                    <div class='NOPrice'>no</div>
+                                    <div class='NOPrice'>From</div>
                                     <div class='Price'>$T_price €</div>
                                     <div class='direction'>Direct flight</div>
                                     <a class='allParts' style='cursor: pointer;' onclick='openPopup(\"$country\", \"$City\", \"$airport_name\", \"$ITADA\", \"$departure_date\", \"$arrival_date\", \"$departure_time\", \"$arrival_time\", \"$T_price\")'>Flight details</a>

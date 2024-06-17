@@ -1,28 +1,21 @@
 ///------------------------ PriceСonfirmation.php price add----------------------------------
-function ButtonClick2(element) {
-    let price = parseFloat(element.value);
+function updatePrice(element) {
+    let price;
+    if (element.id === 'circleSelect') {
+        price = parseFloat(document.getElementById('OriginalPriceField').value);
+    } else {
+        price = parseFloat(element.value);
+    }
+
     document.getElementById("PriceField").value = price; 
-    
+
     let text10Element = document.querySelector('.Text10');
     text10Element.innerText = price.toFixed(2) + '€';
 
-
-    let priceElement = document.querySelector('.price');
-    priceElement.innerText = price.toFixed(2) + '€';
+    let headerPriceElement = document.getElementById('headerPrice');
+    headerPriceElement.innerText = price.toFixed(2) + '€';
 }
 
-
-function ButtonClick(element) {
-    let plusPrice = parseFloat(element.value);
-    document.getElementById("PriceField").value = plusPrice; 
-    
-    let text10Element = document.querySelector('.Text10');
-    text10Element.innerText = plusPrice.toFixed(2) + '€';
-
-
-    let priceElement = document.querySelector('.price');
-    priceElement.innerText = plusPrice.toFixed(2) + '€';
-}
 
 
 

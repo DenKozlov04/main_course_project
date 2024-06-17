@@ -46,7 +46,14 @@ body {
   width:250px;
 margin-top:-5px;
 }
+.input-data  input {
 
+  border: 1px solid #afafaf;
+  background-color: rgb(245, 245, 245); 
+  padding: 8px;
+  width:250px;
+margin-top:-5px;
+}
 .BackButton{
      text-decoration: none;
     margin-top: -85px;

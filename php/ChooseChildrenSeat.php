@@ -96,7 +96,7 @@ class AddInfo {
             $result = $this->mysqli->query($sql);
         }
     }
-    ///------------------------добавления информации ребенке ----------------------------------
+    ///------------------------adding information about the child ----------------------------------
     public function AddChildInfo() {
         if (isset($_POST['AddChildrenBtn'])) {
             $user_id = $_SESSION['user_id']; 
@@ -132,7 +132,7 @@ class AddInfo {
                 if ($result_check_passport->num_rows > 0) {
                     $alert = "This passport number already exists";
                 } else {
-                    // подг.запр к бд
+                    
                     $stmt = $this->mysqli->prepare("INSERT INTO children (user_id, airline_id, Name, Surname, Gender, Nationality, Passport_number, passportIssuedDate, passportExpirationDate, seat, seatprice) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
                     $stmt->bind_param("iisssssssss", $user_id, $airlines_id, $child_name, $child_surname, $child_gender, $child_nationality, $passport_number, $passport_issued_date, $passport_expiration_date, $seat, $price);
                                         
